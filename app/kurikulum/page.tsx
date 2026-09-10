@@ -2,7 +2,7 @@ import { curriculumRoadmap, siteConfig } from "@/data/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kurikulum Pelatihan | LPK Kagayaki",
+  title: "Kurikulum Pelatihan | LPK Panca Multiguna Sukses Karawang",
   description: "Materi bahasa Jepang, keterampilan, dan budaya kerja yang dipelajari secara bertahap.",
 };
 
@@ -19,8 +19,8 @@ export default function KurikulumPage() {
 
         <div className="max-w-4xl mx-auto space-y-6">
           {curriculumRoadmap.map((roadmap, idx) => (
-            <div key={idx} className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm flex flex-col md:flex-row gap-8 items-start md:items-center transition-all hover:shadow-xl hover:border-brand-200">
-               <div className="flex-shrink-0 w-20 h-20 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center font-black text-3xl border border-brand-100">
+            <div key={idx} className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm flex flex-col md:flex-row gap-8 items-start md:items-center transition-all hover:shadow-xl hover:border-primary-200">
+               <div className="flex-shrink-0 w-20 h-20 bg-primary-50 text-primary-600 rounded-2xl flex items-center justify-center font-black text-3xl border border-primary-100">
                  {roadmap.number}
                </div>
                <div>
@@ -40,7 +40,7 @@ export default function KurikulumPage() {
             href={siteConfig.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 inline-flex h-14 items-center justify-center rounded-full bg-brand-600 px-8 text-base font-bold text-white transition-all hover:bg-brand-700 hover:scale-105"
+            className="shrink-0 inline-flex h-14 items-center justify-center rounded-full bg-primary-600 px-8 text-base font-bold text-white transition-all hover:bg-primary-700 hover:scale-105"
           >
             Hubungi Admin
           </a>

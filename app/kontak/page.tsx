@@ -2,8 +2,8 @@ import { siteConfig } from "@/data/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kontak | LPK Kagayaki",
-  description: "Hubungi LPK Kagayaki Training Centre Bandung melalui WhatsApp, Instagram, atau TikTok.",
+  title: "Kontak | LPK Panca Multiguna Sukses Karawang",
+  description: "Hubungi LPK Panca Multiguna Sukses Karawang melalui WhatsApp, Instagram, atau TikTok.",
 };
 
 const contacts = [

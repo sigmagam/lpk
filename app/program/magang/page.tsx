@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Program Magang | LPK Kagayaki",
+  title: "Program Magang | LPK Panca Multiguna Sukses Karawang",
   description: "Program pelatihan bahasa dan budaya kerja bagi lulusan SMA/SMK untuk mengikuti program magang di Jepang.",
 };
 
@@ -63,7 +63,7 @@ export default function MagangPage() {
             href={siteConfig.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-14 items-center justify-center rounded-full bg-slate-900 px-10 text-base font-bold text-white shadow-sm transition-all hover:bg-brand-600 hover:shadow-md hover:-translate-y-1"
+            className="inline-flex h-14 items-center justify-center rounded-full bg-slate-900 px-10 text-base font-bold text-white shadow-sm transition-all hover:bg-primary-600 hover:shadow-md hover:-translate-y-1"
           >
             Konsultasi Program Magang
           </a>

@@ -1,19 +1,30 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/data/site";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
-  title: "LPK Kagayaki Training Centre Bandung | Pelatihan Kerja ke Jepang",
+  title: "LPK Panca Multiguna Sukses Karawang | Pelatihan Kerja ke Jepang",
   description:
-    "LPK Kagayaki Training Centre Bandung hadir untuk membantu mempersiapkan peserta melalui pelatihan bahasa, keterampilan kerja, kedisiplinan, dan pemahaman budaya kerja Jepang.",
+    "LPK Panca Multiguna Sukses Karawang adalah Lembaga Pelatihan Kerja yang membantu mempersiapkan peserta melalui pelatihan bahasa Jepang, keterampilan kerja, budaya Jepang, dan persiapan pemagangan ke Jepang.",
+  openGraph: {
+    title: "LPK Panca Multiguna Sukses Karawang",
+    description: "Persiapkan kemampuan bahasa, keterampilan kerja, dan kesiapan menghadapi dunia kerja di Jepang bersama LPK Panca Multiguna Sukses Karawang.",
+    url: "https://lpk-phi.vercel.app",
+    siteName: "LPK Panca Multiguna Sukses Karawang",
+    locale: "id_ID",
+    type: "website",
+  },
   robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#b31b1b",
+  themeColor: "#1e3a8a", // deep blue/navy
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -21,13 +32,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id">
+    <html lang="id" className="scroll-smooth">
       <head>
         <link rel="icon" href="/images/logo.png" />
       </head>
-      <body>
+      <body className={`${inter.className} text-slate-800 bg-white antialiased overflow-x-hidden flex flex-col min-h-screen`}>
         <Navbar />
-        <main className="pt-[72px] lg:pt-20">{children}</main>
+        <main className="flex-grow pt-[72px] lg:pt-20">{children}</main>
         <CTA />
         <Footer />
         

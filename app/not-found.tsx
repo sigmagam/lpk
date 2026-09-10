@@ -19,7 +19,7 @@ export default function NotFound() {
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center w-full">
           <Link
             href="/"
-            className="w-full sm:w-auto inline-flex h-12 items-center justify-center rounded-full bg-brand-600 px-8 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+            className="w-full sm:w-auto inline-flex h-12 items-center justify-center rounded-full bg-primary-600 px-8 text-sm font-semibold text-white transition-colors hover:bg-primary-700"
           >
             Kembali ke Beranda
           </Link>

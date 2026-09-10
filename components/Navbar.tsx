@@ -27,11 +27,14 @@ export default function Navbar() {
         scrolled ? "bg-white/95 shadow-sm backdrop-blur-md border-b border-slate-200" : "bg-white border-b border-slate-100"
       }`}
     >
-      <div className="mx-auto flex h-[72px] lg:h-20 max-w-site items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-3 outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded">
-          <Image src="/images/logo.png" alt="Logo LPK Kagayaki" width={44} height={44} className="h-10 w-10 lg:h-11 lg:w-11 object-contain" />
-          <span className="hidden sm:inline-block font-bold text-slate-900 tracking-tight text-base lg:text-lg">
-            {siteConfig.shortName}
+      <div className="mx-auto flex h-[72px] lg:h-20 max-w-site items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center gap-3 outline-none focus-visible:ring-2 focus-visible:ring-primary-600 rounded">
+          <Image src="/images/logo.png" alt="Logo LPK Panca Multiguna Sukses Karawang" width={48} height={48} className="h-10 w-10 lg:h-12 lg:w-12 object-contain" />
+          <span className="hidden lg:flex flex-col">
+            <span className="font-bold text-slate-900 tracking-tight text-sm leading-tight uppercase">LPK Panca Multiguna<br/>Sukses Karawang</span>
+          </span>
+          <span className="lg:hidden font-bold text-slate-900 tracking-tight text-base uppercase">
+            LPK PMS Karawang
           </span>
         </Link>
 
@@ -42,7 +45,7 @@ export default function Navbar() {
               <Link 
                 key={link.label} 
                 href={link.href} 
-                className={`text-sm font-medium transition-colors ${isActive ? "text-brand-600" : "text-slate-600 hover:text-slate-900"}`}
+                className={`text-sm font-semibold transition-colors ${isActive ? "text-primary-700" : "text-slate-600 hover:text-slate-900"}`}
               >
                 {link.label}
               </Link>
@@ -55,9 +58,9 @@ export default function Navbar() {
             href={siteConfig.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center h-10 px-6 rounded-full bg-brand-600 text-sm font-semibold text-white transition-colors hover:bg-brand-700 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-600"
+            className="inline-flex items-center justify-center h-11 px-6 rounded-lg bg-accent-600 text-sm font-semibold text-white transition-all hover:bg-accent-700 hover:shadow-md outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-600"
           >
-            Hubungi Kami
+            Daftar / Konsultasi
           </a>
         </div>
 
@@ -81,7 +84,7 @@ export default function Navbar() {
               <Link 
                 key={link.label} 
                 href={link.href} 
-                className="block px-4 py-3 rounded-lg text-base font-medium text-slate-800 hover:bg-slate-50 hover:text-brand-600"
+                className="block px-4 py-3 rounded-lg text-base font-semibold text-slate-800 hover:bg-slate-50 hover:text-primary-700"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -89,8 +92,8 @@ export default function Navbar() {
             ))}
             
             <div className="pt-4 mt-2 border-t border-slate-100">
-              <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-12 w-full rounded-full bg-brand-600 text-base font-semibold text-white">
-                Hubungi Kami via WhatsApp
+              <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-12 w-full rounded-lg bg-accent-600 text-base font-semibold text-white hover:bg-accent-700">
+                Daftar / Konsultasi
               </a>
             </div>
           </nav>

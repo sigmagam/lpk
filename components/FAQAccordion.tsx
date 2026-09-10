@@ -24,7 +24,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
                 aria-expanded={isOpen}
               >
                 <span className="text-base font-semibold text-slate-900">{item.question}</span>
-                <span className={`shrink-0 flex items-center justify-center h-8 w-8 rounded-full border transition-colors ${isOpen ? "bg-brand-50 border-brand-200 text-brand-600" : "bg-white border-slate-200 text-slate-400"}`}>
+                <span className={`shrink-0 flex items-center justify-center h-8 w-8 rounded-full border transition-colors ${isOpen ? "bg-primary-50 border-primary-200 text-primary-600" : "bg-white border-slate-200 text-slate-400"}`}>
                   <svg className={`h-5 w-5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
