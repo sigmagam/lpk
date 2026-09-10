@@ -2,9 +2,9 @@ import { MetadataRoute } from "next";
 import { programs } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://lpk-phi.vercel.app";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://lpkpms.my.id";
 
-  const staticRoutes = [
+  const publicRoutes = [
     "",
     "/tentang-kami",
     "/program",
@@ -20,20 +20,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/dashboard/kurikulum",
     "/dashboard/legalitas",
     "/dashboard/faq",
-    "/yusuf",
-    "/yusuf/peserta",
-    "/yusuf/program",
-    "/yusuf/pengaturan",
   ];
 
   const programRoutes = programs.map((p) => `/program/${p.slug}`);
 
-  const allRoutes = [...staticRoutes, ...programRoutes];
+  const allRoutes = [...publicRoutes, ...programRoutes];
 
   return allRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: route.startsWith("/yusuf") || route.startsWith("/dashboard") ? "daily" : "weekly",
-    priority: route === "" ? 1.0 : route.startsWith("/dashboard") ? 0.7 : route.startsWith("/yusuf") ? 0.5 : 0.8,
+    changeFrequency: route === "" ? "daily" : route.startsWith("/dashboard") ? "daily" : "weekly",
+    priority: route === "" ? 1.0 : route.startsWith("/program") ? 0.9 : route.startsWith("/dashboard") ? 0.8 : 0.7,
   }));
 }

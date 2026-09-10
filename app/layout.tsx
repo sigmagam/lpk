@@ -12,18 +12,35 @@ export const metadata: Metadata = {
     "Magang ke Jepang Karawang",
     "Tokutei Ginou Karawang",
     "Bahasa Jepang Karawang",
-    "LPK Resmi Kemnaker Karawang"
+    "LPK Resmi Kemnaker Karawang",
+    "lpkpms.my.id"
   ],
   authors: [{ name: "LPK Panca Multiguna Sukses Karawang" }],
   openGraph: {
     title: "LPK Panca Multiguna Sukses Karawang | Pelatihan Kerja ke Jepang",
     description: "Lembaga Pelatihan Kerja terdaftar resmi di Kemnaker RI untuk persiapan program pemagangan dan kerja ke Jepang.",
-    url: "https://lpk-phi.vercel.app",
+    url: "https://lpkpms.my.id",
     siteName: "LPK Panca Multiguna Sukses Karawang",
     locale: "id_ID",
     type: "website",
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "googlec327dfc83c294016",
+  },
+  other: {
+    "google-site-verification": "googlec327dfc83c294016",
+  },
 };
 
 export const viewport: Viewport = {
@@ -38,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="id" className="scroll-smooth">
       <head>
         <link rel="icon" href="/images/logo.png" />
+        <meta name="google-site-verification" content="googlec327dfc83c294016" />
       </head>
       <body className="font-sans antialiased text-slate-900 bg-white min-h-screen flex flex-col selection:bg-navy-900 selection:text-white">
         {children}
