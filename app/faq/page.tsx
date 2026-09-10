@@ -3,25 +3,25 @@ import { faqs, siteConfig } from "@/data/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pertanyaan Umum (FAQ) | LPK PMS Karawang",
-  description: "Jawaban atas pertanyaan umum seputar program, pendaftaran, dan informasi LPK PMS Karawang.",
+  title: "Pertanyaan Umum (FAQ) | LPK Kagayaki",
+  description: "Jawaban atas pertanyaan umum seputar program, pendaftaran, dan informasi LPK Kagayaki Training Centre Bandung.",
 };
 
 export default function FAQPage() {
   return (
-    <div className="bg-slate-50 py-16 sm:py-24 min-h-screen">
+    <div className="bg-slate-50 py-24 sm:py-32 min-h-screen">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <div className="text-center mb-16">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-4">Pertanyaan Umum</h1>
-          <p className="text-lg text-slate-600">Temukan jawaban untuk pertanyaan yang sering diajukan seputar program kami.</p>
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-6">Pertanyaan Umum</h1>
+          <p className="text-lg text-slate-600 leading-relaxed">Temukan jawaban untuk pertanyaan yang sering diajukan seputar program pelatihan dan pendaftaran di LPK kami.</p>
         </div>
 
         <FAQAccordion items={faqs} />
 
         <div className="mt-16 text-center">
-          <p className="text-slate-600 mb-4">Tidak menemukan jawaban yang dicari?</p>
-          <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-600 hover:text-brand-700 underline underline-offset-4">
-            Tanyakan langsung ke Admin →
+          <p className="text-slate-600 mb-4 text-lg">Tidak menemukan jawaban yang dicari?</p>
+          <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-bold text-brand-600 hover:text-brand-700 transition-colors">
+            Tanyakan langsung ke Admin <span className="ml-2">&rarr;</span>
           </a>
         </div>
       </div>

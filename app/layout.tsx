@@ -6,9 +6,9 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "LPK PMS Karawang | Pelatihan Kerja ke Jepang",
+  title: "LPK Kagayaki Training Centre Bandung | Pelatihan Kerja ke Jepang",
   description:
-    "LPK Panca Multi Guna Sukses Karawang menyediakan pelatihan Bahasa Jepang, keterampilan, Program Tokutei Ginou dan Program Magang untuk persiapan kerja ke Jepang.",
+    "LPK Kagayaki Training Centre Bandung hadir untuk membantu mempersiapkan peserta melalui pelatihan bahasa, keterampilan kerja, kedisiplinan, dan pemahaman budaya kerja Jepang.",
   robots: { index: true, follow: true },
 };
 
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Navbar />
-        <main>{children}</main>
+        <main className="pt-[72px] lg:pt-20">{children}</main>
         <CTA />
         <Footer />
         

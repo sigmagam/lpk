@@ -2,8 +2,8 @@ import { siteConfig } from "@/data/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kontak | LPK PMS Karawang",
-  description: "Hubungi LPK PMS Karawang melalui WhatsApp, Instagram, atau TikTok.",
+  title: "Kontak | LPK Kagayaki",
+  description: "Hubungi LPK Kagayaki Training Centre Bandung melalui WhatsApp, Instagram, atau TikTok.",
 };
 
 const contacts = [
@@ -47,11 +47,13 @@ const contacts = [
 
 export default function KontakPage() {
   return (
-    <div className="bg-slate-50 py-16 sm:py-24 min-h-screen">
+    <div className="bg-slate-50 py-24 sm:py-32 min-h-screen">
       <div className="mx-auto max-w-site px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-4">Hubungi Kami</h1>
-          <p className="text-lg text-slate-600">Punya pertanyaan seputar program pelatihan kami? Jangan ragu untuk menghubungi tim admin kami.</p>
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-6">Hubungi Kami</h1>
+          <p className="text-lg text-slate-600 leading-relaxed">
+            Punya pertanyaan seputar program pelatihan kami? Jangan ragu untuk menghubungi tim admin {siteConfig.shortName}.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">

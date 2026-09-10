@@ -1,51 +1,117 @@
 export const siteConfig = {
-  name: "LPK PANCA MULTI GUNA SUKSES KARAWANG",
-  shortName: "LPK PMS KARAWANG",
+  name: "LPK Kagayaki Training Centre Bandung",
+  profileName: "LPK Panca Multiguna Sukses Karawang",
+  shortName: "LPK Kagayaki",
   description:
-    "Persiapkan kemampuan bahasa Jepang, keterampilan, dan kesiapan kerja untuk meraih peluang bekerja di Jepang bersama LPK PMS Karawang.",
+    "LPK Kagayaki Training Centre Bandung hadir untuk membantu mempersiapkan peserta melalui pelatihan bahasa, keterampilan kerja, kedisiplinan, dan pemahaman budaya kerja Jepang.",
   whatsapp: "https://wa.me/6285692923642",
   whatsappNumber: "+62 856-9292-3642",
   instagram: "https://www.instagram.com/lpkpmskarawang",
-  instagramHandle: "LPK PMS KARAWANG",
+  instagramHandle: "LPK Kagayaki Training Centre",
   tiktok: "https://www.tiktok.com/@lpk.pms.karawang19",
-  tiktokHandle: "LPK PMS KARAWANG",
+  tiktokHandle: "LPK Kagayaki",
   maps: "https://share.google/6dHu0ujSBKaH6iweA",
+  address: "Jl. Utama Pesona Cengkong Asri 1 Blk. C7 No.2-3, Pancawati, Kec. Purwasari, Karawang, Jawa Barat 41351",
+  legalitasUrl: "https://skillhub.kemnaker.go.id/mitra/temukan-mitra/lpk-panca-multiguna-sukses-9300c90b-e49d-477f-b7e3-33828b0f9395/program?catalogue=5e4a8242-f308-4cc4-a93d-1ced3ce86ea0&training_category=national_batch",
   navLinks: [
-    { label: "Beranda", href: "/" },
+    { label: "Home", href: "/" },
+    { label: "Tentang Kami", href: "/#tentang-kami" },
     { label: "Program", href: "/program" },
     { label: "Kurikulum", href: "/kurikulum" },
-    { label: "FAQ", href: "/faq" },
-    { label: "Lokasi", href: "/lokasi" },
+    { label: "Keunggulan", href: "/#keunggulan" },
+    { label: "Legalitas", href: "/#legalitas" },
     { label: "Kontak", href: "/kontak" },
   ],
-  programs: [
+  footerLinks: {
+    navigasi: [
+      { label: "Home", href: "/" },
+      { label: "Tentang Kami", href: "/#tentang-kami" },
+      { label: "Program", href: "/program" },
+      { label: "Kurikulum", href: "/kurikulum" },
+      { label: "Keunggulan", href: "/#keunggulan" },
+      { label: "Legalitas", href: "/#legalitas" },
+      { label: "Kontak", href: "/kontak" },
+    ],
+    program: [
+      { label: "Pembelajaran Bahasa Jepang", href: "/program" },
+      { label: "Persiapan Kerja ke Jepang", href: "/program" },
+      { label: "Pemagangan", href: "/program/magang" },
+      { label: "Budaya & Kehidupan Jepang", href: "/program" },
+      { label: "Pelatihan Keterampilan", href: "/program" }
+    ]
+  },
+  programsList: [
     { label: "Tokutei Ginou", href: "/program/tokutei-ginou" },
     { label: "Magang", href: "/program/magang" },
   ],
 };
 
-export const dashboardInfo = [
-  { label: "STATUS PENDAFTARAN", value: "Pendaftaran Dibuka" },
-  { label: "PROGRAM", value: "Tokutei Ginou (TG) & Magang" },
-  { label: "PELATIHAN", value: "Bahasa Jepang & Keterampilan" },
-  { label: "KONSULTASI", value: "WhatsApp Admin" },
-  { label: "LOKASI", value: "Karawang, Jawa Barat" },
-  { label: "TARGET", value: "Persiapan Kerja ke Jepang" },
-];
-
 export const programs = [
   {
-    title: "PROGRAM TOKUTEI GINOU (TG)",
-    description: "Program persiapan skill dan bahasa untuk bekerja di Jepang dengan Visa Tokutei Ginou.",
-    href: "/program/tokutei-ginou",
-    stages: "6 Tahap Proses",
+    title: "Pembelajaran Bahasa Jepang",
+    description: "Program intensif penguasaan bahasa Jepang dari dasar hingga tingkat mahir yang disesuaikan dengan kebutuhan kerja.",
+    href: "/program",
+    stages: "Level N5 - N3",
   },
   {
-    title: "PROGRAM MAGANG",
-    description: "Program pelatihan bahasa dan budaya kerja bagi lulusan SMA/SMK untuk mengikuti program magang di Jepang.",
-    href: "/program/magang",
-    stages: "5 Tahap Proses",
+    title: "Pelatihan Persiapan Kerja ke Jepang",
+    description: "Pelatihan komprehensif yang dirancang untuk membekali calon tenaga kerja dengan skill spesifik yang dibutuhkan industri di Jepang.",
+    href: "/program/tokutei-ginou",
+    stages: "Tokutei Ginou (TG)",
   },
+  {
+    title: "Program Pemagangan",
+    description: "Program magang resmi untuk lulusan SMA/SMK yang ingin mengembangkan keterampilan langsung di perusahaan Jepang.",
+    href: "/program/magang",
+    stages: "Visa Training",
+  },
+  {
+    title: "Pembekalan Budaya & Kehidupan",
+    description: "Adaptasi budaya, etika bersosialisasi, dan pemahaman pola hidup masyarakat Jepang agar peserta siap mental dan sosial.",
+    href: "/program",
+    stages: "Survival Life",
+  }
+];
+
+export const keunggulan = [
+  {
+    title: "Kurikulum yang Terkini",
+    description: "LPK Kagayaki Training Centre Bandung menyajikan kurikulum yang terbaru dan relevan dengan kebutuhan pasar kerja saat ini, sehingga siswa mendapatkan pelatihan yang sesuai dengan tuntutan industri.",
+    icon: "M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+  },
+  {
+    title: "Tenaga Pengajar Profesional",
+    description: "LPK Kagayaki Training Centre Bandung memiliki tenaga pengajar yang berpengalaman dan berkualifikasi dalam bidangnya masing-masing, sehingga siswa mendapatkan pembelajaran yang berkualitas dan mendalam.",
+    icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
+  },
+  {
+    title: "Fasilitas yang Memadai",
+    description: "LPK Kagayaki Training Centre Bandung dilengkapi dengan fasilitas modern dan lengkap, termasuk ruang kelas yang nyaman, peralatan praktikum, serta bahan ajar yang mendukung proses pembelajaran.",
+    icon: "M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"
+  },
+  {
+    title: "Pengalaman Praktis Intensif",
+    description: "Program pelatihan di LPK Kagayaki Training Centre Bandung menekankan pada pengalaman praktis yang intensif, sehingga siswa dapat mengembangkan keterampilan praktis yang dibutuhkan di lapangan kerja.",
+    icon: "M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
+  }
+];
+
+export const curriculumRoadmap = [
+  {
+    title: "Materi Dasar",
+    description: "Keterampilan bahasa Jepang, pemahaman pola hidup di Jepang, latihan fisik, dan Survival Life in Japan.",
+    number: "01"
+  },
+  {
+    title: "Materi Inti",
+    description: "Pengetahuan mengenai bidang pekerjaan yang akan dijalani, sistem kerja, etos kerja masyarakat Jepang, dan persiapan menghadapi lingkungan kerja.",
+    number: "02"
+  },
+  {
+    title: "Materi Khusus",
+    description: "Keterampilan yang disesuaikan dengan kebutuhan perusahaan dan bidang peserta magang.",
+    number: "03"
+  }
 ];
 
 export const tokuteiGinouSteps = [
@@ -137,112 +203,29 @@ export const magangSteps = [
   }
 ];
 
-export const curriculum = [
-  {
-    title: "Minna no Nihongo I & II",
-    items: [
-      "Dasar hingga menengah percakapan sehari-hari",
-      "Huruf Hiragana",
-      "Katakana",
-      "Pengenalan Kanji dasar",
-      "Tata bahasa (bunpou)",
-      "Kosakata lingkungan kerja"
-    ]
-  },
-  {
-    title: "Percakapan Praktis",
-    items: [
-      "Salam",
-      "Laporan kerja",
-      "Instruksi atasan"
-    ]
-  },
-  {
-    title: "Budaya Kerja Jepang",
-    items: [
-      "Disiplin",
-      "Tepat waktu",
-      "Kerja tim (チームワーク)",
-      "Etika dan kebiasaan sehari-hari di Jepang"
-    ]
-  },
-  {
-    title: "Listening & Reading",
-    items: [
-      "Latihan listening",
-      "Latihan reading sesuai level JLPT/JFT"
-    ]
-  }
-];
-
-export const reasons = [
-  {
-    title: "Fokus Kesiapan Kerja",
-    description: "Tidak hanya bahasa, tetapi juga mental dan etika budaya kerja Jepang.",
-    icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16.5 2.25h-9a2.25 2.25 0 00-2.25 2.25v15a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-15a2.25 2.25 0 00-2.25-2.25z"
-  },
-  {
-    title: "Pendampingan",
-    description: "Mendampingi peserta dari proses awal pendaftaran hingga persiapan keberangkatan.",
-    icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
-  },
-  {
-    title: "Pembelajaran Bahasa Jepang",
-    description: "Pembelajaran bahasa Jepang yang diarahkan untuk kebutuhan komunikasi dan persiapan kerja.",
-    icon: "M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"
-  },
-  {
-    title: "Persiapan Keterampilan",
-    description: "Peserta dipersiapkan untuk menghadapi ujian dan kebutuhan keterampilan sesuai program.",
-    icon: "M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
-  }
-];
-
-export const importantInfo = [
-  {
-    title: "Pendaftaran",
-    description: "Pendaftaran program tersedia. Hubungi admin untuk informasi terbaru mengenai jadwal dan persyaratan.",
-    href: "https://wa.me/6285692923642",
-    cta: "Info Pendaftaran"
-  },
-  {
-    title: "Program",
-    description: "Tersedia Program Tokutei Ginou (TG) dan Program Magang.",
-    href: "/program",
-    cta: "Lihat Program"
-  },
-  {
-    title: "Konsultasi",
-    description: "Konsultasikan program yang sesuai dengan tujuan Anda melalui WhatsApp.",
-    href: "https://wa.me/6285692923642",
-    cta: "Chat Admin"
-  }
-];
-
-
 export const faqs = [
   {
-    question: "Apa saja program yang tersedia di LPK PMS Karawang?",
-    answer: "LPK PMS Karawang menyediakan program Tokutei Ginou (TG) dan Program Magang."
+    question: "Apa saja program yang tersedia di LPK Kagayaki Training Centre Bandung?",
+    answer: "Kami menyediakan program Tokutei Ginou (TG) dan Program Magang, lengkap dengan pembekalan bahasa dan budaya."
   },
   {
     question: "Bagaimana cara mendaftar?",
-    answer: "Hubungi admin melalui WhatsApp untuk mendapatkan informasi pendaftaran dan persyaratan terbaru."
+    answer: "Hubungi admin kami melalui WhatsApp untuk mendapatkan informasi pendaftaran dan persyaratan terbaru."
   },
   {
-    question: "Apakah belajar Bahasa Jepang?",
-    answer: "Ya. Peserta mengikuti pembelajaran Bahasa Jepang sesuai kebutuhan program."
+    question: "Apakah belajar Bahasa Jepang dari nol?",
+    answer: "Ya. Peserta akan dibimbing dari dasar hingga mencapai level yang dipersyaratkan oleh perusahaan Jepang."
   },
   {
-    question: "Apakah ada pelatihan keterampilan?",
-    answer: "Ya, khususnya untuk persiapan program dan bidang yang dituju."
+    question: "Apakah ada pelatihan keterampilan spesifik?",
+    answer: "Ya, kurikulum kami mencakup materi khusus yang disesuaikan dengan kebutuhan industri dan bidang peserta magang."
   },
   {
-    question: "Bagaimana proses keberangkatan ke Jepang?",
-    answer: "Proses bergantung pada program yang dipilih dan mencakup tahapan pendidikan, seleksi, ujian/interview, dokumen, visa, dan persiapan keberangkatan."
+    question: "Apakah LPK ini resmi dan terdaftar?",
+    answer: "Tentu. LPK Panca Multiguna Sukses Karawang terdaftar secara resmi di Kementerian Ketenagakerjaan Republik Indonesia."
   },
   {
-    question: "Bagaimana cara mendapatkan informasi terbaru?",
-    answer: "Hubungi WhatsApp admin atau ikuti media sosial resmi LPK PMS Karawang."
+    question: "Berapa lama masa pelatihan berlangsung?",
+    answer: "Lama pelatihan bervariasi bergantung pada program yang dipilih, rata-rata memakan waktu 3-6 bulan hingga siap ujian/wawancara."
   }
 ];

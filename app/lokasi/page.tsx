@@ -2,17 +2,17 @@ import { siteConfig } from "@/data/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Lokasi | LPK PMS Karawang",
-  description: "Alamat dan lokasi Google Maps LPK PMS Karawang.",
+  title: "Lokasi | LPK Kagayaki",
+  description: "Alamat dan lokasi Google Maps LPK Kagayaki Training Centre Bandung.",
 };
 
 export default function LokasiPage() {
   return (
-    <div className="bg-slate-50 py-16 sm:py-24 min-h-screen">
+    <div className="bg-slate-50 py-24 sm:py-32 min-h-screen">
       <div className="mx-auto max-w-site px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-4">Lokasi Kami</h1>
-          <p className="text-lg text-slate-600">Kunjungi pusat pelatihan LPK PMS Karawang untuk konsultasi dan pendaftaran langsung.</p>
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-6">Lokasi Kami</h1>
+          <p className="text-lg text-slate-600 leading-relaxed">Kunjungi pusat pelatihan kami untuk konsultasi dan pendaftaran langsung program pelatihan yang tersedia.</p>
         </div>
 
         <div className="max-w-4xl mx-auto">
@@ -26,8 +26,8 @@ export default function LokasiPage() {
                   </svg>
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-slate-900 mb-2">LPK Panca Multi Guna Sukses Karawang</h2>
-                  <p className="text-slate-600 text-lg leading-relaxed">Untuk memandu perjalanan Anda menuju LPK kami, silakan gunakan panduan navigasi melalui Google Maps.</p>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-2">{siteConfig.name}</h2>
+                  <p className="text-slate-600 text-lg leading-relaxed">{siteConfig.address}</p>
                 </div>
               </div>
 
@@ -45,12 +45,12 @@ export default function LokasiPage() {
                   Buka di Google Maps
                 </a>
                 <a
-                  href={siteConfig.maps}
+                  href={siteConfig.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex h-14 items-center justify-center rounded-xl bg-slate-100 px-6 text-base font-semibold text-slate-900 transition-all hover:bg-slate-200"
                 >
-                  Petunjuk Arah
+                  Hubungi via WhatsApp
                 </a>
               </div>
             </div>
