@@ -1,21 +1,30 @@
 import Link from "next/link";
 import Image from "next/image";
-import { siteConfig, dashboardInfo, programs } from "@/data/site";
+import { 
+  siteConfig, 
+  dashboardInfo, 
+  programs, 
+  tokuteiGinouSteps, 
+  magangSteps, 
+  curriculum, 
+  reasons, 
+  importantInfo 
+} from "@/data/site";
 
 export default function Home() {
   return (
     <>
-      {/* HERO */}
+      {/* 1. HERO */}
       <section className="relative overflow-hidden bg-slate-50 pt-16 pb-20 sm:pt-24 sm:pb-32 lg:pb-40">
         <div className="mx-auto max-w-site px-4 sm:px-6 relative z-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl animate-fade-in text-balance">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl text-balance">
               Bangun Masa Depanmu Bersama LPK PMS Karawang
             </h1>
-            <p className="mt-6 text-lg leading-8 text-slate-600 animate-fade-in delay-100 text-balance">
+            <p className="mt-6 text-lg leading-8 text-slate-600 text-balance max-w-2xl mx-auto">
               {siteConfig.description}
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in delay-200">
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href={siteConfig.whatsapp}
                 target="_blank"
@@ -33,17 +42,15 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
-        {/* Subtle Decorative Elements */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-50 rounded-full blur-3xl opacity-50 -z-0 pointer-events-none" />
       </section>
 
-      {/* DASHBOARD INFORMASI */}
-      <section className="relative -mt-10 sm:-mt-16 z-20 pb-20">
+      {/* 2. DASHBOARD HOMEPAGE */}
+      <section className="relative -mt-10 sm:-mt-16 z-20 pb-16">
         <div className="mx-auto max-w-site px-4 sm:px-6">
-          <div className="rounded-2xl bg-white shadow-xl shadow-slate-200/50 border border-slate-100 p-6 sm:p-10 animate-fade-in delay-300">
+          <div className="rounded-2xl bg-white shadow-xl shadow-slate-200/50 border border-slate-100 p-6 sm:p-10">
             <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-4 mb-6">Informasi LPK PMS Karawang</h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {dashboardInfo.map((item, idx) => (
                 <div key={idx} className="flex flex-col p-4 rounded-xl bg-slate-50 border border-slate-100">
                   <span className="text-xs font-semibold text-slate-500 mb-1">{item.label}</span>
@@ -55,26 +62,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROGRAM PREVIEW */}
-      <section className="py-20 bg-white">
+      {/* 3. PROFIL LPK */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-site px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div className="w-full md:w-1/3 flex justify-center">
+              <div className="relative w-48 h-48 md:w-64 md:h-64">
+                <Image src="/images/logo.png" alt="Logo LPK PMS Karawang" fill className="object-contain drop-shadow-xl" />
+              </div>
+            </div>
+            <div className="w-full md:w-2/3 text-center md:text-left">
+              <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-6">Tentang LPK PMS Karawang</h2>
+              <p className="text-lg text-slate-600 leading-relaxed">
+                LPK Panca Multi Guna Sukses Karawang merupakan lembaga pelatihan kerja yang berfokus pada persiapan peserta untuk bekerja di Jepang melalui pendidikan bahasa Jepang, keterampilan, budaya kerja, dan pendampingan proses keberangkatan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PROGRAM PILIHAN */}
+      <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-site px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Program Pilihan</h2>
             <p className="mt-4 text-lg text-slate-600">Pilih program yang sesuai dengan tujuan karirmu di Jepang.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {programs.map((program) => (
-              <div key={program.href} className="group relative flex flex-col rounded-3xl bg-slate-50 p-8 sm:p-10 transition-all hover:bg-brand-50 hover:shadow-xl hover:shadow-brand-100/50">
-                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm text-brand-600 group-hover:bg-brand-600 group-hover:text-white transition-colors">
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">{program.title}</h3>
-                <p className="text-slate-600 mb-6 flex-grow leading-relaxed">{program.description}</p>
-                <div className="flex items-center justify-between mt-auto pt-6 border-t border-slate-200/60 group-hover:border-brand-200 transition-colors">
-                  <span className="text-sm font-medium text-slate-500">{program.stages}</span>
+              <div key={program.href} className="group flex flex-col rounded-3xl bg-white border border-slate-100 p-8 sm:p-10 shadow-sm transition-all hover:shadow-xl hover:shadow-slate-200/50 hover:border-brand-200">
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">{program.title}</h3>
+                <p className="text-slate-600 mb-8 flex-grow leading-relaxed">{program.description}</p>
+                <div className="flex items-center justify-between mt-auto">
+                  <span className="inline-flex items-center rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 ring-1 ring-inset ring-brand-700/10">
+                    {program.stages}
+                  </span>
                   <Link href={program.href} className="inline-flex items-center text-sm font-bold text-brand-600 group-hover:text-brand-700">
                     Lihat Detail
                     <svg className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -88,35 +111,202 @@ export default function Home() {
         </div>
       </section>
 
-      {/* KEUNGGULAN / ALASAN */}
-      <section className="py-20 bg-slate-900 text-white">
+      {/* 5. ALUR PROGRAM TOKUTEI GINOU */}
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-site px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-balance">Mengapa Memilih LPK PMS Karawang?</h2>
-              <p className="mt-6 text-lg text-slate-300 leading-relaxed">
-                Kami berkomitmen memberikan pendidikan dan pelatihan terbaik dengan standar yang sesuai kebutuhan industri di Jepang.
-              </p>
-              <div className="mt-10 space-y-6">
-                {[
-                  { t: "Fokus Kesiapan Kerja", d: "Tidak hanya bahasa, tapi juga mental dan etika budaya kerja Jepang." },
-                  { t: "Pendampingan Penuh", d: "Mendampingi peserta dari proses awal pendaftaran hingga keberangkatan." },
-                  { t: "Fasilitas Belajar Efektif", d: "Lingkungan yang mendukung untuk mempercepat penguasaan materi." }
-                ].map((k, i) => (
-                  <div key={i} className="flex gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-600/20 text-brand-400">
-                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                    </div>
-                    <div>
-                      <h4 className="text-base font-semibold">{k.t}</h4>
-                      <p className="mt-1 text-sm text-slate-400">{k.d}</p>
+          <div className="max-w-3xl mx-auto mb-16 text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Alur Program Tokutei Ginou</h2>
+            <p className="mt-4 text-lg text-slate-600">Proses persiapan hingga keberangkatan ke Jepang.</p>
+          </div>
+          <div className="max-w-4xl mx-auto relative">
+            <div className="absolute left-[27px] top-4 bottom-4 w-0.5 bg-slate-200 md:left-1/2 md:-ml-[1px]"></div>
+            <div className="space-y-12">
+              {tokuteiGinouSteps.map((step, idx) => (
+                <div key={idx} className={`relative flex flex-col md:flex-row items-start ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                  <div className="absolute left-0 md:left-1/2 md:-ml-7 flex h-14 w-14 items-center justify-center rounded-full border-4 border-white bg-brand-600 text-xl font-bold text-white shadow-sm z-10">
+                    {step.number}
+                  </div>
+                  <div className={`ml-20 md:ml-0 md:w-1/2 ${idx % 2 === 0 ? 'md:pl-16' : 'md:pr-16 text-left md:text-right'}`}>
+                    <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm">
+                      <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
+                      <ul className={`space-y-2 text-slate-600 ${idx % 2 === 0 ? '' : 'md:inline-block md:text-right'}`}>
+                        {step.items.map((item, i) => (
+                          <li key={i} className="flex items-start md:items-center gap-2">
+                            <span className={`mt-1.5 md:mt-0 h-1.5 w-1.5 rounded-full bg-brand-500 shrink-0 ${idx % 2 !== 0 ? 'md:hidden' : ''}`}></span>
+                            <span className="text-sm md:text-base leading-relaxed text-left">{item}</span>
+                            <span className={`hidden md:block h-1.5 w-1.5 rounded-full bg-brand-500 shrink-0 ${idx % 2 === 0 ? 'md:hidden' : ''}`}></span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-                ))}
+                </div>
+              ))}
+            </div>
+            <div className="mt-12 text-center relative z-10">
+              <Link href="/program/tokutei-ginou" className="inline-flex h-12 items-center justify-center rounded-full bg-slate-900 px-8 text-sm font-semibold text-white transition-colors hover:bg-brand-600">
+                Detail Program Tokutei Ginou
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. ALUR PROGRAM MAGANG */}
+      <section className="py-20 bg-slate-50 border-t border-slate-100">
+        <div className="mx-auto max-w-site px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto mb-16 text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Alur Program Magang</h2>
+            <p className="mt-4 text-lg text-slate-600">Tahapan bagi lulusan SMA/SMK untuk mengikuti magang di Jepang.</p>
+          </div>
+          <div className="max-w-4xl mx-auto relative">
+            <div className="absolute left-[27px] top-4 bottom-4 w-0.5 bg-slate-200 md:left-1/2 md:-ml-[1px]"></div>
+            <div className="space-y-12">
+              {magangSteps.map((step, idx) => (
+                <div key={idx} className={`relative flex flex-col md:flex-row items-start ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                  <div className="absolute left-0 md:left-1/2 md:-ml-7 flex h-14 w-14 items-center justify-center rounded-full border-4 border-white bg-slate-800 text-xl font-bold text-white shadow-sm z-10">
+                    {step.number}
+                  </div>
+                  <div className={`ml-20 md:ml-0 md:w-1/2 ${idx % 2 === 0 ? 'md:pl-16' : 'md:pr-16 text-left md:text-right'}`}>
+                    <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                      <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
+                      <ul className={`space-y-2 text-slate-600 ${idx % 2 === 0 ? '' : 'md:inline-block md:text-right'}`}>
+                        {step.items.map((item, i) => (
+                          <li key={i} className="flex items-start md:items-center gap-2">
+                            <span className={`mt-1.5 md:mt-0 h-1.5 w-1.5 rounded-full bg-slate-400 shrink-0 ${idx % 2 !== 0 ? 'md:hidden' : ''}`}></span>
+                            <span className="text-sm md:text-base leading-relaxed text-left">{item}</span>
+                            <span className={`hidden md:block h-1.5 w-1.5 rounded-full bg-slate-400 shrink-0 ${idx % 2 === 0 ? 'md:hidden' : ''}`}></span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-12 text-center relative z-10">
+              <Link href="/program/magang" className="inline-flex h-12 items-center justify-center rounded-full bg-slate-900 px-8 text-sm font-semibold text-white transition-colors hover:bg-brand-600">
+                Detail Program Magang
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. KURIKULUM */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-site px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row gap-12">
+            <div className="md:w-1/3">
+              <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-4">Kurikulum Pelatihan</h2>
+              <p className="text-lg text-slate-600 mb-8">
+                Materi yang dipelajari selama mengikuti pelatihan di LPK PMS Karawang.
+              </p>
+              <Link href="/kurikulum" className="hidden md:inline-flex h-12 items-center justify-center rounded-full bg-slate-100 px-6 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-200">
+                Lihat Seluruh Kurikulum
+              </Link>
+            </div>
+            <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {curriculum.slice(0, 4).map((c, i) => (
+                <div key={i} className="bg-slate-50 border border-slate-100 rounded-2xl p-6">
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">{c.title}</h3>
+                  <ul className="space-y-2 text-sm text-slate-600">
+                    {c.items.slice(0,4).map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <svg className="h-4 w-4 shrink-0 text-brand-500 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                    {c.items.length > 4 && <li className="text-slate-400 italic text-xs mt-2">dan lainnya...</li>}
+                  </ul>
+                </div>
+              ))}
+              <div className="mt-4 md:hidden">
+                <Link href="/kurikulum" className="inline-flex h-12 w-full items-center justify-center rounded-full bg-slate-100 px-6 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-200">
+                  Lihat Seluruh Kurikulum
+                </Link>
               </div>
             </div>
-            <div className="relative aspect-square lg:aspect-auto lg:h-[600px] w-full bg-slate-800 rounded-3xl overflow-hidden flex items-center justify-center p-10 border border-slate-700">
-                <Image src="/images/logo.png" alt="LPK Logo" width={300} height={300} className="w-1/2 h-auto opacity-20 object-contain drop-shadow-2xl mix-blend-luminosity" />
+          </div>
+        </div>
+      </section>
+
+      {/* 8. MENGAPA MEMILIH LPK PMS KARAWANG */}
+      <section className="py-20 bg-slate-900 text-white">
+        <div className="mx-auto max-w-site px-4 sm:px-6">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-balance">Mengapa Memilih LPK PMS Karawang?</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {reasons.map((r, i) => (
+              <div key={i} className="bg-slate-800/50 border border-slate-700 rounded-2xl p-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-600/20 text-brand-400 mb-6">
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d={r.icon} />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">{r.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{r.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. INFORMASI PENTING */}
+      <section className="py-20 bg-slate-50">
+        <div className="mx-auto max-w-site px-4 sm:px-6">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Informasi Penting</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {importantInfo.map((info, i) => (
+              <div key={i} className="bg-white border border-slate-200 rounded-2xl p-8 flex flex-col text-center shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{info.title}</h3>
+                <p className="text-slate-600 text-sm mb-8 flex-grow">{info.description}</p>
+                {info.href.startsWith('http') ? (
+                  <a href={info.href} target="_blank" rel="noopener noreferrer" className="inline-flex h-10 w-full items-center justify-center rounded-full bg-slate-100 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-200">
+                    {info.cta}
+                  </a>
+                ) : (
+                  <Link href={info.href} className="inline-flex h-10 w-full items-center justify-center rounded-full bg-slate-100 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-200">
+                    {info.cta}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. LOKASI (Mini Preview) */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-site px-4 sm:px-6">
+          <div className="rounded-3xl bg-slate-900 overflow-hidden shadow-2xl flex flex-col md:flex-row">
+            <div className="md:w-1/2 p-10 md:p-16 flex flex-col justify-center text-white">
+              <h2 className="text-3xl font-bold tracking-tight mb-4">Lokasi LPK PMS Karawang</h2>
+              <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                Kunjungi lembaga kami untuk konsultasi langsung dan melihat fasilitas pelatihan.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href={siteConfig.maps} target="_blank" rel="noopener noreferrer" className="inline-flex h-12 items-center justify-center rounded-full bg-brand-600 px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-700">
+                  <svg className="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                  Buka di Google Maps
+                </a>
+                <Link href="/lokasi" className="inline-flex h-12 items-center justify-center rounded-full bg-white/10 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/20">
+                  Detail Lokasi
+                </Link>
+              </div>
+            </div>
+            <div className="md:w-1/2 bg-slate-800 relative min-h-[300px]">
+              {/* Fallback pattern if maps iframe isn't possible, but we should use a placeholder or iframe if possible. Since we only have a link, we will show a placeholder map graphic */}
+              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                 <svg className="h-24 w-24 text-brand-500 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                 </svg>
+              </div>
             </div>
           </div>
         </div>

@@ -14,6 +14,8 @@ export default function Footer() {
               <span className="font-bold text-white tracking-tight">{siteConfig.shortName}</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-slate-400">
+              LPK Panca Multi Guna Sukses Karawang
+              <br/><br/>
               Lembaga pelatihan kerja resmi yang fokus pada persiapan dan pembekalan kemampuan bahasa Jepang serta kesiapan kerja.
             </p>
           </div>
