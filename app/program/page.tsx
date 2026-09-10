@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { siteConfig, programsList, programs } from "@/data/site";
+import { programs } from "@/data/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
