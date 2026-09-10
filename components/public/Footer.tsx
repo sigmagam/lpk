@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/data/site";
-import { ShieldCheck, MapPin, Phone, ExternalLink, ArrowRight, Eye, ShieldAlert } from "lucide-react";
+import { ShieldCheck, MapPin, Phone, ExternalLink, ArrowRight, Eye, BellRing } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="bg-navy-950 text-slate-300 border-t border-navy-900">
-      {/* Top Banner */}
+      {/* Top Credential Reassurance Strip */}
       <div className="border-b border-navy-900/80 bg-navy-900/40 py-6">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-sm">
@@ -69,15 +69,17 @@ export default function Footer() {
                 className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-navy-900 hover:bg-navy-800 text-primary-300 text-xs font-semibold border border-navy-800 transition-colors"
               >
                 <Eye className="w-4 h-4 text-primary-400" />
-                <span>Dashboard Informasi</span>
+                <span>Dashboard Informasi Siswa</span>
               </Link>
-              <Link
-                href="/yusuf"
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-navy-900/60 hover:bg-navy-800 text-slate-400 hover:text-slate-200 text-xs font-semibold border border-navy-800/80 transition-colors"
+              <a
+                href={siteConfig.whatsappChannel}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-emerald-950 hover:bg-emerald-900 text-emerald-300 text-xs font-semibold border border-emerald-800 transition-colors"
               >
-                <ShieldAlert className="w-3.5 h-3.5 text-vermilion-500" />
-                <span>Akses Admin</span>
-              </Link>
+                <BellRing className="w-4 h-4 text-emerald-400" />
+                <span>Channel Info Job PMS</span>
+              </a>
             </div>
           </div>
 
@@ -159,7 +161,7 @@ export default function Footer() {
         {/* Bottom copyright */}
         <div className="mt-14 pt-8 border-t border-navy-900/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
-            &copy; 2026 LPK Panca Multiguna Sukses Karawang. Seluruh hak cipta dilindungi.
+            &copy; 2026 LPK Panca Multiguna Sukses Karawang. Seluruh hak cipta dilindungi. (lpkpms.my.id)
           </p>
           <div className="flex items-center gap-6">
             <Link href="/legalitas" className="hover:text-slate-300 transition-colors">

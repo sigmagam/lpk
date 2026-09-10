@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig, programs, keunggulan, curriculumRoadmap, participantJourney } from "@/data/site";
 import Hero3DVisual from "@/components/public/Hero3DVisual";
+import StructureSlider from "@/components/public/StructureSlider";
+import WhatsAppJobChannelBanner from "@/components/public/WhatsAppJobChannelBanner";
 import CTA from "@/components/public/CTA";
 import {
   ShieldCheck,
@@ -16,14 +18,16 @@ import {
   Globe,
   Briefcase,
   Layers,
+  MessageCircle,
+  BellRing
 } from "lucide-react";
 
 export default function HomePage() {
   return (
     <>
-      {/* 1. HERO SECTION: Editorial, Premium, Japan-Oriented with 3D Depth */}
+      {/* 1. HERO SECTION: Editorial, Japan-Oriented with 3D Depth */}
       <section className="relative overflow-hidden bg-white pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 border-b border-slate-200/80">
-        {/* Subtle Architectural Grid Pattern */}
+        {/* Architectural Grid Background */}
         <div className="absolute inset-0 bg-grid-japanese opacity-60 pointer-events-none" />
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10">
@@ -61,18 +65,21 @@ export default function HomePage() {
                   <ArrowRight className="w-4 h-4" />
                 </a>
 
-                <Link
-                  href="/program"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-navy-950 text-xs sm:text-sm font-bold border border-slate-200 transition-colors text-center"
+                <a
+                  href={siteConfig.whatsappChannel}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold shadow-md transition-colors text-center"
                 >
-                  <span>Pilihan Program</span>
-                </Link>
+                  <BellRing className="w-4 h-4" />
+                  <span>Channel Info Job PMS</span>
+                </a>
 
                 <Link
-                  href="/tentang-kami"
-                  className="inline-flex items-center justify-center px-4 py-3.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-navy-950 transition-colors text-center"
+                  href="/program"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-navy-950 text-xs sm:text-sm font-bold border border-slate-200 transition-colors text-center"
                 >
-                  <span>Profil Lembaga</span>
+                  <span>Pilihan Program</span>
                 </Link>
               </div>
 
@@ -101,7 +108,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. TRUST / LEGALITAS STRIP: Verified Institutional Validation */}
+      {/* 2. STRUKTUR & GALERI PMS SLIDER (5 FOTO, HORIZONTAL KE SAMPING, OTOMATIS TIAP 3 DETIK) */}
+      <StructureSlider />
+
+      {/* 3. CHANNEL WHATSAPP INFO JOB PMS PUSAT BANNER */}
+      <WhatsAppJobChannelBanner />
+
+      {/* 4. TRUST / LEGALITAS STRIP */}
       <section className="bg-slate-50 border-b border-slate-200/80 py-8">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm">
@@ -135,7 +148,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. TENTANG KAMI SECTION: Institutional Editorial */}
+      {/* 5. TENTANG KAMI SECTION */}
       <section className="py-20 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -177,7 +190,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. PERJALANAN PESERTA (JOURNEY TIMELINE): Clear Step Progression */}
+      {/* 6. PERJALANAN PESERTA */}
       <section className="py-20 lg:py-24 bg-slate-50 border-b border-slate-200/80">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
@@ -222,7 +235,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. PROGRAM PELATIHAN: Numbered Editorial / Interactive Catalog */}
+      {/* 7. PROGRAM PELATIHAN */}
       <section className="py-20 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
@@ -295,7 +308,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. KURIKULUM: Progressive 3-Stage Timeline */}
+      {/* 8. KURIKULUM */}
       <section className="py-20 lg:py-24 bg-slate-50 border-b border-slate-200/80">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
@@ -365,7 +378,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. KEUNGGULAN: Asymmetric Editorial Layout */}
+      {/* 9. KEUNGGULAN */}
       <section className="py-20 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
@@ -414,11 +427,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. LOKASI: Map Real & Search fallback */}
+      {/* 10. LOKASI */}
       <section className="py-20 lg:py-24 bg-slate-50 border-b border-slate-200/80">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-            {/* Info Col */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-6 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
@@ -471,7 +483,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Embedded Map Col */}
             <div className="lg:col-span-7 min-h-[350px] rounded-3xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 relative">
               <iframe
                 src={siteConfig.mapsEmbed}
@@ -489,7 +500,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. CALL TO ACTION */}
+      {/* 11. CALL TO ACTION */}
       <CTA />
     </>
   );

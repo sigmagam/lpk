@@ -1,11 +1,14 @@
 export const siteConfig = {
   name: "LPK Panca Multiguna Sukses Karawang",
   shortName: "LPK PMS Karawang",
+  websiteDomain: "lpkpms.my.id",
   tagline: "Lembaga Pelatihan Kerja ke Jepang Terdaftar Resmi Kemnaker RI",
   description:
     "LPK Panca Multiguna Sukses Karawang adalah Lembaga Pelatihan Kerja yang berkomitmen dalam menyiapkan, melatih dan mengirim peserta magang yang berkualitas dari Indonesia ke Jepang melalui pembekalan bahasa, keterampilan kerja, kedisiplinan, serta pemahaman budaya dan etos kerja.",
   whatsapp: "https://wa.me/6285692923642",
   whatsappNumber: "+62 856-9292-3642",
+  whatsappChannel: "https://whatsapp.com/channel/0029Vb6zaUsISTkPcksxFG0f",
+  whatsappChannelLabel: "Channel Info Job PMS Pusat",
   instagram: "https://www.instagram.com/lpkpmskarawang",
   instagramHandle: "LPK PMS Karawang",
   tiktok: "https://www.tiktok.com/@lpk.pms.karawang19",
@@ -46,6 +49,52 @@ export const siteConfig = {
     ]
   }
 };
+
+export interface StructureSlide {
+  id: number;
+  title: string;
+  subtitle: string;
+  imageUrl: string;
+  tag: string;
+}
+
+export const pmsStructureSlides: StructureSlide[] = [
+  {
+    id: 1,
+    title: "Kenalan Lebih Dekat dengan LPK PMS",
+    subtitle: "Struktur & Profil Kelembagaan Pelatihan Kerja Jepang",
+    imageUrl: "https://i.ibb.co.com/LzRXrBKh/Kenalan-yukkk-lpkjepang-magangjepang-kerjadijepang-jisshuseiindonesia-infolokerjepang.jpg",
+    tag: "Profil Bagian 01"
+  },
+  {
+    id: 2,
+    title: "Komitmen Pengembangan SDM Berkualitas",
+    subtitle: "Standar Pembinaan Disiplin, Bahasa, & Fisik Unggul",
+    imageUrl: "https://i.ibb.co.com/3yBvbmkj/Kenalan-yukkk-lpkjepang-magangjepang-kerjadijepang-jisshuseiindonesia-infolokerjepang-1.jpg",
+    tag: "Struktur Bagian 02"
+  },
+  {
+    id: 3,
+    title: "Program Pemagangan & Tokutei Ginou Resmi",
+    subtitle: "Jalur Kerja Terarah Berpayung Hukum Kemnaker RI",
+    imageUrl: "https://i.ibb.co.com/k2zGHMg6/Kenalan-yukkk-lpkjepang-magangjepang-kerjadijepang-jisshuseiindonesia-infolokerjepang-2.jpg",
+    tag: "Alur Bagian 03"
+  },
+  {
+    id: 4,
+    title: "Fasilitas & Pendampingan Instruktur Profesional",
+    subtitle: "Simulasi Wawancara Kaisha & Kesiapan Mental Kerja",
+    imageUrl: "https://i.ibb.co.com/Psq9Nf6H/Kenalan-yukkk-lpkjepang-magangjepang-kerjadijepang-jisshuseiindonesia-infolokerjepang-3.jpg",
+    tag: "Fasilitas Bagian 04"
+  },
+  {
+    id: 5,
+    title: "Pemberangkatan & Masa Depan Karier di Jepang",
+    subtitle: "Menembus Dunia Industri Jepang Bersama LPK PMS Karawang",
+    imageUrl: "https://i.ibb.co.com/ksDRG9cH/Kenalan-yukkk-lpkjepang-magangjepang-kerjadijepang-jisshuseiindonesia-infolokerjepang-4.jpg",
+    tag: "Penempatan Bagian 05"
+  }
+];
 
 export interface ProgramItem {
   id: string;
