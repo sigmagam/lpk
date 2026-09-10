@@ -2,19 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
+:root {
+  --primary: #b31b1b;
+  --primary-hover: #911515;
+  --dark: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --bg-light: #f8fafc;
 }
 
-html {
-  overflow-x: hidden;
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply text-slate-800 bg-white antialiased overflow-x-hidden;
+  }
 }
 
-body {
-  overflow-x: hidden;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
-:focus-visible {
-  outline: 2px solid #155bb4;
-  outline-offset: 2px;
+/* Custom Selection */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* Subtle Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* Menghilangkan hover state pada mobile */
+@media (hover: none) {
+  .hover-disable:hover {
+    @apply bg-transparent text-inherit border-transparent;
+  }
 }

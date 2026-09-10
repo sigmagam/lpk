@@ -6,16 +6,16 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          50: "#eef6ff",
-          100: "#d9eaff",
-          500: "#1d6fd1",
-          600: "#155bb4",
-          700: "#114a92",
-          900: "#0b2c57",
+          50: "#fdf2f2",
+          100: "#fbe4e4",
+          500: "#d32f2f",
+          600: "#b31b1b",
+          700: "#911515",
+          900: "#4a0b0b",
         },
       },
       maxWidth: {
-        site: "72rem",
+        site: "76rem", // 1216px
       },
     },
   },
