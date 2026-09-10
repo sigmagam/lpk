@@ -29,8 +29,11 @@
 .perspective-1000 {
   perspective: 1000px;
 }
-.perspective-1500 {
-  perspective: 1500px;
+.perspective-1400 {
+  perspective: 1400px;
+}
+.perspective-1600 {
+  perspective: 1600px;
 }
 .preserve-3d {
   transform-style: preserve-3d;
@@ -39,24 +42,40 @@
   backface-visibility: hidden;
 }
 
-/* 3D Interactive Tilt Card (CSS only, fast & 60fps) */
+/* Realistic 3D Interactive Card (Hardware Accelerated, Ultra-Smooth 60FPS) */
 .card-3d-interactive {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
-  transform: perspective(1000px) translateZ(0);
+  transform: perspective(1200px) translateZ(0);
   will-change: transform, box-shadow;
+  position: relative;
+}
+
+/* Top Bevel Highlight for Tactile Material Realism */
+.card-3d-interactive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  pointer-events: none;
 }
 
 .card-3d-interactive:hover {
-  transform: perspective(1000px) translateY(-4px) rotateX(2deg) rotateY(-1.5deg) scale(1.01);
-  box-shadow: 0 20px 30px -10px rgba(11, 27, 50, 0.12), 0 8px 12px -4px rgba(11, 27, 50, 0.04);
+  transform: perspective(1200px) translateY(-6px) rotateX(2.5deg) rotateY(-1.5deg) scale(1.012);
+  box-shadow: 
+    0 25px 40px -12px rgba(11, 27, 50, 0.16),
+    0 10px 18px -4px rgba(11, 27, 50, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
 }
 
-.hero-seal-3d {
-  transform: perspective(1200px) rotateY(-6deg) rotateX(4deg);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.hero-seal-3d:hover {
-  transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1.02);
+/* Realistic 3D Stage Bevel */
+.stage-3d-real {
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.5),
+    0 15px 30px -8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.15);
 }
 
 /* Subtle Japanese geometric grid background */
