@@ -6,8 +6,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function StructureSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
   const touchStartX = useRef<number | null>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const totalSlides = pmsStructureSlides.length;
 
@@ -21,16 +21,36 @@ export default function StructureSlider() {
 
   const goToSlide = (idx: number) => {
     setCurrentIndex(idx);
+    resetTimer();
   };
 
-  // Gerak otomatis ke kanan setiap 3 detik
-  useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(() => {
-      nextSlide();
+  // Fungsi untuk me-reset timer dan memastikan auto-slide selalu berputar per 3 detik
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    timerRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % totalSlides);
     }, 3000);
-    return () => clearInterval(interval);
-  }, [isHovered, nextSlide]);
+  }, [totalSlides]);
+
+  // Efek inisialisasi auto-play terus menerus
+  useEffect(() => {
+    resetTimer();
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [resetTimer]);
+
+  const handleManualNext = () => {
+    nextSlide();
+    resetTimer();
+  };
+
+  const handleManualPrev = () => {
+    prevSlide();
+    resetTimer();
+  };
 
   // Dukungan touch swipe pada layar sentuh mobile
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -41,9 +61,9 @@ export default function StructureSlider() {
     if (touchStartX.current === null) return;
     const diff = touchStartX.current - e.changedTouches[0].clientX;
     if (diff > 40) {
-      nextSlide();
+      handleManualNext();
     } else if (diff < -40) {
-      prevSlide();
+      handleManualPrev();
     }
     touchStartX.current = null;
   };
@@ -57,8 +77,6 @@ export default function StructureSlider() {
         {/* Full Image Carousel Frame */}
         <div
           className="relative mx-auto max-w-5xl rounded-3xl overflow-hidden shadow-2xl border border-navy-800 bg-black select-none group"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
@@ -85,9 +103,9 @@ export default function StructureSlider() {
           {/* Tombol Navigasi KIRI (<) di samping foto */}
           <button
             type="button"
-            onClick={prevSlide}
+            onClick={handleManualPrev}
             aria-label="Foto Sebelumnya"
-            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-xl"
+            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/30 backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-xl cursor-pointer"
           >
             <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
           </button>
@@ -95,24 +113,24 @@ export default function StructureSlider() {
           {/* Tombol Navigasi KANAN (>) di samping foto */}
           <button
             type="button"
-            onClick={nextSlide}
+            onClick={handleManualNext}
             aria-label="Foto Berikutnya"
-            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-xl"
+            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/30 backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-xl cursor-pointer"
           >
             <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
           </button>
 
           {/* Indikator Titik di Bawah Foto */}
-          <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/50 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
+          <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20">
             {pmsStructureSlides.map((slide, idx) => (
               <button
                 key={slide.id}
                 type="button"
                 onClick={() => goToSlide(idx)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
+                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                   currentIndex === idx
                     ? "w-8 bg-vermilion-500 shadow-md"
-                    : "w-2.5 bg-white/40 hover:bg-white/80"
+                    : "w-2.5 bg-white/50 hover:bg-white/90"
                 }`}
                 aria-label={`Slide ${idx + 1}`}
               />
