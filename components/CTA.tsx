@@ -29,7 +29,7 @@ export default function CTA() {
             Hubungi Kami
           </a>
           <Link
-            href="/#program"
+            href="/program"
             className="w-full sm:w-auto inline-flex h-14 items-center justify-center rounded-lg bg-primary-800 px-10 text-base font-semibold text-white transition-all hover:bg-primary-700 border border-primary-600"
           >
             Lihat Program

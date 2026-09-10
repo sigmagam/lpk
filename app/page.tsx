@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { siteConfig, programs, keunggulan, curriculumRoadmap } from "@/data/site";
+import { siteConfig, programs, keunggulan } from "@/data/site";
 
 export default function Home() {
   return (
@@ -21,13 +21,13 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
                 <Link
-                  href="#tentang"
+                  href="/tentang"
                   className="w-full sm:w-auto inline-flex h-14 items-center justify-center rounded-lg bg-primary-700 px-8 text-base font-semibold text-white transition-all hover:bg-primary-800 shadow-md hover:shadow-lg"
                 >
                   Kenali Kami
                 </Link>
                 <Link
-                  href="#program"
+                  href="/program"
                   className="w-full sm:w-auto inline-flex h-14 items-center justify-center rounded-lg bg-white border border-slate-200 px-8 text-base font-semibold text-slate-900 transition-all hover:border-primary-300 hover:bg-primary-50"
                 >
                   Lihat Program
@@ -208,47 +208,6 @@ export default function Home() {
       </section>
 
       {/* 6. KURIKULUM PELATIHAN (TIMELINE) */}
-      <section id="kurikulum" className="py-20 lg:py-28 bg-slate-900 text-white scroll-mt-20">
-        <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16 text-center mx-auto">
-            <h2 className="text-3xl font-heading font-bold tracking-tight sm:text-4xl mb-4">Kurikulum Pelatihan</h2>
-            <p className="text-lg text-slate-400">
-              Kurikulum disusun untuk memberikan pembekalan bertahap kepada peserta, mulai dari pengetahuan dasar hingga keterampilan yang dibutuhkan di dunia kerja.
-            </p>
-          </div>
-
-          <div className="max-w-5xl mx-auto">
-             {/* Unified Timeline Container: Switches flex direction based on breakpoint */}
-             <div className="flex flex-col md:flex-row justify-between relative gap-8 md:gap-4">
-                {/* Connector Line */}
-                <div className="absolute left-[31px] top-4 bottom-4 w-px bg-slate-700 md:left-0 md:right-0 md:top-8 md:bottom-auto md:w-full md:h-px"></div>
-                
-                {curriculumRoadmap.map((item, idx) => (
-                   <div key={idx} className="relative flex flex-row md:flex-col items-start md:items-center gap-6 md:gap-6 flex-1">
-                      <div className="w-16 h-16 shrink-0 rounded-full bg-primary-600 border-4 border-slate-900 flex items-center justify-center font-bold text-xl shadow-lg shadow-primary-900/50 relative z-10">
-                         {item.number}
-                      </div>
-                      <div className="pt-2 md:pt-0 w-full text-left md:text-center">
-                         <h3 className="text-xl font-bold text-white mb-4 uppercase tracking-wider">{item.title}</h3>
-                         <ul className="space-y-3 bg-slate-800/50 p-5 rounded-2xl border border-slate-700/50 text-left">
-                            {item.details?.map((detail, dIdx) => (
-                               <li key={dIdx} className="flex items-start gap-3 text-sm text-slate-300">
-                                  <svg className="w-4 h-4 text-accent-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                  </svg>
-                                  <span className="leading-snug">{detail}</span>
-                               </li>
-                            ))}
-                         </ul>
-                      </div>
-                   </div>
-                ))}
-             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. KEUNGGULAN KAMI */}
       <section id="keunggulan" className="py-20 lg:py-28 bg-white scroll-mt-20">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
