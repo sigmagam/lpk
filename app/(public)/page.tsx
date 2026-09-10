@@ -18,43 +18,52 @@ import {
   Briefcase,
   Layers,
   MessageCircle,
-  BellRing
+  BellRing,
+  Calendar,
+  Sparkles
 } from "lucide-react";
 
 export default function HomePage() {
   return (
     <>
-      {/* 1. HERO SECTION: Editorial, Japan-Oriented with 3D Depth */}
+      {/* 1. HERO SECTION: Editorial, Special UI with 3D Depth */}
       <section className="relative overflow-hidden bg-white pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 border-b-2 border-slate-300">
-        <div className="absolute inset-0 bg-grid-japanese opacity-70 pointer-events-none" />
+        <div className="absolute inset-0 bg-grid-japanese opacity-75 pointer-events-none" />
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Column: Editorial Copy */}
             <div className="lg:col-span-7 space-y-7 text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border-2 border-slate-300 text-xs font-black text-navy-950 uppercase tracking-wider shadow-sm">
-                <span className="w-2.5 h-2.5 rounded-full bg-vermilion-600" />
+              {/* Eyebrow badge 3D */}
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100 border-2 border-slate-300 text-xs font-black text-navy-950 uppercase tracking-wider shadow-sm">
+                <span className="w-2.5 h-2.5 rounded-full bg-vermilion-600 animate-pulse" />
                 <span>Lembaga Pelatihan Kerja Resmi • Karawang</span>
+                <span className="text-slate-400 font-normal">|</span>
+                <span className="font-mono text-emerald-800 font-extrabold">VIN: {siteConfig.vinNumber}</span>
               </div>
 
+              {/* Display Headline */}
               <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-navy-950 leading-[1.12]">
                 Mempersiapkan Generasi Unggul untuk{" "}
-                <span className="text-primary-800 underline decoration-vermilion-600/80 decoration-4 underline-offset-8">
+                <span className="relative inline-block text-primary-800 underline decoration-vermilion-600/85 decoration-4 underline-offset-8">
                   Karier Profesional di Jepang
                 </span>
               </h1>
 
+              {/* Institutional Statement */}
               <p className="text-base sm:text-lg text-slate-800 leading-relaxed max-w-2xl font-medium">
                 {siteConfig.description}
               </p>
 
+              {/* Primary Actions (Tactile 3D Buttons) */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
                 <a
                   href={siteConfig.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-navy-950 hover:bg-navy-900 text-white text-xs sm:text-sm font-black shadow-lift-3d transition-all hover:-translate-y-1 text-center border-2 border-navy-900"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-navy-950 hover:bg-navy-900 text-white text-xs sm:text-sm font-black shadow-lift-3d transition-all hover:-translate-y-1 text-center border-2 border-navy-950"
                 >
+                  <MessageCircle className="w-4 h-4 text-emerald-300 fill-emerald-300" />
                   <span>Daftar / Konsultasi WhatsApp</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
@@ -63,7 +72,7 @@ export default function HomePage() {
                   href={siteConfig.whatsappChannel}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-black shadow-md transition-all hover:-translate-y-1 text-center border-2 border-emerald-800"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-black shadow-md transition-all hover:-translate-y-1 text-center border-2 border-emerald-800"
                 >
                   <BellRing className="w-4 h-4" />
                   <span>Channel Info Job PMS</span>
@@ -71,12 +80,13 @@ export default function HomePage() {
 
                 <Link
                   href="/program"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-navy-950 text-xs sm:text-sm font-black border-2 border-slate-300 transition-all hover:-translate-y-1 text-center shadow-sm"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-2xl bg-white hover:bg-slate-100 text-navy-950 text-xs sm:text-sm font-black border-2 border-slate-300 transition-all hover:-translate-y-1 text-center shadow-sm"
                 >
                   <span>Pilihan Program</span>
                 </Link>
               </div>
 
+              {/* Micro-Footer Reassurance */}
               <div className="pt-4 border-t-2 border-slate-200 flex flex-wrap items-center gap-5 text-xs text-slate-800 font-bold">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-emerald-700" />
@@ -101,26 +111,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. STRUKTUR & GALERI PMS SLIDER */}
+      {/* 2. STRUKTUR & GALERI PMS SLIDER (FULL WIDTH VIEWPORT) */}
       <StructureSlider />
 
-      {/* 3. TRUST / LEGALITAS STRIP */}
-      <section className="bg-slate-100 border-b-2 border-slate-300 py-8">
+      {/* 3. TRUST & ACCREDITATION BANNER: Official Certificate Plinth */}
+      <section className="bg-slate-100 border-b-2 border-slate-300 py-10">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white p-6 sm:p-7 rounded-3xl border-2 border-slate-300 shadow-md">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-emerald-100 border-2 border-emerald-400 text-emerald-800 flex items-center justify-center shrink-0 shadow-sm">
-                <ShieldCheck className="w-7 h-7 text-emerald-700" />
+          <div className="box-3d-special p-6 sm:p-8 rounded-3xl flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="flex items-center gap-5">
+              <div className="w-16 h-16 rounded-2xl bg-emerald-100 border-2 border-emerald-400 text-emerald-800 flex items-center justify-center shrink-0 shadow-sm">
+                <ShieldCheck className="w-9 h-9 text-emerald-700" />
               </div>
-              <div>
-                <div className="text-xs font-black text-emerald-800 uppercase tracking-wide">
-                  TERDAFTAR RESMI
+              <div className="space-y-1">
+                <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-emerald-50 border border-emerald-300 text-[11px] font-black text-emerald-900 uppercase tracking-wide">
+                  <span>TERDAFTAR RESMI KEMNAKER RI</span>
+                  <span>•</span>
+                  <span>VIN: {siteConfig.vinNumber}</span>
                 </div>
-                <div className="text-sm sm:text-lg font-heading font-black text-navy-950">
-                  Terdaftar di Kementerian Ketenagakerjaan Republik Indonesia
+                <div className="text-base sm:text-xl font-heading font-black text-navy-950">
+                  LPK Panca Multiguna Sukses Karawang
                 </div>
-                <div className="text-xs text-slate-700 mt-0.5 font-semibold">
-                  Status Kelembagaan: <span className="font-black text-navy-950">Verified LPK</span> • Skillhub Kemnaker RI
+                <div className="text-xs text-slate-700 font-medium">
+                  Lembaga Pelatihan Kerja terverifikasi resmi pada database nasional Skillhub Kementerian Ketenagakerjaan RI.
                 </div>
               </div>
             </div>
@@ -129,20 +141,21 @@ export default function HomePage() {
               href={siteConfig.legalitasUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-navy-950 hover:bg-navy-900 text-white text-xs font-black shadow-md transition-all hover:-translate-y-0.5 whitespace-nowrap border-2 border-navy-950"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-navy-950 hover:bg-navy-900 text-white font-black text-xs shadow-md transition-all hover:-translate-y-0.5 whitespace-nowrap border-2 border-navy-950 shrink-0"
             >
               <span>Verifikasi di Kemnaker</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink className="w-4 h-4" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* 4. TENTANG KAMI SECTION */}
+      {/* 4. TENTANG KAMI: Asymmetric Storytelling & Metric Cards */}
       <section className="py-20 lg:py-24 bg-white border-b-2 border-slate-300">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-5 space-y-4">
+            {/* Left Column: Heading & Stats */}
+            <div className="lg:col-span-5 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-100 border-2 border-primary-300 text-primary-950 text-xs font-black uppercase tracking-wider">
                 Profil Kelembagaan
               </div>
@@ -150,11 +163,33 @@ export default function HomePage() {
                 Komitmen Pengembangan SDM Indonesia Menuju Pasar Global
               </h2>
               <div className="w-16 h-1.5 bg-vermilion-600 rounded-full" />
-              <p className="text-xs font-black text-slate-700 uppercase tracking-widest pt-2">
+              <p className="text-xs font-black text-slate-700 uppercase tracking-widest">
                 LPK Panca Multiguna Sukses Karawang
               </p>
+
+              {/* Special UI: Institutional Metric Counters (Tebal 3D) */}
+              <div className="grid grid-cols-2 gap-4 pt-2">
+                <div className="box-3d-special p-5 rounded-2xl">
+                  <div className="text-2xl sm:text-3xl font-heading font-black text-primary-800">
+                    {siteConfig.tahunBerdiri}
+                  </div>
+                  <div className="text-xs font-bold text-slate-700 mt-1">
+                    Tahun Berdiri
+                  </div>
+                </div>
+
+                <div className="box-3d-special p-5 rounded-2xl">
+                  <div className="text-2xl sm:text-3xl font-heading font-black text-emerald-800">
+                    ~200
+                  </div>
+                  <div className="text-xs font-bold text-slate-700 mt-1">
+                    Alumni Kerja di Jepang
+                  </div>
+                </div>
+              </div>
             </div>
 
+            {/* Right Column: Editorial Narrative */}
             <div className="lg:col-span-7 space-y-5 text-slate-800 text-sm sm:text-base leading-relaxed">
               <div className="p-6 rounded-3xl bg-slate-50 border-2 border-slate-300 text-navy-950 font-bold leading-relaxed shadow-sm">
                 LPK Panca Multiguna Sukses Karawang adalah Lembaga Pelatihan Kerja yang berkomitmen dalam menyiapkan, melatih dan mengirim peserta magang yang berkualitas dari Indonesia ke Jepang.
@@ -166,13 +201,19 @@ export default function HomePage() {
                 Dengan pengalaman dan komitmen dalam pengembangan sumber daya manusia, LPK Panca Multiguna Sukses Karawang terus berinovasi dan berkembang untuk menjadi lembaga terdepan yang berfokus pada peningkatan sumber daya manusia Indonesia yang unggul, terampil dan mampu bersaing di pasar global.
               </p>
 
-              <div className="pt-4 flex items-center gap-4">
+              <div className="pt-4 flex flex-wrap items-center gap-4">
                 <Link
                   href="/tentang-kami"
                   className="inline-flex items-center gap-2 text-xs font-black text-navy-950 hover:text-primary-800 underline underline-offset-4 decoration-primary-500"
                 >
-                  <span>Baca Selengkapnya Tentang Kami</span>
+                  <span>Baca Selengkapnya Profil Lembaga</span>
                   <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <Link
+                  href="/legalitas"
+                  className="inline-flex items-center gap-2 text-xs font-black text-emerald-800 hover:text-emerald-950 underline underline-offset-4 decoration-emerald-500"
+                >
+                  <span>Cek Legalitas & Nomor VIN →</span>
                 </Link>
               </div>
             </div>
@@ -180,7 +221,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. PERJALANAN PESERTA (Kotak 3D Tebal) */}
+      {/* 5. PERJALANAN PESERTA: Connected 3D Pipeline Progression */}
       <section className="py-20 lg:py-24 bg-slate-100 border-b-2 border-slate-300">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
@@ -199,14 +240,14 @@ export default function HomePage() {
             {participantJourney.map((item, idx) => (
               <div
                 key={item.step}
-                className="box-3d-bold bg-white rounded-3xl p-6 flex flex-col justify-between relative group"
+                className="box-3d-special rounded-3xl p-6 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-slate-100">
                     <span className="font-mono text-2xl font-black text-primary-800">
                       {item.step}
                     </span>
-                    <span className="w-3 h-3 rounded-full bg-slate-400 group-hover:bg-vermilion-600 transition-colors" />
+                    <span className="w-3 h-3 rounded-full bg-slate-300 group-hover:bg-vermilion-600 transition-colors" />
                   </div>
                   <h3 className="font-heading font-black text-sm text-navy-950 mb-2 leading-snug">
                     {item.title}
@@ -216,7 +257,7 @@ export default function HomePage() {
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t-2 border-slate-200 text-[11px] font-black text-slate-700">
+                <div className="pt-4 mt-4 border-t-2 border-slate-100 text-[11px] font-black text-slate-600">
                   Tahap 0{idx + 1}
                 </div>
               </div>
@@ -225,7 +266,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. PROGRAM PELATIHAN */}
+      {/* 6. PROGRAM PELATIHAN: Architectural 3D Cards */}
       <section className="py-20 lg:py-24 bg-white border-b-2 border-slate-300">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
@@ -250,10 +291,10 @@ export default function HomePage() {
             {programs.map((program, idx) => (
               <div
                 key={program.id}
-                className="card-3d-interactive bg-slate-50 rounded-3xl p-7 flex flex-col justify-between group hover:bg-white"
+                className="card-3d-special bg-slate-50 rounded-3xl p-7 flex flex-col justify-between group hover:bg-white"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-4">
+                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b-2 border-slate-200">
                     <span className="font-mono text-xs font-black px-2.5 py-1 rounded-lg bg-navy-950 text-white">
                       0{idx + 1}
                     </span>
@@ -298,7 +339,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. KURIKULUM */}
+      {/* 7. KURIKULUM: 3 Progressive Milestone Slabs */}
       <section className="py-20 lg:py-24 bg-slate-100 border-b-2 border-slate-300">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
@@ -317,10 +358,10 @@ export default function HomePage() {
             {curriculumRoadmap.map((item) => (
               <div
                 key={item.number}
-                className="box-3d-bold bg-white rounded-3xl p-8 flex flex-col justify-between"
+                className="box-3d-special rounded-3xl p-8 flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-3 mb-6">
+                  <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b-2 border-slate-100">
                     <span className="font-mono text-3xl font-black text-navy-950">
                       {item.number}
                     </span>
@@ -337,7 +378,7 @@ export default function HomePage() {
                     {item.description}
                   </p>
 
-                  <div className="space-y-2.5 pt-4 border-t-2 border-slate-200">
+                  <div className="space-y-2.5 pt-4 border-t-2 border-slate-100">
                     <span className="text-[11px] font-black uppercase text-slate-700 block mb-2">
                       Rincian Modul:
                     </span>
@@ -353,7 +394,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-4 border-t-2 border-slate-200">
+                <div className="mt-8 pt-4 border-t-2 border-slate-100">
                   <Link
                     href="/kurikulum"
                     className="inline-flex items-center gap-1.5 text-xs font-black text-navy-950 hover:text-primary-800"
@@ -368,7 +409,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. KEUNGGULAN */}
+      {/* 8. KEUNGGULAN: Editorial Asymmetric Showcase */}
       <section className="py-20 lg:py-24 bg-white border-b-2 border-slate-300">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
@@ -387,10 +428,10 @@ export default function HomePage() {
             {keunggulan.map((k) => (
               <div
                 key={k.number}
-                className="card-3d-interactive p-8 rounded-3xl bg-slate-50 hover:bg-white flex flex-col justify-between"
+                className="card-3d-special p-8 rounded-3xl bg-slate-50 hover:bg-white flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center justify-between gap-3 mb-4 pb-3 border-b-2 border-slate-200">
                     <span className="font-mono text-xl font-black text-navy-950">
                       {k.number}
                     </span>
@@ -417,7 +458,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. LOKASI */}
+      {/* 9. LOKASI: Institutional Campus Console */}
       <section className="py-20 lg:py-24 bg-slate-100 border-b-2 border-slate-300">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">

@@ -9,6 +9,7 @@
   --primary-blue: #1D4F88;
   --vermilion: #C8102E;
   --bg-slate: #F8FAFC;
+  --border-bold: #CBD5E1;
 }
 
 @layer base {
@@ -26,176 +27,192 @@
 .perspective-1000 { perspective: 1000px; }
 .perspective-1200 { perspective: 1200px; }
 .perspective-1500 { perspective: 1500px; }
+.perspective-1800 { perspective: 1800px; }
 .preserve-3d { transform-style: preserve-3d; }
 .backface-hidden { backface-visibility: hidden; }
 
-/* KOTAK-KOTAK TEBAL, TEGAS, & JELAS DENGAN EKSTRUSI 3D PENUH */
-.box-3d-bold {
-  border-width: 3px !important;
-  border-color: #0B1B32 !important;
-  border-style: solid !important;
-  border-radius: 1.5rem;
-  background-color: #ffffff;
+/* Special UI: Kotak 3D Tebal Taktil & Eksklusif */
+.box-3d-special {
+  border-width: 2px;
+  border-color: #CBD5E1;
+  background-color: #FFFFFF;
   box-shadow: 
-    6px 6px 0px #0B1B32,
-    0 16px 28px -4px rgba(11, 27, 50, 0.15),
-    inset 0 2px 2px #ffffff;
+    0 8px 0 #94A3B8,
+    0 16px 28px -4px rgba(11, 27, 50, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
   position: relative;
 }
 
-.box-3d-bold:hover {
-  transform: translateY(-6px) translateZ(10px);
-  border-color: #C8102E !important;
-  box-shadow: 
-    8px 12px 0px #C8102E,
-    0 24px 36px -4px rgba(200, 16, 46, 0.25),
-    inset 0 2px 2px #ffffff;
-}
-
-/* KOTAK TEBAL VARIAN SLATE SOLID */
-.box-3d-solid {
-  border-width: 3px !important;
-  border-color: #1E293B !important;
-  border-radius: 1.5rem;
-  background-color: #ffffff;
-  box-shadow: 
-    5px 5px 0px #334155,
-    0 12px 24px -2px rgba(15, 23, 42, 0.12);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.box-3d-solid:hover {
+.box-3d-special:hover {
+  border-color: #0B1B32;
   transform: translateY(-5px);
   box-shadow: 
-    7px 10px 0px #0B1B32,
-    0 20px 30px -4px rgba(11, 27, 50, 0.22);
+    0 13px 0 #0B1B32,
+    0 24px 35px -6px rgba(11, 27, 50, 0.22),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
 }
 
-/* KOTAK TEBAL INTERAKTIF DENGAN TILT 3D 60FPS */
-.card-3d-interactive {
-  border-width: 3px !important;
-  border-color: #0B1B32 !important;
-  border-radius: 1.5rem;
-  background-color: #ffffff;
-  box-shadow: 
-    6px 6px 0px #0B1B32,
-    0 14px 24px -4px rgba(11, 27, 50, 0.12);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+/* Special UI: 3D Interactive Card (60FPS Hardware Accelerated) */
+.card-3d-special {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
   transform: perspective(1200px) translateZ(0);
   will-change: transform, box-shadow;
   position: relative;
-}
-
-.card-3d-interactive:hover {
-  transform: perspective(1200px) translateY(-8px) rotateX(3deg) rotateY(-2deg) scale(1.015);
-  border-color: #1D4F88 !important;
+  border-width: 2px;
+  border-color: #CBD5E1;
   box-shadow: 
-    8px 14px 0px #1D4F88,
-    0 28px 45px -8px rgba(29, 79, 136, 0.25);
+    0 8px 18px -3px rgba(11, 27, 50, 0.08),
+    0 4px 6px -2px rgba(11, 27, 50, 0.04),
+    inset 0 1px 1px #FFFFFF;
 }
 
-/* ROTASI & ANIMASI KUBUS 3D PENUH */
-@keyframes rotate3DCube {
+.card-3d-special::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0.3));
+  pointer-events: none;
+}
+
+.card-3d-special:hover {
+  transform: perspective(1200px) translateY(-8px) rotateX(3deg) rotateY(-2deg) scale(1.015);
+  border-color: #0B1B32;
+  box-shadow: 
+    0 28px 50px -10px rgba(11, 27, 50, 0.22),
+    0 12px 22px -4px rgba(11, 27, 50, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+}
+
+/* Special UI: Kotak Gelap Mewah 3D */
+.box-3d-dark {
+  border-width: 2px;
+  border-color: #1E293B;
+  background-color: #0B1B32;
+  box-shadow: 
+    0 8px 0 #060F1E,
+    0 20px 35px -6px rgba(6, 17, 34, 0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.15);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.box-3d-dark:hover {
+  border-color: #38BDF8;
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 0 #060F1E,
+    0 28px 45px -8px rgba(6, 17, 34, 0.65),
+    inset 0 1px 2px rgba(255, 255, 255, 0.25);
+}
+
+/* Special UI: Keyframe Animasi 3D Penuh */
+@keyframes float3DFull {
+  0%, 100% {
+    transform: perspective(1500px) translateY(0px) rotateX(5deg) rotateY(-6deg);
+  }
+  50% {
+    transform: perspective(1500px) translateY(-14px) rotateX(9deg) rotateY(-2deg);
+  }
+}
+
+@keyframes floatBadgeLeft {
+  0%, 100% {
+    transform: translateZ(75px) translateY(0px);
+  }
+  50% {
+    transform: translateZ(85px) translateY(-6px);
+  }
+}
+
+@keyframes floatBadgeRight {
+  0%, 100% {
+    transform: translateZ(85px) translateY(0px);
+  }
+  50% {
+    transform: translateZ(95px) translateY(6px);
+  }
+}
+
+@keyframes pulseGlow3D {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes shimmerSweep {
   0% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    background-position: -200% 0;
   }
   100% {
-    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    background-position: 200% 0;
   }
-}
-
-@keyframes floatHero3D {
-  0%, 100% {
-    transform: perspective(1400px) translateY(0px) rotateX(5deg) rotateY(-8deg);
-  }
-  50% {
-    transform: perspective(1400px) translateY(-16px) rotateX(10deg) rotateY(-2deg);
-  }
-}
-
-@keyframes floatBadge1 {
-  0%, 100% {
-    transform: translateZ(80px) translateY(0px) rotate(-1deg);
-  }
-  50% {
-    transform: translateZ(95px) translateY(-10px) rotate(1deg);
-  }
-}
-
-@keyframes floatBadge2 {
-  0%, 100% {
-    transform: translateZ(90px) translateY(0px) rotate(1deg);
-  }
-  50% {
-    transform: translateZ(105px) translateY(10px) rotate(-1deg);
-  }
-}
-
-@keyframes pulseGlowRing {
-  0%, 100% {
-    transform: scale(0.95);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.9;
-  }
-}
-
-.animate-rotate-3d-cube {
-  animation: rotate3DCube 20s linear infinite;
 }
 
 .animate-float-3d-full {
-  animation: floatHero3D 5.5s ease-in-out infinite;
+  animation: float3DFull 6s ease-in-out infinite;
 }
 
-.animate-float-badge-1 {
-  animation: floatBadge1 3.5s ease-in-out infinite;
+.animate-float-badge-left {
+  animation: floatBadgeLeft 4s ease-in-out infinite;
 }
 
-.animate-float-badge-2 {
-  animation: floatBadge2 4s ease-in-out infinite 0.4s;
+.animate-float-badge-right {
+  animation: floatBadgeRight 4.5s ease-in-out infinite 0.5s;
 }
 
-.animate-pulse-glow-ring {
-  animation: pulseGlowRing 4s ease-in-out infinite;
+.animate-pulse-glow-3d {
+  animation: pulseGlow3D 5s ease-in-out infinite;
 }
 
-/* KOTAK GRID JEPANG TEBAL & JELAS */
+.shimmer-badge {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmerSweep 3s infinite;
+}
+
+/* Background Grid Arsitektural Tebal dan Jelas */
 .bg-grid-japanese {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(11, 27, 50, 0.12) 2px, transparent 2px),
-    linear-gradient(to bottom, rgba(11, 27, 50, 0.12) 2px, transparent 2px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.08) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.08) 1.5px, transparent 1.5px);
 }
 
 .bg-dots-pattern {
-  background-image: radial-gradient(rgba(11, 27, 50, 0.25) 2px, transparent 2px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(11, 27, 50, 0.18) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
 }
 
-/* Custom Scrollbar */
+/* Smooth custom scrollbar */
 ::-webkit-scrollbar {
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #E2E8F0;
+  background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0B1B32;
+  background: #94A3B8;
   border-radius: 9999px;
-  border: 2px solid #E2E8F0;
+  border: 2px solid #F1F5F9;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C8102E;
+  background: #64748B;
 }
 
-/* Reduced Motion Override */
+/* Reduced Motion Override for Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
+  *,
+  ::before,
+  ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
