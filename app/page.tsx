@@ -126,13 +126,13 @@ export default function Home() {
               <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-8">Tentang Kami</h2>
               <div className="prose prose-lg text-slate-600 mb-10 max-w-none">
                 <p>
-                  <strong>{siteConfig.profileName}</strong> adalah Lembaga Pelatihan Kerja yang berkomitmen dalam menyiapkan, melatih dan mengirim peserta magang yang berkualitas dari Indonesia ke Jepang.
+                  <strong>{siteConfig.name}</strong> adalah Lembaga Pelatihan Kerja yang berkomitmen dalam menyiapkan, melatih dan mengirim peserta magang yang berkualitas dari Indonesia ke Jepang.
                 </p>
                 <p>
-                  Sebagai lembaga pelatihan kerja yang terdaftar secara resmi di Kementerian Ketenagakerjaan Republik Indonesia, {siteConfig.profileName} berfungsi untuk memberikan dukungan kepada para peserta yang mengikuti program pelatihan dan pemagangan.
+                  Sebagai lembaga pelatihan kerja yang terdaftar secara resmi di Kementerian Ketenagakerjaan Republik Indonesia, {siteConfig.name} berfungsi untuk memberikan dukungan kepada para peserta yang mengikuti program pelatihan dan pemagangan.
                 </p>
                 <p>
-                  Dengan pengalaman dan komitmen dalam pengembangan sumber daya manusia, {siteConfig.profileName} terus berinovasi dan berkembang untuk menjadi lembaga terdepan yang berfokus pada peningkatan sumber daya manusia Indonesia yang unggul, terampil dan mampu bersaing di pasar global.
+                  Dengan pengalaman dan komitmen dalam pengembangan sumber daya manusia, {siteConfig.name} terus berinovasi dan berkembang untuk menjadi lembaga terdepan yang berfokus pada peningkatan sumber daya manusia Indonesia yang unggul, terampil dan mampu bersaing di pasar global.
                 </p>
               </div>
             </div>
@@ -297,7 +297,7 @@ export default function Home() {
               </h2>
               <p className="text-xl text-slate-700 font-medium mb-4">Terdaftar di Kementerian Ketenagakerjaan Republik Indonesia</p>
               <p className="text-slate-600 leading-relaxed mb-8">
-                {siteConfig.profileName} merupakan lembaga pelatihan kerja yang terdaftar pada platform resmi Kementerian Ketenagakerjaan Republik Indonesia.
+                {siteConfig.name} merupakan lembaga pelatihan kerja yang terdaftar pada platform resmi Kementerian Ketenagakerjaan Republik Indonesia.
               </p>
               
               <a
@@ -343,7 +343,7 @@ export default function Home() {
                       </svg>
                    </div>
                    <div>
-                      <h3 className="font-bold text-slate-900 text-lg mb-2">{siteConfig.profileName}</h3>
+                      <h3 className="font-bold text-slate-900 text-lg mb-2">{siteConfig.name}</h3>
                       <p className="text-slate-600 leading-relaxed">
                          {siteConfig.address}
                       </p>
