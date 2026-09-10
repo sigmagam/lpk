@@ -1,5 +1,5 @@
 import { siteConfig } from "@/data/site";
-import { ShieldCheck, ExternalLink, CheckCircle2, FileText, Building2, MapPin } from "lucide-react";
+import { ShieldCheck, ExternalLink, CheckCircle2, FileText, Building2, MapPin, UserCheck, Calendar, Maximize2, Users, Mail, Phone } from "lucide-react";
 
 export default function DashboardLegalitasPage() {
   return (
@@ -17,7 +17,7 @@ export default function DashboardLegalitasPage() {
               Legalitas & Akreditasi Kementerian Ketenagakerjaan RI
             </h1>
             <p className="text-xs sm:text-sm text-slate-200 max-w-2xl font-normal">
-              LPK Panca Multiguna Sukses Karawang terdaftar resmi pada basis data mitra pelatihan kerja dan program pemagangan nasional.
+              LPK Panca Multiguna Sukses Karawang terdaftar resmi dengan Nomor VIN: <span className="font-mono font-black text-emerald-300">{siteConfig.vinNumber}</span>
             </p>
           </div>
 
@@ -35,58 +35,58 @@ export default function DashboardLegalitasPage() {
 
       {/* Institutional Details */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
-          <h2 className="font-heading font-black text-base text-navy-950 flex items-center gap-2">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-300 shadow-sm space-y-4">
+          <h2 className="font-heading font-black text-base text-navy-950 flex items-center gap-2 pb-2 border-b-2 border-slate-100">
             <Building2 className="w-5 h-5 text-primary-800" />
-            <span>Identitas Resmi Kelembagaan</span>
+            <span>Identitas Resmi Kelembagaan Kemnaker</span>
           </h2>
 
           <div className="space-y-3 text-xs">
-            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="p-3.5 rounded-xl bg-slate-50 border-2 border-slate-200">
               <span className="text-slate-700 font-bold block text-[11px] uppercase">
-                Nama Resmi Lembaga:
+                Nomor VIN (Verifikasi Kemnaker):
+              </span>
+              <span className="font-mono font-black text-emerald-800 text-base">
+                {siteConfig.vinNumber}
+              </span>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-slate-50 border-2 border-slate-200">
+              <span className="text-slate-700 font-bold block text-[11px] uppercase">
+                Pimpinan Lembaga:
               </span>
               <span className="font-black text-navy-950 text-sm">
-                LPK Panca Multiguna Sukses Karawang
+                {siteConfig.pimpinan}
               </span>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="p-3.5 rounded-xl bg-slate-50 border-2 border-slate-200">
               <span className="text-slate-700 font-bold block text-[11px] uppercase">
-                ID Mitra Skillhub:
+                Tahun Berdiri & Luas Area:
               </span>
-              <span className="font-mono font-bold text-slate-900 text-xs">
-                9300c90b-e49d-477f-b7e3-33828b0f9395
+              <span className="font-black text-navy-950 text-xs">
+                Tahun {siteConfig.tahunBerdiri} • Luas {siteConfig.luasArea}
               </span>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="p-3.5 rounded-xl bg-slate-50 border-2 border-slate-200">
               <span className="text-slate-700 font-bold block text-[11px] uppercase">
-                Katalog Program:
+                Jumlah Pegawai:
               </span>
-              <span className="font-mono text-slate-900 text-xs font-bold">
-                5e4a8242-f308-4cc4-a93d-1ced3ce86ea0
-              </span>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-              <span className="text-slate-700 font-bold block text-[11px] uppercase">
-                Kategori Pelatihan:
-              </span>
-              <span className="font-bold text-emerald-800 text-xs">
-                National Batch / Pelatihan Kerja & Magang
+              <span className="font-bold text-navy-950 text-xs">
+                {siteConfig.jumlahPegawai}
               </span>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
-          <h2 className="font-heading font-black text-base text-navy-950 flex items-center gap-2">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-300 shadow-sm space-y-4">
+          <h2 className="font-heading font-black text-base text-navy-950 flex items-center gap-2 pb-2 border-b-2 border-slate-100">
             <MapPin className="w-5 h-5 text-vermilion-600" />
-            <span>Domisili & Kedudukan Hukum</span>
+            <span>Domisili & Kontak Resmi</span>
           </h2>
 
-          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-800 leading-relaxed space-y-3 font-medium">
+          <div className="p-4 rounded-2xl bg-slate-50 border-2 border-slate-200 text-xs text-slate-800 leading-relaxed space-y-3 font-medium">
             <div>
               <span className="font-black text-navy-950 block mb-1">
                 Alamat Operasional:
@@ -94,19 +94,23 @@ export default function DashboardLegalitasPage() {
               <span>{siteConfig.address}</span>
             </div>
 
-            <div className="pt-2 border-t border-slate-200">
-              <span className="font-black text-navy-950 block mb-1">
-                Wilayah Kerja:
-              </span>
-              <span>Kabupaten Karawang, Provinsi Jawa Barat</span>
+            <div className="pt-2 border-t border-slate-200 space-y-1">
+              <div className="flex justify-between">
+                <span className="font-bold text-slate-700">Telepon / WA:</span>
+                <span className="font-mono font-bold text-navy-950">{siteConfig.phoneRaw}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="font-bold text-slate-700">Email:</span>
+                <span className="font-mono font-bold text-navy-950">{siteConfig.email}</span>
+              </div>
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-300 flex items-center gap-3 text-xs text-emerald-950 font-medium">
+          <div className="p-4 rounded-2xl bg-emerald-50 border-2 border-emerald-300 flex items-center gap-3 text-xs text-emerald-950 font-medium">
             <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0" />
             <div>
-              <span className="font-black block">Status Aktif & Sah</span>
-              <span>Seluruh dokumen terdaftar dan dapat ditinjau oleh publik secara transparan.</span>
+              <span className="font-black block">Terakreditasi & Aktif</span>
+              <span>Telah meluluskan sekitar 200 orang yang bekerja di berbagai perusahaan Jepang.</span>
             </div>
           </div>
         </div>

@@ -7,6 +7,8 @@ export const siteConfig = {
     "LPK Panca Multiguna Sukses Karawang adalah Lembaga Pelatihan Kerja yang berkomitmen dalam menyiapkan, melatih dan mengirim peserta magang yang berkualitas dari Indonesia ke Jepang melalui pembekalan bahasa, keterampilan kerja, kedisiplinan, serta pemahaman budaya dan etos kerja.",
   whatsapp: "https://wa.me/6285692923642",
   whatsappNumber: "+62 856-9292-3642",
+  phoneRaw: "085692923642",
+  email: "lpk.pms18@gmail.com",
   whatsappChannel: "https://whatsapp.com/channel/0029Vb6zaUsISTkPcksxFG0f",
   whatsappChannelLabel: "Channel Info Job PMS Pusat",
   instagram: "https://www.instagram.com/lpkpmskarawang",
@@ -17,6 +19,21 @@ export const siteConfig = {
   maps: "https://www.google.com/maps/search/?api=1&query=Jl.+Utama+Pesona+Cengkong+Asri+1+Blk.+C7+No.2-3,+Pancawati,+Kec.+Purwasari,+Karawang,+Jawa+Barat+41351",
   mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.4190861502447!2d107.36214531476985!3d-6.340051695412437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69774d0e513813%3A0xc1230e70a48b598b!2sPancawati%2C%20Kec.%20Purwasari%2C%20Karawang%2C%20Jawa%20Barat!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid",
   legalitasUrl: "https://skillhub.kemnaker.go.id/mitra/temukan-mitra/lpk-panca-multiguna-sukses-9300c90b-e49d-477f-b7e3-33828b0f9395/program?catalogue=5e4a8242-f308-4cc4-a93d-1ced3ce86ea0&training_category=national_batch",
+  vinNumber: "2001321506",
+  pimpinan: "YUSUF BACHTIAR, S.M",
+  tahunBerdiri: "2018",
+  luasArea: "300 M²",
+  jumlahPegawai: "5 Orang (3 Laki-laki, 2 Perempuan)",
+  sektorPotensial: [
+    "KONSTRUKSI",
+    "INDUSTRI PENGOLAHAN (MANUFAKTUR)",
+    "PERIKANAN",
+    "PETERNAKAN",
+    "PERKEBUNAN",
+    "PERTANIAN"
+  ],
+  deskripsiMitra:
+    "LPK Panca Multiguna Sukses adalah lembaga pelatihan kerja yang bergerak di bidang Pendidikan Bahasa Jepang. Telah berdiri sejak tahun 2018 sampai saat ini. LPK Panca Multiguna Sukses telah meluluskan sekitar 200 orang yang bekerja diberbagai perusahaan-perusahaan Jepang.",
   navLinks: [
     { label: "Beranda", href: "/" },
     { label: "Tentang Kami", href: "/tentang-kami" },
@@ -269,7 +286,7 @@ export const faqs = [
   {
     category: "Kelembagaan",
     question: "Apakah LPK Panca Multiguna Sukses Karawang terdaftar resmi?",
-    answer: "Tentu. LPK Panca Multiguna Sukses Karawang terdaftar secara resmi di Kementerian Ketenagakerjaan Republik Indonesia dan dapat diverifikasi melalui platform resmi Skillhub Kemnaker RI."
+    answer: "Tentu. LPK Panca Multiguna Sukses Karawang terdaftar secara resmi di Kementerian Ketenagakerjaan Republik Indonesia dengan Nomor VIN 2001321506 dan dapat diverifikasi melalui platform resmi Skillhub Kemnaker RI."
   },
   {
     category: "Program",
@@ -304,6 +321,6 @@ export const faqs = [
   {
     category: "Kontak",
     question: "Bagaimana cara menghubungi LPK dan melakukan pendaftaran?",
-    answer: "Anda dapat menghubungi tim admin kami langsung melalui WhatsApp di nomor +62 856-9292-3642 untuk konsultasi persyaratan dan informasi jadwal pelatihan."
+    answer: "Anda dapat menghubungi tim admin kami langsung melalui WhatsApp di nomor 085692923642 (+62 856-9292-3642) atau email lpk.pms18@gmail.com untuk konsultasi persyaratan dan informasi jadwal pelatihan."
   }
 ];
