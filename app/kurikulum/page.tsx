@@ -25,7 +25,17 @@ export default function KurikulumPage() {
                </div>
                <div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-3 uppercase tracking-wide">{roadmap.title}</h3>
-                  <p className="text-slate-600 text-lg leading-relaxed">{roadmap.description}</p>
+                  <p className="text-slate-600 text-lg leading-relaxed mb-4">{roadmap.description}</p>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                     {roadmap.details?.map((detail, dIdx) => (
+                        <li key={dIdx} className="flex items-start gap-3 text-slate-700">
+                           <svg className="w-5 h-5 text-accent-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                           </svg>
+                           <span className="leading-snug">{detail}</span>
+                        </li>
+                     ))}
+                  </ul>
                </div>
             </div>
           ))}

@@ -1,17 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/data/site";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
+const plusJakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: '--font-plus-jakarta' });
 
 export const metadata: Metadata = {
   title: "LPK Panca Multiguna Sukses Karawang | Pelatihan Kerja ke Jepang",
   description:
-    "LPK Panca Multiguna Sukses Karawang adalah Lembaga Pelatihan Kerja yang membantu mempersiapkan peserta melalui pelatihan bahasa Jepang, keterampilan kerja, budaya Jepang, dan persiapan pemagangan ke Jepang.",
+    "LPK Panca Multiguna Sukses Karawang merupakan Lembaga Pelatihan Kerja yang mempersiapkan peserta melalui pelatihan bahasa Jepang, keterampilan kerja, kedisiplinan, budaya Jepang, dan persiapan pemagangan.",
   openGraph: {
     title: "LPK Panca Multiguna Sukses Karawang",
     description: "Persiapkan kemampuan bahasa, keterampilan kerja, dan kesiapan menghadapi dunia kerja di Jepang bersama LPK Panca Multiguna Sukses Karawang.",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1e3a8a", // deep blue/navy
+  themeColor: "#123B70", // deep navy
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -32,11 +33,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className="scroll-smooth">
+    <html lang="id" className={`scroll-smooth ${inter.variable} ${plusJakarta.variable}`}>
       <head>
         <link rel="icon" href="/images/logo.png" />
       </head>
-      <body className={`${inter.className} text-slate-800 bg-white antialiased overflow-x-hidden flex flex-col min-h-screen`}>
+      <body className="font-sans text-slate-800 bg-white antialiased overflow-x-hidden flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow pt-[72px] lg:pt-20">{children}</main>
         <CTA />

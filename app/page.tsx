@@ -363,15 +363,21 @@ export default function Home() {
              </div>
              
              <div className="w-full lg:w-1/2">
-                <div className="aspect-[4/3] rounded-3xl bg-slate-100 border border-slate-200 shadow-inner flex items-center justify-center overflow-hidden relative">
-                   <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#94a3b8_1px,transparent_1px)] [background-size:20px_20px]"></div>
-                   <div className="text-slate-500 flex flex-col items-center relative z-10">
-                      <svg className="w-12 h-12 mb-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                      </svg>
-                      <span>Interactive Map Preview</span>
-                   </div>
+                <div className="w-full lg:w-1/2">
+                <div className="aspect-[4/3] sm:aspect-[16/9] lg:aspect-[4/3] rounded-3xl overflow-hidden relative shadow-lg bg-slate-200">
+                   {/* TODO: pasang iframe Google Maps embed di sini */}
+                   <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.4190861502447!2d107.36214531476985!3d-6.340051695412437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69774d0e513813%3A0xc1230e70a48b598b!2sPancawati%2C%20Kec.%20Purwasari%2C%20Karawang%2C%20Jawa%20Barat!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid" 
+                      width="100%" 
+                      height="100%" 
+                      style={{ border: 0 }} 
+                      allowFullScreen={true} 
+                      loading="lazy" 
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="absolute inset-0"
+                   ></iframe>
                 </div>
+             </div>
              </div>
           </div>
         </div>

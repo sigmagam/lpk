@@ -18,9 +18,9 @@ export default function Footer() {
                 height={48} 
                 className="h-12 w-12 brightness-0 invert opacity-90 object-contain" 
               />
-              <span className="font-bold text-white tracking-tight leading-tight text-lg">
-                LPK Panca Multiguna<br/>
-                <span className="text-sm font-normal text-slate-400">Sukses Karawang</span>
+              <span className="font-bold text-white tracking-tight leading-tight text-lg sm:whitespace-nowrap">
+                LPK Panca Multiguna Sukses<br/>
+                <span className="text-base font-normal text-slate-400">Karawang</span>
               </span>
             </Link>
             <p className="text-sm leading-relaxed text-slate-400">
