@@ -36,30 +36,30 @@ export default function DashboardOverviewPage() {
         <div className="absolute inset-0 bg-grid-japanese opacity-10 pointer-events-none" />
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
-              <ShieldCheck className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-black">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
               <span>Pusat Monitoring Resmi LPK PMS Karawang</span>
             </div>
-            <h1 className="font-heading font-extrabold text-2xl sm:text-3xl tracking-tight text-white">
+            <h1 className="font-heading font-black text-2xl sm:text-3xl tracking-tight text-white">
               Dashboard Informasi & Progres Peserta
             </h1>
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal">
               Memantau daftar peserta pelatihan kerja, batch aktif, pencapaian sertifikasi JLPT/SSW, dan kesiapan wawancara kerja ke Jepang.
             </p>
-            <div className="flex items-center gap-3 text-xs text-slate-400 pt-1">
+            <div className="flex items-center gap-3 text-xs text-slate-300 pt-1 font-medium">
               <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-primary-400" />
+                <MapPin className="w-3.5 h-3.5 text-primary-300" />
                 Pancawati, Purwasari, Karawang
               </span>
               <span>•</span>
-              <span className="text-slate-400">Sinkronisasi: {dashboardMetrics.lastSync}</span>
+              <span className="text-slate-300">Sinkronisasi: {dashboardMetrics.lastSync}</span>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 shrink-0">
             <Link
               href="/program"
-              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-navy-800 hover:bg-navy-700 text-slate-200 text-xs font-semibold border border-navy-700 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-navy-800 hover:bg-navy-700 text-white text-xs font-bold border border-navy-600 transition-colors"
             >
               <BookOpen className="w-4 h-4 text-primary-300" />
               <span>Lihat Detail Program</span>
@@ -68,7 +68,7 @@ export default function DashboardOverviewPage() {
               href={siteConfig.legalitasUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-navy-900 hover:bg-navy-800 text-slate-200 text-xs font-semibold border border-navy-700 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold border border-navy-700 transition-colors"
             >
               <span>Portal Skillhub Kemnaker</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -130,21 +130,21 @@ export default function DashboardOverviewPage() {
 
           {/* Institutional Contact Card */}
           <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
-            <h3 className="font-heading font-bold text-sm text-navy-950 uppercase tracking-wide pb-2 border-b border-slate-100">
+            <h3 className="font-heading font-black text-sm text-navy-950 uppercase tracking-wide pb-2 border-b border-slate-200">
               Pusat Verifikasi Dokumen LPK
             </h3>
-            <div className="space-y-2 text-xs text-slate-600">
+            <div className="space-y-2 text-xs text-slate-800 font-medium">
               <div className="flex justify-between">
-                <span className="text-slate-600">ID Mitra Kemnaker:</span>
-                <span className="font-mono text-navy-950 font-semibold">9300c90b</span>
+                <span className="text-slate-700">ID Mitra Kemnaker:</span>
+                <span className="font-mono text-navy-950 font-bold">9300c90b</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-600">WhatsApp Resmi:</span>
-                <span className="font-semibold text-emerald-700">{siteConfig.whatsappNumber}</span>
+                <span className="text-slate-700">WhatsApp Resmi:</span>
+                <span className="font-bold text-emerald-800">{siteConfig.whatsappNumber}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-600">Lokasi:</span>
-                <span className="font-semibold text-navy-950">Karawang, Jawa Barat</span>
+                <span className="text-slate-700">Lokasi:</span>
+                <span className="font-bold text-navy-950">Karawang, Jawa Barat</span>
               </div>
             </div>
 
@@ -153,7 +153,7 @@ export default function DashboardOverviewPage() {
                 href={siteConfig.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition-colors"
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-sm transition-colors"
               >
                 <span>Buka WhatsApp Layanan Siswa</span>
               </a>

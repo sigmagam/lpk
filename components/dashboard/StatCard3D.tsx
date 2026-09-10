@@ -23,10 +23,10 @@ export default function StatCard3D({
   const [isHovered, setIsHovered] = useState(false);
 
   const badgeClasses = {
-    success: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    warning: "bg-amber-50 text-amber-700 border-amber-200",
-    info: "bg-primary-50 text-primary-700 border-primary-200",
-    neutral: "bg-slate-100 text-slate-700 border-slate-200",
+    success: "bg-emerald-100 text-emerald-950 border-emerald-300",
+    warning: "bg-amber-100 text-amber-950 border-amber-300",
+    info: "bg-primary-100 text-primary-950 border-primary-300",
+    neutral: "bg-slate-200 text-slate-900 border-slate-300",
   };
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
@@ -61,25 +61,25 @@ export default function StatCard3D({
     >
       {/* Top row: Label & 3D Embossed Icon */}
       <div className="flex items-center justify-between gap-3 mb-3">
-        <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+        <span className="text-xs font-black uppercase tracking-wider text-slate-700">
           {label}
         </span>
-        <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/90 flex items-center justify-center text-navy-900 group-hover:bg-primary-50 group-hover:text-primary-700 transition-colors shrink-0 shadow-sm">
+        <div className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-300 flex items-center justify-center text-navy-950 group-hover:bg-primary-100 group-hover:text-primary-900 transition-colors shrink-0 shadow-sm">
           {icon}
         </div>
       </div>
 
       {/* Main Metric Value */}
-      <div className="text-2xl sm:text-3xl font-heading font-extrabold text-navy-950 tracking-tight mb-2">
+      <div className="text-2xl sm:text-3xl font-heading font-black text-navy-950 tracking-tight mb-2">
         {value}
       </div>
 
       {/* Footer Info & Badge */}
-      <div className="flex items-center justify-between gap-2 pt-2 border-t border-slate-100 text-xs text-slate-500">
+      <div className="flex items-center justify-between gap-2 pt-2 border-t border-slate-200 text-xs text-slate-700 font-medium">
         <span className="truncate">{subtext}</span>
         {badge && (
           <span
-            className={`px-2 py-0.5 rounded-full text-[10px] font-bold border shrink-0 ${badgeClasses[badgeType]}`}
+            className={`px-2.5 py-0.5 rounded-full text-[10px] font-black border shrink-0 ${badgeClasses[badgeType]}`}
           >
             {badge}
           </span>

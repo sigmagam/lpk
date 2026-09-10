@@ -5,19 +5,19 @@ import { ShieldCheck, MapPin, Phone, ExternalLink, ArrowRight, Eye, BellRing } f
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-950 text-slate-300 border-t border-navy-900">
+    <footer className="bg-navy-950 text-slate-100 border-t border-navy-800">
       {/* Top Credential Reassurance Strip */}
-      <div className="border-b border-navy-900/80 bg-navy-900/40 py-6">
+      <div className="border-b border-navy-900 bg-navy-900/60 py-6">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-sm">
-            <span className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-              <ShieldCheck className="w-5 h-5" />
+            <span className="p-2 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-400/40">
+              <ShieldCheck className="w-5 h-5 text-emerald-300" />
             </span>
             <div>
-              <div className="font-semibold text-white">
+              <div className="font-bold text-white text-base">
                 Lembaga Pelatihan Kerja Terverifikasi Resmi
               </div>
-              <div className="text-xs text-slate-400">
+              <div className="text-xs text-slate-300 font-medium">
                 Terdaftar resmi pada platform Kementerian Ketenagakerjaan Republik Indonesia (Kemnaker RI)
               </div>
             </div>
@@ -26,7 +26,7 @@ export default function Footer() {
             href={siteConfig.legalitasUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-200 hover:text-white text-xs font-semibold border border-navy-700 transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-navy-800 hover:bg-navy-700 text-white text-xs font-bold border border-navy-600 transition-colors"
           >
             <span>Verifikasi Legalitas Kemnaker</span>
             <ExternalLink className="w-3.5 h-3.5" />
@@ -40,7 +40,7 @@ export default function Footer() {
           {/* Col 1: Identity & Description (4 cols) */}
           <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="flex items-center gap-3.5">
-              <div className="w-12 h-12 bg-white rounded-xl p-1.5 shadow-sm border border-slate-200 flex items-center justify-center">
+              <div className="w-12 h-12 bg-white rounded-xl p-1.5 shadow-sm border border-slate-300 flex items-center justify-center">
                 <Image
                   src="/images/logo.png"
                   alt="Logo LPK Panca Multiguna Sukses Karawang"
@@ -50,34 +50,34 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <div className="font-heading font-extrabold text-white text-base leading-tight uppercase tracking-tight">
+                <div className="font-heading font-black text-white text-base leading-tight uppercase tracking-tight">
                   LPK Panca Multiguna Sukses
                 </div>
-                <div className="text-xs font-medium text-slate-400 uppercase tracking-wider">
+                <div className="text-xs font-bold text-slate-300 uppercase tracking-wider">
                   Karawang, Jawa Barat
                 </div>
               </div>
             </Link>
 
-            <p className="text-sm leading-relaxed text-slate-400">
+            <p className="text-sm leading-relaxed text-slate-200">
               Lembaga Pelatihan Kerja yang berkomitmen dalam menyiapkan sumber daya manusia Indonesia yang unggul, terampil, disiplin, dan mampu bersaing di pasar global.
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
                 href="/dashboard"
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-navy-900 hover:bg-navy-800 text-primary-300 text-xs font-semibold border border-navy-800 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold border border-navy-700 transition-colors"
               >
-                <Eye className="w-4 h-4 text-primary-400" />
+                <Eye className="w-4 h-4 text-primary-300" />
                 <span>Dashboard Informasi Siswa</span>
               </Link>
               <a
                 href={siteConfig.whatsappChannel}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-emerald-950 hover:bg-emerald-900 text-emerald-300 text-xs font-semibold border border-emerald-800 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-900 hover:bg-emerald-800 text-emerald-200 text-xs font-bold border border-emerald-700 transition-colors"
               >
-                <BellRing className="w-4 h-4 text-emerald-400" />
+                <BellRing className="w-4 h-4 text-emerald-300" />
                 <span>Channel Info Job PMS</span>
               </a>
             </div>
@@ -85,7 +85,7 @@ export default function Footer() {
 
           {/* Col 2: Navigasi (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-black uppercase tracking-wider text-white">
               Navigasi
             </h3>
             <ul className="space-y-2.5">
@@ -93,9 +93,9 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-xs font-medium text-slate-400 hover:text-white transition-colors inline-flex items-center gap-1 group"
+                    className="text-xs font-semibold text-slate-300 hover:text-white transition-colors inline-flex items-center gap-1 group"
                   >
-                    <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-vermilion-500" />
+                    <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-vermilion-400" />
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -105,7 +105,7 @@ export default function Footer() {
 
           {/* Col 3: Program Pelatihan (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-black uppercase tracking-wider text-white">
               Program Pelatihan
             </h3>
             <ul className="space-y-2.5">
@@ -113,7 +113,7 @@ export default function Footer() {
                 <li key={p.label}>
                   <Link
                     href={p.href}
-                    className="text-xs font-medium text-slate-400 hover:text-white transition-colors block leading-relaxed"
+                    className="text-xs font-semibold text-slate-300 hover:text-white transition-colors block leading-relaxed"
                   >
                     {p.label}
                   </Link>
@@ -124,13 +124,13 @@ export default function Footer() {
 
           {/* Col 4: Alamat & Kontak Resmi (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-black uppercase tracking-wider text-white">
               Alamat & Narahubung
             </h3>
             <ul className="space-y-4 text-xs">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
-                <span className="text-slate-300 leading-relaxed">
+                <MapPin className="w-4 h-4 text-vermilion-400 shrink-0 mt-0.5" />
+                <span className="text-slate-200 leading-relaxed font-medium">
                   {siteConfig.address}
                 </span>
               </li>
@@ -140,7 +140,7 @@ export default function Footer() {
                   href={siteConfig.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-300 hover:text-white font-medium transition-colors"
+                  className="text-slate-100 hover:text-white font-bold transition-colors"
                 >
                   {siteConfig.whatsappNumber} (WhatsApp)
                 </a>
@@ -148,7 +148,7 @@ export default function Footer() {
               <li className="pt-2">
                 <Link
                   href="/lokasi"
-                  className="inline-flex items-center gap-1.5 text-xs text-primary-400 hover:text-primary-300 font-semibold"
+                  className="inline-flex items-center gap-1.5 text-xs text-primary-300 hover:text-primary-200 font-bold"
                 >
                   <span>Lihat Petunjuk Lokasi & Peta</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -159,18 +159,18 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright */}
-        <div className="mt-14 pt-8 border-t border-navy-900/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>
+        <div className="mt-14 pt-8 border-t border-navy-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <p className="font-medium">
             &copy; 2026 LPK Panca Multiguna Sukses Karawang. Seluruh hak cipta dilindungi. (lpkpms.my.id)
           </p>
-          <div className="flex items-center gap-6">
-            <Link href="/legalitas" className="hover:text-slate-300 transition-colors">
+          <div className="flex items-center gap-6 font-semibold text-slate-300">
+            <Link href="/legalitas" className="hover:text-white transition-colors">
               Status Legalitas
             </Link>
-            <Link href="/faq" className="hover:text-slate-300 transition-colors">
+            <Link href="/faq" className="hover:text-white transition-colors">
               Pusat FAQ
             </Link>
-            <Link href="/kontak" className="hover:text-slate-300 transition-colors">
+            <Link href="/kontak" className="hover:text-white transition-colors">
               Hubungi Lembaga
             </Link>
           </div>

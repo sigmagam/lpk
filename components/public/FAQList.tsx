@@ -31,10 +31,10 @@ export default function FAQList({ items }: { items: FAQItem[] }) {
               setActiveCategory(cat);
               setOpenIndex(null);
             }}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
+            className={`px-4 py-2 rounded-xl text-xs font-black transition-all whitespace-nowrap ${
               activeCategory === cat
                 ? "bg-navy-950 text-white shadow-sm"
-                : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
+                : "bg-white text-slate-800 hover:bg-slate-100 border border-slate-300"
             }`}
           >
             {cat}
@@ -50,7 +50,7 @@ export default function FAQList({ items }: { items: FAQItem[] }) {
             <div
               key={index}
               className={`rounded-2xl border transition-all duration-200 overflow-hidden bg-white ${
-                isOpen ? "border-navy-950 shadow-md ring-1 ring-navy-950/10" : "border-slate-200 shadow-sm"
+                isOpen ? "border-navy-950 shadow-md ring-1 ring-navy-950/20" : "border-slate-300 shadow-sm"
               }`}
             >
               <h3>
@@ -61,17 +61,17 @@ export default function FAQList({ items }: { items: FAQItem[] }) {
                   aria-expanded={isOpen}
                 >
                   <div className="space-y-1">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-primary-700 block">
+                    <span className="text-xs font-black uppercase tracking-wider text-primary-800 block">
                       {item.category}
                     </span>
-                    <span className="text-sm sm:text-base font-heading font-bold text-navy-950 block">
+                    <span className="text-sm sm:text-base font-heading font-black text-navy-950 block">
                       {item.question}
                     </span>
                   </div>
 
                   <span
                     className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
-                      isOpen ? "bg-navy-950 text-white rotate-180" : "bg-slate-100 text-slate-500"
+                      isOpen ? "bg-navy-950 text-white rotate-180" : "bg-slate-100 text-slate-700"
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -80,7 +80,7 @@ export default function FAQList({ items }: { items: FAQItem[] }) {
               </h3>
 
               {isOpen && (
-                <div className="px-5 sm:px-6 pb-6 pt-2 border-t border-slate-100 text-xs sm:text-sm text-slate-700 leading-relaxed animate-fade-up">
+                <div className="px-5 sm:px-6 pb-6 pt-2 border-t border-slate-200 text-xs sm:text-sm text-slate-800 leading-relaxed font-normal animate-fade-up">
                   {item.answer}
                 </div>
               )}

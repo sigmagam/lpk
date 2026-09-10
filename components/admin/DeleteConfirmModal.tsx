@@ -28,28 +28,28 @@ export default function DeleteConfirmModal({
       />
 
       <div className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden z-10 animate-fade-up p-6">
-        <div className="w-12 h-12 rounded-2xl bg-red-100 text-red-600 flex items-center justify-center mb-4">
+        <div className="w-12 h-12 rounded-2xl bg-red-100 text-red-700 flex items-center justify-center mb-4">
           <AlertTriangle className="w-6 h-6" />
         </div>
 
-        <h3 className="font-heading font-extrabold text-navy-950 text-lg mb-2">
+        <h3 className="font-heading font-black text-navy-950 text-lg mb-2">
           Hapus Data Peserta?
         </h3>
 
-        <p className="text-xs text-slate-600 leading-relaxed mb-4">
+        <p className="text-xs text-slate-700 leading-relaxed mb-4 font-medium">
           Apakah Anda yakin ingin menghapus data peserta{" "}
-          <span className="font-bold text-navy-950">{peserta.name}</span> (
-          <span className="font-mono">{peserta.code}</span>)? Tindakan ini akan menghapus peserta dari sistem admin dan monitoring dashboard.
+          <span className="font-black text-navy-950">{peserta.name}</span> (
+          <span className="font-mono font-bold">{peserta.code}</span>)? Tindakan ini akan menghapus peserta dari sistem admin dan monitoring dashboard.
         </p>
 
         <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1 mb-6">
-          <div className="flex justify-between text-slate-500">
-            <span>Program:</span>
-            <span className="font-semibold text-slate-800">{peserta.program}</span>
+          <div className="flex justify-between text-slate-700">
+            <span className="font-medium">Program:</span>
+            <span className="font-bold text-slate-900">{peserta.program}</span>
           </div>
-          <div className="flex justify-between text-slate-500">
-            <span>Status:</span>
-            <span className="font-semibold text-slate-800">{peserta.status}</span>
+          <div className="flex justify-between text-slate-700">
+            <span className="font-medium">Status:</span>
+            <span className="font-bold text-slate-900">{peserta.status}</span>
           </div>
         </div>
 
@@ -57,7 +57,7 @@ export default function DeleteConfirmModal({
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-colors"
+            className="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
           >
             Batal
           </button>

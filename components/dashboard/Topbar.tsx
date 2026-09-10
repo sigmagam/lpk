@@ -41,17 +41,17 @@ export default function Topbar({
           <button
             type="button"
             onClick={onToggleSidebar}
-            className="p-2 rounded-lg text-slate-600 hover:text-navy-950 hover:bg-slate-100 lg:hidden"
+            className="p-2 rounded-lg text-slate-800 hover:text-navy-950 hover:bg-slate-100 lg:hidden border border-slate-300"
             aria-label="Buka navigasi sidebar"
           >
             <Menu className="w-5 h-5" />
           </button>
 
           <div>
-            <h1 className="font-heading font-extrabold text-navy-950 text-base sm:text-lg leading-tight tracking-tight">
+            <h1 className="font-heading font-black text-navy-950 text-base sm:text-lg leading-tight tracking-tight">
               {title}
             </h1>
-            <p className="text-xs text-slate-500 hidden sm:block">
+            <p className="text-xs text-slate-700 font-medium hidden sm:block">
               {subtitle}
             </p>
           </div>
@@ -59,17 +59,17 @@ export default function Topbar({
 
         {/* Right: Verified Status & Date */}
         <div className="flex items-center gap-3">
-          <div className="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+          <div className="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-bold">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
             <span>Kemnaker RI Verified</span>
           </div>
 
           <div className="hidden xl:block text-right">
-            <div className="text-xs font-semibold text-slate-700">{currentDate}</div>
-            <div className="text-[10px] text-slate-400 font-medium">Karawang, Jawa Barat</div>
+            <div className="text-xs font-bold text-slate-900">{currentDate}</div>
+            <div className="text-[11px] text-slate-600 font-medium">Karawang, Jawa Barat</div>
           </div>
 
-          <span className="px-2.5 py-1 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold border border-slate-200">
+          <span className="px-3 py-1 rounded-xl bg-slate-100 text-slate-900 text-xs font-bold border border-slate-300">
             Mode Pemantauan
           </span>
         </div>

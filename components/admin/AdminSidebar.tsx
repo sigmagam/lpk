@@ -63,7 +63,7 @@ export default function AdminSidebar({ isOpen, onClose, onOpenAddModal }: AdminS
       {/* Mobile Backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-navy-950/60 backdrop-blur-sm z-40 lg:hidden"
+          className="fixed inset-0 bg-navy-950/70 backdrop-blur-sm z-40 lg:hidden"
           onClick={onClose}
           aria-hidden="true"
         />
@@ -71,14 +71,14 @@ export default function AdminSidebar({ isOpen, onClose, onOpenAddModal }: AdminS
 
       {/* Admin Sidebar Container */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 w-72 bg-[#081220] text-slate-300 border-r border-navy-900 flex flex-col transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+        className={`fixed top-0 bottom-0 left-0 z-50 w-72 bg-[#081220] text-slate-100 border-r border-navy-800 flex flex-col transition-transform duration-300 ease-in-out lg:translate-x-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Brand & Admin Authority Header */}
-        <div className="p-5 border-b border-navy-900 flex items-center justify-between bg-navy-950">
+        <div className="p-5 border-b border-navy-800 flex items-center justify-between bg-navy-950">
           <Link href="/yusuf" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white rounded-xl p-1 shadow-md flex items-center justify-center shrink-0 border border-vermilion-500/30">
+            <div className="w-10 h-10 bg-white rounded-xl p-1 shadow-md flex items-center justify-center shrink-0 border border-slate-300">
               <Image
                 src="/images/logo.png"
                 alt="Logo LPK PMS Karawang"
@@ -89,14 +89,14 @@ export default function AdminSidebar({ isOpen, onClose, onOpenAddModal }: AdminS
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="font-heading font-extrabold text-white text-xs tracking-tight uppercase">
+                <span className="font-heading font-black text-white text-xs tracking-tight uppercase">
                   Panel Yusuf
                 </span>
-                <span className="px-1.5 py-0.2 rounded bg-vermilion-600 text-[9px] font-bold text-white uppercase tracking-wider">
+                <span className="px-1.5 py-0.2 rounded bg-vermilion-600 text-[9px] font-black text-white uppercase tracking-wider">
                   Admin
                 </span>
               </div>
-              <div className="text-[10px] text-primary-300 font-semibold tracking-wider uppercase mt-0.5">
+              <div className="text-[10px] text-primary-200 font-bold tracking-wider uppercase mt-0.5">
                 Otoritas Kelola Data LPK
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function AdminSidebar({ isOpen, onClose, onOpenAddModal }: AdminS
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-navy-900 lg:hidden"
+            className="p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-navy-900 lg:hidden"
             aria-label="Tutup sidebar"
           >
             <X className="w-5 h-5" />
@@ -114,7 +114,7 @@ export default function AdminSidebar({ isOpen, onClose, onOpenAddModal }: AdminS
 
         {/* Admin Quick Action Button */}
         {onOpenAddModal && (
-          <div className="p-3.5 border-b border-navy-900/80 bg-navy-900/30">
+          <div className="p-3.5 border-b border-navy-800 bg-navy-900/40">
             <button
               type="button"
               onClick={() => {
@@ -133,7 +133,7 @@ export default function AdminSidebar({ isOpen, onClose, onOpenAddModal }: AdminS
         <nav className="flex-1 overflow-y-auto px-3.5 py-4 space-y-6" aria-label="Menu Admin Yusuf">
           {menuGroups.map((group) => (
             <div key={group.group} className="space-y-1">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 pb-1">
+              <div className="text-[11px] font-black uppercase tracking-wider text-slate-400 px-3 pb-1">
                 {group.group}
               </div>
               {group.items.map((item) => {
@@ -144,10 +144,10 @@ export default function AdminSidebar({ isOpen, onClose, onOpenAddModal }: AdminS
                     key={item.href}
                     href={item.href}
                     onClick={onClose}
-                    className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-all group ${
+                    className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all group ${
                       isActive
                         ? "bg-primary-700 text-white shadow-md shadow-primary-950/50"
-                        : "text-slate-300 hover:bg-navy-900/90 hover:text-white"
+                        : "text-slate-200 hover:bg-navy-900 hover:text-white"
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -155,7 +155,7 @@ export default function AdminSidebar({ isOpen, onClose, onOpenAddModal }: AdminS
                         className={`w-4 h-4 transition-colors ${
                           isActive
                             ? "text-white"
-                            : "text-slate-400 group-hover:text-primary-300"
+                            : "text-slate-300 group-hover:text-primary-300"
                         }`}
                       />
                       <span>{item.label}</span>
@@ -163,11 +163,11 @@ export default function AdminSidebar({ isOpen, onClose, onOpenAddModal }: AdminS
 
                     <div className="flex items-center gap-1.5">
                       {item.badge && (
-                        <span className="px-1.5 py-0.5 rounded-md text-[9px] font-bold bg-navy-900 text-vermilion-400 border border-navy-800">
+                        <span className="px-2 py-0.5 rounded-md text-[9px] font-black bg-navy-900 text-vermilion-300 border border-navy-700">
                           {item.badge}
                         </span>
                       )}
-                      {isActive && <ChevronRight className="w-3.5 h-3.5 opacity-80" />}
+                      {isActive && <ChevronRight className="w-3.5 h-3.5 opacity-90" />}
                     </div>
                   </Link>
                 );
@@ -177,15 +177,15 @@ export default function AdminSidebar({ isOpen, onClose, onOpenAddModal }: AdminS
         </nav>
 
         {/* Footer info: Admin status */}
-        <div className="p-4 border-t border-navy-900 bg-navy-950 space-y-2">
-          <div className="flex items-center justify-between text-[11px] text-slate-400">
+        <div className="p-4 border-t border-navy-800 bg-navy-950 space-y-2">
+          <div className="flex items-center justify-between text-xs text-slate-300 font-medium">
             <span className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Admin: Yusuf</span>
+              <span className="text-white font-bold">Admin: Yusuf</span>
             </span>
-            <span className="text-[10px] text-slate-400 font-mono">domain/yusuf</span>
+            <span className="text-[11px] text-slate-300 font-mono font-bold">domain/yusuf</span>
           </div>
-          <div className="text-[10px] text-slate-400 leading-tight">
+          <div className="text-[11px] text-slate-400 leading-tight">
             Mode kelola: Tambah, Ubah, & Hapus data peserta magang aktif.
           </div>
         </div>

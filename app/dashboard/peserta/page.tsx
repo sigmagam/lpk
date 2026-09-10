@@ -39,15 +39,15 @@ export default function DashboardPesertaPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-[10px] font-bold">
+            <span className="px-2.5 py-0.5 rounded bg-slate-100 text-slate-900 text-[11px] font-black border border-slate-300">
               Monitoring Siswa
             </span>
-            <span className="text-xs text-slate-400">• Tampilan Publik</span>
+            <span className="text-xs text-slate-700 font-bold">• Tampilan Publik</span>
           </div>
-          <h1 className="font-heading font-extrabold text-xl sm:text-2xl text-navy-950">
+          <h1 className="font-heading font-black text-xl sm:text-2xl text-navy-950">
             Daftar Nama Peserta Pelatihan Kerja
           </h1>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs sm:text-sm text-slate-700 mt-1 font-medium">
             Memantau nama-nama siswa, program pelatihan, target tingkat bahasa, serta perkembangan tahapan menuju Kaisha di Jepang.
           </p>
         </div>
@@ -56,9 +56,9 @@ export default function DashboardPesertaPage() {
           <button
             type="button"
             onClick={handleExportCSV}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold shadow-sm transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-900 text-xs font-bold shadow-sm transition-colors"
           >
-            <Download className="w-4 h-4 text-slate-500" />
+            <Download className="w-4 h-4 text-slate-700" />
             <span>Unduh Rekap Peserta (CSV)</span>
           </button>
         </div>
