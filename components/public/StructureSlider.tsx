@@ -24,7 +24,6 @@ export default function StructureSlider() {
     resetTimer();
   };
 
-  // Fungsi untuk me-reset timer dan memastikan auto-slide selalu berputar per 3 detik
   const resetTimer = useCallback(() => {
     if (timerRef.current) {
       clearInterval(timerRef.current);
@@ -34,7 +33,6 @@ export default function StructureSlider() {
     }, 3000);
   }, [totalSlides]);
 
-  // Efek inisialisasi auto-play terus menerus
   useEffect(() => {
     resetTimer();
     return () => {
@@ -52,7 +50,6 @@ export default function StructureSlider() {
     resetTimer();
   };
 
-  // Dukungan touch swipe pada layar sentuh mobile
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -69,14 +66,17 @@ export default function StructureSlider() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-10 sm:py-16 border-b border-navy-900">
+    <section className="relative overflow-hidden bg-slate-950 py-10 sm:py-16 border-b-[3px] border-[#0B1B32]">
       {/* Background Architectural Grid Pattern */}
-      <div className="absolute inset-0 bg-grid-japanese opacity-15 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-japanese opacity-25 pointer-events-none" />
 
       <div className="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-        {/* Full Image Carousel Frame */}
+        {/* Full Image Carousel Frame (Kotak Tebal 3D Jelas) */}
         <div
-          className="relative mx-auto max-w-5xl rounded-3xl overflow-hidden shadow-2xl border border-navy-800 bg-black select-none group"
+          className="relative mx-auto max-w-5xl rounded-[2rem] overflow-hidden shadow-2xl border-[3px] border-slate-700 bg-black select-none group"
+          style={{
+            boxShadow: "0 20px 40px -10px rgba(0,0,0,0.8), 0 0 0 2px rgba(255,255,255,0.1)",
+          }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
@@ -105,9 +105,9 @@ export default function StructureSlider() {
             type="button"
             onClick={handleManualPrev}
             aria-label="Foto Sebelumnya"
-            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/30 backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-xl cursor-pointer"
+            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-black/75 hover:bg-black text-white border-2 border-white/40 backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-2xl cursor-pointer"
           >
-            <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
+            <ChevronLeft className="w-7 h-7 sm:w-9 sm:h-9" />
           </button>
 
           {/* Tombol Navigasi KANAN (>) di samping foto */}
@@ -115,22 +115,22 @@ export default function StructureSlider() {
             type="button"
             onClick={handleManualNext}
             aria-label="Foto Berikutnya"
-            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/30 backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-xl cursor-pointer"
+            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-black/75 hover:bg-black text-white border-2 border-white/40 backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 active:scale-95 shadow-2xl cursor-pointer"
           >
-            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
+            <ChevronRight className="w-7 h-7 sm:w-9 sm:h-9" />
           </button>
 
           {/* Indikator Titik di Bawah Foto */}
-          <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20">
+          <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/70 backdrop-blur-md px-4 py-2 rounded-full border-2 border-white/20 shadow-lg">
             {pmsStructureSlides.map((slide, idx) => (
               <button
                 key={slide.id}
                 type="button"
                 onClick={() => goToSlide(idx)}
-                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                className={`h-3 rounded-full transition-all duration-300 cursor-pointer ${
                   currentIndex === idx
-                    ? "w-8 bg-vermilion-500 shadow-md"
-                    : "w-2.5 bg-white/50 hover:bg-white/90"
+                    ? "w-9 bg-vermilion-500 shadow-md"
+                    : "w-3 bg-white/50 hover:bg-white/90"
                 }`}
                 aria-label={`Slide ${idx + 1}`}
               />

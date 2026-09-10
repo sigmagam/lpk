@@ -324,3 +324,168 @@ export const faqs = [
     answer: "Anda dapat menghubungi tim admin kami langsung melalui WhatsApp di nomor 085692923642 (+62 856-9292-3642) atau email lpk.pms18@gmail.com untuk konsultasi persyaratan dan informasi jadwal pelatihan."
   }
 ];
+
+export interface BidangKejuruanCategory {
+  id: string;
+  name: string;
+  iconType: string;
+  skills: string[];
+}
+
+export const daftarBidangKejuruan: BidangKejuruanCategory[] = [
+  {
+    id: "konstruksi-lapangan",
+    name: "Bidang Konstruksi & Lapangan",
+    iconType: "hard-hat",
+    skills: [
+      "Tobi (Perancah Bangunan)",
+      "Tekkin (Pemasangan Rangka Besi)",
+      "Katamaku (Pemasangan Bekisting Cor)",
+      "Pengecoran Beton",
+      "Pengecatan Bangunan",
+      "Plester Dinding (Plastering)",
+      "Pemasangan Ubin & Keramik",
+      "Pemasangan Batu (Stone Masonry)",
+      "Pemasangan Atap (Roofing)",
+      "Pemasangan Papan Gipsum (Interior Finishing)",
+      "Pemasangan Kaca Bangunan",
+      "Pemasangan Sistem Kedap Air (Waterproofing)",
+      "Pemasangan Isolasi Panas (Thermal Insulation)",
+      "Pekerjaan Penggalian Tanah",
+      "Pengoperasian Alat Berat Konstruksi",
+      "Pemasangan Pipa (Plumbing)",
+      "Pemasangan Jaringan Kabel Listrik Bangunan",
+      "Pembangunan Terowongan (Tunneling)",
+      "Pengaspalan Jalan"
+    ]
+  },
+  {
+    id: "manufaktur-mesin-logistik",
+    name: "Bidang Manufaktur, Mesin & Logistik",
+    iconType: "factory",
+    skills: [
+      "Pengolahan Makanan (Bento, Roti, Makanan Beku)",
+      "Pemotongan dan Pengolahan Daging",
+      "Pengolahan Produk Perikanan (Ikan/Seafood)",
+      "Perakitan Komponen Elektronik",
+      "Perakitan Suku Cadang Otomotif",
+      "Perakitan Mesin Industri",
+      "Pengelasan (Welding)",
+      "Press Logam (Metal Stamping)",
+      "Bubut Logam (Machining / CNC)",
+      "Pengecoran Logam (Casting)",
+      "Penempaan Logam (Forging)",
+      "Penyepuhan Logam (Plating)",
+      "Pengecatan Logam / Mobil",
+      "Pembuatan Pola Cetakan (Mold Making)",
+      "Pembuatan Instrumen Presisi",
+      "Inspeksi Kualitas Produk (Quality Control)",
+      "Pengepakan Barang Gudang (Packing)",
+      "Pembuatan Kardus & Kemasan Kertas",
+      "Pembuatan Produk Plastik (Plastic Molding)",
+      "Pembuatan Kain / Tenun",
+      "Menjahit Pakaian (Garmen)",
+      "Pengolahan Kayu & Mebel",
+      "Pembuatan Produk Karet"
+    ]
+  },
+  {
+    id: "konstruksi-pertukangan-khusus",
+    name: "Bidang Konstruksi & Pertukangan Khusus",
+    iconType: "hammer",
+    skills: [
+      "Tukang Kayu Bangunan (Daiku)",
+      "Pemasangan Kusen, Bingkai, & Daun Jendela (Sash)",
+      "Pemasangan Sistem Pendingin Ruangan & AC Gedung",
+      "Pemasangan Wallpaper & Karpet (Interior Finishing)",
+      "Arsitektur Lembaran Logam (Pekerjaan Pelat Seng Atap)",
+      "Pekerjaan Pengeboran Sumur (Drilling)",
+      "Pemasangan Papan Cetak Beton (Plywood Panel)",
+      "Pemasangan Genteng Tradisional Jepang",
+      "Pemasangan Karpet Tatami",
+      "Pemasangan Dinding Panel Prefabrikasi"
+    ]
+  },
+  {
+    id: "pengolahan-logam-otomotif",
+    name: "Bidang Pengolahan Logam, Mesin & Otomotif",
+    iconType: "wrench",
+    skills: [
+      "Pemeliharaan & Servis Kendaraan (Mekanik Otomotif)",
+      "Pemotongan Logam dengan Gas/Laser",
+      "Teknisi Kelistrikan Mesin Pabrik",
+      "Pengikatan & Sling Cargo (Tamagake)",
+      "Pengasahan & Penajaman Pisau Industri/Alat Potong",
+      "Inspeksi Pengujian Tanpa Merusak (Non-Destructive Testing)",
+      "Pembuatan Kawat & Kabel Logam",
+      "Penarikan Tabung/Pipa Logam (Tube Drawing)",
+      "Operator Mesin Tempa Otomatis",
+      "Pembersihan Komponen Mesin"
+    ]
+  },
+  {
+    id: "tekstil-pakaian-serat",
+    name: "Bidang Tekstil, Pakaian & Serat",
+    iconType: "scissors",
+    skills: [
+      "Penjahitan Pakaian Wanita dan Anak-anak",
+      "Penjahitan Jas & Pakaian Pria",
+      "Penjahitan Perlengkapan Tempat Tidur (Bedding/Futon)",
+      "Pembuatan Barang dari Kain Kanvas (Tenda/Terpal)",
+      "Operator Mesin Pemintalan Benang (Spinning)",
+      "Operator Mesin Tenun Karpet",
+      "Pencelupan & Pewarnaan Kain (Dyeing)",
+      "Rajut Kaus Kaki (Pabrik Hosiery)",
+      "Pembuatan Tali Tambang & Jaring"
+    ]
+  },
+  {
+    id: "kimia-plastik-bahan-baku",
+    name: "Bidang Kimia, Plastik & Bahan Baku",
+    iconType: "flask",
+    skills: [
+      "Pencetakan Produk Plastik Metode Injeksi (Injection Molding)",
+      "Pencetakan Produk Plastik Metode Tiup (Blow Molding)",
+      "Operator Pembuatan Ban Kendaraan",
+      "Pengolahan Karet untuk Suku Cadang Mesin",
+      "Pembuatan Produk Komposit Plastik Serat (FRP)",
+      "Pembuatan Bata Tahan Api & Keramik Industri",
+      "Pembuatan Kaca Lembaran"
+    ]
+  },
+  {
+    id: "percetakan-penjilidan",
+    name: "Bidang Percetakan & Penjilidan Buku",
+    iconType: "printer",
+    skills: [
+      "Percetakan Offset Komersial",
+      "Percetakan Gravure (Kemasan Kemas)",
+      "Penjilidan Buku & Brosur (Bookbinding)",
+      "Pembuatan Pelat Cetak (Platemaking)"
+    ]
+  },
+  {
+    id: "pengolahan-makanan-konsumsi",
+    name: "Bidang Pengolahan Makanan & Konsumsi Lainnya",
+    iconType: "utensils",
+    skills: [
+      "Pembuatan Produk Kamaboko (Olahan Daging Ikan)",
+      "Pembuatan Makanan Kaleng & Botol",
+      "Pembuatan Pengawet Makanan / Acar (Tsukemono)",
+      "Pembuatan Karton Gelombang (Corrugated Cardboard)",
+      "Pembuatan Mebel & Kursi Kayu",
+      "Pembersihan Karpet & Layanan Linen Kamar Hotel"
+    ]
+  },
+  {
+    id: "sektor-khusus-budidaya",
+    name: "Sektor Khusus & Perawatan",
+    iconType: "heart-handshake",
+    skills: [
+      "Perawat Lansia Magang (Kaigo)",
+      "Pembersihan Gedung & Fasilitas Umum (Building Cleaning)",
+      "Pengikatan Buku & Dokumen Arsip",
+      "Budidaya Jamur Kuping & Jamur Shiitake"
+    ]
+  }
+];

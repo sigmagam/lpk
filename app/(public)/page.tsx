@@ -26,20 +26,17 @@ export default function HomePage() {
     <>
       {/* 1. HERO SECTION: Editorial, Japan-Oriented with 3D Depth */}
       <section className="relative overflow-hidden bg-white pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 border-b-2 border-slate-300">
-        {/* Architectural Grid Background */}
         <div className="absolute inset-0 bg-grid-japanese opacity-70 pointer-events-none" />
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left Column: Editorial Copy (7 cols) */}
+            {/* Left Column: Editorial Copy */}
             <div className="lg:col-span-7 space-y-7 text-left">
-              {/* Eyebrow badge */}
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border-2 border-slate-300 text-xs font-black text-navy-950 uppercase tracking-wider shadow-sm">
                 <span className="w-2.5 h-2.5 rounded-full bg-vermilion-600" />
                 <span>Lembaga Pelatihan Kerja Resmi • Karawang</span>
               </div>
 
-              {/* Display Headline */}
               <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-navy-950 leading-[1.12]">
                 Mempersiapkan Generasi Unggul untuk{" "}
                 <span className="text-primary-800 underline decoration-vermilion-600/80 decoration-4 underline-offset-8">
@@ -47,12 +44,10 @@ export default function HomePage() {
                 </span>
               </h1>
 
-              {/* Institutional Statement - High Contrast */}
               <p className="text-base sm:text-lg text-slate-800 leading-relaxed max-w-2xl font-medium">
                 {siteConfig.description}
               </p>
 
-              {/* Primary Actions */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
                 <a
                   href={siteConfig.whatsapp}
@@ -82,7 +77,6 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              {/* Reassurance Micro-Footer - Clear Contrast */}
               <div className="pt-4 border-t-2 border-slate-200 flex flex-wrap items-center gap-5 text-xs text-slate-800 font-bold">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-emerald-700" />
@@ -99,7 +93,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column: 3D Interactive Visual Composition (5 cols) */}
+            {/* Right Column: 3D Interactive Visual */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
               <Hero3DVisual />
             </div>
@@ -178,7 +172,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 text-xs font-black text-navy-950 hover:text-primary-800 underline underline-offset-4 decoration-primary-500"
                 >
                   <span>Baca Selengkapnya Tentang Kami</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
@@ -186,7 +180,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. PERJALANAN PESERTA (Kotak 3D Tebal & Jelas) */}
+      {/* 5. PERJALANAN PESERTA (Kotak 3D Tebal) */}
       <section className="py-20 lg:py-24 bg-slate-100 border-b-2 border-slate-300">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
@@ -196,7 +190,7 @@ export default function HomePage() {
             <h2 className="font-heading text-2xl sm:text-4xl font-black text-navy-950 leading-tight">
               Alur Perjalanan Peserta Menuju Jepang
             </h2>
-            <p className="text-sm sm:text-base text-slate-700 mt-2 font-medium">
+            <p className="text-sm sm:text-base text-slate-800 mt-2 font-medium">
               Setiap tahapan dirancang sistematis dari pembekalan dasar hingga keberangkatan resmi ke perusahaan Jepang.
             </p>
           </div>
@@ -212,17 +206,17 @@ export default function HomePage() {
                     <span className="font-mono text-2xl font-black text-primary-800">
                       {item.step}
                     </span>
-                    <span className="w-3 h-3 rounded-full bg-slate-300 group-hover:bg-vermilion-600 transition-colors" />
+                    <span className="w-3 h-3 rounded-full bg-slate-400 group-hover:bg-vermilion-600 transition-colors" />
                   </div>
                   <h3 className="font-heading font-black text-sm text-navy-950 mb-2 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-slate-700 leading-relaxed font-normal">
+                  <p className="text-xs text-slate-800 leading-relaxed font-normal">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t-2 border-slate-100 text-[11px] font-black text-slate-600">
+                <div className="pt-4 mt-4 border-t-2 border-slate-200 text-[11px] font-black text-slate-700">
                   Tahap 0{idx + 1}
                 </div>
               </div>
@@ -231,7 +225,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. PROGRAM PELATIHAN (Kotak 3D Tebal & Jelas) */}
+      {/* 6. PROGRAM PELATIHAN */}
       <section className="py-20 lg:py-24 bg-white border-b-2 border-slate-300">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
@@ -272,7 +266,7 @@ export default function HomePage() {
                     {program.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-5 font-normal">
+                  <p className="text-xs sm:text-sm text-slate-800 leading-relaxed mb-5 font-normal">
                     {program.shortDesc}
                   </p>
 
@@ -287,7 +281,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="pt-6 mt-6 border-t-2 border-slate-200 flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-600">
+                  <span className="text-xs font-bold text-slate-700">
                     {program.category}
                   </span>
                   <Link
@@ -304,7 +298,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. KURIKULUM (Kotak 3D Tebal & Jelas) */}
+      {/* 7. KURIKULUM */}
       <section className="py-20 lg:py-24 bg-slate-100 border-b-2 border-slate-300">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
@@ -314,7 +308,7 @@ export default function HomePage() {
             <h2 className="font-heading text-2xl sm:text-4xl font-black text-navy-950 leading-tight">
               3 Pilar Materi Pembelajaran
             </h2>
-            <p className="text-sm sm:text-base text-slate-700 mt-2 font-medium">
+            <p className="text-sm sm:text-base text-slate-800 mt-2 font-medium">
               Kurikulum disusun berjenjang untuk membangun pondasi bahasa, etos kerja Kaisha, dan kompetensi spesifik bidang.
             </p>
           </div>
@@ -339,11 +333,11 @@ export default function HomePage() {
                     {item.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-6 font-normal">
+                  <p className="text-xs sm:text-sm text-slate-800 leading-relaxed mb-6 font-normal">
                     {item.description}
                   </p>
 
-                  <div className="space-y-2.5 pt-4 border-t-2 border-slate-100">
+                  <div className="space-y-2.5 pt-4 border-t-2 border-slate-200">
                     <span className="text-[11px] font-black uppercase text-slate-700 block mb-2">
                       Rincian Modul:
                     </span>
@@ -359,7 +353,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-4 border-t-2 border-slate-100">
+                <div className="mt-8 pt-4 border-t-2 border-slate-200">
                   <Link
                     href="/kurikulum"
                     className="inline-flex items-center gap-1.5 text-xs font-black text-navy-950 hover:text-primary-800"
@@ -374,7 +368,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. KEUNGGULAN (Kotak 3D Tebal & Jelas) */}
+      {/* 8. KEUNGGULAN */}
       <section className="py-20 lg:py-24 bg-white border-b-2 border-slate-300">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
@@ -384,7 +378,7 @@ export default function HomePage() {
             <h2 className="font-heading text-2xl sm:text-4xl font-black text-navy-950 leading-tight">
               Mengapa Memilih LPK Panca Multiguna Sukses Karawang?
             </h2>
-            <p className="text-sm sm:text-base text-slate-700 mt-2 font-medium">
+            <p className="text-sm sm:text-base text-slate-800 mt-2 font-medium">
               Kualitas pelatihan dan kedisiplinan yang berakar pada kesiapan kerja nyata di industri Jepang.
             </p>
           </div>
@@ -409,7 +403,7 @@ export default function HomePage() {
                     {k.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-normal">
                     {k.description}
                   </p>
                 </div>
@@ -423,7 +417,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. LOKASI (Kotak 3D Tebal & Jelas) */}
+      {/* 9. LOKASI */}
       <section className="py-20 lg:py-24 bg-slate-100 border-b-2 border-slate-300">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">

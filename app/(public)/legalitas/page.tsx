@@ -1,6 +1,7 @@
 import { siteConfig } from "@/data/site";
 import type { Metadata } from "next";
 import Contact3DBadge from "@/components/public/Contact3DBadge";
+import KejuruanExplorer from "@/components/public/KejuruanExplorer";
 import {
   ShieldCheck,
   ExternalLink,
@@ -19,9 +20,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Legalitas Resmi Kemnaker RI & Profil Mitra | LPK Panca Multiguna Sukses Karawang",
+  title: "Legalitas Resmi Kemnaker RI & Daftar Kejuruan | LPK Panca Multiguna Sukses Karawang",
   description:
-    "Legalitas resmi LPK Panca Multiguna Sukses Karawang di Kementerian Ketenagakerjaan RI dengan Nomor VIN 2001321506, Pimpinan Yusuf Bachtiar, S.M, berdiri sejak 2018.",
+    "Legalitas resmi LPK Panca Multiguna Sukses Karawang di Kementerian Ketenagakerjaan RI dengan Nomor VIN 2001321506, Pimpinan Yusuf Bachtiar, S.M, berdiri sejak 2018, serta direktori kejuruan kerja Jepang lengkap.",
 };
 
 export default function LegalitasPage() {
@@ -178,7 +179,7 @@ export default function LegalitasPage() {
             <div>
               <div className="flex items-center gap-2 mb-1">
                 <span className="px-3 py-1 rounded-full bg-navy-100 text-navy-950 text-xs font-black uppercase tracking-wider">
-                  Kategori Penempatan Kerja
+                  Kategori Sektor Utama
                 </span>
               </div>
               <h2 className="font-heading font-black text-xl sm:text-2xl text-navy-950">
@@ -204,11 +205,14 @@ export default function LegalitasPage() {
             </div>
           </div>
 
-          {/* 4. LOGO & KONTAK ANIMASI 3D (WhatsApp & Email Resmi) */}
+          {/* 4. DIREKTORI LENGKAP BIDANG & KEJURUAN KERJA RESMI JEPANG */}
+          <KejuruanExplorer />
+
+          {/* 5. LOGO & KONTAK RESMI */}
           <div className="space-y-4">
             <div>
               <h2 className="font-heading font-black text-2xl text-navy-950">
-                Kontak Resmi Lembaga (Animasi 3D)
+                Kontak Resmi Lembaga
               </h2>
               <p className="text-xs sm:text-sm text-slate-700 font-medium">
                 Hubungi pimpinan atau bagian administrasi pelatihan kerja via WhatsApp dan email resmi
@@ -218,7 +222,7 @@ export default function LegalitasPage() {
             <Contact3DBadge />
           </div>
 
-          {/* 5. TAUTAN VERIFIKASI RESMI SKILLHUB */}
+          {/* 6. TAUTAN VERIFIKASI RESMI SKILLHUB */}
           <div className="p-6 sm:p-8 rounded-3xl bg-emerald-50 border-2 border-emerald-400 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
             <div className="flex items-center gap-4">
               <ShieldCheck className="w-10 h-10 text-emerald-700 shrink-0" />
