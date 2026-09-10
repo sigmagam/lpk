@@ -3,7 +3,6 @@ import Image from "next/image";
 import { siteConfig, programs, keunggulan, curriculumRoadmap, participantJourney } from "@/data/site";
 import Hero3DVisual from "@/components/public/Hero3DVisual";
 import StructureSlider from "@/components/public/StructureSlider";
-import WhatsAppJobChannelBanner from "@/components/public/WhatsAppJobChannelBanner";
 import CTA from "@/components/public/CTA";
 import {
   ShieldCheck,
@@ -111,10 +110,7 @@ export default function HomePage() {
       {/* 2. STRUKTUR & GALERI PMS SLIDER (5 FOTO, HORIZONTAL KE SAMPING, OTOMATIS TIAP 3 DETIK) */}
       <StructureSlider />
 
-      {/* 3. CHANNEL WHATSAPP INFO JOB PMS PUSAT BANNER */}
-      <WhatsAppJobChannelBanner />
-
-      {/* 4. TRUST / LEGALITAS STRIP */}
+      {/* 3. TRUST / LEGALITAS STRIP */}
       <section className="bg-slate-50 border-b border-slate-200/80 py-8">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-sm">
@@ -148,7 +144,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. TENTANG KAMI SECTION */}
+      {/* 4. TENTANG KAMI SECTION */}
       <section className="py-20 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -190,7 +186,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. PERJALANAN PESERTA */}
+      {/* 5. PERJALANAN PESERTA */}
       <section className="py-20 lg:py-24 bg-slate-50 border-b border-slate-200/80">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
@@ -235,7 +231,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. PROGRAM PELATIHAN */}
+      {/* 6. PROGRAM PELATIHAN */}
       <section className="py-20 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
@@ -308,7 +304,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. KURIKULUM */}
+      {/* 7. KURIKULUM */}
       <section className="py-20 lg:py-24 bg-slate-50 border-b border-slate-200/80">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
@@ -378,7 +374,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. KEUNGGULAN */}
+      {/* 8. KEUNGGULAN */}
       <section className="py-20 lg:py-24 bg-white border-b border-slate-200/80">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
@@ -427,7 +423,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. LOKASI */}
+      {/* 9. LOKASI */}
       <section className="py-20 lg:py-24 bg-slate-50 border-b border-slate-200/80">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
@@ -500,7 +496,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 11. CALL TO ACTION */}
+      {/* 10. CALL TO ACTION */}
       <CTA />
     </>
   );
