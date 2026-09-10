@@ -20,7 +20,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/dashboard/kurikulum",
     "/dashboard/legalitas",
     "/dashboard/faq",
-    "/dashboard/pengaturan",
+    "/yusuf",
+    "/yusuf/peserta",
+    "/yusuf/program",
+    "/yusuf/pengaturan",
   ];
 
   const programRoutes = programs.map((p) => `/program/${p.slug}`);
@@ -30,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return allRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: route.startsWith("/dashboard") ? "daily" : "weekly",
-    priority: route === "" ? 1.0 : route.startsWith("/dashboard") ? 0.7 : 0.8,
+    changeFrequency: route.startsWith("/yusuf") || route.startsWith("/dashboard") ? "daily" : "weekly",
+    priority: route === "" ? 1.0 : route.startsWith("/dashboard") ? 0.7 : route.startsWith("/yusuf") ? 0.5 : 0.8,
   }));
 }

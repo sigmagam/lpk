@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/data/site";
-import { ShieldCheck, MapPin, Phone, ExternalLink, ArrowRight, LayoutDashboard } from "lucide-react";
+import { ShieldCheck, MapPin, Phone, ExternalLink, ArrowRight, Eye, ShieldAlert } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="bg-navy-950 text-slate-300 border-t border-navy-900">
-      {/* Top Banner - Official Credential Reassurance */}
+      {/* Top Banner */}
       <div className="border-b border-navy-900/80 bg-navy-900/40 py-6">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-sm">
@@ -63,13 +63,20 @@ export default function Footer() {
               Lembaga Pelatihan Kerja yang berkomitmen dalam menyiapkan sumber daya manusia Indonesia yang unggul, terampil, disiplin, dan mampu bersaing di pasar global.
             </p>
 
-            <div className="pt-2">
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
                 href="/dashboard"
                 className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-navy-900 hover:bg-navy-800 text-primary-300 text-xs font-semibold border border-navy-800 transition-colors"
               >
-                <LayoutDashboard className="w-4 h-4 text-primary-400" />
-                <span>Akses Dashboard Internal</span>
+                <Eye className="w-4 h-4 text-primary-400" />
+                <span>Dashboard Informasi</span>
+              </Link>
+              <Link
+                href="/yusuf"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-navy-900/60 hover:bg-navy-800 text-slate-400 hover:text-slate-200 text-xs font-semibold border border-navy-800/80 transition-colors"
+              >
+                <ShieldAlert className="w-3.5 h-3.5 text-vermilion-500" />
+                <span>Akses Admin</span>
               </Link>
             </div>
           </div>

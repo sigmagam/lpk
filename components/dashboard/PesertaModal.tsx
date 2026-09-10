@@ -1,30 +1,20 @@
 "use client";
 
 import { PesertaRecord } from "@/data/dashboard";
-import { X, CheckCircle, Clock, ShieldCheck, UserCheck, Phone, BookOpen, Calendar } from "lucide-react";
+import { X, CheckCircle, Clock, ShieldCheck, UserCheck, BookOpen, Calendar, Award } from "lucide-react";
 
 interface PesertaModalProps {
   peserta: PesertaRecord | null;
   isOpen: boolean;
   onClose: () => void;
-  onUpdateStatus: (id: string, newStatus: PesertaRecord["status"]) => void;
 }
 
 export default function PesertaModal({
   peserta,
   isOpen,
   onClose,
-  onUpdateStatus,
 }: PesertaModalProps) {
   if (!isOpen || !peserta) return null;
-
-  const statuses: PesertaRecord["status"][] = [
-    "Aktif Pelatihan",
-    "Siap Wawancara",
-    "Proses CoE",
-    "Visa Issued",
-    "Alumni",
-  ];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
@@ -87,7 +77,7 @@ export default function PesertaModal({
 
             <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 col-span-2 sm:col-span-1">
               <span className="text-[10px] font-bold uppercase text-slate-400 block mb-1">
-                Tanggal Mulai
+                Mulai Pelatihan
               </span>
               <span className="text-xs font-bold text-navy-900">
                 {peserta.joinedDate}
@@ -108,51 +98,38 @@ export default function PesertaModal({
             </div>
           </div>
 
+          {/* Status Badge View */}
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+            <span className="text-xs font-semibold text-slate-600">
+              Status Penempatan Kerja:
+            </span>
+            <span className="px-3 py-1 rounded-full bg-navy-950 text-white text-xs font-bold">
+              {peserta.status}
+            </span>
+          </div>
+
           {/* Notes */}
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1.5">
-              Catatan Evaluasi Instruktur
+              Catatan Progres
             </span>
             <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed">
               {peserta.notes}
-            </div>
-          </div>
-
-          {/* Status Changer Section */}
-          <div className="pt-3 border-t border-slate-100">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">
-              Perbarui Status Peserta
-            </span>
-            <div className="flex flex-wrap gap-2">
-              {statuses.map((st) => (
-                <button
-                  key={st}
-                  type="button"
-                  onClick={() => onUpdateStatus(peserta.id, st)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
-                    peserta.status === st
-                      ? "bg-navy-900 text-white border-navy-900 shadow-sm"
-                      : "bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:bg-slate-50"
-                  }`}
-                >
-                  {st}
-                </button>
-              ))}
             </div>
           </div>
         </div>
 
         {/* Footer */}
         <div className="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
-          <div className="text-xs text-slate-500">
-            Status: <span className="font-bold text-navy-900">{peserta.status}</span>
+          <div className="text-xs text-slate-400">
+            Papan Informasi Siswa LPK PMS Karawang
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="px-5 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-navy-950 font-bold text-xs transition-colors"
+            className="px-5 py-2 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs transition-colors"
           >
-            Selesai
+            Tutup
           </button>
         </div>
       </div>

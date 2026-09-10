@@ -10,7 +10,7 @@ import {
   GraduationCap,
   ShieldCheck,
   HelpCircle,
-  Settings,
+  MapPin,
   ExternalLink,
   ChevronRight,
   X,
@@ -22,7 +22,6 @@ interface MenuItem {
   href: string;
   icon: LucideIcon;
   badge?: string;
-  verified?: boolean;
 }
 
 interface MenuGroup {
@@ -40,20 +39,19 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
   const menuGroups: MenuGroup[] = [
     {
-      group: "Operasional Utama",
+      group: "Informasi & Pemantauan",
       items: [
-        { label: "Ringkasan / Overview", href: "/dashboard", icon: LayoutDashboard },
-        { label: "Data Peserta Magang", href: "/dashboard/peserta", icon: Users, badge: "8" },
-        { label: "Program Pelatihan", href: "/dashboard/program", icon: BookOpen },
-        { label: "Kurikulum & Modul", href: "/dashboard/kurikulum", icon: GraduationCap },
+        { label: "Ringkasan Informasi", href: "/dashboard", icon: LayoutDashboard },
+        { label: "Daftar Peserta & Tahap", href: "/dashboard/peserta", icon: Users, badge: "Monitoring" },
+        { label: "Daftar Program", href: "/dashboard/program", icon: BookOpen },
+        { label: "Modul & Kurikulum", href: "/dashboard/kurikulum", icon: GraduationCap },
       ],
     },
     {
-      group: "Informasi & Legalitas",
+      group: "Legalitas & Kontak",
       items: [
-        { label: "Legalitas Kemnaker RI", href: "/dashboard/legalitas", icon: ShieldCheck, verified: true },
-        { label: "FAQ & Tanya Jawab", href: "/dashboard/faq", icon: HelpCircle },
-        { label: "Pengaturan Profil", href: "/dashboard/pengaturan", icon: Settings },
+        { label: "Legalitas Kemnaker RI", href: "/dashboard/legalitas", icon: ShieldCheck },
+        { label: "Pusat Bantuan FAQ", href: "/dashboard/faq", icon: HelpCircle },
       ],
     },
   ];
@@ -92,12 +90,11 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 LPK PMS Karawang
               </div>
               <div className="text-[10px] text-primary-300 font-semibold tracking-wider uppercase">
-                Sistem Manajemen LPK
+                Dashboard Informasi
               </div>
             </div>
           </Link>
 
-          {/* Mobile Close Button */}
           <button
             type="button"
             onClick={onClose}
@@ -108,19 +105,19 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           </button>
         </div>
 
-        {/* Kemnaker Accreditation Pill */}
+        {/* Accreditation Pill */}
         <div className="px-5 py-3 bg-navy-900/30 border-b border-navy-900/70">
           <div className="flex items-center gap-2 text-[11px] text-emerald-400 font-medium">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Terverifikasi Kemnaker RI</span>
+            <span>Papan Informasi Terbuka</span>
           </div>
           <div className="text-[10px] text-slate-400 truncate mt-0.5">
-            Mitra ID: 9300c90b-e49d-477f
+            Data Resmi Siswa & Program Pelatihan
           </div>
         </div>
 
         {/* Navigation Menu */}
-        <nav className="flex-1 overflow-y-auto px-3.5 py-4 space-y-6" aria-label="Menu Dashboard">
+        <nav className="flex-1 overflow-y-auto px-3.5 py-4 space-y-6" aria-label="Menu Dashboard Informasi">
           {menuGroups.map((group) => (
             <div key={group.group} className="space-y-1">
               <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 pb-1">
@@ -157,9 +154,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                           {item.badge}
                         </span>
                       )}
-                      {item.verified && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                      )}
                       {isActive && <ChevronRight className="w-3.5 h-3.5 opacity-80" />}
                     </div>
                   </Link>
@@ -169,7 +163,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           ))}
         </nav>
 
-        {/* Bottom Section - Public Site Link & Status */}
+        {/* Bottom Section - Public Site Link */}
         <div className="p-4 border-t border-navy-900 bg-navy-900/40 space-y-3">
           <Link
             href="/"
@@ -177,14 +171,14 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           >
             <div className="flex items-center gap-2">
               <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-white" />
-              <span>Buka Website Publik</span>
+              <span>Buka Beranda Utama</span>
             </div>
             <span className="text-[10px] text-slate-400">lpk-pms</span>
           </Link>
 
           <div className="flex items-center justify-between text-[10px] text-slate-400 px-1">
-            <span>Server: Asia/Jakarta (WIB)</span>
-            <span className="text-emerald-400 font-semibold">Online</span>
+            <span>Mode: Informasi & Monitoring</span>
+            <span className="text-emerald-400 font-semibold">Live</span>
           </div>
         </div>
       </aside>

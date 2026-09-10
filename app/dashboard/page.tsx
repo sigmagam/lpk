@@ -4,9 +4,9 @@ import { useState } from "react";
 import StatCard3D from "@/components/dashboard/StatCard3D";
 import PesertaTable from "@/components/dashboard/PesertaTable";
 import PesertaModal from "@/components/dashboard/PesertaModal";
-import QuickAddModal from "@/components/dashboard/QuickAddModal";
 import ActivityFeed from "@/components/dashboard/ActivityFeed";
-import { initialPeserta, dashboardMetrics, PesertaRecord } from "@/data/dashboard";
+import { usePesertaData } from "@/data/pesertaStore";
+import { PesertaRecord, dashboardMetrics } from "@/data/dashboard";
 import { siteConfig } from "@/data/site";
 import {
   Users,
@@ -14,36 +14,20 @@ import {
   FileCheck,
   ShieldCheck,
   ExternalLink,
-  Plus,
   BookOpen,
-  Calendar,
-  Sparkles,
-  MapPin
+  MapPin,
+  Eye,
+  Info
 } from "lucide-react";
+import Link from "next/link";
 
 export default function DashboardOverviewPage() {
-  const [pesertaList, setPesertaList] = useState<PesertaRecord[]>(initialPeserta);
+  const { peserta } = usePesertaData();
   const [selectedPeserta, setSelectedPeserta] = useState<PesertaRecord | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
-  const handleSelectPeserta = (p: PesertaRecord) => {
-    setSelectedPeserta(p);
-    setIsModalOpen(true);
-  };
-
-  const handleUpdateStatus = (id: string, newStatus: PesertaRecord["status"]) => {
-    setPesertaList((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, status: newStatus } : item))
-    );
-    if (selectedPeserta && selectedPeserta.id === id) {
-      setSelectedPeserta({ ...selectedPeserta, status: newStatus });
-    }
-  };
-
-  const handleAddPeserta = (newP: PesertaRecord) => {
-    setPesertaList((prev) => [newP, ...prev]);
-  };
+  const activeTrainees = peserta.filter((p) => p.status === "Aktif Pelatihan").length;
+  const readyInterview = peserta.filter((p) => p.status === "Siap Wawancara").length;
+  const processingCoE = peserta.filter((p) => p.status === "Proses CoE" || p.status === "Visa Issued").length;
 
   return (
     <div className="space-y-8 animate-fade-up">
@@ -54,13 +38,13 @@ export default function DashboardOverviewPage() {
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
               <ShieldCheck className="w-4 h-4" />
-              <span>Status Sistem: Terverifikasi Kemnaker RI</span>
+              <span>Pusat Monitoring Resmi LPK PMS Karawang</span>
             </div>
             <h1 className="font-heading font-extrabold text-2xl sm:text-3xl tracking-tight text-white">
-              Sistem Manajemen LPK Panca Multiguna Sukses
+              Dashboard Informasi & Progres Peserta
             </h1>
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-              Monitoring progres peserta pelatihan kerja, persiapan ujian JLPT/SSW, seleksi wawancara Kaisha, dan tahapan visa ke Jepang.
+              Memantau daftar peserta pelatihan kerja, batch aktif, pencapaian sertifikasi JLPT/SSW, dan kesiapan wawancara kerja ke Jepang.
             </p>
             <div className="flex items-center gap-3 text-xs text-slate-400 pt-1">
               <span className="flex items-center gap-1">
@@ -73,21 +57,20 @@ export default function DashboardOverviewPage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3 shrink-0">
-            <button
-              type="button"
-              onClick={() => setIsAddModalOpen(true)}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-vermilion-600 hover:bg-vermilion-700 text-white text-xs font-bold shadow-md transition-all hover:-translate-y-0.5"
+            <Link
+              href="/program"
+              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-navy-800 hover:bg-navy-700 text-slate-200 text-xs font-semibold border border-navy-700 transition-colors"
             >
-              <Plus className="w-4 h-4" />
-              <span>Tambah Peserta Baru</span>
-            </button>
+              <BookOpen className="w-4 h-4 text-primary-300" />
+              <span>Lihat Detail Program</span>
+            </Link>
             <a
               href={siteConfig.legalitasUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-navy-800 hover:bg-navy-700 text-slate-200 text-xs font-semibold border border-navy-700 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-navy-900 hover:bg-navy-800 text-slate-200 text-xs font-semibold border border-navy-700 transition-colors"
             >
-              <span>Portal Skillhub</span>
+              <span>Portal Skillhub Kemnaker</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -97,49 +80,48 @@ export default function DashboardOverviewPage() {
       {/* 4 3D Statistic Metrics Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         <StatCard3D
-          label="Peserta Pelatihan Aktif"
-          value={dashboardMetrics.activeTrainees}
-          subtext="Batch X, XI, XII & XIII"
-          badge="Kelas Intensif"
+          label="Total Peserta Terdaftar"
+          value={peserta.length}
+          subtext="Monitoring aktif di database"
+          badge="Live Update"
           badgeType="info"
           icon={<Users className="w-5 h-5" />}
         />
 
         <StatCard3D
+          label="Sedang Pelatihan"
+          value={activeTrainees}
+          subtext="Bahasa & pembinaan fisik"
+          badge="Kelas Intensif"
+          badgeType="neutral"
+          icon={<BookOpen className="w-5 h-5" />}
+        />
+
+        <StatCard3D
           label="Siap Wawancara Kaisha"
-          value={dashboardMetrics.readyForInterview}
-          subtext="Lolos Evaluasi N4 / SSW"
-          badge="Tahap Penentu"
+          value={readyInterview}
+          subtext="Lolos evaluasi tata bahasa N4"
+          badge="Tahap Seleksi"
           badgeType="warning"
           icon={<Award className="w-5 h-5" />}
         />
 
         <StatCard3D
-          label="Pengurusan CoE & Visa"
-          value={dashboardMetrics.processingVisa}
-          subtext="Imigrasi Jepang & Kedubes"
-          badge="Administrasi"
+          label="Proses CoE & Visa"
+          value={processingCoE}
+          subtext="Imigrasi & Dokumen Resmi"
+          badge="Kesiapan Berangkat"
           badgeType="success"
           icon={<FileCheck className="w-5 h-5" />}
         />
-
-        <StatCard3D
-          label="Program Pelatihan"
-          value={`${dashboardMetrics.totalPrograms} Program`}
-          subtext="Bahasa, Magang, TG, Budaya"
-          badge="Terakreditasi"
-          badgeType="neutral"
-          icon={<BookOpen className="w-5 h-5" />}
-        />
       </div>
 
-      {/* Main Grid: Data Table (8 cols) & Activity Logs (4 cols) */}
+      {/* Main Grid: Data Table (8 cols) & Activity Feed (4 cols) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-8 space-y-6">
           <PesertaTable
-            data={pesertaList}
-            onSelectPeserta={handleSelectPeserta}
-            onUpdateStatus={handleUpdateStatus}
+            data={peserta}
+            onSelectPeserta={(p) => setSelectedPeserta(p)}
           />
         </div>
 
@@ -180,19 +162,11 @@ export default function DashboardOverviewPage() {
         </div>
       </div>
 
-      {/* Modal Detail & Status Update */}
+      {/* Modal Detail Peserta (Read-Only) */}
       <PesertaModal
         peserta={selectedPeserta}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onUpdateStatus={handleUpdateStatus}
-      />
-
-      {/* Modal Tambah Peserta Baru */}
-      <QuickAddModal
-        isOpen={isAddModalOpen}
-        onClose={() => setIsAddModalOpen(false)}
-        onAddPeserta={handleAddPeserta}
+        isOpen={Boolean(selectedPeserta)}
+        onClose={() => setSelectedPeserta(null)}
       />
     </div>
   );
