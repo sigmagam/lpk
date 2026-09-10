@@ -13,30 +13,30 @@ export const siteConfig = {
   address: "Jl. Utama Pesona Cengkong Asri 1 Blk. C7 No.2-3, Pancawati, Kec. Purwasari, Karawang, Jawa Barat 41351",
   legalitasUrl: "https://skillhub.kemnaker.go.id/mitra/temukan-mitra/lpk-panca-multiguna-sukses-9300c90b-e49d-477f-b7e3-33828b0f9395/program?catalogue=5e4a8242-f308-4cc4-a93d-1ced3ce86ea0&training_category=national_batch",
   navLinks: [
-    { label: "Beranda", href: "/" },
-    { label: "Tentang Kami", href: "/#tentang-kami" },
-    { label: "Program", href: "/program" },
-    { label: "Kurikulum", href: "/kurikulum" },
+    { label: "Beranda", href: "/#beranda" },
+    { label: "Tentang Kami", href: "/#tentang" },
+    { label: "Program", href: "/#program" },
+    { label: "Kurikulum", href: "/#kurikulum" },
     { label: "Keunggulan", href: "/#keunggulan" },
     { label: "Legalitas", href: "/#legalitas" },
-    { label: "Kontak", href: "/kontak" },
+    { label: "Kontak", href: "/#kontak" },
   ],
   footerLinks: {
     navigasi: [
-      { label: "Beranda", href: "/" },
-      { label: "Tentang Kami", href: "/#tentang-kami" },
-      { label: "Program", href: "/program" },
-      { label: "Kurikulum", href: "/kurikulum" },
+      { label: "Beranda", href: "/#beranda" },
+      { label: "Tentang Kami", href: "/#tentang" },
+      { label: "Program", href: "/#program" },
+      { label: "Kurikulum", href: "/#kurikulum" },
       { label: "Keunggulan", href: "/#keunggulan" },
       { label: "Legalitas", href: "/#legalitas" },
-      { label: "Kontak", href: "/kontak" },
+      { label: "Kontak", href: "/#kontak" },
     ],
     program: [
-      { label: "Pembelajaran Bahasa Jepang", href: "/program" },
-      { label: "Persiapan Kerja ke Jepang", href: "/program" },
-      { label: "Program Pemagangan", href: "/program/magang" },
-      { label: "Budaya & Kehidupan Jepang", href: "/program" },
-      { label: "Pengembangan Kompetensi", href: "/program" }
+      { label: "Pembelajaran Bahasa Jepang", href: "/#program" },
+      { label: "Persiapan Kerja ke Jepang", href: "/#program" },
+      { label: "Program Pemagangan", href: "/#program" },
+      { label: "Budaya & Kehidupan Jepang", href: "/#program" },
+      { label: "Pengembangan Kompetensi", href: "/#program" }
     ]
   }
 };
