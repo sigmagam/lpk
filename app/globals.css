@@ -9,7 +9,7 @@
   --primary-blue: #1D4F88;
   --vermilion: #C8102E;
   --bg-slate: #F8FAFC;
-  --border-subtle: #E2E8F0;
+  --border-bold: #CBD5E1;
 }
 
 @layer base {
@@ -29,8 +29,8 @@
 .perspective-1000 {
   perspective: 1000px;
 }
-.perspective-1400 {
-  perspective: 1400px;
+.perspective-1200 {
+  perspective: 1200px;
 }
 .perspective-1600 {
   perspective: 1600px;
@@ -42,80 +42,147 @@
   backface-visibility: hidden;
 }
 
-/* Realistic 3D Interactive Card (Hardware Accelerated, Ultra-Smooth 60FPS) */
+/* Kotak-Kotak 3D Tebal, Tegas, & Jelas (Full Tactile 3D Extrusion) */
+.box-3d-bold {
+  border-width: 2px;
+  border-color: #CBD5E1;
+  box-shadow: 
+    0 8px 0 #94A3B8,
+    0 16px 24px -4px rgba(11, 27, 50, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+  transform: translateY(0);
+}
+
+.box-3d-bold:hover {
+  border-color: #0B1B32;
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 0 #0B1B32,
+    0 22px 30px -4px rgba(11, 27, 50, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+}
+
+/* 3D Interactive Tilt Card (Full Hardware Accelerated 60FPS) */
 .card-3d-interactive {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
   transform: perspective(1200px) translateZ(0);
   will-change: transform, box-shadow;
   position: relative;
+  border-width: 2px;
+  border-color: #CBD5E1;
+  box-shadow: 
+    0 8px 16px -2px rgba(11, 27, 50, 0.08),
+    0 4px 6px -2px rgba(11, 27, 50, 0.04),
+    inset 0 1px 1px #FFFFFF;
 }
 
-/* Top Bevel Highlight for Tactile Material Realism */
 .card-3d-interactive::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.2));
   pointer-events: none;
 }
 
 .card-3d-interactive:hover {
-  transform: perspective(1200px) translateY(-6px) rotateX(2.5deg) rotateY(-1.5deg) scale(1.012);
+  transform: perspective(1200px) translateY(-8px) rotateX(3deg) rotateY(-2deg) scale(1.015);
+  border-color: #0B1B32;
   box-shadow: 
-    0 25px 40px -12px rgba(11, 27, 50, 0.16),
-    0 10px 18px -4px rgba(11, 27, 50, 0.08),
-    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+    0 28px 45px -10px rgba(11, 27, 50, 0.2),
+    0 12px 20px -4px rgba(11, 27, 50, 0.1),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
 }
 
-/* Realistic 3D Stage Bevel */
-.stage-3d-real {
-  box-shadow: 
-    0 30px 60px -15px rgba(0, 0, 0, 0.5),
-    0 15px 30px -8px rgba(0, 0, 0, 0.3),
-    inset 0 1px 2px rgba(255, 255, 255, 0.15);
+/* Keyframe Animasi 3D Penuh */
+@keyframes float3DFull {
+  0%, 100% {
+    transform: perspective(1400px) translateY(0px) rotateX(5deg) rotateY(-6deg);
+  }
+  50% {
+    transform: perspective(1400px) translateY(-14px) rotateX(9deg) rotateY(-2deg);
+  }
 }
 
-/* Subtle Japanese geometric grid background */
+@keyframes floatBadgeLeft {
+  0%, 100% {
+    transform: translateZ(65px) translateY(0px);
+  }
+  50% {
+    transform: translateZ(75px) translateY(-6px);
+  }
+}
+
+@keyframes floatBadgeRight {
+  0%, 100% {
+    transform: translateZ(75px) translateY(0px);
+  }
+  50% {
+    transform: translateZ(85px) translateY(6px);
+  }
+}
+
+@keyframes pulseGlow3D {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+.animate-float-3d-full {
+  animation: float3DFull 6s ease-in-out infinite;
+}
+
+.animate-float-badge-left {
+  animation: floatBadgeLeft 4s ease-in-out infinite;
+}
+
+.animate-float-badge-right {
+  animation: floatBadgeRight 4.5s ease-in-out infinite 0.5s;
+}
+
+.animate-pulse-glow-3d {
+  animation: pulseGlow3D 5s ease-in-out infinite;
+}
+
+/* Background Grid Tebal dan Jelas */
 .bg-grid-japanese {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.08) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.08) 1.5px, transparent 1.5px);
 }
 
 .bg-dots-pattern {
-  background-image: radial-gradient(rgba(11, 27, 50, 0.12) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(11, 27, 50, 0.18) 1.5px, transparent 1.5px);
   background-size: 20px 20px;
 }
 
 /* Smooth custom scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #94A3B8;
   border-radius: 9999px;
+  border: 2px solid #F1F5F9;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: #64748B;
 }
 
-/* Micro interaction transitions */
-.transition-lift {
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.transition-lift:hover {
-  transform: translateY(-2px);
-}
-
-/* Reduced Motion Override for Accessibility & Performance */
+/* Reduced Motion Override for Accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
