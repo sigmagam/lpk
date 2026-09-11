@@ -11,7 +11,6 @@ import {
   Menu,
   X,
   MessageCircle,
-  Eye,
   ArrowRight,
   Phone,
   Sparkles
@@ -84,13 +83,7 @@ export default function Navbar() {
               <span>{siteConfig.whatsappNumber}</span>
             </a>
             <span className="text-slate-600">|</span>
-            <Link
-              href="/dashboard"
-              className="inline-flex items-center gap-1 text-slate-300 hover:text-white font-semibold transition-colors"
-            >
-              <Eye className="w-3.5 h-3.5 text-primary-400" />
-              <span>Dashboard Siswa</span>
-            </Link>
+            <span className="text-slate-300 font-medium">Pusat Pelatihan: Purwasari, Karawang</span>
           </div>
         </div>
       </div>
@@ -264,16 +257,7 @@ export default function Navbar() {
                 );
               })}
 
-              <div className="pt-3 mt-3 border-t border-slate-200">
-                <Link
-                  href="/dashboard"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold text-navy-950 bg-slate-100 hover:bg-slate-200 transition-colors"
-                >
-                  <Eye className="w-3.5 h-3.5 text-primary-700" />
-                  <span>Dashboard Informasi Siswa</span>
-                </Link>
-              </div>
+
             </div>
 
             {/* Drawer Footer */}

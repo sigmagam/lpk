@@ -8,7 +8,6 @@ import {
   Mail,
   ExternalLink,
   ArrowRight,
-  Eye,
   BellRing,
   Instagram,
   Video
@@ -224,8 +223,8 @@ export default function Footer() {
             <Link href="/faq" className="hover:text-white transition-colors">
               Pusat FAQ
             </Link>
-            <Link href="/dashboard" className="hover:text-white transition-colors">
-              Dashboard Siswa
+            <Link href="/kontak" className="hover:text-white transition-colors">
+              Hubungi Kami
             </Link>
           </div>
         </div>
