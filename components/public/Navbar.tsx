@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/data/site";
+import LanguageSelector from "@/components/public/LanguageSelector";
 import {
   ShieldCheck,
   Menu,
@@ -157,7 +158,10 @@ export default function Navbar() {
           </nav>
 
           {/* Actions & Mobile Trigger */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            {/* Language Selector (10 Languages: ID Default, JA, EN, etc.) */}
+            <LanguageSelector />
+
             {/* Desktop CTA */}
             <a
               href={siteConfig.whatsapp}
@@ -215,14 +219,17 @@ export default function Navbar() {
                 </div>
               </div>
 
-              <button
-                type="button"
-                onClick={() => setIsOpen(false)}
-                className="p-1.5 rounded-lg text-slate-600 hover:bg-slate-200"
-                aria-label="Tutup navigasi"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-1.5">
+                <LanguageSelector variant="mobile" />
+                <button
+                  type="button"
+                  onClick={() => setIsOpen(false)}
+                  className="p-1.5 rounded-lg text-slate-600 hover:bg-slate-200"
+                  aria-label="Tutup navigasi"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
             {/* Drawer Links */}
