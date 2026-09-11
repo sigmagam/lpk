@@ -7,6 +7,7 @@ import StepTimeline from "@/components/public/StepTimeline";
 import TokuteiGinouSection from "@/components/public/TokuteiGinouSection";
 import SectionHeader from "@/components/public/SectionHeader";
 import CTA from "@/components/public/CTA";
+import OfficialTrustRibbon from "@/components/public/OfficialTrustRibbon";
 import ConsultationForm from "@/components/public/ConsultationForm";
 import {
   ShieldCheck,
@@ -168,6 +169,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 2.1 OFFICIAL GOVERNMENT LEGALITY LOGOS RIBBON (HD) */}
+      <OfficialTrustRibbon />
 
       {/* 3. PROGRAM UTAMA (Core Programs Catalogue) */}
       <section className="py-16 sm:py-20 lg:py-24">

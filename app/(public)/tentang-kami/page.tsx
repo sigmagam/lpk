@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import SectionHeader from "@/components/public/SectionHeader";
 import CTA from "@/components/public/CTA";
+import OfficialTrustRibbon from "@/components/public/OfficialTrustRibbon";
 import {
   ShieldCheck,
   Target,
@@ -255,7 +256,10 @@ export default function TentangKamiPage() {
         </div>
       </section>
 
-      {/* 5. Pre-footer CTA */}
+      {/* 5. Official Authority Accreditation Ribbon */}
+      <OfficialTrustRibbon />
+
+      {/* 6. Pre-footer CTA */}
       <CTA />
     </div>
   );

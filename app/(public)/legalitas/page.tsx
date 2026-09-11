@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Contact3DBadge from "@/components/public/Contact3DBadge";
 import KejuruanExplorer from "@/components/public/KejuruanExplorer";
 import SectionHeader from "@/components/public/SectionHeader";
+import OfficialLegalBadges from "@/components/public/OfficialLegalBadges";
 import CTA from "@/components/public/CTA";
 import {
   ShieldCheck,
@@ -16,19 +17,24 @@ import {
   Maximize2,
   Users,
   Briefcase,
-  BookOpen
+  BookOpen,
+  FileCheck2,
+  Sparkles
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Legalitas Resmi Kemnaker RI & Daftar Kejuruan | LPK PMS Karawang",
+  title: "Legalitas Resmi Kemnaker RI, Kemenkumham, Disnaker, AHU, OSS | LPK PMS Karawang",
   description:
-    "Legalitas resmi LPK Panca Multiguna Sukses Karawang di Kementerian Ketenagakerjaan RI dengan Nomor VIN 2001321506, Pimpinan Yusuf Bachtiar, S.M, berdiri sejak 2018, serta direktori kejuruan kerja Jepang lengkap.",
+    "Legalitas dan perizinan resmi LPK Panca Multiguna Sukses Karawang: Kemenkumham RI, Ditjen AHU, Terverifikasi Kemnaker RI (VIN: 2001321506), Disnaker Kab. Karawang, dan Lembaga OSS.",
   keywords: [
     "legalitas LPK PMS Karawang",
+    "kemenkumham LPK PMS",
+    "disnaker karawang lpk",
+    "ditjen ahu lpk pms",
+    "lembaga oss nib lpk",
     "VIN 2001321506",
     "Kemnaker RI LPK PMS",
-    "kejuruan magang jepang",
-    "Yusuf Bachtiar SM Karawang"
+    "izin operasional magang jepang"
   ]
 };
 
@@ -48,18 +54,18 @@ export default function LegalitasPage() {
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 text-xs font-bold uppercase tracking-wider mb-4">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Terdaftar Resmi Kemnaker RI</span>
+            <span>Terdaftar & Berpayung Hukum Resmi Republik Indonesia</span>
           </div>
 
           <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
-            Legalitas & Profil Mitra Resmi
+            Legalitas & Profil Izin Resmi Lembaga
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
-            Informasi akreditasi kelembagaan resmi di Kementerian Ketenagakerjaan Republik Indonesia serta direktori kejuruan kerja yang siap ditempuh peserta.
+          <p className="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed font-normal">
+            LPK Panca Multiguna Sukses Karawang beroperasi dengan legalitas lengkap dan diakui secara yuridis oleh <strong>Kemenkumham RI</strong>, <strong>Ditjen AHU</strong>, <strong>Kemnaker RI</strong>, <strong>Disnaker Kab. Karawang</strong>, serta <strong>Lembaga OSS</strong>.
           </p>
 
-          <div className="mt-8">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
               href={siteConfig.legalitasUrl}
               target="_blank"
@@ -69,11 +75,36 @@ export default function LegalitasPage() {
               <span>Verifikasi Langsung di Kemnaker Skillhub</span>
               <ExternalLink className="w-4 h-4" />
             </a>
+
+            <a
+              href={siteConfig.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs sm:text-sm border border-white/20 transition-colors"
+            >
+              <span>Konsultasi Status Legalitas</span>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* 2. Official Datasheet */}
+      {/* 2. Flagship: 5 Official Government Badges & Logos (HD) */}
+      <section className="py-16 sm:py-20 lg:py-24 border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 space-y-12">
+          <SectionHeader
+            eyebrow="Kepastian Hukum & Izin Resmi"
+            kanji="公認機関"
+            title="5 Pilar Legalitas Resmi"
+            highlight="Republik Indonesia"
+            description="Setiap aspek operasional LPK PMS Karawang terdaftar dan terakreditasi oleh kementerian dan dinas terkait guna memberikan kepastian, keamanan, dan transparansi penuh bagi seluruh calon peserta."
+          />
+
+          {/* Render 5 HD Logos Component */}
+          <OfficialLegalBadges />
+        </div>
+      </section>
+
+      {/* 3. Official Datasheet */}
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 space-y-12">
           <SectionHeader
@@ -174,7 +205,7 @@ export default function LegalitasPage() {
         </div>
       </section>
 
-      {/* 3. Pre-footer CTA */}
+      {/* 4. Pre-footer CTA */}
       <CTA />
     </div>
   );

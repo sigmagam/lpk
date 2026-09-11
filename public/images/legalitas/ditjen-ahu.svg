@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ahuBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0077D4"/>
+      <stop offset="60%" stop-color="#004C99"/>
+      <stop offset="100%" stop-color="#002A5C"/>
+    </linearGradient>
+    <linearGradient id="ahuGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD54F"/>
+      <stop offset="50%" stop-color="#FFB300"/>
+      <stop offset="100%" stop-color="#FF8F00"/>
+    </linearGradient>
+    <linearGradient id="ahuRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E53935"/>
+      <stop offset="100%" stop-color="#B71C1C"/>
+    </linearGradient>
+    <filter id="ahuShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Ring Base -->
+  <circle cx="200" cy="200" r="190" fill="#FFFFFF" stroke="#003B73" stroke-width="7" filter="url(#ahuShadow)"/>
+  <circle cx="200" cy="200" r="174" fill="none" stroke="url(#ahuGold)" stroke-width="2.5"/>
+  <circle cx="200" cy="200" r="144" fill="#0A2240" stroke="url(#ahuGold)" stroke-width="3"/>
+
+  <!-- Curved Text Top: DIREKTORAT JENDERAL -->
+  <path id="ahuArcTop" d="M 54 200 A 146 146 0 0 1 346 200" fill="none"/>
+  <text fill="#002A5C" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="12.5" font-weight="900" letter-spacing="1.8">
+    <textPath href="#ahuArcTop" startOffset="50%" text-anchor="middle">
+      DIREKTORAT JENDERAL ADMINISTRASI HUKUM UMUM
+    </textPath>
+  </text>
+
+  <!-- Curved Text Bottom: KEMENTERIAN HUKUM DAN HAM RI -->
+  <path id="ahuArcBottom" d="M 342 208 A 146 146 0 0 1 58 208" fill="none"/>
+  <text fill="#002A5C" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="12.5" font-weight="900" letter-spacing="2.2">
+    <textPath href="#ahuArcBottom" startOffset="50%" text-anchor="middle">
+      ★ KEMENKUMHAM REPUBLIK INDONESIA ★
+    </textPath>
+  </text>
+
+  <!-- Center Artwork: Modern Geometric AHU Symbol & Scales of Justice -->
+  <!-- Inner Shield Glow -->
+  <path d="M 200 95 Q 260 102 270 155 Q 270 230 200 280 Q 130 230 130 155 Q 140 102 200 95 Z" fill="#061629" stroke="url(#ahuGold)" stroke-width="2.5"/>
+
+  <!-- Stylized AHU Monogram Geometric Crest -->
+  <!-- Wing / Leaf Left (A) -->
+  <path d="M 200 115 L 155 195 L 175 195 L 188 168 L 200 168 Z" fill="url(#ahuBlueGrad)"/>
+  <path d="M 200 115 L 245 195 L 225 195 L 212 168 L 200 168 Z" fill="url(#ahuGold)"/>
+  
+  <!-- Red Dynamic Ribbon / Seal -->
+  <path d="M 180 182 L 220 182 L 224 192 L 176 192 Z" fill="url(#ahuRed)"/>
+
+  <!-- Centered Scales of Justice (Neraca) -->
+  <circle cx="200" cy="140" r="4.5" fill="#FFE082"/>
+  <line x1="168" y1="140" x2="232" y2="140" stroke="#FFE082" stroke-width="2"/>
+  
+  <!-- Left Pan -->
+  <line x1="172" y1="140" x2="162" y2="158" stroke="#FFE082" stroke-width="1.2"/>
+  <line x1="172" y1="140" x2="182" y2="158" stroke="#FFE082" stroke-width="1.2"/>
+  <path d="M 158 158 Q 172 168 186 158 Z" fill="url(#ahuGold)"/>
+
+  <!-- Right Pan -->
+  <line x1="228" y1="140" x2="218" y2="158" stroke="#FFE082" stroke-width="1.2"/>
+  <line x1="228" y1="140" x2="238" y2="158" stroke="#FFE082" stroke-width="1.2"/>
+  <path d="M 214 158 Q 228 168 242 158 Z" fill="url(#ahuGold)"/>
+
+  <!-- Big Bold Modern Type: AHU -->
+  <g filter="url(#ahuShadow)">
+    <text x="200" y="236" text-anchor="middle" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="34" font-weight="900" letter-spacing="4">
+      AHU
+    </text>
+  </g>
+
+  <!-- Subtitle: ONLINE SYSTEM -->
+  <rect x="156" y="246" width="88" height="15" rx="7.5" fill="url(#ahuGold)"/>
+  <text x="200" y="257.5" text-anchor="middle" fill="#0A2240" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="900" letter-spacing="1">
+    SISTEM RESMI
+  </text>
+</svg>

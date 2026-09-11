@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ossGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00C853"/>
+      <stop offset="100%" stop-color="#009624"/>
+    </linearGradient>
+    <linearGradient id="ossCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00B0FF"/>
+      <stop offset="100%" stop-color="#0080FF"/>
+    </linearGradient>
+    <linearGradient id="ossNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A3B66"/>
+      <stop offset="100%" stop-color="#0C203E"/>
+    </linearGradient>
+    <filter id="ossShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Base Plate -->
+  <circle cx="200" cy="200" r="190" fill="#FFFFFF" stroke="#0C203E" stroke-width="7" filter="url(#ossShadow)"/>
+  <circle cx="200" cy="200" r="174" fill="none" stroke="#00C853" stroke-width="2.5"/>
+  <circle cx="200" cy="200" r="146" fill="#F4FBF7" stroke="#B9E8CD" stroke-width="1.5"/>
+
+  <!-- Curved Text Top: LEMBAGA OSS REPUBLIK INDONESIA -->
+  <path id="ossArcTop" d="M 52 200 A 148 148 0 0 1 348 200" fill="none"/>
+  <text fill="#0C203E" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="13" font-weight="900" letter-spacing="2.8">
+    <textPath href="#ossArcTop" startOffset="50%" text-anchor="middle">
+      LEMBAGA OSS REPUBLIK INDONESIA
+    </textPath>
+  </text>
+
+  <!-- Curved Text Bottom: PERIZINAN BERUSAHA BERBASIS RISIKO -->
+  <path id="ossArcBottom" d="M 342 208 A 148 148 0 0 1 58 208" fill="none"/>
+  <text fill="#009624" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="11.5" font-weight="900" letter-spacing="2.2">
+    <textPath href="#ossArcBottom" startOffset="50%" text-anchor="middle">
+      ★ PERIZINAN BERUSAHA BERBASIS RISIKO ★
+    </textPath>
+  </text>
+
+  <!-- Center Artwork: The Official OSS Faceted Origami Bird Symbol -->
+  <g transform="translate(200, 160)" filter="url(#ossShadow)">
+    <!-- Facet 1: Green Wing (Top Left) -->
+    <polygon points="-58,-48 -8,-48 -32,-15" fill="#00C853"/>
+    
+    <!-- Facet 2: Bright Lime Accent -->
+    <polygon points="-8,-48 24,-48 -4,-15" fill="#69F0AE"/>
+
+    <!-- Facet 3: Sky Blue Wing (Top Right) -->
+    <polygon points="24,-48 64,-20 18,-15" fill="#00B0FF"/>
+
+    <!-- Facet 4: Central Cyan Body -->
+    <polygon points="-32,-15 18,-15 -12,24" fill="#0091EA"/>
+
+    <!-- Facet 5: Deep Blue Lower Wing -->
+    <polygon points="-52,-15 -32,-15 -28,24" fill="#1565C0"/>
+
+    <!-- Facet 6: Deep Navy Base (Tail/Support) -->
+    <polygon points="-12,24 18,-15 42,24" fill="#0D47A1"/>
+
+    <!-- Facet 7: Emerald Green Bottom Point -->
+    <polygon points="-28,24 0,46 -12,24" fill="#00E676"/>
+    <polygon points="-12,24 0,46 22,34" fill="#00C853"/>
+  </g>
+
+  <!-- Bold Wordmark: OSS -->
+  <text x="200" y="244" text-anchor="middle" fill="#0C203E" font-family="'Plus Jakarta Sans', sans-serif" font-size="34" font-weight="900" letter-spacing="4">
+    OSS
+  </text>
+
+  <!-- Subtitle Tag: ONLINE SINGLE SUBMISSION -->
+  <g transform="translate(95, 254)">
+    <rect width="210" height="20" rx="10" fill="#0C203E"/>
+    <text x="105" y="13.5" text-anchor="middle" fill="#69F0AE" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="800" letter-spacing="1">
+      ONLINE SINGLE SUBMISSION
+    </text>
+  </g>
+</svg>

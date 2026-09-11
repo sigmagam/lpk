@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="kemnakerBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00A3E0"/>
+      <stop offset="50%" stop-color="#006BB6"/>
+      <stop offset="100%" stop-color="#00356B"/>
+    </linearGradient>
+    <linearGradient id="goldRibbon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D48806"/>
+      <stop offset="50%" stop-color="#FFD54F"/>
+      <stop offset="100%" stop-color="#D48806"/>
+    </linearGradient>
+    <filter id="kemnakerDrop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Round Plinth -->
+  <circle cx="200" cy="200" r="190" fill="#FFFFFF" stroke="#00356B" stroke-width="6" filter="url(#kemnakerDrop)"/>
+  <circle cx="200" cy="200" r="176" fill="none" stroke="#00A3E0" stroke-width="2"/>
+  <circle cx="200" cy="200" r="148" fill="#F4F8FC" stroke="#B8D8F0" stroke-width="1.5"/>
+
+  <!-- Curved Text Top: KEMENTERIAN KETENAGAKERJAAN -->
+  <path id="kmkArcTop" d="M 52 200 A 148 148 0 0 1 348 200" fill="none"/>
+  <text fill="#00356B" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="12" font-weight="900" letter-spacing="2">
+    <textPath href="#kmkArcTop" startOffset="50%" text-anchor="middle">
+      KEMENTERIAN KETENAGAKERJAAN REPUBLIK INDONESIA
+    </textPath>
+  </text>
+
+  <!-- Curved Text Bottom: TERVERIFIKASI RESMI -->
+  <path id="kmkArcBottom" d="M 342 208 A 148 148 0 0 1 58 208" fill="none"/>
+  <text fill="#008050" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="12.5" font-weight="900" letter-spacing="3">
+    <textPath href="#kmkArcBottom" startOffset="50%" text-anchor="middle">
+      ★ TERVERIFIKASI RESMI KEMNAKER RI ★
+    </textPath>
+  </text>
+
+  <!-- Kemnaker 9-Spoke Gear Flower Symbol (Authentic Geometry) -->
+  <g transform="translate(200, 168)">
+    <!-- Central Outer Ring -->
+    <circle cx="0" cy="0" r="48" fill="#FFFFFF" stroke="#00356B" stroke-width="4"/>
+
+    <!-- 9 Petals Generated at 40-degree increments -->
+    <!-- Petal Path template: M -10 -48 C -18 -68 18 -68 10 -48 Z -->
+    <g fill="#00356B">
+      <path d="M -8 -45 C -16 -68 16 -68 8 -45 Z" transform="rotate(0)"/>
+      <path d="M -8 -45 C -16 -68 16 -68 8 -45 Z" transform="rotate(40)"/>
+      <path d="M -8 -45 C -16 -68 16 -68 8 -45 Z" transform="rotate(80)"/>
+      <path d="M -8 -45 C -16 -68 16 -68 8 -45 Z" transform="rotate(120)"/>
+      <path d="M -8 -45 C -16 -68 16 -68 8 -45 Z" transform="rotate(160)"/>
+      <path d="M -8 -45 C -16 -68 16 -68 8 -45 Z" transform="rotate(200)"/>
+      <path d="M -8 -45 C -16 -68 16 -68 8 -45 Z" transform="rotate(240)"/>
+      <path d="M -8 -45 C -16 -68 16 -68 8 -45 Z" transform="rotate(280)"/>
+      <path d="M -8 -45 C -16 -68 16 -68 8 -45 Z" transform="rotate(320)"/>
+    </g>
+
+    <!-- 9 Interlocking Inner Cyan Accents -->
+    <g fill="#00A3E0">
+      <path d="M -6 -40 C -12 -58 12 -58 6 -40 Z" transform="rotate(20)"/>
+      <path d="M -6 -40 C -12 -58 12 -58 6 -40 Z" transform="rotate(60)"/>
+      <path d="M -6 -40 C -12 -58 12 -58 6 -40 Z" transform="rotate(100)"/>
+      <path d="M -6 -40 C -12 -58 12 -58 6 -40 Z" transform="rotate(140)"/>
+      <path d="M -6 -40 C -12 -58 12 -58 6 -40 Z" transform="rotate(180)"/>
+      <path d="M -6 -40 C -12 -58 12 -58 6 -40 Z" transform="rotate(220)"/>
+      <path d="M -6 -40 C -12 -58 12 -58 6 -40 Z" transform="rotate(260)"/>
+      <path d="M -6 -40 C -12 -58 12 -58 6 -40 Z" transform="rotate(300)"/>
+      <path d="M -6 -40 C -12 -58 12 -58 6 -40 Z" transform="rotate(340)"/>
+    </g>
+
+    <!-- Center Core Disc -->
+    <circle cx="0" cy="0" r="30" fill="url(#kemnakerBlueGrad)"/>
+    <circle cx="0" cy="0" r="14" fill="#FFFFFF"/>
+    <circle cx="0" cy="0" r="6" fill="#00356B"/>
+  </g>
+
+  <!-- Official Typography: KEMNAKER -->
+  <text x="200" y="246" text-anchor="middle" fill="#00356B" font-family="'Plus Jakarta Sans', sans-serif" font-size="25" font-weight="900" letter-spacing="3">
+    KEMNAKER
+  </text>
+
+  <!-- VIN Verification Badge Tag -->
+  <g transform="translate(115, 256)">
+    <rect width="170" height="22" rx="11" fill="#00356B"/>
+    <text x="85" y="15" text-anchor="middle" fill="#FFE082" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="800" letter-spacing="1">
+      VIN: 2001321506
+    </text>
+  </g>
+</svg>
