@@ -85,7 +85,7 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const jsonLd = {
+  const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "@id": `${siteUrl}/#organization`,
@@ -123,6 +123,110 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
   };
 
+  // Google Search Sitelinks & Sitelinks SearchBox Schema
+  const sitelinksJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "LPK Panca Multiguna Sukses Karawang",
+        alternateName: "LPK PMS Karawang",
+        publisher: {
+          "@id": `${siteUrl}/#organization`,
+        },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${siteUrl}/faq?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${siteUrl}/#sitelinks`,
+        name: "Google Search Result Sitelinks - LPK PMS Karawang",
+        description:
+          "Sitelinks resmi Google Search diurutkan dengan prioritas utama Legalitas dan Kurikulum, diikuti tautan abjad resmi.",
+        itemListElement: [
+          {
+            "@type": "SiteNavigationElement",
+            position: 1,
+            name: "Legalitas Resmi Lembaga",
+            description: "VIN Kemnaker RI 2001321506, Kemenkumham, Ditjen AHU, Disnaker Karawang, & OSS.",
+            url: `${siteUrl}/legalitas`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 2,
+            name: "Kurikulum Pelatihan Jepang",
+            description: "Roadmap 3 fase: Materi Dasar N5, Materi Inti N4 & Kaisha, dan Materi Khusus Industri.",
+            url: `${siteUrl}/kurikulum`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 3,
+            name: "Bahasa Jepang (N5 - N3)",
+            description: "Bimbingan intensif tata bahasa, hiragana, katakana, kanji, kaiwa, dan try out JLPT/JFT.",
+            url: `${siteUrl}/program/bahasa-jepang`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 4,
+            name: "FAQ & Tanya Jawab Lengkap",
+            description: "Jawaban resmi seputar biaya, syarat usia, tahapan seleksi, dan alur keberangkatan ke Jepang.",
+            url: `${siteUrl}/faq`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 5,
+            name: "Keunggulan Pelatihan LPK PMS",
+            description: "Kurikulum terkini kaisha, instruktur profesional bersertifikat, & sarana balai memadai.",
+            url: `${siteUrl}/keunggulan`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 6,
+            name: "Kontak & Saluran WhatsApp",
+            description: "Konsultasi admin WhatsApp resmi, Channel Info Job PMS Pusat, Instagram, dan TikTok.",
+            url: `${siteUrl}/kontak`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 7,
+            name: "Lokasi & Peta Balai Karawang",
+            description: "Petunjuk rute transportasi dan peta Google Maps balai pelatihan di Purwasari, Karawang.",
+            url: `${siteUrl}/lokasi`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 8,
+            name: "Program Pelatihan Kerja",
+            description: "Direktori lengkap 5 program pembekalan: Pemagangan, SSW, Bahasa, Budaya, & Kompetensi.",
+            url: `${siteUrl}/program`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 9,
+            name: "Tentang Kami & Profil PMS",
+            description: "Sejarah berdirinya LPK sejak 2018, pimpinan Yusuf Bachtiar, S.M, dan 200+ alumni di Jepang.",
+            url: `${siteUrl}/tentang-kami`,
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 10,
+            name: "Tokutei Ginou (SSW) Jepang",
+            description: "Visa kerja formal gaji 180rb–250rb JPY/bulan, 14 sektor industri, dan bebas tes bagi eks-magang.",
+            url: `${siteUrl}/tokutei-ginou`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <html lang="id" className="scroll-smooth">
       <head>
@@ -134,10 +238,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="google-site-verification" content="googlec327dfc83c294016" />
 
-        {/* Google Structured Data / JSON-LD for Google Search Knowledge & Logo Display */}
+        {/* Google Structured Data / JSON-LD for Knowledge Graph & Logo */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+
+        {/* Google Sitelinks & Sitelinks SearchBox Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(sitelinksJsonLd) }}
         />
       </head>
       <body className="font-sans antialiased text-slate-900 bg-white min-h-screen flex flex-col selection:bg-navy-900 selection:text-white">
