@@ -1,538 +1,464 @@
 import Link from "next/link";
 import Image from "next/image";
-import { siteConfig, programs, keunggulan, curriculumRoadmap, participantJourney } from "@/data/site";
-import Hero3DVisual from "@/components/public/Hero3DVisual";
+import { siteConfig, programs, keunggulan } from "@/data/site";
+import HeroCenterpiece from "@/components/public/HeroCenterpiece";
 import StructureSlider from "@/components/public/StructureSlider";
+import StepTimeline from "@/components/public/StepTimeline";
+import TokuteiGinouSection from "@/components/public/TokuteiGinouSection";
+import SectionHeader from "@/components/public/SectionHeader";
 import CTA from "@/components/public/CTA";
+import ConsultationForm from "@/components/public/ConsultationForm";
 import {
   ShieldCheck,
   Award,
   BookOpen,
   Users,
-  Compass,
   ArrowRight,
   ExternalLink,
   MapPin,
   CheckCircle2,
-  Globe,
   Briefcase,
   Layers,
   MessageCircle,
   BellRing,
-  Calendar,
-  Sparkles
+  Building2,
+  Sparkles,
+  HeartHandshake
 } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <>
-      {/* 1. HERO SECTION: Editorial, Special UI with 3D Depth */}
-      <section className="relative overflow-hidden bg-white pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 border-b-2 border-slate-300">
-        <div className="absolute inset-0 bg-grid-japanese opacity-75 pointer-events-none" />
+    <div className="bg-[#F8FAFC]">
+      {/* 1. HERO SECTION */}
+      <section className="relative overflow-hidden bg-white pt-10 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 border-b border-slate-200">
+        <div className="absolute inset-0 bg-japanese-grid opacity-15 pointer-events-none" />
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left Column: Editorial Copy */}
-            <div className="lg:col-span-7 space-y-7 text-left">
-              {/* Eyebrow badge 3D */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100 border-2 border-slate-300 text-xs font-black text-navy-950 uppercase tracking-wider shadow-sm">
-                <span className="w-2.5 h-2.5 rounded-full bg-vermilion-600 animate-pulse" />
-                <span>Lembaga Pelatihan Kerja Resmi • Karawang</span>
-                <span className="text-slate-400 font-normal">|</span>
-                <span className="font-mono text-emerald-800 font-extrabold">VIN: {siteConfig.vinNumber}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            {/* Left Column: Value Proposition & High Conversion Copy */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              {/* Eyebrow badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-navy-950 uppercase tracking-wider shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-vermilion-600 animate-pulse" />
+                <span>LPK Resmi Kemnaker RI • Karawang</span>
+                <span className="text-slate-300">|</span>
+                <span className="font-mono text-emerald-800 font-bold">VIN: {siteConfig.vinNumber}</span>
               </div>
 
-              {/* Display Headline */}
-              <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-navy-950 leading-[1.12]">
-                Mempersiapkan Generasi Unggul untuk{" "}
-                <span className="relative inline-block text-primary-800 underline decoration-vermilion-600/85 decoration-4 underline-offset-8">
-                  Karier Profesional di Jepang
+              {/* Main Headline */}
+              <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-navy-950 leading-[1.14]">
+                Persiapkan Masa Depanmu, Siap Bekerja di{" "}
+                <span className="text-vermilion-600 relative inline-block">
+                  Jepang
                 </span>
               </h1>
 
-              {/* Institutional Statement */}
-              <p className="text-base sm:text-lg text-slate-800 leading-relaxed max-w-2xl font-medium">
+              {/* Institution Subheading */}
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl font-normal">
                 {siteConfig.description}
               </p>
 
-              {/* Primary Actions (Tactile 3D Buttons) */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+              {/* Primary Actions */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <a
                   href={siteConfig.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-navy-950 hover:bg-navy-900 text-white text-xs sm:text-sm font-black shadow-lift-3d transition-all hover:-translate-y-1 text-center border-2 border-navy-950"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-vermilion-600 hover:bg-vermilion-700 text-white text-sm font-bold shadow-md transition-all hover:-translate-y-0.5 active:translate-y-0 text-center"
                 >
-                  <MessageCircle className="w-4 h-4 text-emerald-300 fill-emerald-300" />
+                  <MessageCircle className="w-4 h-4 fill-white" />
                   <span>Daftar / Konsultasi WhatsApp</span>
-                  <ArrowRight className="w-4 h-4" />
                 </a>
+
+                <Link
+                  href="/program"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl bg-navy-950 hover:bg-navy-900 text-white text-sm font-bold shadow-sm transition-all hover:-translate-y-0.5 text-center"
+                >
+                  <span>Pilihan Program</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
 
                 <a
                   href={siteConfig.whatsappChannel}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-black shadow-md transition-all hover:-translate-y-1 text-center border-2 border-emerald-800"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm font-bold border border-slate-300 transition-colors text-center"
                 >
-                  <BellRing className="w-4 h-4" />
-                  <span>Channel Info Job PMS</span>
+                  <BellRing className="w-4 h-4 text-emerald-600" />
+                  <span>Info Job PMS</span>
                 </a>
-
-                <Link
-                  href="/program"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-2xl bg-white hover:bg-slate-100 text-navy-950 text-xs sm:text-sm font-black border-2 border-slate-300 transition-all hover:-translate-y-1 text-center shadow-sm"
-                >
-                  <span>Pilihan Program</span>
-                </Link>
               </div>
 
-              {/* Micro-Footer Reassurance */}
-              <div className="pt-4 border-t-2 border-slate-200 flex flex-wrap items-center gap-5 text-xs text-slate-800 font-bold">
+              {/* Trust Micro Indicators */}
+              <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-slate-600 font-semibold">
                 <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-700" />
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
                   Terdaftar Resmi Kemnaker RI
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-primary-700" />
-                  Kurikulum Berstandar Industri Kaisha
+                  Kurikulum Standar Industri Kaisha
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-vermilion-700" />
-                  Pusat Pelatihan di Purwasari, Karawang
+                  <MapPin className="w-4 h-4 text-vermilion-600" />
+                  Pelatihan di Karawang
                 </span>
               </div>
             </div>
 
-            {/* Right Column: 3D Interactive Visual */}
+            {/* Right Column: High-Credibility Centerpiece */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <Hero3DVisual />
+              <HeroCenterpiece />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. STRUKTUR & GALERI PMS SLIDER (FULL WIDTH VIEWPORT) */}
-      <StructureSlider />
-
-      {/* 3. TRUST & ACCREDITATION BANNER: Official Certificate Plinth */}
-      <section className="bg-slate-100 border-b-2 border-slate-300 py-10">
+      {/* 2. TRUST & CREDIBILITY STATS BAR */}
+      <section className="bg-white border-b border-slate-200 py-10 select-none">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="box-3d-special p-6 sm:p-8 rounded-3xl flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            <div className="flex items-center gap-5">
-              <div className="w-16 h-16 rounded-2xl bg-emerald-100 border-2 border-emerald-400 text-emerald-800 flex items-center justify-center shrink-0 shadow-sm">
-                <ShieldCheck className="w-9 h-9 text-emerald-700" />
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+            <div className="text-center pt-4 sm:pt-0">
+              <div className="text-3xl sm:text-4xl font-heading font-black text-navy-950">
+                2018
               </div>
-              <div className="space-y-1">
-                <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-emerald-50 border border-emerald-300 text-[11px] font-black text-emerald-900 uppercase tracking-wide">
-                  <span>TERDAFTAR RESMI KEMNAKER RI</span>
-                  <span>•</span>
-                  <span>VIN: {siteConfig.vinNumber}</span>
-                </div>
-                <div className="text-base sm:text-xl font-heading font-black text-navy-950">
-                  LPK Panca Multiguna Sukses Karawang
-                </div>
-                <div className="text-xs text-slate-700 font-medium">
-                  Lembaga Pelatihan Kerja terverifikasi resmi pada database nasional Skillhub Kementerian Ketenagakerjaan RI.
-                </div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">
+                Tahun Berdiri Lembaga
+              </div>
+              <div className="text-[11px] text-slate-400 mt-0.5">
+                Pengalaman Lebih dari 7 Tahun
               </div>
             </div>
 
-            <a
-              href={siteConfig.legalitasUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-navy-950 hover:bg-navy-900 text-white font-black text-xs shadow-md transition-all hover:-translate-y-0.5 whitespace-nowrap border-2 border-navy-950 shrink-0"
-            >
-              <span>Verifikasi di Kemnaker</span>
-              <ExternalLink className="w-4 h-4" />
-            </a>
+            <div className="text-center pt-4 sm:pt-0">
+              <div className="text-3xl sm:text-4xl font-heading font-black text-vermilion-600">
+                200+
+              </div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">
+                Lulusan Bekerja di Jepang
+              </div>
+              <div className="text-[11px] text-slate-400 mt-0.5">
+                Alumni di Berbagai Prefektur
+              </div>
+            </div>
+
+            <div className="text-center pt-4 sm:pt-0">
+              <div className="text-3xl sm:text-4xl font-heading font-black text-emerald-600">
+                100%
+              </div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">
+                Jalur Resmi & Legal
+              </div>
+              <div className="text-[11px] text-slate-400 mt-0.5">
+                Akreditasi Kemnaker VIN {siteConfig.vinNumber}
+              </div>
+            </div>
+
+            <div className="text-center pt-4 sm:pt-0">
+              <div className="text-3xl sm:text-4xl font-heading font-black text-primary-700">
+                14+
+              </div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1">
+                Bidang Kejuruan Resmi
+              </div>
+              <div className="text-[11px] text-slate-400 mt-0.5">
+                Manufaktur, Makanan, Kaigo, dll
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 4. TENTANG KAMI: Asymmetric Storytelling & Metric Cards */}
-      <section className="py-20 lg:py-24 bg-white border-b-2 border-slate-300">
+      {/* 3. PROGRAM UTAMA (Core Programs Catalogue) */}
+      <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left Column: Heading & Stats */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-100 border-2 border-primary-300 text-primary-950 text-xs font-black uppercase tracking-wider">
-                Profil Kelembagaan
-              </div>
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-navy-950 leading-tight">
-                Komitmen Pengembangan SDM Indonesia Menuju Pasar Global
-              </h2>
-              <div className="w-16 h-1.5 bg-vermilion-600 rounded-full" />
-              <p className="text-xs font-black text-slate-700 uppercase tracking-widest">
-                LPK Panca Multiguna Sukses Karawang
-              </p>
+          <SectionHeader
+            eyebrow="Pilihan Jalur Karier"
+            kanji="主要課程"
+            title="Program Utama Pelatihan Kerja"
+            highlight="ke Jepang"
+            description="Setiap program dirancang secara komprehensif untuk memastikan peserta memiliki kompetensi bahasa, keterampilan teknis, serta ketahanan mental sesuai standar kaisha di Jepang."
+          />
 
-              {/* Special UI: Institutional Metric Counters (Tebal 3D) */}
-              <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="box-3d-special p-5 rounded-2xl">
-                  <div className="text-2xl sm:text-3xl font-heading font-black text-primary-800">
-                    {siteConfig.tahunBerdiri}
-                  </div>
-                  <div className="text-xs font-bold text-slate-700 mt-1">
-                    Tahun Berdiri
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {/* Card 1: Tokutei Ginou SSW */}
+            <div className="bg-white rounded-3xl border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 p-6 sm:p-8 flex flex-col justify-between group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-black text-vermilion-700 bg-vermilion-50 border border-vermilion-200 px-3 py-1 rounded-full">
+                    SSW / Tokutei Ginou
+                  </span>
+                  <span className="text-xs font-bold text-slate-400">01</span>
                 </div>
 
-                <div className="box-3d-special p-5 rounded-2xl">
-                  <div className="text-2xl sm:text-3xl font-heading font-black text-emerald-800">
-                    ~200
+                <h3 className="font-heading font-bold text-xl text-navy-950 group-hover:text-vermilion-600 transition-colors">
+                  Tokutei Ginou (Specified Skilled Worker)
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Status visa kerja formal bagi tenaga kerja berkeahlian khusus dengan standar gaji setara warga negara Jepang (180rb - 250rb JPY/bulan) dan perlindungan kerja penuh.
+                </p>
+
+                <div className="space-y-2 pt-2 text-xs text-slate-700 font-medium">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Target Ujian JFT-Basic A2 / JLPT N4</span>
                   </div>
-                  <div className="text-xs font-bold text-slate-700 mt-1">
-                    Alumni Kerja di Jepang
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Skill Test 14 Sektor Prioritas</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Kontrak Kerja Resmi s/d 5 Tahun</span>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Right Column: Editorial Narrative */}
-            <div className="lg:col-span-7 space-y-5 text-slate-800 text-sm sm:text-base leading-relaxed">
-              <div className="p-6 rounded-3xl bg-slate-50 border-2 border-slate-300 text-navy-950 font-bold leading-relaxed shadow-sm">
-                LPK Panca Multiguna Sukses Karawang adalah Lembaga Pelatihan Kerja yang berkomitmen dalam menyiapkan, melatih dan mengirim peserta magang yang berkualitas dari Indonesia ke Jepang.
-              </div>
-              <p className="text-slate-700 font-medium leading-relaxed">
-                Sebagai lembaga pelatihan kerja yang terdaftar secara resmi di Kementerian Ketenagakerjaan Republik Indonesia, LPK Panca Multiguna Sukses Karawang berfungsi untuk memberikan dukungan kepada para peserta yang mengikuti program pelatihan dan pemagangan.
-              </p>
-              <p className="text-slate-700 font-medium leading-relaxed">
-                Dengan pengalaman dan komitmen dalam pengembangan sumber daya manusia, LPK Panca Multiguna Sukses Karawang terus berinovasi dan berkembang untuk menjadi lembaga terdepan yang berfokus pada peningkatan sumber daya manusia Indonesia yang unggul, terampil dan mampu bersaing di pasar global.
-              </p>
-
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
                 <Link
-                  href="/tentang-kami"
-                  className="inline-flex items-center gap-2 text-xs font-black text-navy-950 hover:text-primary-800 underline underline-offset-4 decoration-primary-500"
+                  href="/tokutei-ginou"
+                  className="text-xs font-bold text-navy-950 group-hover:text-vermilion-600 inline-flex items-center gap-1.5 transition-colors"
                 >
-                  <span>Baca Selengkapnya Profil Lembaga</span>
+                  <span>Detail Tokutei Ginou</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
-                <Link
-                  href="/legalitas"
-                  className="inline-flex items-center gap-2 text-xs font-black text-emerald-800 hover:text-emerald-950 underline underline-offset-4 decoration-emerald-500"
-                >
-                  <span>Cek Legalitas & Nomor VIN →</span>
-                </Link>
+                <span className="text-[11px] font-semibold text-slate-400">Jalur Terpopuler</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* 5. PERJALANAN PESERTA: Connected 3D Pipeline Progression */}
-      <section className="py-20 lg:py-24 bg-slate-100 border-b-2 border-slate-300">
-        <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200 border-2 border-slate-300 text-navy-950 text-xs font-black uppercase tracking-wider mb-3">
-              Tahapan Terarah
-            </div>
-            <h2 className="font-heading text-2xl sm:text-4xl font-black text-navy-950 leading-tight">
-              Alur Perjalanan Peserta Menuju Jepang
-            </h2>
-            <p className="text-sm sm:text-base text-slate-800 mt-2 font-medium">
-              Setiap tahapan dirancang sistematis dari pembekalan dasar hingga keberangkatan resmi ke perusahaan Jepang.
-            </p>
-          </div>
+            {/* Card 2: Bahasa Jepang */}
+            <div className="bg-white rounded-3xl border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 p-6 sm:p-8 flex flex-col justify-between group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-black text-primary-700 bg-primary-50 border border-primary-200 px-3 py-1 rounded-full">
+                    Bahasa Jepang
+                  </span>
+                  <span className="text-xs font-bold text-slate-400">02</span>
+                </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {participantJourney.map((item, idx) => (
-              <div
-                key={item.step}
-                className="box-3d-special rounded-3xl p-6 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-slate-100">
-                    <span className="font-mono text-2xl font-black text-primary-800">
-                      {item.step}
-                    </span>
-                    <span className="w-3 h-3 rounded-full bg-slate-300 group-hover:bg-vermilion-600 transition-colors" />
+                <h3 className="font-heading font-bold text-xl text-navy-950 group-hover:text-primary-700 transition-colors">
+                  Pembelajaran Bahasa Jepang (N5 - N3)
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Bimbingan intensif tata bahasa, penguasaan huruf Hiragana, Katakana, Kanji dasar, serta simulasi percakapan harian (kaiwa) bersama sensei berpengalaman.
+                </p>
+
+                <div className="space-y-2 pt-2 text-xs text-slate-700 font-medium">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Kurikulum Minna no Nihongo I & II</span>
                   </div>
-                  <h3 className="font-heading font-black text-sm text-navy-950 mb-2 leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-slate-800 leading-relaxed font-normal">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="pt-4 mt-4 border-t-2 border-slate-100 text-[11px] font-black text-slate-600">
-                  Tahap 0{idx + 1}
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Latihan Kaiwa & Percakapan Pabrik</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Try Out JLPT & JFT Berkala</span>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* 6. PROGRAM PELATIHAN: Architectural 3D Cards */}
-      <section className="py-20 lg:py-24 bg-white border-b-2 border-slate-300">
-        <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-100 border-2 border-primary-300 text-primary-950 text-xs font-black uppercase tracking-wider mb-3">
-                Program Pelatihan
+              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                <Link
+                  href="/program/bahasa-jepang"
+                  className="text-xs font-bold text-navy-950 group-hover:text-primary-700 inline-flex items-center gap-1.5 transition-colors"
+                >
+                  <span>Detail Program Bahasa</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <span className="text-[11px] font-semibold text-slate-400">Materi Inti</span>
               </div>
-              <h2 className="font-heading text-2xl sm:text-4xl font-black text-navy-950 leading-tight">
-                Pilihan Program Terpadu & Terarah
-              </h2>
             </div>
+
+            {/* Card 3: Program Pemagangan Resmi */}
+            <div className="bg-white rounded-3xl border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-200 p-6 sm:p-8 flex flex-col justify-between group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-black text-slate-700 bg-slate-100 border border-slate-200 px-3 py-1 rounded-full">
+                    Ginou Jisshuusei
+                  </span>
+                  <span className="text-xs font-bold text-slate-400">03</span>
+                </div>
+
+                <h3 className="font-heading font-bold text-xl text-navy-950 group-hover:text-navy-800 transition-colors">
+                  Program Pemagangan (Ginou Jisshuusei)
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Program pelatihan kerja 3 hingga 5 tahun di perusahaan Jepang untuk transfer teknologi dan peningkatan keahlian kerja bagi lulusan SMK/SMA.
+                </p>
+
+                <div className="space-y-2 pt-2 text-xs text-slate-700 font-medium">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Disalurkan ke Kaisha Terverifikasi</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Uang Saku Standar & Asuransi</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Peluang Lanjut ke Tokutei Ginou</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                <Link
+                  href="/program/pemagangan"
+                  className="text-xs font-bold text-navy-950 group-hover:text-primary-700 inline-flex items-center gap-1.5 transition-colors"
+                >
+                  <span>Detail Program Magang</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <span className="text-[11px] font-semibold text-slate-400">3 - 5 Tahun</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 text-center">
             <Link
               href="/program"
-              className="inline-flex items-center gap-1.5 text-xs font-black text-navy-950 hover:text-primary-800 self-start md:self-auto"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-navy-950 hover:text-vermilion-600 transition-colors"
             >
-              <span>Lihat Detail Semua Program</span>
+              <span>Lihat Seluruh Katalog 5 Program Pembekalan</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {programs.map((program, idx) => (
-              <div
-                key={program.id}
-                className="card-3d-special bg-slate-50 rounded-3xl p-7 flex flex-col justify-between group hover:bg-white"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b-2 border-slate-200">
-                    <span className="font-mono text-xs font-black px-2.5 py-1 rounded-lg bg-navy-950 text-white">
-                      0{idx + 1}
-                    </span>
-                    <span className="text-[11px] font-black text-primary-800 uppercase tracking-wide">
-                      {program.stages}
-                    </span>
-                  </div>
-
-                  <h3 className="font-heading font-black text-base sm:text-lg text-navy-950 mb-3 group-hover:text-primary-800 transition-colors">
-                    {program.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-slate-800 leading-relaxed mb-5 font-normal">
-                    {program.shortDesc}
-                  </p>
-
-                  <div className="space-y-1.5 pt-3 border-t-2 border-slate-200">
-                    {program.highlights.slice(0, 2).map((h, i) => (
-                      <div key={i} className="text-xs text-slate-800 flex items-start gap-1.5 font-medium">
-                        <span className="text-vermilion-600 font-black">•</span>
-                        <span>{h}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-6 mt-6 border-t-2 border-slate-200 flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-700">
-                    {program.category}
-                  </span>
-                  <Link
-                    href={program.href}
-                    className="inline-flex items-center gap-1 text-xs font-black text-navy-950 group-hover:text-primary-800 transition-colors"
-                  >
-                    <span>Rincian Kurikulum</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* 7. KURIKULUM: 3 Progressive Milestone Slabs */}
-      <section className="py-20 lg:py-24 bg-slate-100 border-b-2 border-slate-300">
+      {/* 4. KENAPA LPK PMS? (Benefit & Credibility Section) */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white border-y border-slate-200">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200 border-2 border-slate-300 text-navy-950 text-xs font-black uppercase tracking-wider mb-3">
-              Kurikulum Resmi
-            </div>
-            <h2 className="font-heading text-2xl sm:text-4xl font-black text-navy-950 leading-tight">
-              3 Pilar Materi Pembelajaran
-            </h2>
-            <p className="text-sm sm:text-base text-slate-800 mt-2 font-medium">
-              Kurikulum disusun berjenjang untuk membangun pondasi bahasa, etos kerja Kaisha, dan kompetensi spesifik bidang.
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow="Keunggulan Kelembagaan"
+            kanji="強み"
+            title="Mengapa Memilih"
+            highlight="LPK PMS Karawang?"
+            description="Kami tidak hanya mengajarkan bahasa Jepang, tetapi membimbing setiap peserta dari tahap persiapan mental hingga sukses beradaptasi dan bekerja di Jepang."
+          />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {curriculumRoadmap.map((item) => (
-              <div
-                key={item.number}
-                className="box-3d-special rounded-3xl p-8 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b-2 border-slate-100">
-                    <span className="font-mono text-3xl font-black text-navy-950">
-                      {item.number}
-                    </span>
-                    <span className="px-3.5 py-1 rounded-full text-xs font-black bg-primary-100 text-primary-950 border-2 border-primary-200">
-                      {item.phase}
-                    </span>
-                  </div>
-
-                  <h3 className="font-heading font-black text-xl text-navy-950 mb-3">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-slate-800 leading-relaxed mb-6 font-normal">
-                    {item.description}
-                  </p>
-
-                  <div className="space-y-2.5 pt-4 border-t-2 border-slate-100">
-                    <span className="text-[11px] font-black uppercase text-slate-700 block mb-2">
-                      Rincian Modul:
-                    </span>
-                    {item.details.map((d, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border-2 border-slate-200 text-xs text-slate-900 font-bold"
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
-                        <span>{d}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-4 border-t-2 border-slate-100">
-                  <Link
-                    href="/kurikulum"
-                    className="inline-flex items-center gap-1.5 text-xs font-black text-navy-950 hover:text-primary-800"
-                  >
-                    <span>Pelajari Rencana Pembelajaran</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/90 space-y-3">
+              <div className="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">
+                <ShieldCheck className="w-5 h-5" />
               </div>
-            ))}
+              <h3 className="font-heading font-bold text-lg text-navy-950">
+                Terdaftar Resmi Kemnaker RI
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Legalitas terjamin dengan nomor VIN <strong>2001321506</strong> pada sistem Kementerian Ketenagakerjaan RI, memberikan rasa aman bagi calon peserta dan orang tua.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/90 space-y-3">
+              <div className="w-11 h-11 rounded-2xl bg-vermilion-100 text-vermilion-700 flex items-center justify-center font-bold text-sm">
+                <BookOpen className="w-5 h-5" />
+              </div>
+              <h3 className="font-heading font-bold text-lg text-navy-950">
+                Kurikulum Terarah & Praktis
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Materi dirancang bertahap tanpa duplikasi: Materi Dasar (N5), Materi Inti (N4 & Budaya Kerja), dan Materi Khusus (Keterampilan Teknis & Simulasi Wawancara).
+              </p>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/90 space-y-3">
+              <div className="w-11 h-11 rounded-2xl bg-primary-100 text-primary-800 flex items-center justify-center font-bold text-sm">
+                <Users className="w-5 h-5" />
+              </div>
+              <h3 className="font-heading font-bold text-lg text-navy-950">
+                Instruktur Berpengalaman Jepang
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Tenaga pengajar yang telah memiliki pengalaman kerja nyata di Jepang, membimbing simulasi wawancara kerja (mensetsu) dan etika komunikasi sopan (keigo).
+              </p>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/90 space-y-3">
+              <div className="w-11 h-11 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm">
+                <Award className="w-5 h-5" />
+              </div>
+              <h3 className="font-heading font-bold text-lg text-navy-950">
+                Pembinaan Disiplin & Fisik Unggul
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Latihan kebugaran fisik berkala dan penanaman budaya 5S (Seiri, Seiton, Seiso, Seiketsu, Shitsuke) untuk kesiapan stamina kerja di iklim 4 musim Jepang.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/90 space-y-3">
+              <div className="w-11 h-11 rounded-2xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-sm">
+                <Briefcase className="w-5 h-5" />
+              </div>
+              <h3 className="font-heading font-bold text-lg text-navy-950">
+                Pengurusan Dokumen & CoE Terpadu
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Pendampingan intensif proses verifikasi data, penerbitan Certificate of Eligibility (CoE) dari Imigrasi Jepang, pengurusan visa kerja, hingga tiket penerbangan.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/90 space-y-3">
+              <div className="w-11 h-11 rounded-2xl bg-rose-100 text-rose-800 flex items-center justify-center font-bold text-sm">
+                <HeartHandshake className="w-5 h-5" />
+              </div>
+              <h3 className="font-heading font-bold text-lg text-navy-950">
+                Pendampingan Menuju Jepang
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Komunikasi berkesinambungan dan koordinasi bersama pihak penerima di Jepang guna memastikan kondisi peserta tetap terpantau dengan baik selama bertugas.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 8. KEUNGGULAN: Editorial Asymmetric Showcase */}
-      <section className="py-20 lg:py-24 bg-white border-b-2 border-slate-300">
+      {/* 5. ALUR BERANGKAT KE JEPANG (Interactive 9-Step Timeline) */}
+      <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-vermilion-100 border-2 border-vermilion-300 text-vermilion-950 text-xs font-black uppercase tracking-wider mb-3">
-              Nilai Keunggulan
-            </div>
-            <h2 className="font-heading text-2xl sm:text-4xl font-black text-navy-950 leading-tight">
-              Mengapa Memilih LPK Panca Multiguna Sukses Karawang?
-            </h2>
-            <p className="text-sm sm:text-base text-slate-800 mt-2 font-medium">
-              Kualitas pelatihan dan kedisiplinan yang berakar pada kesiapan kerja nyata di industri Jepang.
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow="Roadmap Berangkat"
+            kanji="渡航手順"
+            title="Alur & Tahapan Menuju Kerja"
+            highlight="di Jepang"
+            description="9 langkah terstruktur dari awal pendaftaran, pembekalan bahasa dan fisik, ujian sertifikasi, seleksi kaisha, hingga terbang dan bekerja di Jepang."
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {keunggulan.map((k) => (
-              <div
-                key={k.number}
-                className="card-3d-special p-8 rounded-3xl bg-slate-50 hover:bg-white flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-3 mb-4 pb-3 border-b-2 border-slate-200">
-                    <span className="font-mono text-xl font-black text-navy-950">
-                      {k.number}
-                    </span>
-                    <span className="px-3 py-1 rounded-full bg-navy-950 text-white text-[11px] font-black tracking-wider uppercase">
-                      {k.badge}
-                    </span>
-                  </div>
-
-                  <h3 className="font-heading font-black text-lg text-navy-950 mb-3">
-                    {k.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-normal">
-                    {k.description}
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t-2 border-slate-200 text-xs font-bold text-primary-800">
-                  Standar Pelatihan Karawang
-                </div>
-              </div>
-            ))}
-          </div>
+          <StepTimeline />
         </div>
       </section>
 
-      {/* 9. LOKASI: Institutional Campus Console */}
-      <section className="py-20 lg:py-24 bg-slate-100 border-b-2 border-slate-300">
+      {/* 6. TOKUTEI GINOU (SSW) SPOTLIGHT */}
+      <TokuteiGinouSection />
+
+      {/* 7. STRUKTUR & GALERI KELEMBAGAAN SLIDER */}
+      <StructureSlider />
+
+      {/* 8. FORMULIR KONSULTASI INTERAKTIF */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white border-t border-slate-200">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-6 bg-white p-8 sm:p-10 rounded-3xl border-2 border-slate-300 shadow-md">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border-2 border-slate-300 text-navy-950 text-xs font-black uppercase tracking-wider">
-                  Lokasi Pelatihan
-                </div>
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-navy-950">
-                  Pusat Pelatihan di Karawang
-                </h2>
+          <SectionHeader
+            eyebrow="Mulai Langkah Pertamamu"
+            kanji="無料相談"
+            title="Konsultasikan Rencana Kariermu"
+            highlight="Bersama Kami"
+            description="Tanyakan segala hal seputar persyaratan, pilihan program, dan estimasi biaya. Tim instruktur LPK PMS Karawang siap melayani Anda."
+          />
 
-                <div className="p-5 rounded-2xl bg-slate-50 border-2 border-slate-200 space-y-2 text-xs">
-                  <div className="font-black text-navy-950 text-sm">
-                    {siteConfig.name}
-                  </div>
-                  <p className="text-slate-800 leading-relaxed font-medium">
-                    {siteConfig.address}
-                  </p>
-                </div>
-
-                <div className="space-y-2.5 text-xs text-slate-800 pt-2 font-bold">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-700" />
-                    <span>Akses mudah di wilayah Purwasari, Karawang</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-700" />
-                    <span>Ruang kelas teori, asrama, dan area fisik mandiri</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-3 pt-4 border-t-2 border-slate-200">
-                <a
-                  href={siteConfig.maps}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-navy-950 hover:bg-navy-900 text-white font-bold text-xs shadow-md transition-all hover:-translate-y-0.5 border-2 border-navy-950"
-                >
-                  <MapPin className="w-4 h-4 text-vermilion-500" />
-                  <span>Buka di Google Maps</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-
-                <Link
-                  href="/lokasi"
-                  className="w-full inline-flex items-center justify-center gap-2 text-xs font-black text-slate-800 hover:text-navy-950 transition-colors"
-                >
-                  <span>Lihat Petunjuk Arah Lengkap</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-7 min-h-[350px] rounded-3xl overflow-hidden border-2 border-slate-300 shadow-md bg-slate-200 relative">
-              <iframe
-                src={siteConfig.mapsEmbed}
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: "380px" }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Peta Lokasi LPK Panca Multiguna Sukses Karawang"
-                className="w-full h-full"
-              />
-            </div>
+          <div className="max-w-2xl mx-auto">
+            <ConsultationForm />
           </div>
         </div>
       </section>
 
-      {/* 10. CALL TO ACTION */}
+      {/* 9. PRE-FOOTER CTA SECTION */}
       <CTA />
-    </>
+    </div>
   );
 }

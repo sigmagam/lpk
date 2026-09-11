@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { daftarBidangKejuruan } from "@/data/site";
 import {
   Search,
@@ -19,166 +19,166 @@ import {
 
 export default function KejuruanExplorer() {
   const [activeTab, setActiveTab] = useState<string>("all");
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("" );
 
   const getCategoryIcon = (iconType: string) => {
     switch (iconType) {
       case "hard-hat":
-        return <HardHat className="w-5 h-5 text-amber-700" />;
+        return <HardHat className="w-5 h-5 text-amber-600" />;
       case "factory":
         return <Factory className="w-5 h-5 text-primary-700" />;
       case "hammer":
-        return <Hammer className="w-5 h-5 text-vermilion-700" />;
+        return <Hammer className="w-5 h-5 text-vermilion-600" />;
       case "wrench":
-        return <Wrench className="w-5 h-5 text-slate-800" />;
+        return <Wrench className="w-5 h-5 text-slate-700" />;
       case "scissors":
-        return <Scissors className="w-5 h-5 text-purple-700" />;
+        return <Scissors className="w-5 h-5 text-purple-600" />;
       case "flask":
-        return <FlaskConical className="w-5 h-5 text-emerald-700" />;
+        return <FlaskConical className="w-5 h-5 text-emerald-600" />;
       case "printer":
-        return <Printer className="w-5 h-5 text-blue-700" />;
+        return <Printer className="w-5 h-5 text-blue-600" />;
       case "utensils":
-        return <Utensils className="w-5 h-5 text-orange-700" />;
+        return <Utensils className="w-5 h-5 text-orange-600" />;
       default:
-        return <HeartHandshake className="w-5 h-5 text-rose-700" />;
+        return <HeartHandshake className="w-5 h-5 text-rose-600" />;
     }
   };
 
-  const filteredCategories = daftarBidangKejuruan
-    .filter((cat) => activeTab === "all" || cat.id === activeTab)
-    .map((cat) => {
-      const filteredSkills = cat.skills.filter((skill) =>
-        skill.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      return {
-        ...cat,
-        skills: filteredSkills,
-      };
-    })
-    .filter((cat) => cat.skills.length > 0);
+  const filteredCategories = useMemo(() => {
+    return daftarBidangKejuruan
+      .filter((cat) => activeTab === "all" || cat.id === activeTab)
+      .map((cat) => {
+        const filteredSkills = cat.skills.filter((skill) =>
+          skill.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        return {
+          ...cat,
+          skills: filteredSkills,
+        };
+      })
+      .filter((cat) => cat.skills.length > 0);
+  }, [activeTab, searchQuery]);
 
-  const totalSkillCount = daftarBidangKejuruan.reduce((acc, cat) => acc + cat.skills.length, 0);
+  const totalSkillCount = useMemo(() => {
+    return daftarBidangKejuruan.reduce((acc, cat) => acc + cat.skills.length, 0);
+  }, []);
 
   return (
     <div className="space-y-8">
       {/* Header Info & Search Toolbar */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-300 shadow-md space-y-6">
+      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-100 border-2 border-navy-900 text-xs font-black text-navy-950 uppercase tracking-wider mb-2">
-              <Briefcase className="w-4 h-4 text-primary-800" />
-              <span>Daftar Kejuruan Resmi Program Magang & Kerja Jepang</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-xs font-bold text-navy-950 uppercase tracking-wider mb-2">
+              <Briefcase className="w-3.5 h-3.5 text-primary-700" />
+              <span>Direktori Kejuruan Resmi Program Magang & SSW Jepang</span>
             </div>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl text-navy-950">
-              Bidang & Kejuruan Kerja Resmi LPK PMS
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-700 font-medium mt-1">
-              Meliputi <span className="font-black text-navy-950">{totalSkillCount} kejuruan spesifik</span> di berbagai sektor industri utama Jepang.
+            <h3 className="font-heading font-black text-xl sm:text-2xl text-navy-950">
+              Cari & Eksplorasi Bidang Keahlian
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
+              Menampilkan total <strong className="text-navy-950">{totalSkillCount} kejuruan spesifik</strong> dalam 9 kelompok sektor industri resmi.
             </p>
           </div>
 
+          {/* Search Box */}
           <div className="relative w-full md:w-80">
-            <Search className="w-4 h-4 text-slate-600 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <label htmlFor="kejuruan-search" className="sr-only">
+              Cari nama kejuruan atau keahlian
+            </label>
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
             <input
+              id="kejuruan-search"
               type="text"
-              placeholder="Cari kejuruan / bidang kerja..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 rounded-xl border-2 border-slate-300 text-xs font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-navy-950 bg-slate-50"
+              placeholder="Cari kejuruan... (contoh: CNC, bento, las, cat)"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm text-slate-900 bg-white placeholder-slate-400 focus:border-navy-950 focus:ring-1 focus:ring-navy-950 transition-colors"
             />
           </div>
         </div>
 
-        {/* Category Filter Chips */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 pt-2 border-t-2 border-slate-100">
+        {/* Category Filter Tabs */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
           <button
             type="button"
             onClick={() => setActiveTab("all")}
-            className={`px-4 py-2 rounded-xl text-xs font-black transition-all whitespace-nowrap border-2 ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeTab === "all"
-                ? "bg-navy-950 text-white border-navy-950 shadow-sm"
-                : "bg-white text-slate-800 hover:bg-slate-100 border-slate-300"
+                ? "bg-navy-950 text-white shadow-sm"
+                : "bg-slate-100 hover:bg-slate-200 text-slate-700"
             }`}
           >
-            Semua Bidang ({totalSkillCount})
+            Semua Sektor ({daftarBidangKejuruan.length})
           </button>
-
           {daftarBidangKejuruan.map((cat) => (
             <button
               key={cat.id}
               type="button"
               onClick={() => setActiveTab(cat.id)}
-              className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap border-2 ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                 activeTab === cat.id
-                  ? "bg-navy-950 text-white border-navy-950 shadow-sm"
-                  : "bg-white text-slate-700 hover:bg-slate-100 border-slate-300"
+                  ? "bg-navy-950 text-white shadow-sm"
+                  : "bg-slate-100 hover:bg-slate-200 text-slate-700"
               }`}
             >
-              {cat.name}
+              {cat.name.replace("Bidang ", "")}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Grid of Categories & Kotak-Kotak 3D Tebal */}
-      <div className="space-y-8">
+      {/* Categories & Skills Grid */}
+      <div className="space-y-6">
         {filteredCategories.length > 0 ? (
           filteredCategories.map((category) => (
             <div
               key={category.id}
-              className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-300 shadow-md space-y-5"
+              className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm space-y-4"
             >
-              {/* Category Title Header */}
-              <div className="flex items-center gap-3 pb-4 border-b-2 border-slate-200">
-                <div className="w-11 h-11 rounded-2xl bg-slate-100 border-2 border-slate-300 flex items-center justify-center shrink-0 shadow-sm">
-                  {getCategoryIcon(category.iconType)}
+              <div className="flex items-center justify-between gap-4 pb-3 border-b border-slate-100">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                    {getCategoryIcon(category.iconType)}
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-black text-base sm:text-lg text-navy-950">
+                      {category.name}
+                    </h4>
+                    <span className="text-xs text-slate-500 font-medium">
+                      {category.skills.length} pilihan kejuruan aktif
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-heading font-black text-lg sm:text-xl text-navy-950 leading-tight">
-                    {category.name}
-                  </h3>
-                  <span className="text-xs font-bold text-slate-600">
-                    {category.skills.length} Jenis Kejuruan Praktis
-                  </span>
-                </div>
+
+                <span className="text-[11px] font-bold text-slate-400 bg-slate-100 px-2.5 py-1 rounded-md">
+                  Jalur Magang & SSW
+                </span>
               </div>
 
-              {/* Kotak-Kotak 3D Tebal untuk Tiap Kejuruan */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+              {/* Skills Badges Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 pt-1">
                 {category.skills.map((skill, sIdx) => (
                   <div
                     key={sIdx}
-                    className="box-3d-bold p-3.5 rounded-2xl bg-slate-50 flex items-start gap-3 group"
+                    className="p-3 rounded-xl bg-slate-50/80 hover:bg-slate-100/90 border border-slate-200/80 text-xs text-slate-800 font-medium flex items-start gap-2 transition-colors"
                   >
-                    <span className="w-6 h-6 rounded-lg bg-navy-950 text-white text-[11px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-vermilion-600 transition-colors">
-                      {sIdx + 1}
-                    </span>
-                    <span className="text-xs sm:text-sm font-bold text-navy-950 leading-snug">
-                      {skill}
-                    </span>
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="leading-snug">{skill}</span>
                   </div>
                 ))}
               </div>
             </div>
           ))
         ) : (
-          <div className="bg-white rounded-3xl p-12 text-center border-2 border-slate-300 shadow-sm">
-            <p className="text-base font-black text-navy-950">
-              Tidak ada kejuruan yang cocok dengan kata kunci &quot;{searchQuery}&quot;
+          <div className="bg-white p-12 rounded-3xl border border-slate-200 text-center space-y-3">
+            <Search className="w-8 h-8 text-slate-400 mx-auto" />
+            <div className="font-heading font-bold text-base text-navy-950">
+              Tidak ada kejuruan yang cocok
+            </div>
+            <p className="text-xs text-slate-500">
+              Tidak ditemukan kejuruan dengan kata kunci &quot;{searchQuery}&quot;. Silakan coba kata kunci lain.
             </p>
-            <p className="text-xs text-slate-600 mt-1 font-medium">
-              Coba cari dengan nama kejuruan lain atau bersihkan kotak pencarian.
-            </p>
-            <button
-              type="button"
-              onClick={() => {
-                setSearchQuery("");
-                setActiveTab("all");
-              }}
-              className="mt-4 px-5 py-2.5 rounded-xl bg-navy-950 text-white text-xs font-bold shadow-sm"
-            >
-              Tampilkan Semua Kejuruan
-            </button>
           </div>
         )}
       </div>

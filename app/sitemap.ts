@@ -6,8 +6,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const publicRoutes = [
     "",
-    "/tentang-kami",
+    "/tokutei-ginou",
     "/program",
+    "/tentang-kami",
     "/kurikulum",
     "/keunggulan",
     "/legalitas",
@@ -29,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return allRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: route === "" ? "daily" : route.startsWith("/dashboard") ? "daily" : "weekly",
-    priority: route === "" ? 1.0 : route.startsWith("/program") ? 0.9 : route.startsWith("/dashboard") ? 0.8 : 0.7,
+    changeFrequency: route === "" ? "daily" : route === "/tokutei-ginou" ? "daily" : route.startsWith("/dashboard") ? "daily" : "weekly",
+    priority: route === "" ? 1.0 : route === "/tokutei-ginou" ? 0.95 : route.startsWith("/program") ? 0.9 : route.startsWith("/dashboard") ? 0.8 : 0.7,
   }));
 }

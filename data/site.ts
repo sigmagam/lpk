@@ -36,8 +36,9 @@ export const siteConfig = {
     "LPK Panca Multiguna Sukses adalah lembaga pelatihan kerja yang bergerak di bidang Pendidikan Bahasa Jepang. Telah berdiri sejak tahun 2018 sampai saat ini. LPK Panca Multiguna Sukses telah meluluskan sekitar 200 orang yang bekerja diberbagai perusahaan-perusahaan Jepang.",
   navLinks: [
     { label: "Beranda", href: "/" },
-    { label: "Tentang Kami", href: "/tentang-kami" },
     { label: "Program", href: "/program" },
+    { label: "Tokutei Ginou", href: "/tokutei-ginou" },
+    { label: "Tentang Kami", href: "/tentang-kami" },
     { label: "Kurikulum", href: "/kurikulum" },
     { label: "Keunggulan", href: "/keunggulan" },
     { label: "Legalitas", href: "/legalitas" },
@@ -48,8 +49,9 @@ export const siteConfig = {
   footerLinks: {
     navigasi: [
       { label: "Beranda", href: "/" },
-      { label: "Tentang Kami", href: "/tentang-kami" },
       { label: "Program", href: "/program" },
+      { label: "Tokutei Ginou", href: "/tokutei-ginou" },
+      { label: "Tentang Kami", href: "/tentang-kami" },
       { label: "Kurikulum", href: "/kurikulum" },
       { label: "Keunggulan", href: "/keunggulan" },
       { label: "Legalitas", href: "/legalitas" },

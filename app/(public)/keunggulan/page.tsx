@@ -1,85 +1,127 @@
 import { keunggulan, siteConfig } from "@/data/site";
 import type { Metadata } from "next";
-import { Award, ShieldCheck, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
+import SectionHeader from "@/components/public/SectionHeader";
+import CTA from "@/components/public/CTA";
+import {
+  Award,
+  ShieldCheck,
+  CheckCircle2,
+  ArrowRight,
+  Sparkles,
+  BookOpen,
+  Users,
+  Building2,
+  Briefcase
+} from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Keunggulan Kami | LPK Panca Multiguna Sukses Karawang",
+  title: "Keunggulan Pelatihan Kerja | LPK Panca Multiguna Sukses Karawang",
   description:
-    "Fasilitas memadai, tenaga pengajar profesional, kurikulum terkini, dan pengalaman praktis intensif di LPK Panca Multiguna Sukses Karawang.",
+    "Mengapa memilih LPK PMS Karawang: Kurikulum terkini industri Kaisha, instruktur profesional bersertifikat, fasilitas 300 m2 lengkap, dan pengalaman praktis intensif.",
+  keywords: [
+    "keunggulan LPK PMS Karawang",
+    "fasilitas LPK PMS",
+    "instruktur bahasa jepang karawang",
+    "kelebihan magang jepang pms",
+    "LPK jepang terbaik karawang"
+  ]
 };
 
 export default function KeunggulanPage() {
+  const iconList = [
+    <BookOpen key="1" className="w-6 h-6 text-vermilion-600" />,
+    <Users key="2" className="w-6 h-6 text-primary-700" />,
+    <Building2 key="3" className="w-6 h-6 text-emerald-700" />,
+    <Briefcase key="4" className="w-6 h-6 text-amber-700" />
+  ];
+
   return (
-    <div className="bg-white">
-      {/* Header Banner */}
-      <section className="bg-navy-950 text-white py-16 sm:py-24 border-b-2 border-navy-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-japanese opacity-10 pointer-events-none" />
+    <div className="bg-[#F8FAFC]">
+      {/* 1. Header Banner */}
+      <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-japanese-grid opacity-15 pointer-events-none" />
+        <span
+          aria-hidden="true"
+          className="absolute -right-6 -bottom-8 font-heading font-black text-8xl sm:text-9xl text-white/[0.04] select-none pointer-events-none"
+        >
+          当校の強み
+        </span>
+
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy-900 border-2 border-navy-700 text-xs font-black text-emerald-300 uppercase tracking-wider mb-4 shadow-sm">
-            <Award className="w-4 h-4 text-emerald-400" />
-            Nilai & Standar Mutu Kelembagaan
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
+            <Award className="w-3.5 h-3.5 text-vermilion-400" />
+            <span>Standar Kualitas & Mutu Pelatihan</span>
           </div>
-          <h1 className="font-heading text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
-            Keunggulan Pelatihan LPK PMS
+
+          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
+            Keunggulan LPK PMS Karawang
           </h1>
-          <p className="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-medium">
-            Dedikasi kami dalam menghadirkan pembinaan berkualitas, tenaga pengajar kompeten, serta sarana pelatihan yang menunjang keberhasilan peserta ke Jepang.
+
+          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
+            Kombinasi kurikulum relevan, pengajar berpengalaman Jepang, sarana balai memadai, serta fokus pada penguasaan keterampilan praktis di tempat kerja nyata.
           </p>
         </div>
       </section>
 
-      {/* Asymmetric Editorial Content */}
-      <section className="py-20 lg:py-24 bg-slate-50">
+      {/* 2. Bento Grid Keunggulan */}
+      <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="Nilai Tambah Nyata"
+            kanji="特色"
+            title="4 Pilar Keunggulan Utama"
+            highlight="LPK PMS"
+            description="Fasilitas dan metode pelatihan kami dirancang untuk membentuk disiplin diri, kecakapan berbahasa, dan kesiapan fisik standar industri Jepang."
+          />
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {keunggulan.map((item, idx) => (
               <div
                 key={item.number}
-                className={`card-3d-special rounded-3xl p-8 sm:p-10 flex flex-col justify-between ${
-                  idx === 0
-                    ? "bg-gradient-to-br from-white via-primary-50/20 to-primary-100/30 border-primary-300"
-                    : "bg-white"
-                }`}
+                className="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 p-8 sm:p-10 flex flex-col justify-between space-y-6"
               >
-                <div>
-                  <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b-2 border-slate-200">
-                    <span className="font-mono text-3xl font-black text-navy-950">
-                      {item.number}
-                    </span>
-                    <span className="px-3.5 py-1 rounded-full bg-navy-950 text-white text-[11px] font-black tracking-wider uppercase shadow-sm">
-                      {item.badge}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200">
+                      {iconList[idx]}
+                    </div>
+                    <span className="font-mono text-xs font-bold text-slate-400 bg-slate-100 px-2.5 py-1 rounded-md">
+                      Pilar {item.number}
                     </span>
                   </div>
 
-                  <h2 className="font-heading font-black text-xl sm:text-2xl text-navy-950 mb-4">
-                    {item.title}
-                  </h2>
+                  <span className="inline-block text-xs font-bold uppercase tracking-wider text-vermilion-700 bg-vermilion-50 border border-vermilion-200 px-3 py-1 rounded-full">
+                    {item.badge}
+                  </span>
 
-                  <p className="text-sm text-slate-800 leading-relaxed font-normal">
+                  <h3 className="font-heading font-black text-xl sm:text-2xl text-navy-950">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t-2 border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
-                  <span>Standar Terakreditasi Kemnaker RI</span>
-                  <CheckCircle2 className="w-5 h-5 text-emerald-700" />
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                  <span className="font-medium">LPK PMS Karawang</span>
+                  <Link
+                    href="/program"
+                    className="font-bold text-navy-950 hover:text-vermilion-600 inline-flex items-center gap-1 transition-colors"
+                  >
+                    <span>Lihat Penerapan Program</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="mt-16 text-center">
-            <Link
-              href="/program"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-navy-950 hover:bg-navy-900 text-white font-black text-xs shadow-md transition-all hover:-translate-y-1 border-2 border-navy-950"
-            >
-              <span>Daftar Sekarang Melalui Program Kami</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </section>
+
+      {/* 3. Pre-footer CTA */}
+      <CTA />
     </div>
   );
 }
