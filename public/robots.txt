@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /yusuf
-Disallow: /yusuf/*
 
 Sitemap: https://lpkpms.my.id/sitemap.xml
