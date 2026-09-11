@@ -172,3 +172,34 @@ body {
   background: transparent !important;
   box-shadow: none !important;
 }
+
+/* Smooth Infinite Moving Marquee for Official Legality Logos */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-legal {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 26s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-legal:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-legal {
+    animation: none !important;
+    transform: none !important;
+    width: 100% !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+}

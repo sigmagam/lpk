@@ -4,6 +4,7 @@ import Contact3DBadge from "@/components/public/Contact3DBadge";
 import KejuruanExplorer from "@/components/public/KejuruanExplorer";
 import SectionHeader from "@/components/public/SectionHeader";
 import OfficialLegalBadges from "@/components/public/OfficialLegalBadges";
+import OfficialTrustRibbon from "@/components/public/OfficialTrustRibbon";
 import CTA from "@/components/public/CTA";
 import {
   ShieldCheck,
@@ -88,23 +89,26 @@ export default function LegalitasPage() {
         </div>
       </section>
 
-      {/* 2. Flagship: 5 Official Government Badges & Logos (HD) */}
+      {/* 2. Flagship: Centerpiece VIN Plinth & Animated Moving Marquee (Persis Screenshot) */}
+      <OfficialTrustRibbon />
+
+      {/* 3. Flagship Deep-Dive: 5 Official Government Badges & Logos (3D Interactive) */}
       <section className="py-16 sm:py-20 lg:py-24 border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 space-y-12">
           <SectionHeader
             eyebrow="Kepastian Hukum & Izin Resmi"
             kanji="公認機関"
-            title="5 Pilar Legalitas Resmi"
+            title="5 Dokumen Legalitas Sah"
             highlight="Republik Indonesia"
-            description="Setiap aspek operasional LPK PMS Karawang terdaftar dan terakreditasi oleh kementerian dan dinas terkait guna memberikan kepastian, keamanan, dan transparansi penuh bagi seluruh calon peserta."
+            description="Sentuh atau arahkan kursor pada masing-masing kartu untuk melihat dokumen izin legalitas lengkap, dasar hukum, dan status pencatatan aktif."
           />
 
-          {/* Render 5 HD Logos Component */}
+          {/* Render 5 HD Logos Component with 3D Depth */}
           <OfficialLegalBadges />
         </div>
       </section>
 
-      {/* 3. Official Datasheet */}
+      {/* 4. Official Datasheet */}
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 space-y-12">
           <SectionHeader
@@ -205,7 +209,7 @@ export default function LegalitasPage() {
         </div>
       </section>
 
-      {/* 4. Pre-footer CTA */}
+      {/* 5. Pre-footer CTA */}
       <CTA />
     </div>
   );
