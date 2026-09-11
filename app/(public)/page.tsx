@@ -170,9 +170,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2.1 OFFICIAL GOVERNMENT LEGALITY LOGOS RIBBON (HD) */}
-      <OfficialTrustRibbon />
-
       {/* 3. PROGRAM UTAMA (Core Programs Catalogue) */}
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
@@ -461,7 +458,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. PRE-FOOTER CTA SECTION */}
+      {/* 9. OFFICIAL GOVERNMENT LEGALITY & ACCREDITATION (3D ANIMATED) */}
+      <OfficialTrustRibbon />
+
+      {/* 10. PRE-FOOTER CTA SECTION */}
       <CTA />
     </div>
   );

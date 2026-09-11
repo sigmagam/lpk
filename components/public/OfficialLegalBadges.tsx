@@ -1,6 +1,9 @@
+"use client";
+
+import { useState, useRef, MouseEvent, useCallback } from "react";
 import Image from "next/image";
 import { siteConfig } from "@/data/site";
-import { ShieldCheck, ExternalLink, CheckCircle2, Award } from "lucide-react";
+import { ShieldCheck, ExternalLink, CheckCircle2, Award, Sparkles } from "lucide-react";
 
 export interface LegalEntity {
   id: string;
@@ -85,93 +88,181 @@ export const officialLegalEntities: LegalEntity[] = [
   },
 ];
 
+function LegalCard3D({ entity, isFeatured }: { entity: LegalEntity; isFeatured: boolean }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = useCallback((e: MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -12;
+    const rotateY = ((x - centerX) / centerX) * 14;
+
+    const glareX = (x / rect.width) * 100;
+    const glareY = (y / rect.height) * 100;
+
+    setRotation({ x: rotateX, y: rotateY });
+    setGlare({ x: glareX, y: glareY, opacity: 1 });
+  }, []);
+
+  const handleMouseEnter = useCallback(() => {
+    setIsHovered(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+    setRotation({ x: 0, y: 0 });
+    setGlare((prev) => ({ ...prev, opacity: 0 }));
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`relative select-none ${
+        isFeatured ? "md:col-span-2 lg:col-span-1" : ""
+      }`}
+      style={{ perspective: "1100px" }}
+    >
+      <div
+        className={`relative h-full rounded-3xl bg-white border p-6 sm:p-8 flex flex-col justify-between overflow-hidden transition-all ease-out ${
+          isFeatured
+            ? "border-navy-950/80 ring-1 ring-navy-950/10"
+            : "border-slate-200/90 hover:border-slate-300"
+        }`}
+        style={{
+          transformStyle: "preserve-3d",
+          transform: isHovered
+            ? `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) translateZ(12px)`
+            : "rotateX(0deg) rotateY(0deg) translateZ(0px)",
+          transitionDuration: isHovered ? "100ms" : "450ms",
+          boxShadow: isHovered
+            ? "0 24px 40px -10px rgba(11, 23, 39, 0.18), 0 10px 18px -6px rgba(11, 23, 39, 0.08)"
+            : "0 2px 6px rgba(11, 23, 39, 0.05)",
+        }}
+      >
+        {/* Dynamic Sheen / Glare Overlay (3D Light Reflection) */}
+        <div
+          className="pointer-events-none absolute inset-0 rounded-3xl transition-opacity duration-300 z-30"
+          style={{
+            opacity: glare.opacity ? 0.45 : 0,
+            background: `radial-gradient(circle 280px at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, 0.9), transparent 75%)`,
+          }}
+        />
+
+        {/* Ambient Top Glow */}
+        <div
+          className="absolute -top-12 -right-12 w-36 h-36 bg-gradient-to-br from-primary-100/40 via-vermilion-100/20 to-transparent rounded-full blur-2xl pointer-events-none"
+          style={{ transform: "translateZ(10px)" }}
+        />
+
+        {/* Card Content with True 3D Depth Layering */}
+        <div className="space-y-5 relative z-10" style={{ transformStyle: "preserve-3d" }}>
+          {/* Top Row: 3D Popped Logo & Status Badge */}
+          <div className="flex items-start justify-between gap-4" style={{ transform: "translateZ(36px)" }}>
+            {/* 3D High-Definition Scalable Vector SVG Logo */}
+            <div
+              className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white p-1.5 shadow-md border-2 border-slate-200/90 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105"
+              style={{
+                boxShadow: isHovered
+                  ? "0 14px 20px -6px rgba(11, 23, 39, 0.2)"
+                  : "0 4px 8px -2px rgba(11, 23, 39, 0.08)",
+              }}
+            >
+              <Image
+                src={entity.logoSrc}
+                alt={`Logo Resmi ${entity.name}`}
+                width={96}
+                height={96}
+                className="w-full h-full object-contain drop-shadow-sm"
+                priority={isFeatured}
+              />
+            </div>
+
+            {/* Status Badge Tag */}
+            <div className="flex flex-col items-end gap-1.5" style={{ transform: "translateZ(30px)" }}>
+              <span
+                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border shadow-xs ${entity.badgeColor}`}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                <span>{entity.status}</span>
+              </span>
+              <span className="font-mono text-[11px] font-bold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-md border border-slate-200 shadow-xs">
+                {entity.identifier}
+              </span>
+            </div>
+          </div>
+
+          {/* Identity & Details (Layered Depth) */}
+          <div className="space-y-2" style={{ transform: "translateZ(24px)" }}>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+              {entity.authority}
+            </div>
+            <h3 className="font-heading font-black text-lg sm:text-xl text-navy-950 leading-tight">
+              {entity.name}
+            </h3>
+            <div className="text-xs font-bold text-primary-700 bg-primary-50/80 border border-primary-200/80 px-3 py-1 rounded-lg inline-block">
+              {entity.role}
+            </div>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pt-1">
+              {entity.description}
+            </p>
+          </div>
+        </div>
+
+        {/* Card Footer: Verifikasi Action (+18px Depth) */}
+        <div
+          className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between relative z-10"
+          style={{ transform: "translateZ(18px)" }}
+        >
+          <span className="text-[11px] font-semibold text-slate-400 flex items-center gap-1">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            Legalitas Terjamin
+          </span>
+
+          {entity.verifyUrl ? (
+            <a
+              href={entity.verifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold transition-all hover:-translate-y-0.5"
+            >
+              <span>Verifikasi Kemnaker</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          ) : (
+            <span className="inline-flex items-center gap-1 text-xs font-bold text-slate-700">
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Dokumen Sah</span>
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function OfficialLegalBadges() {
   return (
     <div className="space-y-10">
-      {/* 5 HD Logos Showcase Grid */}
+      {/* 5 HD Logos Interactive 3D Showcase Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-        {officialLegalEntities.map((entity, idx) => {
-          const isFeatured = entity.id === "kemnaker";
-          return (
-            <div
-              key={entity.id}
-              className={`bg-white rounded-3xl border transition-all duration-200 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group shadow-sm hover:shadow-md ${
-                isFeatured
-                  ? "border-navy-950/80 ring-1 ring-navy-950/10 md:col-span-2 lg:col-span-1"
-                  : "border-slate-200/90 hover:border-slate-300"
-              }`}
-            >
-              {/* Top Row: Crisp HD Logo and Status Pill */}
-              <div className="space-y-5">
-                <div className="flex items-start justify-between gap-4">
-                  {/* High-Definition Scalable Vector SVG Logo Container */}
-                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white p-1.5 shadow-sm border border-slate-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-200">
-                    <Image
-                      src={entity.logoSrc}
-                      alt={`Logo Resmi ${entity.name}`}
-                      width={96}
-                      height={96}
-                      className="w-full h-full object-contain"
-                      priority={idx < 3}
-                    />
-                  </div>
-
-                  <div className="flex flex-col items-end gap-1.5">
-                    <span
-                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold border ${entity.badgeColor}`}
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-                      <span>{entity.status}</span>
-                    </span>
-                    <span className="font-mono text-[11px] font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-md border border-slate-200">
-                      {entity.identifier}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Identity & Details */}
-                <div className="space-y-2">
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                    {entity.authority}
-                  </div>
-                  <h3 className="font-heading font-black text-lg sm:text-xl text-navy-950 leading-tight group-hover:text-vermilion-600 transition-colors">
-                    {entity.name}
-                  </h3>
-                  <div className="text-xs font-bold text-primary-700 bg-primary-50/70 border border-primary-200/70 px-3 py-1 rounded-lg inline-block">
-                    {entity.role}
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pt-1">
-                    {entity.description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Card Footer / Action */}
-              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-[11px] font-semibold text-slate-400">
-                  Legalitas Resmi Terdaftar
-                </span>
-
-                {entity.verifyUrl ? (
-                  <a
-                    href={entity.verifyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors"
-                  >
-                    <span>Cek di Kemnaker</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                ) : (
-                  <span className="inline-flex items-center gap-1 text-xs font-bold text-slate-600">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Terverifikasi Sah</span>
-                  </span>
-                )}
-              </div>
-            </div>
-          );
-        })}
+        {officialLegalEntities.map((entity) => (
+          <LegalCard3D
+            key={entity.id}
+            entity={entity}
+            isFeatured={entity.id === "kemnaker"}
+          />
+        ))}
       </div>
     </div>
   );

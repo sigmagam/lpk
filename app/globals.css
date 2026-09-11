@@ -28,6 +28,13 @@
   }
 }
 
+/* 3D Depth, Perspective, and Spatial Utilities */
+.perspective-800 { perspective: 800px; }
+.perspective-1000 { perspective: 1000px; }
+.perspective-1200 { perspective: 1200px; }
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+
 /* Subtle Japanese Architectural Pattern */
 .bg-japanese-grid {
   background-size: 32px 32px;
@@ -65,6 +72,46 @@
   @apply bg-navy-950 text-white border border-navy-800 rounded-2xl p-6 sm:p-8 transition-all duration-200;
 }
 
+/* 3D Interactive Card Classes */
+.card-3d-wrap {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.card-3d-inner {
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  transition: transform 0.15s ease-out, box-shadow 0.25s ease-out;
+}
+
+/* Floating animation keyframes */
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotateX(1deg);
+  }
+}
+
+.animate-float-subtle {
+  animation: float3D 5s ease-in-out infinite;
+}
+
+/* Shimmer Light Sweep */
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(200%) rotate(25deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmerSweep 3.5s ease-in-out infinite;
+}
+
 /* Badge Styles */
 .badge-kemnaker {
   @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-800 text-xs font-bold border border-emerald-500/25;
@@ -95,5 +142,6 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+    transform: none !important;
   }
 }
