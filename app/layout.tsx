@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -58,6 +59,56 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="google-site-verification" content="googlec327dfc83c294016" />
       </head>
       <body className="font-sans antialiased text-slate-900 bg-white min-h-screen flex flex-col selection:bg-navy-900 selection:text-white">
+        {/* Hidden Translation Mount Element */}
+        <div id="google_translate_element" style={{ display: "none" }} />
+
+        {/* Sync Saved Language Cookie Before Page Interactive */}
+        <Script
+          id="google-translate-cookie-sync"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('lpk_pms_selected_lang');
+                  if (saved && saved !== 'id') {
+                    var gtCode = saved === 'zh' ? 'zh-CN' : saved;
+                    document.cookie = 'googtrans=/id/' + gtCode + '; path=/;';
+                    if (window.location.hostname) {
+                      document.cookie = 'googtrans=/id/' + gtCode + '; domain=' + window.location.hostname + '; path=/;';
+                      document.cookie = 'googtrans=/id/' + gtCode + '; domain=.' + window.location.hostname + '; path=/;';
+                    }
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
+
+        {/* Translation Engine Callback & Script */}
+        <Script
+          id="google-translate-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.googleTranslateElementInit = function() {
+                try {
+                  new google.translate.TranslateElement({
+                    pageLanguage: 'id',
+                    includedLanguages: 'id,ja,en,de,fr,ko,zh-CN,es,ar,nl',
+                    autoDisplay: false
+                  }, 'google_translate_element');
+                } catch(e) {}
+              };
+            `,
+          }}
+        />
+        <Script
+          id="google-translate-engine"
+          strategy="afterInteractive"
+          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        />
+
         {children}
       </body>
     </html>

@@ -5,6 +5,7 @@ import { ChevronDown, Check, Globe } from "lucide-react";
 
 export interface LanguageItem {
   code: string;
+  gtCode: string;
   name: string;
   nativeName: string;
   flagSvg: React.ReactNode;
@@ -14,6 +15,7 @@ export interface LanguageItem {
 export const languagesList: LanguageItem[] = [
   {
     code: "id",
+    gtCode: "id",
     name: "Bahasa Indonesia",
     nativeName: "Indonesia (Default)",
     flagSvg: (
@@ -25,6 +27,7 @@ export const languagesList: LanguageItem[] = [
   },
   {
     code: "ja",
+    gtCode: "ja",
     name: "日本語",
     nativeName: "Japanese",
     flagSvg: (
@@ -36,6 +39,7 @@ export const languagesList: LanguageItem[] = [
   },
   {
     code: "en",
+    gtCode: "en",
     name: "English",
     nativeName: "English (UK)",
     flagSvg: (
@@ -55,6 +59,7 @@ export const languagesList: LanguageItem[] = [
   },
   {
     code: "de",
+    gtCode: "de",
     name: "Deutsch",
     nativeName: "German",
     flagSvg: (
@@ -67,6 +72,7 @@ export const languagesList: LanguageItem[] = [
   },
   {
     code: "fr",
+    gtCode: "fr",
     name: "Français",
     nativeName: "French",
     flagSvg: (
@@ -79,6 +85,7 @@ export const languagesList: LanguageItem[] = [
   },
   {
     code: "ko",
+    gtCode: "ko",
     name: "한국어",
     nativeName: "Korean",
     flagSvg: (
@@ -91,6 +98,7 @@ export const languagesList: LanguageItem[] = [
   },
   {
     code: "zh",
+    gtCode: "zh-CN",
     name: "中文",
     nativeName: "Mandarin Chinese",
     flagSvg: (
@@ -102,6 +110,7 @@ export const languagesList: LanguageItem[] = [
   },
   {
     code: "es",
+    gtCode: "es",
     name: "Español",
     nativeName: "Spanish",
     flagSvg: (
@@ -114,6 +123,7 @@ export const languagesList: LanguageItem[] = [
   },
   {
     code: "ar",
+    gtCode: "ar",
     name: "العربية",
     nativeName: "Arabic",
     flagSvg: (
@@ -125,6 +135,7 @@ export const languagesList: LanguageItem[] = [
   },
   {
     code: "nl",
+    gtCode: "nl",
     name: "Nederlands",
     nativeName: "Dutch",
     flagSvg: (
@@ -148,12 +159,37 @@ export default function LanguageSelector({
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Sync state with cookie or localStorage on mount
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const found = languagesList.find((l) => l.code === saved);
-        if (found) setSelectedLang(found);
+      // 1. Check cookies
+      const cookies = document.cookie.split(";");
+      let matchedCode: string | null = null;
+      for (const c of cookies) {
+        const trimmed = c.trim();
+        if (trimmed.startsWith("googtrans=")) {
+          const val = trimmed.substring("googtrans=".length);
+          const parts = val.split("/");
+          const target = parts[parts.length - 1];
+          if (target) {
+            const found = languagesList.find((l) => l.gtCode === target || l.code === target);
+            if (found) {
+              matchedCode = found.code;
+              break;
+            }
+          }
+        }
+      }
+
+      // 2. Check localStorage if no cookie match
+      if (!matchedCode) {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) matchedCode = stored;
+      }
+
+      if (matchedCode) {
+        const active = languagesList.find((l) => l.code === matchedCode);
+        if (active) setSelectedLang(active);
       }
     } catch {
       // ignore
@@ -163,13 +199,61 @@ export default function LanguageSelector({
   const handleSelect = useCallback((lang: LanguageItem) => {
     setSelectedLang(lang);
     setIsOpen(false);
+
     try {
       localStorage.setItem(STORAGE_KEY, lang.code);
     } catch {
       // ignore
     }
+
+    const gtCode = lang.gtCode;
+    const hostname = typeof window !== "undefined" ? window.location.hostname : "";
+
+    // Set RTL for Arabic, LTR for others
+    if (typeof document !== "undefined") {
+      document.documentElement.dir = lang.code === "ar" ? "rtl" : "ltr";
+      document.documentElement.lang = lang.code;
+    }
+
+    // If Indonesian (Default), remove translation cookies and reset
+    if (lang.code === "id") {
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      if (hostname) {
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=${hostname}; path=/;`;
+        document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=.${hostname}; path=/;`;
+      }
+
+      const select = document.querySelector(".goog-te-combo") as HTMLSelectElement | null;
+      if (select) {
+        select.value = "id";
+        select.dispatchEvent(new Event("change"));
+      }
+
+      // Reload ensures 100% clean restoration to original Indonesian DOM
+      window.location.reload();
+      return;
+    }
+
+    // Set cookies for Google Translate Engine
+    const cookieStr = `/id/${gtCode}`;
+    document.cookie = `googtrans=${cookieStr}; path=/;`;
+    if (hostname) {
+      document.cookie = `googtrans=${cookieStr}; domain=${hostname}; path=/;`;
+      document.cookie = `googtrans=${cookieStr}; domain=.${hostname}; path=/;`;
+    }
+
+    // Trigger instant in-DOM translation if Google Translate is active
+    const select = document.querySelector(".goog-te-combo") as HTMLSelectElement | null;
+    if (select) {
+      select.value = gtCode;
+      select.dispatchEvent(new Event("change"));
+    } else {
+      // If combo element is not ready yet, reload will automatically apply the cookie
+      window.location.reload();
+    }
   }, []);
 
+  // Click outside & Escape key listeners
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
@@ -193,7 +277,7 @@ export default function LanguageSelector({
   const isMobile = variant === "mobile";
 
   return (
-    <div ref={containerRef} className="relative inline-block text-left select-none">
+    <div ref={containerRef} className="relative inline-block text-left select-none notranslate">
       {/* Trigger Button with Flag & Code */}
       <button
         type="button"
@@ -223,7 +307,7 @@ export default function LanguageSelector({
         <div
           role="listbox"
           aria-label="Pilihan 10 Bahasa Resmi"
-          className="absolute right-0 mt-2 w-56 sm:w-64 rounded-2xl bg-white border border-slate-200 shadow-xl z-50 overflow-hidden animate-fade-up origin-top-right py-2"
+          className="absolute right-0 mt-2 w-56 sm:w-64 rounded-2xl bg-white border border-slate-200 shadow-xl z-50 overflow-hidden animate-fade-up origin-top-right py-2 notranslate"
           style={{
             boxShadow: "0 20px 30px -10px rgba(11, 23, 39, 0.22), 0 8px 12px -4px rgba(11, 23, 39, 0.08)",
           }}
@@ -232,9 +316,9 @@ export default function LanguageSelector({
           <div className="px-3.5 py-1.5 border-b border-slate-100 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-slate-400">
             <span className="flex items-center gap-1.5">
               <Globe className="w-3 h-3 text-vermilion-600" />
-              Pilih Bahasa (10)
+              Terjemahan Otomatis (10)
             </span>
-            <span className="text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">ID Default</span>
+            <span className="text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded font-bold">ID Default</span>
           </div>
 
           {/* Languages Options List */}
@@ -276,10 +360,10 @@ export default function LanguageSelector({
             })}
           </div>
 
-          {/* Footer reassurance */}
+          {/* Footer Subtext */}
           <div className="px-3.5 py-2 border-t border-slate-100 bg-slate-50/80 text-[10px] text-slate-500 font-medium flex items-center justify-between">
             <span>LPK PMS Karawang</span>
-            <span className="font-mono text-emerald-700 font-bold">Terdaftar Kemnaker</span>
+            <span className="font-mono text-emerald-700 font-bold">Otomatis Terjemah</span>
           </div>
         </div>
       )}
