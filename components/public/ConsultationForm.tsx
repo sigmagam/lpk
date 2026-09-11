@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { siteConfig } from "@/data/site";
-import { MessageCircle, Send, CheckCircle2, ShieldCheck } from "lucide-react";
+import { MessageCircle, Send, CheckCircle2, ShieldCheck, ArrowRight } from "lucide-react";
 
 export default function ConsultationForm() {
   const [formData, setFormData] = useState({
@@ -10,9 +10,11 @@ export default function ConsultationForm() {
     usia: "",
     pendidikan: "SMK / SMA",
     kota: "",
-    program: "Tokutei Ginou (SSW)",
+    program: "Tokutei Ginou (SSW) Kerja Resmi",
     pesan: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -23,11 +25,38 @@ export default function ConsultationForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Halo Admin LPK PMS Karawang,\n\nPerkenalkan saya:\n- Nama: ${formData.nama || "-"}\n- Usia: ${formData.usia || "-"} tahun\n- Pendidikan: ${formData.pendidikan}\n- Kota Domisili: ${formData.kota || "-"}\n- Minat Program: ${formData.program}\n\nCatatan / Pertanyaan:\n${formData.pesan || "Saya ingin konsultasi mengenai persyaratan pendaftaran dan alur kerja ke Jepang."}\n\nMohon informasi selengkapnya. Terima kasih.`;
+    setIsSubmitting(true);
+
+    // Format neat message template
+    const text = `Halo Admin LPK PMS Karawang,\n\nPerkenalkan saya ingin konsultasi:\n- Nama: ${formData.nama || "-"}\n- Usia: ${formData.usia || "-"} tahun\n- Pendidikan: ${formData.pendidikan}\n- Kota / Domisili: ${formData.kota || "-"}\n- Minat Program: ${formData.program}\n\nCatatan / Pertanyaan:\n${formData.pesan || "Saya ingin konsultasi mengenai persyaratan pendaftaran, jadwal kelas, dan alur kerja ke Jepang."}\n\nMohon informasi selengkapnya. Terima kasih.`;
 
     const encoded = encodeURIComponent(text);
-    const url = `https://wa.me/${siteConfig.phoneRaw}?text=${encoded}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+
+    // Strictly sanitize phone to international WhatsApp standard: 6285692923642
+    // Must NOT start with 08... (which WhatsApp rejects as invalid country code)
+    const rawTarget =
+      siteConfig.whatsappCleanNumber ||
+      siteConfig.whatsappNumber ||
+      "6285692923642";
+    const cleanNumber = rawTarget.replace(/\D/g, "").replace(/^0/, "62");
+
+    // Standard universal WhatsApp Web & App endpoint
+    const waUrl = `https://api.whatsapp.com/send?phone=${cleanNumber}&text=${encoded}`;
+
+    // Reliable browser launch
+    try {
+      const opened = window.open(waUrl, "_blank", "noopener,noreferrer");
+      if (!opened || opened.closed || typeof opened.closed === "undefined") {
+        // Fallback if popup blocked by browser
+        window.location.href = waUrl;
+      }
+    } catch {
+      window.location.href = waUrl;
+    }
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+    }, 2000);
   };
 
   return (
@@ -36,13 +65,13 @@ export default function ConsultationForm() {
         <div className="text-center space-y-2">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Konsultasi Gratis & Terbimbing</span>
+            <span>Konsultasi Gratis & Terbimbing Langsung</span>
           </div>
           <h3 className="font-heading font-black text-2xl sm:text-3xl text-navy-950">
             Formulir Konsultasi Program
           </h3>
           <p className="text-xs sm:text-sm text-slate-600">
-            Isi data singkat berikut untuk langsung terhubung dengan tim admin konsultan LPK PMS Karawang.
+            Isi data singkat berikut untuk langsung terhubung dengan WhatsApp resmi admin LPK PMS Karawang.
           </p>
         </div>
 
@@ -95,7 +124,7 @@ export default function ConsultationForm() {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm text-slate-900 bg-white focus:border-navy-950 focus:ring-1 focus:ring-navy-950 transition-colors"
               >
-                <option value="SMK">SMK (Jurusan Teknik/Lainnya)</option>
+                <option value="SMK">SMK (Teknik / Lainnya)</option>
                 <option value="SMA / MA">SMA / MA</option>
                 <option value="Diploma (D3)">Diploma (D3)</option>
                 <option value="Sarjana (S1)">Sarjana (S1)</option>
@@ -156,14 +185,17 @@ export default function ConsultationForm() {
 
           <button
             type="submit"
-            className="w-full py-4 px-6 rounded-xl bg-vermilion-600 hover:bg-vermilion-700 text-white font-bold text-sm shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
+            disabled={isSubmitting}
+            className="w-full py-4 px-6 rounded-xl bg-vermilion-600 hover:bg-vermilion-700 disabled:bg-slate-400 text-white font-bold text-sm shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
           >
             <MessageCircle className="w-4 h-4 fill-white" />
-            <span>Kirim & Mulai Chat WhatsApp Admin</span>
+            <span>
+              {isSubmitting ? "Membuka WhatsApp Admin..." : "Kirim & Mulai Chat WhatsApp Admin"}
+            </span>
           </button>
 
           <p className="text-[11px] text-center text-slate-500 font-medium">
-            Data Anda aman dan hanya digunakan untuk kebutuhan konsultasi pelatihan kerja LPK PMS Karawang.
+            Nomor Resmi: <strong className="font-mono text-navy-950">{siteConfig.whatsappNumber}</strong> • Pesan terisi otomatis di WhatsApp Anda.
           </p>
         </form>
       </div>

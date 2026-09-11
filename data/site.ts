@@ -7,6 +7,7 @@ export const siteConfig = {
     "LPK Panca Multiguna Sukses Karawang adalah Lembaga Pelatihan Kerja yang berkomitmen dalam menyiapkan, melatih dan mengirim peserta magang yang berkualitas dari Indonesia ke Jepang melalui pembekalan bahasa, keterampilan kerja, kedisiplinan, serta pemahaman budaya dan etos kerja.",
   whatsapp: "https://wa.me/6285692923642",
   whatsappNumber: "+62 856-9292-3642",
+  whatsappCleanNumber: "6285692923642",
   phoneRaw: "085692923642",
   email: "lpk.pms18@gmail.com",
   whatsappChannel: "https://whatsapp.com/channel/0029Vb6zaUsISTkPcksxFG0f",
