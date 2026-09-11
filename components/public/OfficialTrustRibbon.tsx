@@ -8,7 +8,10 @@ import {
   ExternalLink,
   CheckCircle2,
   Building2,
-  ArrowRight
+  ArrowRight,
+  Award,
+  FileCheck2,
+  FileText
 } from "lucide-react";
 
 interface LogoEntity {
@@ -93,7 +96,7 @@ export default function OfficialTrustRibbon() {
           <div className="w-20 h-1 bg-vermilion-600 mx-auto rounded-full mt-2" />
         </div>
 
-        {/* 2. Flagship Centerpiece Card (Exact UI from Screenshot) */}
+        {/* 2. Flagship Centerpiece Card with Full Institutional Credentials */}
         <div className="max-w-2xl mx-auto bg-white rounded-3xl border-2 border-slate-200/90 shadow-lg p-6 sm:p-10 text-center space-y-6 relative overflow-hidden">
           {/* Ambient Glow Accent */}
           <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-20 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
@@ -104,7 +107,20 @@ export default function OfficialTrustRibbon() {
             <span>LEMBAGA PELATIHAN KERJA TERVERIFIKASI</span>
           </div>
 
-          {/* Large VIN Box (Exact from screenshot) */}
+          {/* Institutional Metadata Badges (Jenis Mitra & Kepemilikan) */}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200">
+              <span className="text-slate-400 font-normal">Jenis Mitra:</span>
+              <strong className="text-navy-950">{siteConfig.jenisMitra}</strong>
+            </span>
+
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-50 text-emerald-900 text-xs font-bold border border-emerald-200">
+              <span className="text-emerald-600 font-normal">Kepemilikan Institusi:</span>
+              <strong>{siteConfig.kepemilikanInstitusi}</strong>
+            </span>
+          </div>
+
+          {/* Large VIN Box */}
           <div className="space-y-2">
             <div className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500">
               NOMOR REGISTRASI RESMI (VIN)
@@ -116,11 +132,33 @@ export default function OfficialTrustRibbon() {
                 {siteConfig.vinNumber}
               </span>
             </div>
+          </div>
 
-            <p className="text-xs sm:text-sm text-slate-600 font-medium pt-1">
-              Status: <strong className="text-emerald-700">Terdaftar Resmi di Kementerian Ketenagakerjaan RI</strong>
+          {/* Official License Plinth (Nomor Lisensi DPMPTSP) */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/90 text-left space-y-2 shadow-2xs">
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+                <FileText className="w-3.5 h-3.5 text-primary-700" />
+                <span>Nomor Lisensi Operasional (Izin Penyelenggaraan LPK)</span>
+              </span>
+              <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded">
+                Resmi Terbit
+              </span>
+            </div>
+
+            <div className="font-mono text-xs sm:text-sm font-black text-navy-950 tracking-wide break-all">
+              {siteConfig.nomorLisensi}
+            </div>
+
+            <p className="text-[11px] text-slate-500 leading-snug">
+              Diterbitkan oleh: <strong className="text-slate-700">{siteConfig.penerbitLisensi}</strong>
             </p>
           </div>
+
+          {/* Status Keterangan */}
+          <p className="text-xs sm:text-sm text-slate-600 font-medium">
+            Status: <strong className="text-emerald-700 font-bold">Terdaftar Resmi di Kementerian Ketenagakerjaan RI</strong>
+          </p>
 
           {/* Verification Action Button */}
           <div className="pt-2">

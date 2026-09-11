@@ -20,15 +20,17 @@ import {
   Briefcase,
   BookOpen,
   FileCheck2,
+  FileText,
   Sparkles
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Legalitas Resmi Kemnaker RI, Kemenkumham, Disnaker, AHU, OSS | LPK PMS Karawang",
   description:
-    "Legalitas dan perizinan resmi LPK Panca Multiguna Sukses Karawang: Kemenkumham RI, Ditjen AHU, Terverifikasi Kemnaker RI (VIN: 2001321506), Disnaker Kab. Karawang, dan Lembaga OSS.",
+    "Legalitas dan perizinan resmi LPK Panca Multiguna Sukses Karawang: Nomor Lisensi 503/10509/29/IPLPK/XI/DPMPTSP/2018, Jenis Mitra LPKS Swasta, VIN: 2001321506, Kemenkumham RI, Ditjen AHU, Disnaker Kab. Karawang, dan Lembaga OSS.",
   keywords: [
     "legalitas LPK PMS Karawang",
+    "503/10509/29/IPLPK/XI/DPMPTSP/2018",
     "kemenkumham LPK PMS",
     "disnaker karawang lpk",
     "ditjen ahu lpk pms",
@@ -63,7 +65,7 @@ export default function LegalitasPage() {
           </h1>
 
           <p className="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed font-normal">
-            LPK Panca Multiguna Sukses Karawang beroperasi dengan legalitas lengkap dan diakui secara yuridis oleh <strong>Kemenkumham RI</strong>, <strong>Ditjen AHU</strong>, <strong>Kemnaker RI</strong>, <strong>Disnaker Kab. Karawang</strong>, serta <strong>Lembaga OSS</strong>.
+            LPK Panca Multiguna Sukses Karawang beroperasi dengan izin operasional lengkap dan diakui secara yuridis oleh <strong>Kemenkumham RI</strong>, <strong>Ditjen AHU</strong>, <strong>Kemnaker RI</strong>, <strong>Disnaker Kab. Karawang</strong>, serta <strong>Lembaga OSS</strong>.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -89,7 +91,7 @@ export default function LegalitasPage() {
         </div>
       </section>
 
-      {/* 2. Flagship: Centerpiece VIN Plinth & Animated Moving Marquee (Persis Screenshot) */}
+      {/* 2. Flagship: Centerpiece VIN & License Plinth & Dual-Direction Moving Logos */}
       <OfficialTrustRibbon />
 
       {/* 3. Flagship Deep-Dive: 5 Official Government Badges & Logos (3D Interactive) */}
@@ -108,7 +110,7 @@ export default function LegalitasPage() {
         </div>
       </section>
 
-      {/* 4. Official Datasheet */}
+      {/* 4. Official Datasheet (Expanded with Lisensi, Jenis Mitra, & Kepemilikan) */}
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 space-y-12">
           <SectionHeader
@@ -116,14 +118,15 @@ export default function LegalitasPage() {
             kanji="登録証明"
             title="Lembar Fakta Kelembagaan"
             highlight="LPK PMS Karawang"
-            description="Seluruh data operasional terdaftar sah dalam pangkalan data Kemnaker RI untuk menjamin keamanan calon peserta."
+            description="Seluruh data operasional terdaftar sah dalam pangkalan data Kemnaker RI dan DPMPTSP untuk menjamin keamanan calon peserta."
           />
 
-          {/* Grid Metadata Lembaga */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {/* Grid Metadata Lembaga (6 Cards) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* 1. VIN */}
             <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
-                Nomor Registrasi (VIN)
+                Nomor Registrasi Resmi (VIN)
               </span>
               <div className="font-mono text-xl font-bold text-navy-950">
                 {siteConfig.vinNumber}
@@ -133,6 +136,46 @@ export default function LegalitasPage() {
               </p>
             </div>
 
+            {/* 2. Nomor Lisensi */}
+            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
+                Nomor Lisensi Operasional
+              </span>
+              <div className="font-mono text-xs sm:text-sm font-black text-navy-950 break-all leading-tight">
+                {siteConfig.nomorLisensi}
+              </div>
+              <p className="text-[11px] text-emerald-700 font-semibold">
+                ✓ Diterbitkan oleh DPMPTSP
+              </p>
+            </div>
+
+            {/* 3. Jenis Mitra */}
+            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
+                Jenis Mitra Lembaga
+              </span>
+              <div className="font-heading text-base sm:text-lg font-bold text-navy-950">
+                {siteConfig.jenisMitra}
+              </div>
+              <p className="text-[11px] text-slate-500">
+                Pelatihan Bahasa & Vokasi Jepang
+              </p>
+            </div>
+
+            {/* 4. Kepemilikan Institusi */}
+            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
+                Kepemilikan Institusi
+              </span>
+              <div className="font-heading text-xl font-black text-navy-950">
+                {siteConfig.kepemilikanInstitusi}
+              </div>
+              <p className="text-[11px] text-slate-500">
+                Berpayung Hukum SK Kemenkumham RI
+              </p>
+            </div>
+
+            {/* 5. Pimpinan Lembaga */}
             <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
                 Pimpinan Lembaga
@@ -145,27 +188,16 @@ export default function LegalitasPage() {
               </p>
             </div>
 
+            {/* 6. Tahun Berdiri & Luas Balai */}
             <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
-                Tahun Berdiri
+                Tahun Berdiri & Sarana
               </span>
               <div className="font-mono text-xl font-bold text-navy-950">
-                {siteConfig.tahunBerdiri}
+                {siteConfig.tahunBerdiri} • {siteConfig.luasArea}
               </div>
               <p className="text-[11px] text-slate-500">
                 Pengalaman Lebih dari 7 Tahun
-              </p>
-            </div>
-
-            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
-                Luas Sarana Pelatihan
-              </span>
-              <div className="font-mono text-xl font-bold text-navy-950">
-                {siteConfig.luasArea}
-              </div>
-              <p className="text-[11px] text-slate-500">
-                Gedung & Ruang Kelas Nyaman
               </p>
             </div>
           </div>
