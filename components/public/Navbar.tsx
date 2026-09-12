@@ -100,7 +100,7 @@ export default function Navbar() {
           {/* Logo & Identity */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-950 rounded-xl"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-950 rounded-xl hover-scale"
             aria-label="Beranda LPK PMS"
           >
             <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white p-1 shadow-sm border border-slate-200 flex items-center justify-center shrink-0 group-hover:border-vermilion-500 transition-colors">

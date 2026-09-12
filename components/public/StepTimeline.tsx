@@ -107,7 +107,7 @@ export default function StepTimeline() {
   return (
     <div className="space-y-10">
       {/* 9-Step Interactive Horizontal / Grid Navigator */}
-      <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-2">
+      <div className="anim-fade-up grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-2">
         {stepsList.map((step, idx) => {
           const isSelected = activeStep === idx;
           return (
@@ -140,7 +140,7 @@ export default function StepTimeline() {
       </div>
 
       {/* Selected Step Spotlight Card */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-10 relative">
+      <div className="anim-fade-up anim-delay-100 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-10 relative">
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-8 space-y-4">

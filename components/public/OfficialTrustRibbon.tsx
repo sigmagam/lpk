@@ -75,7 +75,7 @@ export default function OfficialTrustRibbon() {
 
       <div className="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8 z-10 space-y-10">
         {/* 1. Header (Matching Screenshot) */}
-        <div className="text-center max-w-3xl mx-auto space-y-2.5">
+        <div className="anim-fade-up text-center max-w-3xl mx-auto space-y-2.5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 shadow-2xs">
             <Building2 className="w-3.5 h-3.5 text-vermilion-600" />
             <span className="uppercase tracking-wider">LPK PANCA MULTI GUNA SUKSES</span>

@@ -1,6 +1,7 @@
 import Navbar from "@/components/public/Navbar";
 import Footer from "@/components/public/Footer";
 import FloatingWhatsApp from "@/components/public/FloatingWhatsApp";
+import ScrollAnimator from "@/components/public/ScrollAnimator";
 
 export default function PublicLayout({
   children,
@@ -13,6 +14,7 @@ export default function PublicLayout({
       <main className="flex-1">{children}</main>
       <Footer />
       <FloatingWhatsApp />
+      <ScrollAnimator />
     </div>
   );
 }

@@ -40,7 +40,7 @@ export default function TokuteiGinouSection() {
       <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
+        <div className="anim-fade-up max-w-3xl mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-vermilion-400 shrink-0" />
             <span>Program Kerja Resmi Pemerintah Jepang</span>
@@ -57,7 +57,7 @@ export default function TokuteiGinouSection() {
 
         {/* Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-          <div className="p-6 rounded-2xl bg-white/[0.05] border border-white/10 space-y-3">
+          <div className="anim-card anim-delay-100 p-6 rounded-2xl bg-white/[0.05] border border-white/10 space-y-3">
             <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-black text-lg">
               ¥
             </div>
@@ -69,7 +69,7 @@ export default function TokuteiGinouSection() {
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white/[0.05] border border-white/10 space-y-3">
+          <div className="anim-card anim-delay-200 p-6 rounded-2xl bg-white/[0.05] border border-white/10 space-y-3">
             <div className="w-10 h-10 rounded-xl bg-primary-500/20 text-primary-300 flex items-center justify-center">
               <Briefcase className="w-5 h-5" />
             </div>
@@ -81,7 +81,7 @@ export default function TokuteiGinouSection() {
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white/[0.05] border border-white/10 space-y-3">
+          <div className="anim-card anim-delay-300 p-6 rounded-2xl bg-white/[0.05] border border-white/10 space-y-3">
             <div className="w-10 h-10 rounded-xl bg-vermilion-500/20 text-vermilion-300 flex items-center justify-center">
               <ShieldCheck className="w-5 h-5" />
             </div>
@@ -95,7 +95,7 @@ export default function TokuteiGinouSection() {
         </div>
 
         {/* 5-Step Pathway */}
-        <div className="bg-white/[0.04] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
+        <div className="anim-fade-up anim-delay-200 bg-white/[0.04] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-vermilion-400 mb-1">
@@ -129,7 +129,7 @@ export default function TokuteiGinouSection() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-5 p-6 rounded-2xl bg-white/[0.04] border border-white/10">
+        <div className="anim-fade-up anim-delay-300 mt-8 flex flex-col sm:flex-row items-center justify-between gap-5 p-6 rounded-2xl bg-white/[0.04] border border-white/10">
           <div className="text-center sm:text-left">
             <div className="text-sm font-bold text-white">
               Tertarik Mengikuti Program Tokutei Ginou Bersama LPK PMS?

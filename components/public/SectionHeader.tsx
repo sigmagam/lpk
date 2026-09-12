@@ -27,7 +27,7 @@ export default function SectionHeader({
     >
       {eyebrow && (
         <div
-          className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase mb-3 ${
+          className={`anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase mb-3 ${
             isDark
               ? "bg-white/10 text-emerald-300 border border-white/15"
               : "bg-slate-100 text-vermilion-700 border border-slate-200"
@@ -39,7 +39,7 @@ export default function SectionHeader({
       )}
 
       <h2
-        className={`font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-[1.2] ${
+        className={`anim-fade-up anim-delay-100 font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-[1.2] ${
           isDark ? "text-white" : "text-navy-950"
         }`}
       >
@@ -51,7 +51,7 @@ export default function SectionHeader({
 
       {description && (
         <p
-          className={`mt-4 text-sm sm:text-base leading-relaxed ${
+          className={`anim-fade-up anim-delay-200 mt-4 text-sm sm:text-base leading-relaxed ${
             isDark ? "text-slate-300" : "text-slate-600"
           }`}
         >

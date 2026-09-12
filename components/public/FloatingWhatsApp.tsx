@@ -94,6 +94,7 @@ export default function FloatingWhatsApp() {
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-label="Buka kontak WhatsApp & Info Job"
+        style={{ animation: "slideUpCard 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1s both" }}
         className="fixed bottom-6 right-4 sm:right-6 z-40 flex items-center gap-2 px-4 py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-xl transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer focus:outline-none focus:ring-4 focus:ring-emerald-300"
       >
         <span className="relative flex h-2.5 w-2.5">

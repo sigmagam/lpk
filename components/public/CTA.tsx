@@ -9,24 +9,25 @@ export default function CTA() {
       aria-labelledby="cta-heading"
     >
       <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-emerald-300 border border-white/15 text-xs font-bold uppercase tracking-wider mb-6">
+        <div className="anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-emerald-300 border border-white/15 text-xs font-bold uppercase tracking-wider mb-6">
           <ShieldCheck className="w-4 h-4 text-emerald-400" />
           <span>Penerimaan Peserta Baru Sedang Berjalan</span>
         </div>
 
         <h2
           id="cta-heading"
-          className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-5 max-w-3xl mx-auto leading-tight"
+          
+          className="anim-fade-up anim-delay-100 font-heading text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-5 max-w-3xl mx-auto leading-tight"
         >
           Siap Memulai Perjalanan Kariermu Menuju{" "}
           <span className="text-vermilion-500">Jepang</span>?
         </h2>
 
-        <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-10">
+        <p className="anim-fade-up anim-delay-200 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-10">
           Ambil langkah pertamamu bersama LPK PMS. Dapatkan pembekalan bahasa intensif, pelatihan fisik, persiapan interview kaisha, dan pengurusan dokumen legal hingga penempatan di Jepang.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-sm mx-auto">
+        <div className="anim-fade-up anim-delay-300 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-sm mx-auto">
           <a
             href={siteConfig.whatsapp}
             target="_blank"

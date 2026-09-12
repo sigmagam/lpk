@@ -51,7 +51,7 @@ export default function StructureSlider() {
       onBlur={() => setIsPaused(false)}
     >
       <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div className="anim-fade-up flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-bold border border-slate-200 mb-2">
               <ImageIcon className="w-3.5 h-3.5 text-vermilion-600" />
@@ -88,7 +88,7 @@ export default function StructureSlider() {
           onKeyDown={handleKeyDown}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden bg-slate-900 border border-slate-300 shadow-xl focus:outline-none focus:ring-2 focus:ring-navy-950"
+          className="anim-scale-pop anim-delay-100 relative max-w-5xl mx-auto rounded-3xl overflow-hidden bg-slate-900 border border-slate-300 shadow-xl focus:outline-none focus:ring-2 focus:ring-navy-950"
         >
           <div
             className="flex transition-transform duration-500 ease-out"

@@ -8,7 +8,7 @@ export default function WhatsAppJobChannelBanner() {
       className="bg-navy-950 text-white py-12 sm:py-14 border-y border-navy-800 select-none"
     >
       <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 p-6 sm:p-8 rounded-2xl border border-white/10 bg-white/[0.03]">
+        <div className="anim-fade-up flex flex-col lg:flex-row lg:items-center justify-between gap-8 p-6 sm:p-8 rounded-2xl border border-white/10 bg-white/[0.03]">
           {/* Left info */}
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">

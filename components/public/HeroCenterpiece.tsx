@@ -12,8 +12,8 @@ import {
 
 export default function HeroCenterpiece() {
   return (
-    <div className="w-full max-w-[480px] mx-auto select-none">
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden">
+    <div className="w-full max-w-[480px] mx-auto select-none anim-float">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden hover-tilt">
 
         {/* Card Header */}
         <div className="bg-navy-950 text-white px-6 py-5">
