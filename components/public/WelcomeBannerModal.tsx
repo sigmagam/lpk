@@ -7,12 +7,8 @@ import {
   ChevronRight,
   MapPin,
   MessageCircle,
-  ExternalLink,
   Sparkles,
-  CheckCircle2,
-  ShieldCheck,
-  Pause,
-  Play
+  ShieldCheck
 } from "lucide-react";
 import { siteConfig } from "@/data/site";
 
@@ -53,25 +49,19 @@ const bannerSlides: BannerSlide[] = [
   }
 ];
 
-// Display duration per slide and total auto-close duration (5 seconds)
-const SLIDE_INTERVAL_MS = 2500; // Auto slide every 2.5 seconds to the left
-const AUTO_CLOSE_TOTAL_MS = 5000; // 5 seconds display timer as requested
+// Interval auto slide ke kiri (2.5 detik per slide, tetap aktif dan berganti halus)
+const SLIDE_INTERVAL_MS = 2500;
 
 export default function WelcomeBannerModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [progress, setProgress] = useState(0);
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
-  const elapsedMsRef = useRef<number>(0);
   const touchStartXRef = useRef<number | null>(null);
 
-  // Mount effect: show banner whenever user visits or refreshes
+  // Muncul saat baru buka website atau refresh
   useEffect(() => {
-    // Show banner on every mount/refresh as requested
     setIsOpen(true);
   }, []);
 
@@ -83,7 +73,7 @@ export default function WelcomeBannerModal() {
     setCurrentIndex((prev) => (prev - 1 + bannerSlides.length) % bannerSlides.length);
   }, []);
 
-  // Slide cycling interval (auto slide to the left)
+  // Auto slide ke kiri secara berkala (dapat dijeda saat kursor diarahkan ke banner)
   useEffect(() => {
     if (!isOpen || isPaused) return;
 
@@ -94,33 +84,7 @@ export default function WelcomeBannerModal() {
     return () => clearInterval(interval);
   }, [isOpen, isPaused, nextSlide]);
 
-  // Overall 5-second countdown progress & auto close
-  useEffect(() => {
-    if (!isOpen) {
-      elapsedMsRef.current = 0;
-      setProgress(0);
-      return;
-    }
-
-    const stepMs = 50;
-    progressIntervalRef.current = setInterval(() => {
-      if (isPaused) return;
-
-      elapsedMsRef.current += stepMs;
-      const currentPct = Math.min(100, (elapsedMsRef.current / AUTO_CLOSE_TOTAL_MS) * 100);
-      setProgress(currentPct);
-
-      if (elapsedMsRef.current >= AUTO_CLOSE_TOTAL_MS) {
-        setIsOpen(false);
-      }
-    }, stepMs);
-
-    return () => {
-      if (progressIntervalRef.current) clearInterval(progressIntervalRef.current);
-    };
-  }, [isOpen, isPaused]);
-
-  // Handle keyboard Escape to close, arrows to navigate
+  // Tutup dengan keyboard Escape, navigasi dengan panah
   useEffect(() => {
     if (!isOpen) return;
 
@@ -145,7 +109,6 @@ export default function WelcomeBannerModal() {
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStartXRef.current === null) return;
     const diff = touchStartXRef.current - e.changedTouches[0].clientX;
-    // Swipe left = next slide (sliding left)
     if (diff > 40) {
       nextSlide();
     } else if (diff < -40) {
@@ -155,7 +118,6 @@ export default function WelcomeBannerModal() {
   };
 
   const currentSlide = bannerSlides[currentIndex];
-  const secondsLeft = Math.max(0, Math.ceil((AUTO_CLOSE_TOTAL_MS - elapsedMsRef.current) / 1000));
 
   if (!isOpen) return null;
 
@@ -166,14 +128,14 @@ export default function WelcomeBannerModal() {
       aria-labelledby="welcome-banner-title"
       className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto select-none"
     >
-      {/* 1. Backdrop Overlay (Clicking closes the banner immediately) */}
+      {/* 1. Backdrop Overlay (Klik area luar langsung menutup banner) */}
       <div
         onClick={() => setIsOpen(false)}
-        className="fixed inset-0 bg-navy-950/80 backdrop-blur-md transition-opacity animate-fade-up cursor-pointer"
+        className="fixed inset-0 bg-navy-950/80 backdrop-blur-md transition-opacity cursor-pointer"
         aria-hidden="true"
       />
 
-      {/* 2. Modal Card Container */}
+      {/* 2. Modal Card Container (Hanya ditutup secara manual, tanpa batas waktu/countdown) */}
       <div
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -181,17 +143,9 @@ export default function WelcomeBannerModal() {
         onTouchEnd={handleTouchEnd}
         className="relative w-full max-w-lg sm:max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden z-10 animate-fade-up my-auto"
         style={{
-          boxShadow: "0 25px 60px -15px rgba(11, 23, 39, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.15)"
+          boxShadow: "0 25px 60px -15px rgba(11, 23, 39, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2)"
         }}
       >
-        {/* Top Countdown Bar (5-second display progress) */}
-        <div className="h-1.5 w-full bg-slate-100 overflow-hidden relative">
-          <div
-            className="h-full bg-gradient-to-r from-vermilion-500 via-vermilion-600 to-primary-600 transition-all duration-75 ease-linear"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-
         {/* Modal Header */}
         <div className="px-4 py-3 sm:px-6 sm:py-3.5 bg-navy-950 text-white flex items-center justify-between gap-3 border-b border-navy-900">
           <div className="flex items-center gap-2.5 min-w-0">
@@ -212,41 +166,20 @@ export default function WelcomeBannerModal() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
-            {/* Countdown / Pause Indicator Badge */}
-            <button
-              type="button"
-              onClick={() => setIsPaused(!isPaused)}
-              title={isPaused ? "Lanjutkan timer otomatis" : "Jeda timer otomatis"}
-              className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-navy-900 hover:bg-navy-800 text-[10px] font-semibold text-slate-300 border border-navy-800 transition-colors cursor-pointer"
-            >
-              {isPaused ? (
-                <>
-                  <Play className="w-3 h-3 text-emerald-400" />
-                  <span className="hidden sm:inline">Dijeda</span>
-                </>
-              ) : (
-                <>
-                  <Pause className="w-3 h-3 text-amber-400" />
-                  <span>{secondsLeft}s</span>
-                </>
-              )}
-            </button>
-
-            {/* Prominent Close "X" Button */}
-            <button
-              type="button"
-              onClick={() => setIsOpen(false)}
-              aria-label="Tutup banner"
-              className="p-1.5 sm:p-2 rounded-xl bg-white/10 hover:bg-vermilion-600 text-white border border-white/15 hover:border-vermilion-500 transition-all duration-150 cursor-pointer group"
-              title="Tutup banner (Esc)"
-            >
-              <X className="w-5 h-5 group-hover:rotate-90 transition-transform duration-200" />
-            </button>
-          </div>
+          {/* Tombol X Close yang Jelas & Menonjol */}
+          <button
+            type="button"
+            onClick={() => setIsOpen(false)}
+            aria-label="Tutup banner"
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-white/10 hover:bg-vermilion-600 text-white border border-white/15 hover:border-vermilion-500 transition-all duration-150 cursor-pointer group shrink-0"
+            title="Tutup banner (Esc)"
+          >
+            <span className="text-xs font-bold hidden sm:inline">Tutup</span>
+            <X className="w-5 h-5 group-hover:rotate-90 transition-transform duration-200" />
+          </button>
         </div>
 
-        {/* Branch Quick Switch Tabs */}
+        {/* Branch Switch Tabs */}
         <div className="flex items-center border-b border-slate-200 bg-slate-50 text-xs font-bold">
           {bannerSlides.map((slide, idx) => (
             <button
@@ -269,7 +202,7 @@ export default function WelcomeBannerModal() {
           ))}
         </div>
 
-        {/* Slide Viewport / Carousel (Smooth Slide to Left Animation) */}
+        {/* Slide Viewport / Carousel (Auto slide ke kiri) */}
         <div className="relative overflow-hidden bg-slate-950 aspect-[16/10] sm:aspect-[16/9] max-h-[380px] flex items-center justify-center">
           <div
             className="flex w-full h-full transition-transform duration-500 ease-in-out"
@@ -291,7 +224,6 @@ export default function WelcomeBannerModal() {
                     loading={idx === 0 ? "eager" : "lazy"}
                   />
                 ) : (
-                  /* Fallback display if network blocks external host */
                   <div className="p-8 text-center text-white flex flex-col items-center justify-center gap-3">
                     <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center text-vermilion-400 font-black text-xl">
                       PMS
@@ -305,7 +237,7 @@ export default function WelcomeBannerModal() {
                   </div>
                 )}
 
-                {/* Overlaid Branch Badge on Top-Left of the Image */}
+                {/* Overlaid Branch Badge */}
                 <div className="absolute top-3 left-3 flex flex-col items-start gap-1">
                   <span className="px-3 py-1 rounded-full bg-navy-950/90 backdrop-blur-md text-white border border-white/20 text-[11px] font-black tracking-wide shadow-md flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
@@ -368,7 +300,7 @@ export default function WelcomeBannerModal() {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            {/* WhatsApp Consultation for current branch */}
+            {/* WhatsApp Consultation */}
             <a
               href={`${siteConfig.whatsapp}?text=${encodeURIComponent(currentSlide.whatsappText)}`}
               target="_blank"
