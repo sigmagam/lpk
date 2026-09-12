@@ -53,16 +53,16 @@ export default function LokasiPage() {
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
             <MapPin className="w-3.5 h-3.5 text-vermilion-400" />
             <span>Pusat Pelatihan di Karawang, Jawa Barat</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
+          <h1 className="anim-fade-up anim-delay-100 font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
             Lokasi Balai Pelatihan
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="anim-fade-up anim-delay-200 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
             Kunjungi langsung balai pelatihan kerja kami untuk berkonsultasi secara tatap muka, melihat sarana kelas, dan mendaftarkan diri.
           </p>
         </div>
@@ -73,7 +73,7 @@ export default function LokasiPage() {
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
             {/* Left Column: Address Card */}
-            <div className="lg:col-span-5 space-y-6">
+            <div className="anim-fade-left lg:col-span-5 space-y-6">
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm space-y-5">
                 <div className="flex items-center gap-3">
                   <div className="p-3 rounded-2xl bg-vermilion-50 text-vermilion-600">
@@ -156,8 +156,8 @@ export default function LokasiPage() {
             </div>
 
             {/* Right Column: Google Maps Interactive Frame */}
-            <div className="lg:col-span-7">
-              <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm">
+            <div className="anim-fade-right lg:col-span-7">
+              <div className="anim-scale-pop anim-delay-200 bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm">
                 <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
                   <span>Peta Lokasi Interaktif</span>
                   <a

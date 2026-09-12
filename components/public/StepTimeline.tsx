@@ -118,7 +118,7 @@ export default function StepTimeline() {
               className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
                 isSelected
                   ? "bg-navy-950 text-white border-navy-950 shadow-md scale-105"
-                  : "bg-white hover:bg-slate-100 text-slate-700 border-slate-200"
+                  : "bg-white hover:bg-slate-100 text-slate-700 border-slate-200 hover-scale hover:shadow-sm"
               }`}
             >
               <div className="text-[10px] font-bold uppercase tracking-wider opacity-70">

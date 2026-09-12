@@ -171,12 +171,12 @@ export default function TokuteiGinouPage() {
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5 text-vermilion-400" />
             <span>Skema Visa Kerja Resmi Pemerintah Jepang</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
+          <h1 className="anim-fade-up anim-delay-100 font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
             Program Tokutei Ginou (SSW) Jepang
           </h1>
 
@@ -184,7 +184,7 @@ export default function TokuteiGinouPage() {
             Dapatkan status visa kerja formal <strong>Specified Skilled Worker (Tokutei Ginou)</strong> dengan standar gaji setara warga negara Jepang, perlindungan hukum Kemnaker RI, serta pendampingan intensif dari LPK PMS.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="anim-fade-up anim-delay-300 mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
               href={siteConfig.whatsapp}
               target="_blank"
@@ -256,7 +256,7 @@ export default function TokuteiGinouPage() {
 
           {/* Comparison Table */}
           <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden max-w-5xl mx-auto">
-            <div className="overflow-x-auto">
+            <div className="anim-fade-up overflow-x-auto">
               <table className="w-full text-left text-xs sm:text-sm">
                 <thead>
                   <tr className="bg-navy-950 text-white border-b border-navy-900">

@@ -42,16 +42,16 @@ export default function KeunggulanPage() {
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
             <Award className="w-3.5 h-3.5 text-vermilion-400" />
             <span>Standar Kualitas & Mutu Pelatihan</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
+          <h1 className="anim-fade-up anim-delay-100 font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
             Keunggulan LPK PMS
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="anim-fade-up anim-delay-200 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
             Kombinasi kurikulum relevan, pengajar berpengalaman Jepang, sarana balai memadai, serta fokus pada penguasaan keterampilan praktis di tempat kerja nyata.
           </p>
         </div>
@@ -60,19 +60,19 @@ export default function KeunggulanPage() {
       {/* 2. Bento Grid Keunggulan */}
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <SectionHeader
+          <div className="anim-fade-up"><SectionHeader
             eyebrow="Nilai Tambah Nyata"
             kanji="特色"
             title="4 Pilar Keunggulan Utama"
             highlight="LPK PMS"
             description="Fasilitas dan metode pelatihan kami dirancang untuk membentuk disiplin diri, kecakapan berbahasa, dan kesiapan fisik standar industri Jepang."
-          />
+          /></div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {keunggulan.map((item, idx) => (
               <div
                 key={item.number}
-                className="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 p-8 sm:p-10 flex flex-col justify-between space-y-6"
+                className="anim-card hover-lift anim-delay-100 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 p-8 sm:p-10 flex flex-col justify-between space-y-6"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">

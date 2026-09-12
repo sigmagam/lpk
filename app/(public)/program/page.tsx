@@ -78,16 +78,16 @@ export default function ProgramPage() {
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
             <ShieldCheck className="w-3.5 h-3.5 text-vermilion-400" />
             <span>Kurikulum Resmi Terakreditasi Kemnaker RI</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
+          <h1 className="anim-fade-up anim-delay-100 font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
             Program Pelatihan Kerja ke Jepang
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="anim-fade-up anim-delay-200 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
             Direktori program pembekalan bahasa, keterampilan kerja industri, kesiapan fisik, serta etos kerja Kaisha yang diselenggarakan di LPK PMS.
           </p>
 

@@ -48,20 +48,20 @@ export default function LegalitasPage() {
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 text-xs font-bold uppercase tracking-wider mb-4">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
             <span>Terdaftar & Berpayung Hukum Resmi Republik Indonesia</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
+          <h1 className="anim-fade-up anim-delay-100 font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
             Legalitas & Profil Izin Resmi Lembaga
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed font-normal">
+          <p className="anim-fade-up anim-delay-200 text-slate-300 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed font-normal">
             LPK Panca Multiguna Sukses beroperasi dengan izin operasional lengkap dan diakui secara yuridis oleh <strong>Kemenkumham RI</strong>, <strong>Ditjen AHU</strong>, <strong>Kemnaker RI</strong>, <strong>Disnaker Kab. Karawang</strong>, serta <strong>Lembaga OSS</strong>.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="anim-fade-up anim-delay-300 mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
               href={siteConfig.legalitasUrl}
               target="_blank"
@@ -117,7 +117,7 @@ export default function LegalitasPage() {
           {/* Grid Metadata Lembaga (6 Cards) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {/* 1. VIN */}
-            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
+            <div className="anim-card anim-delay-100 p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
                 Nomor Registrasi Resmi (VIN)
               </span>
@@ -130,7 +130,7 @@ export default function LegalitasPage() {
             </div>
 
             {/* 2. Nomor Lisensi */}
-            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
+            <div className="anim-card anim-delay-150 p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
                 Nomor Lisensi Operasional
               </span>
@@ -143,7 +143,7 @@ export default function LegalitasPage() {
             </div>
 
             {/* 3. Jenis Mitra */}
-            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
+            <div className="anim-card anim-delay-200 p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
                 Jenis Mitra Lembaga
               </span>
@@ -156,7 +156,7 @@ export default function LegalitasPage() {
             </div>
 
             {/* 4. Kepemilikan Institusi */}
-            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
+            <div className="anim-card anim-delay-250 p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
                 Kepemilikan Institusi
               </span>
@@ -169,7 +169,7 @@ export default function LegalitasPage() {
             </div>
 
             {/* 5. Pimpinan Lembaga */}
-            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
+            <div className="anim-card anim-delay-300 p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
                 Pimpinan Lembaga
               </span>
@@ -182,7 +182,7 @@ export default function LegalitasPage() {
             </div>
 
             {/* 6. Tahun Berdiri & Luas Balai */}
-            <div className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
+            <div className="anim-card anim-delay-350 p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
                 Tahun Berdiri & Sarana
               </span>
@@ -196,7 +196,7 @@ export default function LegalitasPage() {
           </div>
 
           {/* Detailed Accreditation Overview */}
-          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-sm max-w-5xl mx-auto space-y-6">
+          <div className="anim-fade-up anim-delay-200 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-sm max-w-5xl mx-auto space-y-6">
             <div className="space-y-3">
               <h3 className="font-heading font-black text-xl sm:text-2xl text-navy-950">
                 Deskripsi Status Kemitraan Kemnaker

@@ -47,7 +47,7 @@ function LogoTile({ item }: { item: LogoEntity }) {
       className="shrink-0 group block p-1 select-none"
     >
       <div
-        className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-3.5 sm:p-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-md group-hover:border-navy-950/40"
+        className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-3.5 sm:p-4 transition-all duration-300 hover-lift group-hover:border-navy-950/40"
         style={{
           boxShadow: "0 4px 12px -2px rgba(11, 23, 39, 0.05), 0 2px 4px -1px rgba(11, 23, 39, 0.03)",
         }}

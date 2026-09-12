@@ -36,16 +36,16 @@ export default function KurikulumPage() {
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
             <GraduationCap className="w-3.5 h-3.5 text-vermilion-400" />
             <span>Standar Pendidikan Vokasi Terakreditasi</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
+          <h1 className="anim-fade-up anim-delay-100 font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
             Kurikulum Pelatihan Kerja ke Jepang
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="anim-fade-up anim-delay-200 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
             Struktur materi bertahap tanpa duplikasi: dari penguasaan tata bahasa dasar, pembinaan etika kerja Kaisha, hingga pemantapan keterampilan spesifik bidang industri.
           </p>
         </div>
@@ -54,19 +54,19 @@ export default function KurikulumPage() {
       {/* 2. Main Curriculum Roadmap */}
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <SectionHeader
+          <div className="anim-fade-up"><SectionHeader
             eyebrow="Struktur 3 Tahap"
             kanji="学習体系"
             title="3 Fase Pembinaan Berjenjang"
             highlight="Menuju Kesiapan Kerja"
             description="Setiap modul disusun sistematis agar siswa mencapai kemampuan bahasa komunikatif (kaiwa), ketahanan fisik prima, dan mental kerja siap pakai."
-          />
+          /></div>
 
           <div className="space-y-8 max-w-4xl mx-auto">
             {curriculumRoadmap.map((item, idx) => (
               <article
                 key={item.number}
-                className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 relative overflow-hidden"
+                className="anim-fade-up anim-delay-100 bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 relative overflow-hidden"
               >
 
                 <div className="relative z-10 space-y-5">
@@ -109,7 +109,7 @@ export default function KurikulumPage() {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="anim-fade-up anim-delay-300 mt-12 text-center">
             <Link
               href="/program"
               className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-navy-950 hover:text-vermilion-600 transition-colors"

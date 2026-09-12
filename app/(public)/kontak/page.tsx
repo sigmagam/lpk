@@ -38,16 +38,16 @@ export default function KontakPage() {
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
             <Phone className="w-3.5 h-3.5 text-vermilion-400" />
             <span>Layanan Narahubung Resmi</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
+          <h1 className="anim-fade-up anim-delay-100 font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
             Hubungi Kami & Saluran Resmi
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="anim-fade-up anim-delay-200 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
             Konsultasikan rencana pelatihan kerja dan pemagangan ke Jepang serta dapatkan update lowongan kerja langsung melalui saluran resmi LPK PMS.
           </p>
         </div>
@@ -91,7 +91,7 @@ export default function KontakPage() {
             </div>
 
             {/* Card 2: Direct WhatsApp Admin */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+            <div className="anim-card anim-delay-100 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#25D366]/15 text-[#25D366] flex items-center justify-center border border-[#25D366]/30">
                   <MessageCircle className="w-6 h-6 fill-[#25D366]" />
@@ -126,7 +126,7 @@ export default function KontakPage() {
             </div>
 
             {/* Card 3: Social Media Resmi */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between md:col-span-2 lg:col-span-1">
+            <div className="anim-card anim-delay-200 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between md:col-span-2 lg:col-span-1">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-pink-50 text-pink-600 flex items-center justify-center border border-pink-200">
                   <Instagram className="w-6 h-6" />
@@ -181,7 +181,7 @@ export default function KontakPage() {
 
             {/* Balai Pelatihan & Map */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm space-y-4">
+              <div className="anim-card anim-delay-300 bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm space-y-4">
                 <div className="flex items-center gap-2.5">
                   <div className="p-2 rounded-xl bg-vermilion-50 text-vermilion-600">
                     <Building2 className="w-5 h-5" />

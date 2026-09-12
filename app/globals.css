@@ -334,3 +334,28 @@ body {
   .anim-pulse-ring { animation: none !important; }
   .hero-highlight::after { transform: scaleX(1) !important; transition: none !important; }
 }
+
+/* WhatsApp floating button gentle bounce */
+@keyframes waBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-3px); }
+}
+.anim-wa-bounce {
+  animation: waBounce 2.5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-wa-bounce { animation: none !important; }
+}
+
+/* Navbar slide down on page load */
+@keyframes navSlideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.anim-nav-in {
+  animation: navSlideDown 0.4s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-nav-in { animation: none !important; }
+}

@@ -26,16 +26,16 @@ export default function FAQPage() {
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
             <HelpCircle className="w-3.5 h-3.5 text-vermilion-400" />
             <span>Pusat Tanya Jawab Resmi</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
+          <h1 className="anim-fade-up anim-delay-100 font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
             Pertanyaan yang Sering Diajukan (FAQ)
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="anim-fade-up anim-delay-200 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
             Temukan informasi transparan mengenai alur seleksi, persyaratan dokumen, kurikulum bahasa Jepang, izin resmi Kemnaker RI, dan kepastian keberangkatan.
           </p>
         </div>
@@ -44,10 +44,10 @@ export default function FAQPage() {
       {/* 2. Main FAQ Search & Accordion Section */}
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-12">
-          <FAQList items={faqs} />
+          <div className="anim-fade-up"><FAQList items={faqs} /></div>
 
           {/* Direct Support Card */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm text-center space-y-4">
+          <div className="anim-scale-pop anim-delay-200 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm text-center space-y-4">
             <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
               <MessageCircle className="w-6 h-6 fill-emerald-600" />
             </div>
@@ -60,7 +60,7 @@ export default function FAQPage() {
               Tim instruktur & admin LPK PMS siap melayani konsultasi gratis dan mendampingi rencana karier Anda ke Jepang.
             </p>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="anim-fade-up anim-delay-300 pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
                 href={siteConfig.whatsapp}
                 target="_blank"
