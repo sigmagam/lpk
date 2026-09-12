@@ -28,41 +28,6 @@
   }
 }
 
-/* 3D Depth, Perspective, and Spatial Utilities */
-.perspective-800 { perspective: 800px; }
-.perspective-1000 { perspective: 1000px; }
-.perspective-1200 { perspective: 1200px; }
-.preserve-3d { transform-style: preserve-3d; }
-.backface-hidden { backface-visibility: hidden; }
-
-/* Subtle Japanese Architectural Pattern */
-.bg-japanese-grid {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-}
-
-.bg-japanese-dots {
-  background-size: 20px 20px;
-  background-image: radial-gradient(circle, rgba(15, 23, 42, 0.07) 1px, transparent 1px);
-}
-
-/* Restrained Japanese Accent Line */
-.japanese-accent-line {
-  position: relative;
-}
-.japanese-accent-line::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 44px;
-  height: 3px;
-  background-color: #C8102E;
-  border-radius: 9999px;
-}
-
 /* Modern Accessible Card Styles */
 .card-premium {
   @apply bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 transition-all duration-200 shadow-sm hover:shadow-md hover:border-slate-300;
@@ -70,46 +35,6 @@
 
 .card-institutional-dark {
   @apply bg-navy-950 text-white border border-navy-800 rounded-2xl p-6 sm:p-8 transition-all duration-200;
-}
-
-/* 3D Interactive Card Classes */
-.card-3d-wrap {
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-
-.card-3d-inner {
-  transform-style: preserve-3d;
-  will-change: transform, box-shadow;
-  transition: transform 0.15s ease-out, box-shadow 0.25s ease-out;
-}
-
-/* Floating animation keyframes */
-@keyframes float3D {
-  0%, 100% {
-    transform: translateY(0px) rotateX(0deg);
-  }
-  50% {
-    transform: translateY(-5px) rotateX(1deg);
-  }
-}
-
-.animate-float-subtle {
-  animation: float3D 5s ease-in-out infinite;
-}
-
-/* Shimmer Light Sweep */
-@keyframes shimmerSweep {
-  0% {
-    transform: translateX(-100%) rotate(25deg);
-  }
-  100% {
-    transform: translateX(200%) rotate(25deg);
-  }
-}
-
-.animate-shimmer {
-  animation: shimmerSweep 3.5s ease-in-out infinite;
 }
 
 /* Badge Styles */
@@ -173,23 +98,15 @@ body {
   box-shadow: none !important;
 }
 
-/* Continuous Dual-Direction Infinite Marquee for Official Logos (Keep Running) */
+/* Continuous Dual-Direction Infinite Marquee for Official Logos */
 @keyframes marqueeScrollLeft {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 @keyframes marqueeScrollRight {
-  0% {
-    transform: translate3d(-50%, 0, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 .animate-marquee-left {
@@ -204,6 +121,15 @@ body {
   width: max-content;
   animation: marqueeScrollRight 20s linear infinite;
   will-change: transform;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.3s ease-out forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {

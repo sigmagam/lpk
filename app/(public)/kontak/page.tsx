@@ -35,14 +35,7 @@ export default function KontakPage() {
   return (
     <div className="bg-[#F8FAFC]">
       {/* 1. Header Banner */}
-      <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-japanese-grid opacity-15 pointer-events-none" />
-        <span
-          aria-hidden="true"
-          className="absolute -right-6 -bottom-8 font-heading font-black text-8xl sm:text-9xl text-white/[0.04] select-none pointer-events-none"
-        >
-          連絡先
-        </span>
+      <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">

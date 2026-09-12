@@ -69,11 +69,9 @@ function LogoTile({ item }: { item: LogoEntity }) {
 export default function OfficialTrustRibbon() {
   return (
     <section
-      className="bg-slate-50 py-16 sm:py-20 border-t border-slate-200 select-none relative overflow-hidden"
+      className="bg-slate-50 py-16 sm:py-20 border-t border-slate-200 select-none"
       aria-labelledby="official-legalitas-heading"
     >
-      {/* Background Japanese Architectural Grid Pattern */}
-      <div className="absolute inset-0 bg-japanese-grid opacity-15 pointer-events-none" />
 
       <div className="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8 z-10 space-y-10">
         {/* 1. Header (Matching Screenshot) */}
@@ -99,7 +97,6 @@ export default function OfficialTrustRibbon() {
         {/* 2. Flagship Centerpiece Card with Full Institutional Credentials */}
         <div className="max-w-2xl mx-auto bg-white rounded-3xl border-2 border-slate-200/90 shadow-lg p-6 sm:p-10 text-center space-y-6 relative overflow-hidden">
           {/* Ambient Glow Accent */}
-          <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-20 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
 
           {/* Subtitle Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold uppercase tracking-wider">

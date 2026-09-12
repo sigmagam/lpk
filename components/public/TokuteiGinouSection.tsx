@@ -2,14 +2,8 @@ import Link from "next/link";
 import { siteConfig } from "@/data/site";
 import {
   ShieldCheck,
-  Award,
-  CheckCircle2,
   ArrowRight,
-  Sparkles,
-  DollarSign,
-  FileCheck,
-  Plane,
-  Briefcase
+  Briefcase,
 } from "lucide-react";
 
 export default function TokuteiGinouSection() {
@@ -42,26 +36,18 @@ export default function TokuteiGinouSection() {
   ];
 
   return (
-    <section className="py-20 lg:py-24 bg-navy-950 text-white relative overflow-hidden">
-      {/* Background Architectural Grid */}
-      <div className="absolute inset-0 bg-grid-japanese opacity-10 pointer-events-none" />
-      <span
-        aria-hidden="true"
-        className="absolute -right-10 -bottom-10 font-heading font-black text-9xl text-white/[0.03] select-none pointer-events-none"
-      >
-        特定技能
-      </span>
+    <section className="py-20 lg:py-24 bg-navy-950 text-white">
+      <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
 
-      <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-14">
+        <div className="max-w-3xl mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-vermilion-400" />
+            <span className="w-1.5 h-1.5 rounded-full bg-vermilion-400 shrink-0" />
             <span>Program Kerja Resmi Pemerintah Jepang</span>
           </div>
 
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-            Apa Itu <span className="text-vermilion-500">Tokutei Ginou (SSW)</span> & Keunggulannya?
+            Apa Itu <span className="text-vermilion-500">Tokutei Ginou (SSW)</span> &amp; Keunggulannya?
           </h2>
 
           <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
@@ -69,10 +55,10 @@ export default function TokuteiGinouSection() {
           </p>
         </div>
 
-        {/* Benefits Grid (Bento Style) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div className="p-6 rounded-3xl bg-white/[0.05] border border-white/10 space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+        {/* Benefits Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+          <div className="p-6 rounded-2xl bg-white/[0.05] border border-white/10 space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-black text-lg">
               ¥
             </div>
             <h3 className="font-heading font-bold text-lg text-white">
@@ -83,7 +69,7 @@ export default function TokuteiGinouSection() {
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white/[0.05] border border-white/10 space-y-3">
+          <div className="p-6 rounded-2xl bg-white/[0.05] border border-white/10 space-y-3">
             <div className="w-10 h-10 rounded-xl bg-primary-500/20 text-primary-300 flex items-center justify-center">
               <Briefcase className="w-5 h-5" />
             </div>
@@ -95,7 +81,7 @@ export default function TokuteiGinouSection() {
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white/[0.05] border border-white/10 space-y-3">
+          <div className="p-6 rounded-2xl bg-white/[0.05] border border-white/10 space-y-3">
             <div className="w-10 h-10 rounded-xl bg-vermilion-500/20 text-vermilion-300 flex items-center justify-center">
               <ShieldCheck className="w-5 h-5" />
             </div>
@@ -108,20 +94,20 @@ export default function TokuteiGinouSection() {
           </div>
         </div>
 
-        {/* 5-Step Pathway to SSW */}
-        <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-6">
+        {/* 5-Step Pathway */}
+        <div className="bg-white/[0.04] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <div className="text-xs font-bold uppercase tracking-wider text-vermilion-400">
+              <div className="text-xs font-bold uppercase tracking-wider text-vermilion-400 mb-1">
                 Tahapan Seleksi SSW di LPK PMS
               </div>
-              <h3 className="font-heading font-bold text-xl text-white mt-1">
+              <h3 className="font-heading font-bold text-xl text-white">
                 Alur Persiapan Tokutei Ginou hingga Terbang ke Jepang
               </h3>
             </div>
             <Link
               href="/tokutei-ginou"
-              className="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-vermilion-400 transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-vermilion-400 transition-colors shrink-0"
             >
               <span>Panduan Lengkap SSW</span>
               <ArrowRight className="w-4 h-4" />
@@ -132,26 +118,18 @@ export default function TokuteiGinouSection() {
             {sswPillars.map((p) => (
               <div
                 key={p.step}
-                className="p-4 rounded-2xl bg-white/[0.04] border border-white/[0.08] flex flex-col justify-between"
+                className="p-4 rounded-xl bg-white/[0.04] border border-white/[0.08]"
               >
-                <div>
-                  <span className="text-xs font-mono font-bold text-vermilion-400">
-                    {p.step}
-                  </span>
-                  <div className="font-heading font-bold text-sm text-white mt-1">
-                    {p.title}
-                  </div>
-                  <p className="text-[11px] text-slate-300 leading-relaxed mt-2">
-                    {p.desc}
-                  </p>
-                </div>
+                <span className="text-xs font-mono font-bold text-vermilion-400">{p.step}</span>
+                <div className="font-heading font-bold text-sm text-white mt-1">{p.title}</div>
+                <p className="text-[11px] text-slate-300 leading-relaxed mt-2">{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Bottom CTA Bar */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl bg-white/[0.05] border border-white/10">
+        {/* Bottom CTA */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-5 p-6 rounded-2xl bg-white/[0.04] border border-white/10">
           <div className="text-center sm:text-left">
             <div className="text-sm font-bold text-white">
               Tertarik Mengikuti Program Tokutei Ginou Bersama LPK PMS?
@@ -165,7 +143,7 @@ export default function TokuteiGinouSection() {
               href={siteConfig.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl bg-vermilion-600 hover:bg-vermilion-700 text-white font-bold text-xs shadow-md transition-all hover:-translate-y-0.5"
+              className="px-6 py-3 rounded-xl bg-vermilion-600 hover:bg-vermilion-700 text-white font-bold text-xs shadow-sm transition-all hover:-translate-y-0.5"
             >
               Konsultasi SSW Sekarang
             </a>

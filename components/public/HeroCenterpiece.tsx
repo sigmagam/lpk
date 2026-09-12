@@ -5,152 +5,110 @@ import Link from "next/link";
 import { siteConfig } from "@/data/site";
 import {
   ShieldCheck,
-  Award,
-  Users,
   CheckCircle2,
-  Building2,
   ArrowRight,
   ExternalLink,
-  Briefcase,
-  GraduationCap
 } from "lucide-react";
 
 export default function HeroCenterpiece() {
   return (
-    <div className="relative w-full max-w-[540px] mx-auto select-none">
-      {/* Subtle Background Ambience */}
-      <div
-        aria-hidden="true"
-        className="absolute -top-6 -right-6 w-64 h-64 bg-vermilion-100/60 rounded-full blur-3xl -z-10 pointer-events-none"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute -bottom-6 -left-6 w-64 h-64 bg-primary-100/60 rounded-full blur-3xl -z-10 pointer-events-none"
-      />
+    <div className="w-full max-w-[480px] mx-auto select-none">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden">
 
-      {/* Main Showcase Plinth */}
-      <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden">
-        {/* Card Header: Japanese Torii / Institutional Header */}
-        <div className="bg-navy-950 text-white p-6 sm:p-7 relative overflow-hidden">
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white/[0.04] to-transparent pointer-events-none" />
-          <span
-            aria-hidden="true"
-            className="absolute -right-4 -bottom-6 text-7xl font-heading font-black text-white/[0.05] pointer-events-none"
-          >
-            就労
-          </span>
-
-          <div className="flex items-start justify-between gap-4 relative z-10">
-            <div className="flex items-center gap-3.5">
-              <div className="w-12 h-12 rounded-2xl bg-white p-1.5 shadow-sm border border-slate-200 flex items-center justify-center shrink-0">
+        {/* Card Header */}
+        <div className="bg-navy-950 text-white px-6 py-5">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0">
                 <Image
                   src="/images/logo.png"
                   alt="Logo LPK Panca Multiguna Sukses"
-                  width={44}
-                  height={44}
+                  width={40}
+                  height={40}
                   className="w-full h-full object-contain"
                   priority
                 />
               </div>
               <div>
-                <div className="text-[11px] font-bold uppercase tracking-widest text-emerald-400 flex items-center gap-1.5">
+                <div className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-400 uppercase tracking-widest mb-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   Terdaftar Kemnaker RI
                 </div>
-                <h2 className="font-heading font-black text-base sm:text-lg text-white leading-tight">
+                <div className="font-heading font-black text-base text-white leading-tight">
                   LPK PMS
-                </h2>
-                <div className="text-xs text-slate-300 font-medium">
-                  VIN: <span className="font-mono text-white font-bold">{siteConfig.vinNumber}</span>
+                </div>
+                <div className="text-xs text-slate-400 font-mono">
+                  VIN: {siteConfig.vinNumber}
                 </div>
               </div>
             </div>
-
-            <span className="hidden sm:inline-flex px-2.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-[11px] font-bold">
-              Est. 2018
+            <span className="hidden sm:inline-flex px-2.5 py-1 rounded-full bg-white/10 text-slate-300 border border-white/20 text-[11px] font-bold">
+              Est. {siteConfig.tahunBerdiri}
             </span>
           </div>
 
-          {/* Micro stats banner */}
-          <div className="mt-5 pt-4 border-t border-navy-800/80 grid grid-cols-3 gap-2 text-center">
-            <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.06]">
-              <div className="text-base sm:text-lg font-black text-white font-heading">
-                200+
+          {/* Stat bar */}
+          <div className="mt-5 pt-4 border-t border-navy-800 grid grid-cols-3 gap-2 text-center">
+            {[
+              { value: "200+", label: "Alumni di Jepang", color: "text-white" },
+              { value: "100%", label: "Legal & Akreditasi", color: "text-emerald-400" },
+              { value: "14+", label: "Sektor Industri", color: "text-vermilion-400" },
+            ].map((s) => (
+              <div key={s.label} className="py-2 rounded-xl bg-white/[0.05] border border-white/[0.08]">
+                <div className={`text-base sm:text-lg font-black font-heading ${s.color}`}>{s.value}</div>
+                <div className="text-[10px] text-slate-400 leading-tight mt-0.5">{s.label}</div>
               </div>
-              <div className="text-[10px] text-slate-300 font-medium leading-tight mt-0.5">
-                Alumni di Jepang
-              </div>
-            </div>
-            <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.06]">
-              <div className="text-base sm:text-lg font-black text-emerald-400 font-heading">
-                100%
-              </div>
-              <div className="text-[10px] text-slate-300 font-medium leading-tight mt-0.5">
-                Legal & Terakreditasi
-              </div>
-            </div>
-            <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.06]">
-              <div className="text-base sm:text-lg font-black text-vermilion-400 font-heading">
-                14+
-              </div>
-              <div className="text-[10px] text-slate-300 font-medium leading-tight mt-0.5">
-                Sektor Industri
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Card Body: Programs & Focus Tracks */}
-        <div className="p-6 sm:p-7 space-y-5 bg-white">
-          <div className="space-y-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
-              Jalur Program Kerja Utama:
-            </div>
-
-            {/* Track 1: Tokutei Ginou */}
-            <Link
-              href="/tokutei-ginou"
-              className="group flex items-start justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-all"
-            >
-              <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-xl bg-vermilion-100 text-vermilion-700 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
-                  SSW
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-navy-950 group-hover:text-vermilion-600 transition-colors flex items-center gap-1.5">
-                    <span>Tokutei Ginou (Specified Skilled Worker)</span>
-                  </div>
-                  <p className="text-xs text-slate-600 mt-0.5">
-                    Visa kerja formal keahlian khusus, gaji standar setara warga Jepang.
-                  </p>
-                </div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-vermilion-600 group-hover:translate-x-0.5 transition-all shrink-0 mt-1" />
-            </Link>
-
-            {/* Track 2: Program Pemagangan Resmi */}
-            <Link
-              href="/program/pemagangan"
-              className="group flex items-start justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-all"
-            >
-              <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
-                  実習
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-navy-950 group-hover:text-primary-700 transition-colors flex items-center gap-1.5">
-                    <span>Program Pemagangan (Ginou Jisshuusei)</span>
-                  </div>
-                  <p className="text-xs text-slate-600 mt-0.5">
-                    Pelatihan kerja 3-5 tahun di perusahaan mitra industri Jepang.
-                  </p>
-                </div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-primary-700 group-hover:translate-x-0.5 transition-all shrink-0 mt-1" />
-            </Link>
+        {/* Card Body */}
+        <div className="p-5 space-y-4">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+            Jalur Program Kerja Utama:
           </div>
 
-          {/* Sektor Potensial Tags */}
+          <Link
+            href="/tokutei-ginou"
+            className="group flex items-center justify-between p-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-all"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-lg bg-vermilion-600 text-white flex items-center justify-center font-black text-xs shrink-0">
+                SSW
+              </div>
+              <div>
+                <div className="text-sm font-bold text-navy-950 group-hover:text-vermilion-600 transition-colors">
+                  Tokutei Ginou (Specified Skilled Worker)
+                </div>
+                <p className="text-[11px] text-slate-500 mt-0.5">
+                  Visa kerja formal keahlian khusus, gaji standar setara warga Jepang.
+                </p>
+              </div>
+            </div>
+            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-vermilion-600 group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
+          </Link>
+
+          <Link
+            href="/program/pemagangan"
+            className="group flex items-center justify-between p-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-all"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-lg bg-navy-950 text-white flex items-center justify-center font-black text-base shrink-0">
+                実習
+              </div>
+              <div>
+                <div className="text-sm font-bold text-navy-950 group-hover:text-primary-700 transition-colors">
+                  Program Pemagangan (Ginou Jisshuusei)
+                </div>
+                <p className="text-[11px] text-slate-500 mt-0.5">
+                  Pelatihan kerja 3–5 tahun di perusahaan mitra industri Jepang.
+                </p>
+              </div>
+            </div>
+            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary-700 group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
+          </Link>
+
+          {/* Tags */}
           <div>
             <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2">
               Sektor Penempatan Populer:
@@ -167,11 +125,11 @@ export default function HeroCenterpiece() {
             </div>
           </div>
 
-          {/* Bottom Card Reassurance */}
+          {/* Footer row */}
           <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
             <span className="flex items-center gap-1.5 font-medium">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-              Bimbingan Bahasa N5-N3
+              Bimbingan Bahasa N5–N3
             </span>
             <a
               href={siteConfig.legalitasUrl}

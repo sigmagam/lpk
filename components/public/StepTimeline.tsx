@@ -140,13 +140,7 @@ export default function StepTimeline() {
       </div>
 
       {/* Selected Step Spotlight Card */}
-      <div className="bg-white rounded-3xl border border-slate-200/90 shadow-lg p-6 sm:p-10 relative overflow-hidden">
-        <span
-          aria-hidden="true"
-          className="absolute -right-4 -bottom-8 font-heading font-black text-8xl sm:text-9xl text-slate-100/80 select-none pointer-events-none"
-        >
-          {stepsList[activeStep].kanji}
-        </span>
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-10 relative">
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-8 space-y-4">

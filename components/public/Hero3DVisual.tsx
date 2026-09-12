@@ -81,7 +81,6 @@ export default function Hero3DVisual() {
         />
 
         {/* Clear Japanese Architectural Matrix */}
-        <div className="absolute inset-0 bg-grid-japanese opacity-50 rounded-[2.5rem] pointer-events-none" />
 
         {/* Top Metallic Bevel Highlight Edge */}
         <div className="absolute top-0 inset-x-8 h-[3px] bg-gradient-to-r from-transparent via-white to-transparent" />
