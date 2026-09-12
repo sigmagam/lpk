@@ -83,7 +83,7 @@ export default function Navbar() {
               <span>{siteConfig.whatsappNumber}</span>
             </a>
             <span className="text-slate-600">|</span>
-            <span className="text-slate-300 font-medium">Pusat Pelatihan: Purwasari, Karawang</span>
+            <span className="text-slate-300 font-medium">Pusat Pelatihan Kerja Resmi Kemnaker RI • Karawang & Lampung</span>
           </div>
         </div>
       </div>
@@ -101,12 +101,12 @@ export default function Navbar() {
           <Link
             href="/"
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-950 rounded-xl"
-            aria-label="Beranda LPK PMS Karawang"
+            aria-label="Beranda LPK PMS"
           >
             <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white p-1 shadow-sm border border-slate-200 flex items-center justify-center shrink-0 group-hover:border-vermilion-500 transition-colors">
               <Image
                 src="/images/logo.png"
-                alt="Logo Resmi LPK PMS Karawang"
+                alt="Logo Resmi LPK PMS"
                 width={44}
                 height={44}
                 className="w-full h-full object-contain"
@@ -115,7 +115,7 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="font-heading font-black text-navy-950 text-sm sm:text-base leading-tight tracking-tight uppercase group-hover:text-vermilion-600 transition-colors">
-                LPK PMS KARAWANG
+                LPK PMS
               </span>
               <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 tracking-wider uppercase">
                 Panca Multiguna Sukses • Kemnaker RI
@@ -204,7 +204,7 @@ export default function Navbar() {
                 </div>
                 <div>
                   <div className="font-heading font-black text-xs text-navy-950 uppercase">
-                    LPK PMS Karawang
+                    LPK PMS
                   </div>
                   <div className="text-[10px] font-semibold text-slate-500">
                     Menu Navigasi
@@ -272,7 +272,7 @@ export default function Navbar() {
                 <span>Konsultasi WhatsApp</span>
               </a>
               <p className="text-[11px] text-center text-slate-500">
-                Purwasari, Karawang • VIN: {siteConfig.vinNumber}
+                Karawang & Lampung • VIN: {siteConfig.vinNumber}
               </p>
             </div>
           </div>

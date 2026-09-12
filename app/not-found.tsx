@@ -14,7 +14,7 @@ export default function NotFound() {
             Halaman Tidak Ditemukan
           </h1>
           <p className="text-xs sm:text-sm text-slate-700 mt-2 leading-relaxed font-medium">
-            Halaman yang Anda tuju tidak tersedia atau telah dipindahkan ke struktur alamat baru LPK Panca Multiguna Sukses Karawang.
+            Halaman yang Anda tuju tidak tersedia atau telah dipindahkan ke struktur alamat baru LPK Panca Multiguna Sukses.
           </p>
         </div>
 

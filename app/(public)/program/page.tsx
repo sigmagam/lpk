@@ -18,11 +18,11 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Program Pelatihan Kerja ke Jepang | LPK Panca Multiguna Sukses Karawang",
+  title: "Program Pelatihan Kerja ke Jepang | LPK Panca Multiguna Sukses",
   description:
-    "Direktori lengkap program pelatihan bahasa Jepang, persiapan kerja, pemagangan resmi Kemnaker RI, Tokutei Ginou, dan pembekalan budaya kerja di LPK PMS Karawang.",
+    "Direktori lengkap program pelatihan bahasa Jepang, persiapan kerja, pemagangan resmi Kemnaker RI, Tokutei Ginou, dan pembekalan budaya kerja di LPK PMS.",
   keywords: [
-    "program LPK PMS Karawang",
+    "program LPK PMS",
     "pelatihan bahasa jepang karawang",
     "program magang jepang resmi",
     "tokutei ginou karawang",
@@ -95,7 +95,7 @@ export default function ProgramPage() {
           </h1>
 
           <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
-            Direktori program pembekalan bahasa, keterampilan kerja industri, kesiapan fisik, serta etos kerja Kaisha yang diselenggarakan di LPK PMS Karawang.
+            Direktori program pembekalan bahasa, keterampilan kerja industri, kesiapan fisik, serta etos kerja Kaisha yang diselenggarakan di LPK PMS.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -150,7 +150,7 @@ export default function ProgramPage() {
             eyebrow="Katalog Lengkap"
             kanji="講座一覧"
             title="Daftar Lengkap Program Pelatihan"
-            highlight="LPK PMS Karawang"
+            highlight="LPK PMS"
             description="Setiap program disusun sistematis dengan target kompetensi yang terukur dan aplikatif untuk kebutuhan kerja nyata di Jepang."
           />
 

@@ -28,7 +28,7 @@ export default function ConsultationForm() {
     setIsSubmitting(true);
 
     // Format neat message template
-    const text = `Halo Admin LPK PMS Karawang,\n\nPerkenalkan saya ingin konsultasi:\n- Nama: ${formData.nama || "-"}\n- Usia: ${formData.usia || "-"} tahun\n- Pendidikan: ${formData.pendidikan}\n- Kota / Domisili: ${formData.kota || "-"}\n- Minat Program: ${formData.program}\n\nCatatan / Pertanyaan:\n${formData.pesan || "Saya ingin konsultasi mengenai persyaratan pendaftaran, jadwal kelas, dan alur kerja ke Jepang."}\n\nMohon informasi selengkapnya. Terima kasih.`;
+    const text = `Halo Admin LPK PMS,\n\nPerkenalkan saya ingin konsultasi:\n- Nama: ${formData.nama || "-"}\n- Usia: ${formData.usia || "-"} tahun\n- Pendidikan: ${formData.pendidikan}\n- Kota / Domisili: ${formData.kota || "-"}\n- Minat Program: ${formData.program}\n\nCatatan / Pertanyaan:\n${formData.pesan || "Saya ingin konsultasi mengenai persyaratan pendaftaran, jadwal kelas, dan alur kerja ke Jepang."}\n\nMohon informasi selengkapnya. Terima kasih.`;
 
     const encoded = encodeURIComponent(text);
 
@@ -71,7 +71,7 @@ export default function ConsultationForm() {
             Formulir Konsultasi Program
           </h3>
           <p className="text-xs sm:text-sm text-slate-600">
-            Isi data singkat berikut untuk langsung terhubung dengan WhatsApp resmi admin LPK PMS Karawang.
+            Isi data singkat berikut untuk langsung terhubung dengan WhatsApp resmi admin LPK PMS.
           </p>
         </div>
 

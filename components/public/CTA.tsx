@@ -28,7 +28,7 @@ export default function CTA() {
         </h2>
 
         <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-10">
-          Ambil langkah pertamamu bersama LPK PMS Karawang. Dapatkan pembekalan bahasa intensif, pelatihan fisik, persiapan interview kaisha, dan pengurusan dokumen legal hingga penempatan di Jepang.
+          Ambil langkah pertamamu bersama LPK PMS. Dapatkan pembekalan bahasa intensif, pelatihan fisik, persiapan interview kaisha, dan pengurusan dokumen legal hingga penempatan di Jepang.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-md mx-auto">
@@ -63,7 +63,7 @@ export default function CTA() {
           </span>
           <span className="flex items-center gap-1.5">
             <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-            Pusat Pelatihan di Karawang
+            Pusat Pelatihan Resmi Kemnaker RI
           </span>
         </div>
       </div>

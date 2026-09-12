@@ -6,12 +6,14 @@ const siteUrl = "https://lpkpms.my.id";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "LPK Panca Multiguna Sukses Karawang | Pelatihan Kerja ke Jepang",
+  title: "LPK Panca Multiguna Sukses | Pelatihan Kerja ke Jepang",
   description:
-    "LPK Panca Multiguna Sukses Karawang adalah Lembaga Pelatihan Kerja resmi terdaftar di Kementerian Ketenagakerjaan RI (VIN: 2001321506), melatih dan mempersiapkan calon tenaga kerja ke Jepang melalui pelatihan bahasa, keterampilan kerja, kedisiplinan, dan budaya.",
+    "LPK Panca Multiguna Sukses adalah Lembaga Pelatihan Kerja resmi terdaftar di Kementerian Ketenagakerjaan RI (VIN: 2001321506), melatih dan mempersiapkan calon tenaga kerja ke Jepang melalui pelatihan bahasa, keterampilan kerja, kedisiplinan, dan budaya.",
   keywords: [
-    "LPK Panca Multiguna Sukses Karawang",
+    "LPK Panca Multiguna Sukses",
+    "LPK PMS",
     "LPK PMS Karawang",
+    "LPK PMS Lampung",
     "Pelatihan Kerja ke Jepang Karawang",
     "Magang ke Jepang Karawang",
     "Tokutei Ginou Karawang",
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
     "VIN 2001321506",
     "lpkpms.my.id"
   ],
-  authors: [{ name: "LPK Panca Multiguna Sukses Karawang", url: siteUrl }],
+  authors: [{ name: "LPK Panca Multiguna Sukses", url: siteUrl }],
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
@@ -37,10 +39,10 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "LPK Panca Multiguna Sukses Karawang | Pelatihan Kerja ke Jepang",
+    title: "LPK Panca Multiguna Sukses | Pelatihan Kerja ke Jepang",
     description: "Lembaga Pelatihan Kerja terdaftar resmi di Kemnaker RI untuk persiapan program pemagangan dan kerja ke Jepang.",
     url: siteUrl,
-    siteName: "LPK Panca Multiguna Sukses Karawang",
+    siteName: "LPK Panca Multiguna Sukses",
     locale: "id_ID",
     type: "website",
     images: [
@@ -48,13 +50,13 @@ export const metadata: Metadata = {
         url: `${siteUrl}/images/logo.png`,
         width: 640,
         height: 640,
-        alt: "Logo Resmi LPK Panca Multiguna Sukses Karawang",
+        alt: "Logo Resmi LPK Panca Multiguna Sukses",
       },
     ],
   },
   twitter: {
     card: "summary",
-    title: "LPK Panca Multiguna Sukses Karawang | Pelatihan Kerja ke Jepang",
+    title: "LPK Panca Multiguna Sukses | Pelatihan Kerja ke Jepang",
     description: "Lembaga Pelatihan Kerja terdaftar resmi di Kemnaker RI untuk persiapan kerja ke Jepang.",
     images: [`${siteUrl}/images/logo.png`],
   },
@@ -89,8 +91,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "@id": `${siteUrl}/#organization`,
-    name: "LPK Panca Multiguna Sukses Karawang",
-    alternateName: "LPK PMS Karawang",
+    name: "LPK Panca Multiguna Sukses",
+    alternateName: "LPK PMS",
     url: siteUrl,
     logo: {
       "@type": "ImageObject",
@@ -128,8 +130,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
     url: siteUrl,
-    name: "LPK Panca Multiguna Sukses Karawang",
-    alternateName: "LPK PMS Karawang",
+    name: "LPK Panca Multiguna Sukses",
+    alternateName: "LPK PMS",
     publisher: {
       "@id": `${siteUrl}/#organization`,
     },

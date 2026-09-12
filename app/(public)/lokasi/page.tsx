@@ -16,11 +16,11 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Lokasi & Peta Balai Pelatihan | LPK Panca Multiguna Sukses Karawang",
+  title: "Lokasi & Peta Balai Pelatihan | LPK Panca Multiguna Sukses",
   description:
-    "Petunjuk lokasi, rute transportasi, dan peta Google Maps balai pelatihan LPK PMS Karawang di Pancawati, Purwasari, Karawang, Jawa Barat.",
+    "Petunjuk lokasi, rute transportasi, dan peta Google Maps balai pelatihan LPK PMS di Pancawati, Purwasari, Karawang, Jawa Barat.",
   keywords: [
-    "lokasi LPK PMS Karawang",
+    "lokasi LPK PMS",
     "peta LPK jepang karawang",
     "alamat LPK PMS purwasari",
     "rute ke LPK PMS karawang",
@@ -91,7 +91,7 @@ export default function LokasiPage() {
                       Gedung Pusat
                     </span>
                     <h2 className="font-heading font-black text-lg sm:text-xl text-navy-950">
-                      LPK PMS Karawang
+                      LPK PMS (Pusat Karawang)
                     </h2>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ export default function LokasiPage() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Peta Lokasi LPK PMS Karawang"
+                    title="Peta Lokasi LPK PMS (Pusat Karawang)"
                   />
                 </div>
               </div>

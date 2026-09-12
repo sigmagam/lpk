@@ -1,10 +1,10 @@
 export const siteConfig = {
-  name: "LPK Panca Multiguna Sukses Karawang",
-  shortName: "LPK PMS Karawang",
+  name: "LPK Panca Multiguna Sukses",
+  shortName: "LPK PMS",
   websiteDomain: "lpkpms.my.id",
   tagline: "Lembaga Pelatihan Kerja ke Jepang Terdaftar Resmi Kemnaker RI",
   description:
-    "LPK Panca Multiguna Sukses Karawang adalah Lembaga Pelatihan Kerja yang berkomitmen dalam menyiapkan, melatih dan mengirim peserta magang yang berkualitas dari Indonesia ke Jepang melalui pembekalan bahasa, keterampilan kerja, kedisiplinan, serta pemahaman budaya dan etos kerja.",
+    "LPK Panca Multiguna Sukses adalah Lembaga Pelatihan Kerja yang berkomitmen dalam menyiapkan, melatih dan mengirim peserta magang yang berkualitas dari Indonesia ke Jepang melalui pembekalan bahasa, keterampilan kerja, kedisiplinan, serta pemahaman budaya dan etos kerja.",
   whatsapp: "https://wa.me/6285692923642",
   whatsappNumber: "+62 856-9292-3642",
   whatsappCleanNumber: "6285692923642",
@@ -13,9 +13,9 @@ export const siteConfig = {
   whatsappChannel: "https://whatsapp.com/channel/0029Vb6zaUsISTkPcksxFG0f",
   whatsappChannelLabel: "Channel Info Job PMS Pusat",
   instagram: "https://www.instagram.com/lpkpmskarawang",
-  instagramHandle: "LPK PMS Karawang",
+  instagramHandle: "LPK PMS",
   tiktok: "https://www.tiktok.com/@lpk.pms.karawang19",
-  tiktokHandle: "LPK PMS Karawang",
+  tiktokHandle: "LPK PMS",
   address: "Jl. Utama Pesona Cengkong Asri 1 Blk. C7 No.2-3, Pancawati, Kec. Purwasari, Karawang, Jawa Barat 41351",
   maps: "https://www.google.com/maps/search/?api=1&query=Jl.+Utama+Pesona+Cengkong+Asri+1+Blk.+C7+No.2-3,+Pancawati,+Kec.+Purwasari,+Karawang,+Jawa+Barat+41351",
   mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.4190861502447!2d107.36214531476985!3d-6.340051695412437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69774d0e513813%3A0xc1230e70a48b598b!2sPancawati%2C%20Kec.%20Purwasari%2C%20Karawang%2C%20Jawa%20Barat!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid",
@@ -114,7 +114,7 @@ export const pmsStructureSlides: StructureSlide[] = [
   {
     id: 5,
     title: "Pemberangkatan & Masa Depan Karier di Jepang",
-    subtitle: "Menembus Dunia Industri Jepang Bersama LPK PMS Karawang",
+    subtitle: "Menembus Dunia Industri Jepang Bersama LPK PMS",
     imageUrl: "https://i.ibb.co.com/ksDRG9cH/Kenalan-yukkk-lpkjepang-magangjepang-kerjadijepang-jisshuseiindonesia-infolokerjepang-4.jpg",
     tag: "Penempatan Bagian 05"
   }
@@ -200,25 +200,25 @@ export const keunggulan = [
   {
     number: "01",
     title: "Kurikulum yang Terkini",
-    description: "LPK Panca Multiguna Sukses Karawang menyajikan kurikulum yang terbaru dan relevan dengan kebutuhan pasar kerja saat ini, sehingga peserta mendapatkan pelatihan yang sesuai dengan tuntutan industri.",
+    description: "LPK Panca Multiguna Sukses menyajikan kurikulum yang terbaru dan relevan dengan kebutuhan pasar kerja saat ini, sehingga peserta mendapatkan pelatihan yang sesuai dengan tuntutan industri.",
     badge: "Relevansi Industri"
   },
   {
     number: "02",
     title: "Tenaga Pengajar Profesional",
-    description: "LPK Panca Multiguna Sukses Karawang memiliki tenaga pengajar yang berpengalaman dan berkualifikasi dalam bidangnya masing-masing, sehingga peserta mendapatkan pembelajaran yang berkualitas dan mendalam.",
+    description: "LPK Panca Multiguna Sukses memiliki tenaga pengajar yang berpengalaman dan berkualifikasi dalam bidangnya masing-masing, sehingga peserta mendapatkan pembelajaran yang berkualitas dan mendalam.",
     badge: "Instruktur Berkualitas"
   },
   {
     number: "03",
     title: "Fasilitas yang Memadai",
-    description: "LPK Panca Multiguna Sukses Karawang dilengkapi dengan fasilitas yang mendukung proses pembelajaran, termasuk ruang kelas yang nyaman, peralatan praktikum, serta bahan ajar yang relevan.",
+    description: "LPK Panca Multiguna Sukses dilengkapi dengan fasilitas yang mendukung proses pembelajaran, termasuk ruang kelas yang nyaman, peralatan praktikum, serta bahan ajar yang relevan.",
     badge: "Sarana Terpadu"
   },
   {
     number: "04",
     title: "Pengalaman Praktis Intensif",
-    description: "Program pelatihan di LPK Panca Multiguna Sukses Karawang menekankan pada pengalaman praktis yang intensif, sehingga peserta dapat mengembangkan keterampilan praktis yang dibutuhkan di lapangan kerja.",
+    description: "Program pelatihan di LPK Panca Multiguna Sukses menekankan pada pengalaman praktis yang intensif, sehingga peserta dapat mengembangkan keterampilan praktis yang dibutuhkan di lapangan kerja.",
     badge: "Praktek Langsung"
   }
 ];
@@ -292,12 +292,12 @@ export const participantJourney = [
 export const faqs = [
   {
     category: "Kelembagaan",
-    question: "Apakah LPK Panca Multiguna Sukses Karawang terdaftar resmi?",
-    answer: "Tentu. LPK Panca Multiguna Sukses Karawang terdaftar secara resmi di Kementerian Ketenagakerjaan Republik Indonesia dengan Nomor VIN 2001321506 dan dapat diverifikasi melalui platform resmi Skillhub Kemnaker RI."
+    question: "Apakah LPK Panca Multiguna Sukses terdaftar resmi?",
+    answer: "Tentu. LPK Panca Multiguna Sukses terdaftar secara resmi di Kementerian Ketenagakerjaan Republik Indonesia dengan Nomor VIN 2001321506 dan dapat diverifikasi melalui platform resmi Skillhub Kemnaker RI."
   },
   {
     category: "Program",
-    question: "Apa saja program yang tersedia di LPK Panca Multiguna Sukses Karawang?",
+    question: "Apa saja program yang tersedia di LPK Panca Multiguna Sukses?",
     answer: "Kami menyelenggarakan 5 program utama: Pembelajaran Bahasa Jepang, Persiapan Kerja ke Jepang, Program Pemagangan, Pembekalan Budaya & Kehidupan Jepang, serta Pengembangan Kompetensi."
   },
   {
@@ -322,8 +322,8 @@ export const faqs = [
   },
   {
     category: "Lokasi",
-    question: "Di mana lokasi LPK Panca Multiguna Sukses Karawang?",
-    answer: "LPK beralamat di Jl. Utama Pesona Cengkong Asri 1 Blk. C7 No.2-3, Pancawati, Kec. Purwasari, Karawang, Jawa Barat 41351. Lokasi dapat diakses dan dilihat langsung di Google Maps."
+    question: "Di mana lokasi LPK Panca Multiguna Sukses?",
+    answer: "LPK berpusat di Jl. Utama Pesona Cengkong Asri 1 Blk. C7 No.2-3, Pancawati, Kec. Purwasari, Karawang, Jawa Barat 41351, dengan cabang pelatihan Karawang dan Lampung. Lokasi dapat diakses dan dilihat langsung di Google Maps."
   },
   {
     category: "Kontak",

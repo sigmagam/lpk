@@ -41,7 +41,7 @@ export default function HomePage() {
               {/* Eyebrow badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-navy-950 uppercase tracking-wider shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-vermilion-600 animate-pulse" />
-                <span>LPK Resmi Kemnaker RI • Karawang</span>
+                <span>LPK Resmi Kemnaker RI • Karawang & Lampung</span>
                 <span className="text-slate-300">|</span>
                 <span className="font-mono text-emerald-800 font-bold">VIN: {siteConfig.vinNumber}</span>
               </div>
@@ -102,7 +102,7 @@ export default function HomePage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-vermilion-600" />
-                  Pelatihan di Karawang
+                  Pusat Pelatihan di Karawang & Lampung
                 </span>
               </div>
             </div>
@@ -340,7 +340,7 @@ export default function HomePage() {
             eyebrow="Keunggulan Kelembagaan"
             kanji="強み"
             title="Mengapa Memilih"
-            highlight="LPK PMS Karawang?"
+            highlight="LPK PMS?"
             description="Kami tidak hanya mengajarkan bahasa Jepang, tetapi membimbing setiap peserta dari tahap persiapan mental hingga sukses beradaptasi dan bekerja di Jepang."
           />
 
@@ -449,7 +449,7 @@ export default function HomePage() {
             kanji="無料相談"
             title="Konsultasikan Rencana Kariermu"
             highlight="Bersama Kami"
-            description="Tanyakan segala hal seputar persyaratan, pilihan program, dan estimasi biaya. Tim instruktur LPK PMS Karawang siap melayani Anda."
+            description="Tanyakan segala hal seputar persyaratan, pilihan program, dan estimasi biaya. Tim instruktur LPK PMS siap melayani Anda."
           />
 
           <div className="max-w-2xl mx-auto">

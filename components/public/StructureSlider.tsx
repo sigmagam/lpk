@@ -58,7 +58,7 @@ export default function StructureSlider() {
               <span>Dokumentasi Resmi Kelembagaan</span>
             </div>
             <h2 id="slider-heading" className="font-heading font-black text-2xl sm:text-3xl text-navy-950">
-              Profil & Suasana Pelatihan LPK PMS Karawang
+              Profil & Suasana Pelatihan LPK PMS
             </h2>
           </div>
 

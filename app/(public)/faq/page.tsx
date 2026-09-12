@@ -7,11 +7,11 @@ import { HelpCircle, MessageCircle, ArrowRight, ShieldCheck } from "lucide-react
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "FAQ & Tanya Jawab Lengkap | LPK Panca Multiguna Sukses Karawang",
+  title: "FAQ & Tanya Jawab Lengkap | LPK Panca Multiguna Sukses",
   description:
-    "Pertanyaan yang sering diajukan seputar pelatihan bahasa Jepang, program pemagangan resmi, Tokutei Ginou (SSW), syarat pendaftaran, dan biaya di LPK PMS Karawang.",
+    "Pertanyaan yang sering diajukan seputar pelatihan bahasa Jepang, program pemagangan resmi, Tokutei Ginou (SSW), syarat pendaftaran, dan biaya di LPK PMS.",
   keywords: [
-    "FAQ LPK PMS Karawang",
+    "FAQ LPK PMS",
     "tanya jawab magang jepang",
     "syarat tokutei ginou karawang",
     "biaya lpk jepang karawang",
@@ -64,7 +64,7 @@ export default function FAQPage() {
             </h2>
 
             <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-              Tim instruktur & admin LPK PMS Karawang siap melayani konsultasi gratis dan mendampingi rencana karier Anda ke Jepang.
+              Tim instruktur & admin LPK PMS siap melayani konsultasi gratis dan mendampingi rencana karier Anda ke Jepang.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">

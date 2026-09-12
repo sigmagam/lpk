@@ -25,11 +25,11 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Legalitas Resmi Kemnaker RI, Kemenkumham, Disnaker, AHU, OSS | LPK PMS Karawang",
+  title: "Legalitas Resmi Kemnaker RI, Kemenkumham, Disnaker, AHU, OSS | LPK PMS",
   description:
-    "Legalitas dan perizinan resmi LPK Panca Multiguna Sukses Karawang: Nomor Lisensi 503/10509/29/IPLPK/XI/DPMPTSP/2018, Jenis Mitra LPKS Swasta, VIN: 2001321506, Kemenkumham RI, Ditjen AHU, Disnaker Kab. Karawang, dan Lembaga OSS.",
+    "Legalitas dan perizinan resmi LPK Panca Multiguna Sukses: Nomor Lisensi 503/10509/29/IPLPK/XI/DPMPTSP/2018, Jenis Mitra LPKS Swasta, VIN: 2001321506, Kemenkumham RI, Ditjen AHU, Disnaker Kab. Karawang, dan Lembaga OSS.",
   keywords: [
-    "legalitas LPK PMS Karawang",
+    "legalitas LPK PMS",
     "503/10509/29/IPLPK/XI/DPMPTSP/2018",
     "kemenkumham LPK PMS",
     "disnaker karawang lpk",
@@ -65,7 +65,7 @@ export default function LegalitasPage() {
           </h1>
 
           <p className="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed font-normal">
-            LPK Panca Multiguna Sukses Karawang beroperasi dengan izin operasional lengkap dan diakui secara yuridis oleh <strong>Kemenkumham RI</strong>, <strong>Ditjen AHU</strong>, <strong>Kemnaker RI</strong>, <strong>Disnaker Kab. Karawang</strong>, serta <strong>Lembaga OSS</strong>.
+            LPK Panca Multiguna Sukses beroperasi dengan izin operasional lengkap dan diakui secara yuridis oleh <strong>Kemenkumham RI</strong>, <strong>Ditjen AHU</strong>, <strong>Kemnaker RI</strong>, <strong>Disnaker Kab. Karawang</strong>, serta <strong>Lembaga OSS</strong>.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -117,7 +117,7 @@ export default function LegalitasPage() {
             eyebrow="Data Terverifikasi"
             kanji="登録証明"
             title="Lembar Fakta Kelembagaan"
-            highlight="LPK PMS Karawang"
+            highlight="LPK PMS"
             description="Seluruh data operasional terdaftar sah dalam pangkalan data Kemnaker RI dan DPMPTSP untuk menjamin keamanan calon peserta."
           />
 

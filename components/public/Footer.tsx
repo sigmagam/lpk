@@ -54,7 +54,7 @@ export default function Footer() {
               <div className="w-12 h-12 bg-white rounded-xl p-1.5 shadow-sm border border-slate-200 flex items-center justify-center shrink-0">
                 <Image
                   src="/images/logo.png"
-                  alt="Logo LPK PMS Karawang"
+                  alt="Logo LPK PMS"
                   width={42}
                   height={42}
                   className="w-full h-full object-contain"
@@ -62,7 +62,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="font-heading font-black text-white text-base leading-tight uppercase tracking-tight">
-                  LPK PMS KARAWANG
+                  LPK PMS
                 </div>
                 <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
                   Panca Multiguna Sukses
@@ -214,7 +214,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-navy-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
-            &copy; 2026 LPK Panca Multiguna Sukses Karawang. Seluruh hak cipta dilindungi.
+            &copy; 2026 LPK Panca Multiguna Sukses. Seluruh hak cipta dilindungi.
           </p>
           <div className="flex items-center gap-5">
             <Link href="/legalitas" className="hover:text-white transition-colors">

@@ -16,11 +16,11 @@ import {
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Keunggulan Pelatihan Kerja | LPK Panca Multiguna Sukses Karawang",
+  title: "Keunggulan Pelatihan Kerja | LPK Panca Multiguna Sukses",
   description:
-    "Mengapa memilih LPK PMS Karawang: Kurikulum terkini industri Kaisha, instruktur profesional bersertifikat, fasilitas 300 m2 lengkap, dan pengalaman praktis intensif.",
+    "Mengapa memilih LPK PMS: Kurikulum terkini industri Kaisha, instruktur profesional bersertifikat, fasilitas 300 m2 lengkap, dan pengalaman praktis intensif.",
   keywords: [
-    "keunggulan LPK PMS Karawang",
+    "keunggulan LPK PMS",
     "fasilitas LPK PMS",
     "instruktur bahasa jepang karawang",
     "kelebihan magang jepang pms",
@@ -55,7 +55,7 @@ export default function KeunggulanPage() {
           </div>
 
           <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
-            Keunggulan LPK PMS Karawang
+            Keunggulan LPK PMS
           </h1>
 
           <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
@@ -105,7 +105,7 @@ export default function KeunggulanPage() {
                 </div>
 
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                  <span className="font-medium">LPK PMS Karawang</span>
+                  <span className="font-medium">LPK PMS</span>
                   <Link
                     href="/program"
                     className="font-bold text-navy-950 hover:text-vermilion-600 inline-flex items-center gap-1 transition-colors"

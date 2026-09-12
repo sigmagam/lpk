@@ -29,15 +29,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const program = programs.find((p) => p.slug === slug);
   if (!program) {
-    return { title: "Program Tidak Ditemukan | LPK PMS Karawang" };
+    return { title: "Program Tidak Ditemukan | LPK PMS" };
   }
   return {
-    title: `${program.title} | LPK PMS Karawang`,
+    title: `${program.title} | LPK PMS`,
     description: program.shortDesc,
     keywords: [
       program.title,
       "pelatihan kerja jepang",
-      "LPK PMS Karawang",
+      "LPK PMS",
       program.category,
       "kursus bahasa jepang karawang"
     ]
@@ -186,7 +186,7 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                 </h3>
 
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                  Hubungi konsultan LPK PMS Karawang untuk menanyakan jadwal batch kelas, persyaratan berkas, dan tahapan seleksi program <strong>{program.title}</strong>.
+                  Hubungi konsultan LPK PMS untuk menanyakan jadwal batch kelas, persyaratan berkas, dan tahapan seleksi program <strong>{program.title}</strong>.
                 </p>
 
                 <a

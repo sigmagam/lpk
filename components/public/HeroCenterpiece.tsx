@@ -58,7 +58,7 @@ export default function HeroCenterpiece() {
                   Terdaftar Kemnaker RI
                 </div>
                 <h2 className="font-heading font-black text-base sm:text-lg text-white leading-tight">
-                  LPK PMS KARAWANG
+                  LPK PMS
                 </h2>
                 <div className="text-xs text-slate-300 font-medium">
                   VIN: <span className="font-mono text-white font-bold">{siteConfig.vinNumber}</span>

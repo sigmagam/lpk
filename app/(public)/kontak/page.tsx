@@ -19,11 +19,11 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Kontak & Alamat Lembaga | LPK Panca Multiguna Sukses Karawang",
+  title: "Kontak & Alamat Lembaga | LPK Panca Multiguna Sukses",
   description:
-    "Hubungi LPK Panca Multiguna Sukses Karawang. Layanan konsultasi WhatsApp resmi, Channel Info Job PMS, Instagram, TikTok, serta lokasi kantor di Purwasari Karawang.",
+    "Hubungi LPK Panca Multiguna Sukses. Layanan konsultasi WhatsApp resmi, Channel Info Job PMS, Instagram, TikTok, serta lokasi kantor di Purwasari Karawang.",
   keywords: [
-    "kontak LPK PMS Karawang",
+    "kontak LPK PMS",
     "nomor whatsapp LPK PMS",
     "alamat LPK jepang karawang",
     "channel info job jepang pms",
@@ -55,7 +55,7 @@ export default function KontakPage() {
           </h1>
 
           <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
-            Konsultasikan rencana pelatihan kerja dan pemagangan ke Jepang serta dapatkan update lowongan kerja langsung melalui saluran resmi LPK PMS Karawang.
+            Konsultasikan rencana pelatihan kerja dan pemagangan ke Jepang serta dapatkan update lowongan kerja langsung melalui saluran resmi LPK PMS.
           </p>
         </div>
       </section>
@@ -238,7 +238,7 @@ export default function KontakPage() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Peta Lokasi LPK PMS Karawang"
+                    title="Peta Lokasi LPK PMS (Pusat Karawang)"
                   />
                 </div>
               </div>

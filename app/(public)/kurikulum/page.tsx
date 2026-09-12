@@ -15,11 +15,11 @@ import {
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Kurikulum Pelatihan Kerja ke Jepang | LPK PMS Karawang",
+  title: "Kurikulum Pelatihan Kerja ke Jepang | LPK PMS",
   description:
-    "Kurikulum resmi LPK Panca Multiguna Sukses Karawang: Materi Dasar, Materi Inti, dan Materi Khusus terstruktur standar industri Kaisha dan Kemnaker RI.",
+    "Kurikulum resmi LPK Panca Multiguna Sukses: Materi Dasar, Materi Inti, dan Materi Khusus terstruktur standar industri Kaisha dan Kemnaker RI.",
   keywords: [
-    "kurikulum LPK PMS Karawang",
+    "kurikulum LPK PMS",
     "materi bahasa jepang n5 n4",
     "pelatihan kerja kaisha jepang",
     "silabus magang jepang resmi",

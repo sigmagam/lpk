@@ -11,15 +11,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Program Tokutei Ginou (SSW) Jepang Resmi | LPK PMS Karawang",
+  title: "Program Tokutei Ginou (SSW) Jepang Resmi | LPK PMS",
   description:
-    "Panduan resmi program Tokutei Ginou (Specified Skilled Worker) ke Jepang bersama LPK Panca Multiguna Sukses Karawang. Informasi 14 sektor resmi, syarat bahasa N4/JFT, standar gaji, dan alur seleksi.",
+    "Panduan resmi program Tokutei Ginou (Specified Skilled Worker) ke Jepang bersama LPK Panca Multiguna Sukses. Informasi 14 sektor resmi, syarat bahasa N4/JFT, standar gaji, dan alur seleksi.",
   keywords: [
     "Tokutei Ginou Karawang",
     "SSW Jepang Karawang",
     "kerja ke jepang resmi",
     "visa kerja tokutei ginou",
-    "LPK PMS Karawang",
+    "LPK PMS",
     "JFT Basic Karawang",
     "gaji tokutei ginou"
   ],
@@ -188,7 +188,7 @@ export default function TokuteiGinouPage() {
           </h1>
 
           <p className="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">
-            Dapatkan status visa kerja formal <strong>Specified Skilled Worker (Tokutei Ginou)</strong> dengan standar gaji setara warga negara Jepang, perlindungan hukum Kemnaker RI, serta pendampingan intensif dari LPK PMS Karawang.
+            Dapatkan status visa kerja formal <strong>Specified Skilled Worker (Tokutei Ginou)</strong> dengan standar gaji setara warga negara Jepang, perlindungan hukum Kemnaker RI, serta pendampingan intensif dari LPK PMS.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -310,7 +310,7 @@ export default function TokuteiGinouPage() {
             kanji="十四分野"
             title="14 Bidang Pekerjaan Resmi"
             highlight="Tokutei Ginou di Jepang"
-            description="Pemerintah Jepang menetapkan 14 sektor industri yang diperbolehkan menerima tenaga kerja asing dengan visa SSW. LPK PMS Karawang membina calon peserta sesuai bidang yang dituju."
+            description="Pemerintah Jepang menetapkan 14 sektor industri yang diperbolehkan menerima tenaga kerja asing dengan visa SSW. LPK PMS membina calon peserta sesuai bidang yang dituju."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -445,7 +445,7 @@ export default function TokuteiGinouPage() {
             kanji="参加申込"
             title="Daftar & Konsultasikan Jalur"
             highlight="Tokutei Ginou Anda"
-            description="Tim konsultan LPK PMS Karawang siap mengarahkan Anda memilih sektor kerja terbaik serta menyusun rencana belajar bahasa Jepang hingga lulus."
+            description="Tim konsultan LPK PMS siap mengarahkan Anda memilih sektor kerja terbaik serta menyusun rencana belajar bahasa Jepang hingga lulus."
           />
 
           <div className="max-w-2xl mx-auto">

@@ -21,11 +21,11 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Tentang Kami & Profil Lembaga | LPK Panca Multiguna Sukses Karawang",
+  title: "Tentang Kami & Profil Lembaga | LPK Panca Multiguna Sukses",
   description:
-    "Profil resmi LPK Panca Multiguna Sukses Karawang. Terdaftar di Kemnaker RI dengan VIN 2001321506, dipimpin oleh Yusuf Bachtiar, S.M, berdiri sejak 2018 dengan 200+ alumni di Jepang.",
+    "Profil resmi LPK Panca Multiguna Sukses. Terdaftar di Kemnaker RI dengan VIN 2001321506, dipimpin oleh Yusuf Bachtiar, S.M, berdiri sejak 2018 dengan 200+ alumni di Jepang.",
   keywords: [
-    "profil LPK PMS Karawang",
+    "profil LPK PMS",
     "Yusuf Bachtiar SM",
     "sejarah LPK PMS",
     "legalitas kemnaker lpk pms",
@@ -72,7 +72,7 @@ export default function TentangKamiPage() {
           </div>
 
           <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
-            Tentang LPK PMS Karawang
+            Tentang LPK PMS
           </h1>
 
           <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
@@ -131,7 +131,7 @@ export default function TentangKamiPage() {
                 <div className="w-28 h-28 mx-auto bg-white rounded-2xl p-2.5 shadow-sm border border-slate-200 flex items-center justify-center">
                   <Image
                     src="/images/logo.png"
-                    alt="Logo LPK Panca Multiguna Sukses Karawang"
+                    alt="Logo LPK Panca Multiguna Sukses"
                     width={100}
                     height={100}
                     className="w-full h-full object-contain"
@@ -194,7 +194,7 @@ export default function TentangKamiPage() {
               </p>
 
               <p>
-                Sebagai lembaga pelatihan kerja resmi di bawah naungan Kementerian Ketenagakerjaan Republik Indonesia (Kemnaker RI), LPK Panca Multiguna Sukses Karawang berorientasi pada peningkatan kompetensi nyata, pembentukan kedisiplinan tinggi, serta penanaman etika kerja industri Jepang (Kaisha).
+                Sebagai lembaga pelatihan kerja resmi di bawah naungan Kementerian Ketenagakerjaan Republik Indonesia (Kemnaker RI), LPK Panca Multiguna Sukses berorientasi pada peningkatan kompetensi nyata, pembentukan kedisiplinan tinggi, serta penanaman etika kerja industri Jepang (Kaisha).
               </p>
 
               <p>

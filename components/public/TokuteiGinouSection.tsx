@@ -22,7 +22,7 @@ export default function TokuteiGinouSection() {
     {
       step: "02",
       title: "Bahasa Jepang (N4/JFT)",
-      desc: "Lulus ujian kemampuan bahasa Jepang level JLPT N4 atau JFT-Basic A2 (bimbingan intensif disediakan di LPK PMS Karawang).",
+      desc: "Lulus ujian kemampuan bahasa Jepang level JLPT N4 atau JFT-Basic A2 (bimbingan intensif disediakan di LPK PMS).",
     },
     {
       step: "03",
@@ -154,7 +154,7 @@ export default function TokuteiGinouSection() {
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl bg-white/[0.05] border border-white/10">
           <div className="text-center sm:text-left">
             <div className="text-sm font-bold text-white">
-              Tertarik Mengikuti Program Tokutei Ginou Bersama LPK PMS Karawang?
+              Tertarik Mengikuti Program Tokutei Ginou Bersama LPK PMS?
             </div>
             <div className="text-xs text-slate-400 mt-0.5">
               Konsultasikan kesiapan bahasa dan pilihan bidang industri Anda bersama instruktur kami.

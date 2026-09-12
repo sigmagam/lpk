@@ -124,7 +124,7 @@ export default function Hero3DVisual() {
           >
             <Image
               src="/images/logo.png"
-              alt="Logo Resmi LPK Panca Multiguna Sukses Karawang"
+              alt="Logo Resmi LPK Panca Multiguna Sukses"
               width={150}
               height={150}
               priority
@@ -142,7 +142,7 @@ export default function Hero3DVisual() {
             className="text-xs font-black text-slate-800 tracking-widest uppercase mt-1.5"
             style={{ transform: "translateZ(20px)" }}
           >
-            Pusat Pelatihan Kerja Karawang
+            Pusat Pelatihan Kerja ke Jepang
           </p>
         </div>
 
