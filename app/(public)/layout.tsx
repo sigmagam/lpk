@@ -1,7 +1,6 @@
 import Navbar from "@/components/public/Navbar";
 import Footer from "@/components/public/Footer";
 import FloatingWhatsApp from "@/components/public/FloatingWhatsApp";
-import WelcomeBannerModal from "@/components/public/WelcomeBannerModal";
 
 export default function PublicLayout({
   children,
@@ -14,7 +13,6 @@ export default function PublicLayout({
       <main className="flex-1">{children}</main>
       <Footer />
       <FloatingWhatsApp />
-      <WelcomeBannerModal />
     </div>
   );
 }

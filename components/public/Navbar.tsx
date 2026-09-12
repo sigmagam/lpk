@@ -58,23 +58,23 @@ export default function Navbar() {
   return (
     <>
       {/* Top Credential Bar */}
-      <div className="bg-navy-950 text-slate-200 text-[11px] sm:text-xs py-2 border-b border-navy-900 hidden lg:block select-none">
-        <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 font-semibold border border-emerald-400/30">
+      <div className="bg-navy-950 text-slate-200 text-[11px] sm:text-xs py-2 border-b border-navy-900 select-none">
+        <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 font-semibold border border-emerald-400/30 shrink-0">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
               Kemnaker RI Resmi
             </span>
-            <span className="text-slate-300">
+            <span className="text-slate-300 hidden sm:inline">
               VIN: <strong className="font-mono text-white font-bold">{siteConfig.vinNumber}</strong>
             </span>
-            <span className="text-slate-600">|</span>
-            <span className="text-slate-300">
+            <span className="text-slate-600 hidden sm:inline">|</span>
+            <span className="text-slate-300 hidden sm:inline truncate">
               Lembaga Pelatihan Kerja & Penyaluran Karir ke Jepang
             </span>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-4">
             <a
               href={`tel:${siteConfig.phoneRaw}`}
               className="inline-flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors"
