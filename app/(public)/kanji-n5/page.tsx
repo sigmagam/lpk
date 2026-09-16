@@ -30,25 +30,26 @@ export default function KanjiN5Page() {
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="anim-kanji-badge inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-vermilion-600/20 text-vermilion-300 border border-vermilion-500/40 text-xs font-bold uppercase tracking-wider mb-4">
             <BookOpen className="w-3.5 h-3.5 text-vermilion-400" />
             <span>Materi Bahasa Jepang • JLPT N5</span>
           </div>
 
-          <h1 className="anim-fade-up anim-delay-100 font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
+          <h1 className="anim-kanji-down anim-delay-100 font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
             Kanji N5 Minna no Nihongo
           </h1>
 
-          <p className="anim-fade-up anim-delay-200 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="anim-kanji-down anim-delay-200 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
             Daftar lengkap kanji level N5 yang dipelajari di Minna no Nihongo Shokyu I. Klik kartu untuk
             melihat bacaan on/kun dan contoh kosakata. Gunakan pencarian atau filter pelajaran untuk belajar per bab.
           </p>
 
-          <div className="anim-fade-up anim-delay-300 flex items-center justify-center gap-3 sm:gap-6 flex-wrap mt-8">
-            {stats.map((stat) => (
+          <div className="anim-kanji-down anim-delay-300 flex items-center justify-center gap-3 sm:gap-6 flex-wrap mt-8">
+            {stats.map((stat, i) => (
               <div
                 key={stat.label}
-                className="flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-2xl bg-white/5 border border-white/10"
+                style={{ animationDelay: `${0.35 + i * 0.1}s` }}
+                className="anim-kanji-pop flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-2xl bg-white/5 border border-white/10"
               >
                 <stat.icon className="w-5 h-5 text-vermilion-400 shrink-0" />
                 <div className="text-left">

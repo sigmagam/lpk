@@ -10,7 +10,7 @@ export default function ScrollAnimator() {
     // Small delay to ensure DOM is fully rendered after route change
     const timer = setTimeout(() => {
       const targets = document.querySelectorAll(
-        ".anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale-pop, .anim-card, .hero-highlight"
+        ".anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale-pop, .anim-card, .hero-highlight, .anim-kanji-deal, .anim-kanji-down, .anim-kanji-pop, .anim-kanji-badge"
       );
 
       // Reset: remove is-visible from elements that are still below viewport
@@ -36,7 +36,7 @@ export default function ScrollAnimator() {
 
       // Only observe elements that don't yet have is-visible
       const unobserved = document.querySelectorAll(
-        ".anim-fade-up:not(.is-visible), .anim-fade-left:not(.is-visible), .anim-fade-right:not(.is-visible), .anim-scale-pop:not(.is-visible), .anim-card:not(.is-visible), .hero-highlight:not(.is-visible)"
+        ".anim-fade-up:not(.is-visible), .anim-fade-left:not(.is-visible), .anim-fade-right:not(.is-visible), .anim-scale-pop:not(.is-visible), .anim-card:not(.is-visible), .hero-highlight:not(.is-visible), .anim-kanji-deal:not(.is-visible), .anim-kanji-down:not(.is-visible), .anim-kanji-pop:not(.is-visible), .anim-kanji-badge:not(.is-visible)"
       );
       unobserved.forEach((el) => observer.observe(el));
     }, 100);

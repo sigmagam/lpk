@@ -124,13 +124,13 @@ export default function KanjiExplorer({ items, lessons, total }: KanjiExplorerPr
 
       {/* Kanji flashcard grid */}
       {filteredItems.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+        <div className="kanji-grid-3d grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
           {filteredItems.map((item, index) => {
             const isFlipped = flipped.has(index);
             return (
               <div
                 key={`${item.kanji}-${item.pelajaran}`}
-                className="anim-card"
+                className="anim-kanji-deal"
                 style={{ animationDelay: `${(index % 10) * 40}ms` }}
               >
                 <button
@@ -142,7 +142,7 @@ export default function KanjiExplorer({ items, lessons, total }: KanjiExplorerPr
                   style={{ transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
                 >
                   {/* Front face: kanji + arti */}
-                  <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-slate-300 transition-all overflow-hidden flex flex-col">
+                  <div className="kanji-gloss absolute inset-0 [backface-visibility:hidden] rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-slate-300 transition-all overflow-hidden flex flex-col">
                     <div className="flex items-center justify-between px-3.5 pt-3">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
                         Pel. {item.pelajaran}
@@ -162,7 +162,7 @@ export default function KanjiExplorer({ items, lessons, total }: KanjiExplorerPr
                   </div>
 
                   {/* Back face: bacaan + contoh kosakata */}
-                  <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-navy-950 border border-navy-800 shadow-md overflow-hidden flex flex-col">
+                  <div className="kanji-gloss absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-navy-950 border border-navy-800 shadow-md overflow-hidden flex flex-col">
                     <div className="flex items-center justify-between px-3.5 pt-3">
                       <span className="font-heading text-lg font-black text-white">
                         {item.kanji}
