@@ -221,7 +221,7 @@ export default function Footer() {
               Status Legalitas Kemnaker
             </Link>
             <Link href="/kanji-n5" className="hover:text-white transition-colors">
-              Kanji N5
+              Kanji N5–N1
             </Link>
             <Link href="/faq" className="hover:text-white transition-colors">
               Pusat FAQ

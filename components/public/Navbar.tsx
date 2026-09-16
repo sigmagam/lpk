@@ -48,7 +48,7 @@ export default function Navbar() {
     { label: "Tokutei Ginou", href: "/tokutei-ginou", highlight: true },
     { label: "Tentang Kami", href: "/tentang-kami" },
     { label: "Kurikulum", href: "/kurikulum" },
-    { label: "Kanji N5", href: "/kanji-n5" },
+    { label: "Kanji N5–N1", href: "/kanji-n5" },
     { label: "Keunggulan", href: "/keunggulan" },
     { label: "Legalitas", href: "/legalitas" },
     { label: "Lokasi", href: "/lokasi" },
