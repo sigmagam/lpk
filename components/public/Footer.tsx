@@ -220,6 +220,9 @@ export default function Footer() {
             <Link href="/legalitas" className="hover:text-white transition-colors">
               Status Legalitas Kemnaker
             </Link>
+            <Link href="/kanji-n5" className="hover:text-white transition-colors">
+              Kanji N5
+            </Link>
             <Link href="/faq" className="hover:text-white transition-colors">
               Pusat FAQ
             </Link>

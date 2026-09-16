@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/program",
     "/tentang-kami",
     "/kurikulum",
+    "/kanji-n5",
     "/keunggulan",
     "/legalitas",
     "/lokasi",
