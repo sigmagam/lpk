@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/data/site";
+import HostedByBadge from "@/components/public/HostedByBadge";
 import {
   ShieldCheck,
   MapPin,
@@ -231,6 +232,9 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+
+        {/* Hosting Credit */}
+        <HostedByBadge />
       </div>
     </footer>
   );
