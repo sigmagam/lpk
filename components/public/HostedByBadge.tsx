@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type RefObject } from "react";
 
 type Partner = {
   name: string;
@@ -159,7 +159,7 @@ export default function HostedByBadge() {
   const renderRow = (
     label: string,
     loop: Partner[],
-    listRef: React.RefObject<HTMLUListElement>,
+    listRef: RefObject<HTMLUListElement | null>,
   ) => (
     <div className="flex flex-col items-center gap-4">
       <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-600">
