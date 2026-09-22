@@ -67,9 +67,15 @@ const config: Config = {
           '0%': { opacity: '0', transform: 'translateY(10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
       },
       animation: {
         'fade-up': 'fadeUp 0.3s ease-out forwards',
+        // Slow rightward scroll (~13px/s) so it stays calm, not fast.
+        marquee: 'marquee 60s linear infinite',
       },
     },
   },
