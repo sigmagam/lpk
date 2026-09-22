@@ -136,7 +136,7 @@ export default function HostedByBadge() {
       >
         <ul
           ref={marqueeRef}
-          className="flex w-max animate-marquee items-center gap-x-10 will-change-transform motion-reduce:animate-none"
+          className="flex w-max animate-marquee items-center gap-x-4 will-change-transform motion-reduce:animate-none"
         >
           {loop.map((provider, index) => (
             <li key={`${provider.name}-${index}`} className="shrink-0">
@@ -144,20 +144,20 @@ export default function HostedByBadge() {
                 href={provider.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: provider.color }}
-                className="inline-flex items-center transition-opacity hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950 rounded"
                 aria-label={provider.name}
                 title={provider.name}
+                className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-navy-800 bg-navy-900/40 px-3.5 py-2 text-slate-300 transition-colors hover:border-navy-600 hover:bg-navy-800/60 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
               >
                 <svg
                   role="img"
                   viewBox="0 0 24 24"
-                  className="h-6 w-6 fill-current"
+                  style={{ color: provider.color }}
+                  className="h-6 w-6 shrink-0 fill-current"
                   aria-hidden="true"
                 >
-                  <title>{provider.name}</title>
                   <path d={provider.path} />
                 </svg>
+                <span className="text-sm font-semibold">{provider.name}</span>
               </a>
             </li>
           ))}
