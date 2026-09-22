@@ -115,68 +115,61 @@ export default function HostedByBadge() {
   const loop = [...providers, ...providers];
 
   return (
-    <div className="mt-12">
-      {/* Header with decorative rules */}
-      <div className="mb-5 flex items-center justify-center gap-4">
-        <span
-          className="h-px w-16 bg-gradient-to-r from-transparent to-navy-700 sm:w-28"
-          aria-hidden="true"
-        />
-        <div className="flex flex-col items-center gap-0.5">
-          <span className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-600">
-            <Server className="h-3.5 w-3.5 text-vermilion-600" aria-hidden="true" />
+    <div className="mt-10">
+      <div className="rounded-2xl border border-navy-800 bg-navy-900/40 p-4 backdrop-blur-sm sm:p-5">
+        {/* Header */}
+        <div className="mb-3.5 flex items-center justify-center gap-2.5">
+          <Server className="h-4 w-4 shrink-0 text-vermilion-500" aria-hidden="true" />
+          <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-400">
             Hosted by
           </span>
-          <span className="text-sm font-semibold text-slate-300">
+          <span className="text-slate-700" aria-hidden="true">
+            &bull;
+          </span>
+          <span className="text-[11px] font-semibold text-slate-500">
             {providers.length} Trusted Partners
           </span>
         </div>
-        <span
-          className="h-px w-16 bg-gradient-to-l from-transparent to-navy-700 sm:w-28"
-          aria-hidden="true"
-        />
-      </div>
 
-      {/* Marquee */}
-      <div
-        className="relative w-full overflow-hidden"
-        style={{
-          maskImage:
-            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-        }}
-      >
-        <ul
-          ref={marqueeRef}
-          className="flex w-max animate-marquee items-center gap-x-8 will-change-transform py-2 motion-reduce:animate-none"
+        {/* Marquee */}
+        <div
+          className="relative w-full overflow-hidden"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+          }}
         >
-          {loop.map((provider, index) => (
-            <li key={`${provider.name}-${index}`} className="shrink-0">
-              <a
-                href={provider.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={provider.name}
-                title={provider.name}
-                className="group inline-flex items-center gap-2.5 text-slate-500 transition-all duration-300 hover:text-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950 rounded-md"
-              >
-                <svg
-                  role="img"
-                  viewBox="0 0 24 24"
-                  style={{ color: provider.color }}
-                  className="h-8 w-8 shrink-0 fill-current transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_currentColor]"
-                  aria-hidden="true"
+          <ul
+            ref={marqueeRef}
+            className="flex w-max animate-marquee items-center gap-x-3 will-change-transform py-1 motion-reduce:animate-none"
+          >
+            {loop.map((provider, index) => (
+              <li key={`${provider.name}-${index}`} className="shrink-0">
+                <a
+                  href={provider.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={provider.name}
+                  title={provider.name}
+                  className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-navy-700/70 bg-navy-800/50 px-3.5 py-1.5 text-slate-300 transition-colors duration-200 hover:border-navy-600 hover:bg-navy-700/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
                 >
-                  <path d={provider.path} />
-                </svg>
-                <span className="text-[15px] font-bold tracking-tight">
-                  {provider.name}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
+                  <svg
+                    role="img"
+                    viewBox="0 0 24 24"
+                    style={{ color: provider.color }}
+                    className="h-5 w-5 shrink-0 fill-current transition-transform duration-200 group-hover:scale-105"
+                    aria-hidden="true"
+                  >
+                    <path d={provider.path} />
+                  </svg>
+                  <span className="text-[13px] font-semibold">{provider.name}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
