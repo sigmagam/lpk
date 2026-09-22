@@ -117,58 +117,75 @@ export default function HostedByBadge() {
   const loop = [...providers, ...providers];
 
   return (
-    <div className="mt-10 flex flex-col items-center gap-5">
-      <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-gradient-to-r from-navy-800/40 via-navy-700/50 to-navy-800/40 px-5 py-2 shadow-sm backdrop-blur-md">
-        <span className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-200 via-white to-slate-400 bg-clip-text text-[11px] font-bold uppercase tracking-[0.2em] text-transparent">
-          <Server className="h-4 w-4 shrink-0 text-vermilion-500" aria-hidden="true" />
-          Hosted by
-        </span>
+    <div className="mt-10">
+      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.015] p-5 shadow-2xl shadow-black/40 backdrop-blur-md sm:p-6">
+        {/* Top highlight line */}
         <span
-          className="h-5 w-px bg-gradient-to-b from-transparent via-white/40 to-transparent"
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
           aria-hidden="true"
         />
-        <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
-          {providers.length} Trusted Partners
-        </span>
-      </div>
+        {/* Corner glow */}
+        <span
+          className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-vermilion-600/10 blur-3xl"
+          aria-hidden="true"
+        />
 
-      <div
-        className="relative w-full max-w-2xl overflow-hidden"
-        style={{
-          maskImage:
-            "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-        }}
-      >
-        <ul
-          ref={marqueeRef}
-          className="flex w-max animate-marquee items-center gap-x-4 will-change-transform motion-reduce:animate-none"
-        >
-          {loop.map((provider, index) => (
-            <li key={`${provider.name}-${index}`} className="shrink-0">
-              <a
-                href={provider.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={provider.name}
-                title={provider.name}
-                className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-2 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.07] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
-              >
-                <svg
-                  role="img"
-                  viewBox="0 0 24 24"
-                  style={{ color: provider.color }}
-                  className="h-6 w-6 shrink-0 fill-current"
-                  aria-hidden="true"
-                >
-                  <path d={provider.path} />
-                </svg>
-                <span className="text-sm font-semibold">{provider.name}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="relative flex flex-col gap-4">
+          {/* Header */}
+          <div className="flex items-center justify-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em]">
+            <Server className="h-4 w-4 shrink-0 text-vermilion-500" aria-hidden="true" />
+            <span className="bg-gradient-to-r from-slate-200 via-white to-slate-400 bg-clip-text text-transparent">
+              Hosted by
+            </span>
+            <span
+              className="h-3.5 w-px bg-gradient-to-b from-transparent via-white/30 to-transparent"
+              aria-hidden="true"
+            />
+            <span className="font-semibold normal-case tracking-wider text-slate-500">
+              {providers.length} Trusted Partners
+            </span>
+          </div>
+
+          {/* Marquee */}
+          <div
+            className="relative w-full overflow-hidden"
+            style={{
+              maskImage:
+                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            }}
+          >
+            <ul
+              ref={marqueeRef}
+              className="flex w-max animate-marquee items-center gap-x-3 will-change-transform motion-reduce:animate-none"
+            >
+              {loop.map((provider, index) => (
+                <li key={`${provider.name}-${index}`} className="shrink-0">
+                  <a
+                    href={provider.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={provider.name}
+                    title={provider.name}
+                    className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.08] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
+                  >
+                    <svg
+                      role="img"
+                      viewBox="0 0 24 24"
+                      style={{ color: provider.color }}
+                      className="h-6 w-6 shrink-0 fill-current transition-transform duration-300 group-hover:scale-110"
+                      aria-hidden="true"
+                    >
+                      <path d={provider.path} />
+                    </svg>
+                    <span className="text-sm font-semibold">{provider.name}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
