@@ -116,58 +116,54 @@ export default function HostedByBadge() {
 
   return (
     <div className="mt-10 border-t border-navy-900 pt-8">
-      <div className="flex flex-col items-center gap-5">
-        {/* Header */}
-        <div className="flex flex-col items-center gap-1">
-          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-600">
-            Hosted by
-          </span>
-          <span className="text-sm font-semibold text-slate-300">
-            {providers.length} Trusted Partners
-          </span>
-        </div>
+      {/* Label — MongoDB style: small caps eyebrow */}
+      <p className="mb-5 text-center text-[10px] font-bold uppercase tracking-[0.25em] text-slate-600">
+        Hosted by
+      </p>
 
-        {/* Marquee */}
-        <div
-          className="relative w-full overflow-hidden"
-          style={{
-            maskImage:
-              "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-          }}
+      {/* Marquee of logo+name pairs, centered like MongoDB's logo wall */}
+      <div
+        className="relative w-full overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        }}
+      >
+        <ul
+          ref={marqueeRef}
+          className="flex w-max animate-marquee items-center justify-center gap-x-6 will-change-transform py-2 motion-reduce:animate-none"
         >
-          <ul
-            ref={marqueeRef}
-            className="flex w-max animate-marquee items-center gap-x-10 will-change-transform py-2 motion-reduce:animate-none"
-          >
-            {loop.map((provider, index) => (
-              <li key={`${provider.name}-${index}`} className="shrink-0">
-                <a
-                  href={provider.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={provider.name}
-                  title={provider.name}
-                  className="group inline-flex items-center gap-2.5 text-slate-600 transition-colors duration-200 hover:text-slate-300 focus:outline-none focus-visible:text-slate-200 focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950 rounded-md"
+          {loop.map((provider, index) => (
+            <li
+              key={`${provider.name}-${index}`}
+              className="flex shrink-0 content-center items-center justify-center"
+            >
+              <a
+                href={provider.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={provider.name}
+                title={provider.name}
+                className="group inline-flex items-center gap-2 text-slate-600 transition-colors duration-200 hover:text-slate-300 focus:outline-none focus-visible:text-slate-200 focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950 rounded-md"
+              >
+                <svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  style={{ color: provider.color }}
+                  className="h-6 w-6 shrink-0 fill-current opacity-55 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                  aria-hidden="true"
                 >
-                  <svg
-                    role="img"
-                    viewBox="0 0 24 24"
-                    style={{ color: provider.color }}
-                    className="h-6 w-6 shrink-0 fill-current opacity-50 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
-                    aria-hidden="true"
-                  >
-                    <path d={provider.path} />
-                  </svg>
-                  <span className="text-[13px] font-bold tracking-tight text-slate-500 transition-colors duration-200 group-hover:text-slate-200">
-                    {provider.name}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+                  <path d={provider.path} />
+                </svg>
+                <span className="text-[13px] font-bold tracking-tight text-slate-500 transition-colors duration-200 group-hover:text-slate-200">
+                  {provider.name}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
