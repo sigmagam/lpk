@@ -101,11 +101,10 @@ export default function HostedByBadge() {
     if (!ul) return;
 
     const handlePageShow = (event: PageTransitionEvent) => {
-      // Page was restored from the back/forward cache: the marquee may come
-      // back frozen, so restart the animation to guarantee it scrolls again.
+      // Page restored from bfcache: restart the marquee so it never freezes.
       if (!event.persisted) return;
       ul.classList.remove("animate-marquee");
-      void ul.offsetWidth; // force reflow so the restart actually applies
+      void ul.offsetWidth;
       ul.classList.add("animate-marquee");
     };
 
@@ -113,79 +112,71 @@ export default function HostedByBadge() {
     return () => window.removeEventListener("pageshow", handlePageShow);
   }, []);
 
-  // Duplicated so the marquee can loop seamlessly while scrolling right.
   const loop = [...providers, ...providers];
 
   return (
-    <div className="mt-10">
-      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.015] p-5 shadow-2xl shadow-black/40 backdrop-blur-md sm:p-6">
-        {/* Top highlight line */}
+    <div className="mt-12">
+      {/* Header with decorative rules */}
+      <div className="mb-5 flex items-center justify-center gap-4">
         <span
-          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
+          className="h-px w-16 bg-gradient-to-r from-transparent to-navy-700 sm:w-28"
           aria-hidden="true"
         />
-        {/* Corner glow */}
-        <span
-          className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-vermilion-600/10 blur-3xl"
-          aria-hidden="true"
-        />
-
-        <div className="relative flex flex-col gap-4">
-          {/* Header */}
-          <div className="flex items-center justify-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em]">
-            <Server className="h-4 w-4 shrink-0 text-vermilion-500" aria-hidden="true" />
-            <span className="bg-gradient-to-r from-slate-200 via-white to-slate-400 bg-clip-text text-transparent">
-              Hosted by
-            </span>
-            <span
-              className="h-3.5 w-px bg-gradient-to-b from-transparent via-white/30 to-transparent"
-              aria-hidden="true"
-            />
-            <span className="font-semibold normal-case tracking-wider text-slate-500">
-              {providers.length} Trusted Partners
-            </span>
-          </div>
-
-          {/* Marquee */}
-          <div
-            className="relative w-full overflow-hidden"
-            style={{
-              maskImage:
-                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-              WebkitMaskImage:
-                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-            }}
-          >
-            <ul
-              ref={marqueeRef}
-              className="flex w-max animate-marquee items-center gap-x-3 will-change-transform motion-reduce:animate-none"
-            >
-              {loop.map((provider, index) => (
-                <li key={`${provider.name}-${index}`} className="shrink-0">
-                  <a
-                    href={provider.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={provider.name}
-                    title={provider.name}
-                    className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.08] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
-                  >
-                    <svg
-                      role="img"
-                      viewBox="0 0 24 24"
-                      style={{ color: provider.color }}
-                      className="h-6 w-6 shrink-0 fill-current transition-transform duration-300 group-hover:scale-110"
-                      aria-hidden="true"
-                    >
-                      <path d={provider.path} />
-                    </svg>
-                    <span className="text-sm font-semibold">{provider.name}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="flex flex-col items-center gap-0.5">
+          <span className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-600">
+            <Server className="h-3.5 w-3.5 text-vermilion-600" aria-hidden="true" />
+            Hosted by
+          </span>
+          <span className="text-sm font-semibold text-slate-300">
+            {providers.length} Trusted Partners
+          </span>
         </div>
+        <span
+          className="h-px w-16 bg-gradient-to-l from-transparent to-navy-700 sm:w-28"
+          aria-hidden="true"
+        />
+      </div>
+
+      {/* Marquee */}
+      <div
+        className="relative w-full overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        }}
+      >
+        <ul
+          ref={marqueeRef}
+          className="flex w-max animate-marquee items-center gap-x-8 will-change-transform py-2 motion-reduce:animate-none"
+        >
+          {loop.map((provider, index) => (
+            <li key={`${provider.name}-${index}`} className="shrink-0">
+              <a
+                href={provider.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={provider.name}
+                title={provider.name}
+                className="group inline-flex items-center gap-2.5 text-slate-500 transition-all duration-300 hover:text-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950 rounded-md"
+              >
+                <svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  style={{ color: provider.color }}
+                  className="h-8 w-8 shrink-0 fill-current transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_currentColor]"
+                  aria-hidden="true"
+                >
+                  <path d={provider.path} />
+                </svg>
+                <span className="text-[15px] font-bold tracking-tight">
+                  {provider.name}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
