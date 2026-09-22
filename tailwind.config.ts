@@ -74,8 +74,8 @@ const config: Config = {
       },
       animation: {
         'fade-up': 'fadeUp 0.3s ease-out forwards',
-        // Slow rightward scroll so the logo+name pills stay readable and calm.
-        marquee: 'marquee 100s linear infinite',
+        // Rightward scroll: slow enough to read, not crawling.
+        marquee: 'marquee 40s linear infinite',
       },
     },
   },

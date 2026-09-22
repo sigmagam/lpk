@@ -117,11 +117,18 @@ export default function HostedByBadge() {
   const loop = [...providers, ...providers];
 
   return (
-    <div className="mt-10 flex flex-col items-center gap-4">
-      <div className="inline-flex items-center gap-2.5 rounded-full border border-navy-800 bg-navy-900/60 px-5 py-2.5 backdrop-blur-sm">
-        <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-slate-500">
-          <Server className="h-4 w-4" aria-hidden="true" />
+    <div className="mt-10 flex flex-col items-center gap-5">
+      <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-gradient-to-r from-navy-800/40 via-navy-700/50 to-navy-800/40 px-5 py-2 shadow-sm backdrop-blur-md">
+        <span className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-200 via-white to-slate-400 bg-clip-text text-[11px] font-bold uppercase tracking-[0.2em] text-transparent">
+          <Server className="h-4 w-4 shrink-0 text-vermilion-500" aria-hidden="true" />
           Hosted by
+        </span>
+        <span
+          className="h-5 w-px bg-gradient-to-b from-transparent via-white/40 to-transparent"
+          aria-hidden="true"
+        />
+        <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+          {providers.length} Trusted Partners
         </span>
       </div>
 
@@ -146,7 +153,7 @@ export default function HostedByBadge() {
                 rel="noopener noreferrer"
                 aria-label={provider.name}
                 title={provider.name}
-                className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-navy-800 bg-navy-900/40 px-3.5 py-2 text-slate-300 transition-colors hover:border-navy-600 hover:bg-navy-800/60 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
+                className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-2 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.07] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
               >
                 <svg
                   role="img"
