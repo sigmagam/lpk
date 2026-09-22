@@ -1,7 +1,43 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Server } from "lucide-react";
+
+type Partner = {
+  name: string;
+  url: string;
+  // Brand color (dark marks are lightened so they stay visible on the navy footer).
+  color: string;
+  path: string;
+};
+
+// Security / protection partners.
+const protectors: Partner[] = [
+  {
+    name: "Let's Encrypt",
+    url: "https://letsencrypt.org",
+    color: "#F3A534",
+    path: "M11.9914 0a.8829.8829 0 00-.8718.817v3.0209A.8829.8829 0 0012 4.7207a.8829.8829 0 00.8803-.8803V.817a.8829.8829 0 00-.889-.817zm7.7048 3.1089a.8804.8804 0 00-.5214.1742l-2.374 1.9482a.8804.8804 0 00.5592 1.5622.8794.8794 0 00.5592-.2001l2.3714-1.9506a.8804.8804 0 00-.5944-1.534zm-15.3763.0133a.8829.8829 0 00-.611 1.5206l2.37 1.9506a.876.876 0 00.5606.2001v-.002a.8804.8804 0 00.5597-1.5602L4.8277 3.2831a.8829.8829 0 00-.5078-.161zm7.6598 3.2275a5.0456 5.0456 0 00-5.0262 5.0455v1.4876H5.787a.9672.9672 0 00-.9647.9643v9.1887a.9672.9672 0 00.9647.9643H18.213a.9672.9672 0 00.9643-.9643v-9.1907a.9672.9672 0 00-.9643-.9623h-1.1684v-1.4876a5.0456 5.0456 0 00-5.0649-5.0455zm.0127 2.8933a2.1522 2.1522 0 012.1593 2.1522v1.4876H9.8473v-1.4876a2.1522 2.1522 0 012.145-2.1522zm7.3812.5033a.8829.8829 0 10.0705 1.7632h3.0267a.8829.8829 0 000-1.7609H19.444a.8829.8829 0 00-.0705-.0023zm-17.8444.0023a.8829.8829 0 000 1.7609h2.9983a.8829.8829 0 000-1.7609zm10.4596 6.7746a1.2792 1.2792 0 01.641 2.3926v1.2453a.6298.6298 0 01-1.2595 0v-1.2453a1.2792 1.2792 0 01.6185-2.3926z",
+  },
+  {
+    name: "Cloudflare",
+    url: "https://www.cloudflare.com",
+    color: "#F38020",
+    path: "M16.5088 16.8447c.1475-.5068.0908-.9707-.1553-1.3154-.2246-.3164-.6045-.499-1.0615-.5205l-8.6592-.1123a.1559.1559 0 0 1-.1333-.0713c-.0283-.042-.0351-.0986-.021-.1553.0278-.084.1123-.1484.2036-.1562l8.7359-.1123c1.0351-.0489 2.1601-.8868 2.5537-1.9136l.499-1.3013c.0215-.0561.0293-.1128.0147-.168-.5625-2.5463-2.835-4.4453-5.5499-4.4453-2.5039 0-4.6284 1.6177-5.3876 3.8614-.4927-.3658-1.1187-.5625-1.794-.499-1.2026.119-2.1665 1.083-2.2861 2.2856-.0283.31-.0069.6128.0635.894C1.5683 13.171 0 14.7754 0 16.752c0 .1748.0142.3515.0352.5273.0141.083.0844.1475.1689.1475h15.9814c.0909 0 .1758-.0645.2032-.1553l.12-.4268zm2.7568-5.5634c-.0771 0-.1611 0-.2383.0112-.0566 0-.1054.0415-.127.0976l-.3378 1.1744c-.1475.5068-.0918.9707.1543 1.3164.2256.3164.6055.498 1.0625.5195l1.8437.1133c.0557 0 .1055.0263.1329.0703.0283.043.0351.1074.0214.1562-.0283.084-.1132.1485-.204.1553l-1.921.1123c-1.041.0488-2.1582.8867-2.5527 1.914l-.1406.3585c-.0283.0713.0215.1416.0986.1416h6.5977c.0771 0 .1474-.0489.169-.126.1122-.4082.1757-.837.1757-1.2803 0-2.6025-2.125-4.727-4.7344-4.727",
+  },
+  {
+    name: "Fastly",
+    url: "https://www.fastly.com",
+    color: "#FF282D",
+    path: "M13.919 3.036V1.3h.632V0H9.377v1.3h.631v1.749a10.572 10.572 0 00-8.575 10.384C1.433 19.275 6.17 24 12 24c5.842 0 10.567-4.737 10.567-10.567 0-5.186-3.729-9.486-8.648-10.397zm-1.628 15.826v-.607h-.619v.607c-2.757-.158-4.955-2.38-5.101-5.137h.607v-.62h-.607a5.436 5.436 0 015.101-5.089v.607h.62v-.607a5.435 5.435 0 015.137 5.114h-.607v.619h.607a5.444 5.444 0 01-5.138 5.113zm2.26-7.712l-.39-.389-1.979 1.725a.912.912 0 00-.316-.06c-.534 0-.971.448-.971.995 0 .547.437.996.971.996.535 0 .972-.45.972-.996a.839.839 0 00-.049-.304Z",
+  },
+  {
+    name: "Akamai",
+    url: "https://www.akamai.com",
+    color: "#1FA9DE",
+    path: "M13.0548 0C6.384 0 .961 5.3802.961 12.0078.961 18.6354 6.3698 24 13.0548 24c.6168 0 .6454-.3572.0859-.5293-4.9349-1.5063-8.5352-6.069-8.5352-11.4629 0-5.4656 3.6725-10.0706 8.6934-11.5195C13.8153.3448 13.6716 0 13.0548 0Zm2.3242 1.8223c-5.2648 0-9.5254 4.2606-9.5254 9.5254 0 1.2193.2285 2.3818.6445 3.4433.1722.459.4454.4584.4024.0137-.0287-.3156-.0567-.6447-.0567-.9746 0-5.2648 4.2606-9.5254 9.5254-9.5254 4.9779 0 6.4698 2.2235 6.6563 2.08.2008-.1577-1.808-4.5624-7.6465-4.5624zm.4687 4.0703c-1.8622.0592-3.651.7168-5.1035 1.8554-.2582.2009-.1567.3284.1445.1993 2.4675-1.076 5.5812-1.1046 8.6368-.043 2.0514.7173 3.2413 1.7364 3.3418 1.6934.1578-.0718-1.1915-2.2226-3.6446-3.1407-1.1135-.4196-2.2576-.6-3.375-.5644z",
+  },
+];
+
 
 type HostingProvider = {
   name: string;
@@ -93,35 +129,42 @@ const providers: HostingProvider[] = [
   },
 ];
 
+
 export default function HostedByBadge() {
-  const marqueeRef = useRef<HTMLUListElement>(null);
+  const protectRef = useRef<HTMLUListElement>(null);
+  const hostRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    const ul = marqueeRef.current;
-    if (!ul) return;
+    const restart = (ul: HTMLUListElement | null, cls: string) => {
+      if (!ul) return;
+      ul.classList.remove(cls);
+      void ul.offsetWidth;
+      ul.classList.add(cls);
+    };
 
     const handlePageShow = (event: PageTransitionEvent) => {
-      // Page restored from bfcache: restart the marquee so it never freezes.
+      // Page restored from bfcache: restart both marquees so they never freeze.
       if (!event.persisted) return;
-      ul.classList.remove("animate-marquee");
-      void ul.offsetWidth;
-      ul.classList.add("animate-marquee");
+      restart(protectRef.current, "animate-marquee");
+      restart(hostRef.current, "animate-marquee");
     };
 
     window.addEventListener("pageshow", handlePageShow);
     return () => window.removeEventListener("pageshow", handlePageShow);
   }, []);
 
-  const loop = [...providers, ...providers];
+  const protectLoop = [...protectors, ...protectors, ...protectors];
+  const hostLoop = [...providers, ...providers];
 
-  return (
-    <div className="mt-10 border-t border-navy-900 pt-8">
-      {/* Label — MongoDB style: small caps eyebrow */}
-      <p className="mb-5 text-center text-[10px] font-bold uppercase tracking-[0.25em] text-slate-600">
-        Hosted by
-      </p>
-
-      {/* Marquee of logo+name pairs, centered like MongoDB's logo wall */}
+  const renderRow = (
+    label: string,
+    loop: Partner[],
+    listRef: React.RefObject<HTMLUListElement>,
+  ) => (
+    <div className="flex flex-col items-center gap-4">
+      <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-600">
+        {label}
+      </span>
       <div
         className="relative w-full overflow-hidden"
         style={{
@@ -132,39 +175,46 @@ export default function HostedByBadge() {
         }}
       >
         <ul
-          ref={marqueeRef}
-          className="flex w-max animate-marquee items-center justify-center gap-x-6 will-change-transform py-2 motion-reduce:animate-none"
+          ref={listRef}
+          className="flex w-max animate-marquee items-center justify-center gap-x-8 will-change-transform py-2 motion-reduce:animate-none"
         >
-          {loop.map((provider, index) => (
+          {loop.map((partner, index) => (
             <li
-              key={`${provider.name}-${index}`}
+              key={`${partner.name}-${index}`}
               className="flex shrink-0 content-center items-center justify-center"
             >
               <a
-                href={provider.url}
+                href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={provider.name}
-                title={provider.name}
+                aria-label={partner.name}
+                title={partner.name}
                 className="group inline-flex items-center gap-2 text-slate-600 transition-colors duration-200 hover:text-slate-300 focus:outline-none focus-visible:text-slate-200 focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950 rounded-md"
               >
                 <svg
                   role="img"
                   viewBox="0 0 24 24"
-                  style={{ color: provider.color }}
+                  style={{ color: partner.color }}
                   className="h-6 w-6 shrink-0 fill-current opacity-55 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
                   aria-hidden="true"
                 >
-                  <path d={provider.path} />
+                  <path d={partner.path} />
                 </svg>
                 <span className="text-[13px] font-bold tracking-tight text-slate-500 transition-colors duration-200 group-hover:text-slate-200">
-                  {provider.name}
+                  {partner.name}
                 </span>
               </a>
             </li>
           ))}
         </ul>
       </div>
+    </div>
+  );
+
+  return (
+    <div className="mt-10 flex flex-col gap-8 border-t border-navy-900 pt-8">
+      {renderRow("Protected by", protectLoop, protectRef)}
+      {renderRow("Hosted by", hostLoop, hostRef)}
     </div>
   );
 }
