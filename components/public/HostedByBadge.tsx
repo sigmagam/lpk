@@ -115,18 +115,14 @@ export default function HostedByBadge() {
   const loop = [...providers, ...providers];
 
   return (
-    <div className="mt-10">
-      <div className="rounded-2xl border border-navy-800 bg-navy-900/40 p-4 backdrop-blur-sm sm:p-5">
+    <div className="mt-10 border-t border-navy-900 pt-8">
+      <div className="flex flex-col items-center gap-5">
         {/* Header */}
-        <div className="mb-3.5 flex items-center justify-center gap-2.5">
-          <Server className="h-4 w-4 shrink-0 text-vermilion-500" aria-hidden="true" />
-          <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-400">
+        <div className="flex flex-col items-center gap-1">
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-600">
             Hosted by
           </span>
-          <span className="text-slate-700" aria-hidden="true">
-            &bull;
-          </span>
-          <span className="text-[11px] font-semibold text-slate-500">
+          <span className="text-sm font-semibold text-slate-300">
             {providers.length} Trusted Partners
           </span>
         </div>
@@ -136,14 +132,14 @@ export default function HostedByBadge() {
           className="relative w-full overflow-hidden"
           style={{
             maskImage:
-              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+              "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
             WebkitMaskImage:
-              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+              "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
           }}
         >
           <ul
             ref={marqueeRef}
-            className="flex w-max animate-marquee items-center gap-x-3 will-change-transform py-1 motion-reduce:animate-none"
+            className="flex w-max animate-marquee items-center gap-x-10 will-change-transform py-2 motion-reduce:animate-none"
           >
             {loop.map((provider, index) => (
               <li key={`${provider.name}-${index}`} className="shrink-0">
@@ -153,18 +149,20 @@ export default function HostedByBadge() {
                   rel="noopener noreferrer"
                   aria-label={provider.name}
                   title={provider.name}
-                  className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-navy-700/70 bg-navy-800/50 px-3.5 py-1.5 text-slate-300 transition-colors duration-200 hover:border-navy-600 hover:bg-navy-700/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
+                  className="group inline-flex items-center gap-2.5 text-slate-600 transition-colors duration-200 hover:text-slate-300 focus:outline-none focus-visible:text-slate-200 focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950 rounded-md"
                 >
                   <svg
                     role="img"
                     viewBox="0 0 24 24"
                     style={{ color: provider.color }}
-                    className="h-5 w-5 shrink-0 fill-current transition-transform duration-200 group-hover:scale-105"
+                    className="h-6 w-6 shrink-0 fill-current opacity-50 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
                     aria-hidden="true"
                   >
                     <path d={provider.path} />
                   </svg>
-                  <span className="text-[13px] font-semibold">{provider.name}</span>
+                  <span className="text-[13px] font-bold tracking-tight text-slate-500 transition-colors duration-200 group-hover:text-slate-200">
+                    {provider.name}
+                  </span>
                 </a>
               </li>
             ))}
