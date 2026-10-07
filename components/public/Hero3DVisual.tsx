@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useRef, MouseEvent, useCallback } from "react";
-import Image from "next/image";
-import { ShieldCheck, Award, Globe, Sparkles, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Award, Globe, CheckCircle2 } from "lucide-react";
+import AnimatedSealLogo from "@/components/public/AnimatedSealLogo";
 
 export default function Hero3DVisual() {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -115,20 +115,13 @@ export default function Hero3DVisual() {
         >
           {/* Logo Plinth with Thick 3D Border & Extrusion */}
           <div
-            className="relative w-36 h-36 sm:w-44 sm:h-44 mb-5 rounded-3xl bg-white p-4 border-[3px] border-[#0B1B32] flex items-center justify-center group shadow-xl"
+            className="relative w-36 h-36 sm:w-44 sm:h-44 mb-5 rounded-full bg-white p-3 border-[3px] border-[#0B1B32] flex items-center justify-center group shadow-xl"
             style={{
               transform: "translateZ(45px)",
               boxShadow: "6px 6px 0px #0B1B32, 0 25px 40px -6px rgba(11, 27, 50, 0.25), inset 0 2px 2px #fff",
             }}
           >
-            <Image
-              src="/images/logo.png"
-              alt="Logo Resmi LPK Panca Multiguna Sukses"
-              width={150}
-              height={150}
-              priority
-              className="w-full h-full object-contain filter drop-shadow-md transition-transform duration-300 group-hover:scale-110"
-            />
+            <AnimatedSealLogo size={150} className="group-hover:scale-105 transition-transform duration-300" />
           </div>
 
           <h2

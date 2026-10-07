@@ -453,3 +453,167 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .anim-nav-in { animation: none !important; }
 }
+
+/* ============================================
+   3D HERO VISUAL — depth, float, glow
+   ============================================ */
+
+/* Gentle full-body float for the main 3D plinth */
+@keyframes float3dFull {
+  0%   { transform: translateY(0px) rotateX(7deg) rotateY(-9deg); }
+  50%  { transform: translateY(-14px) rotateX(5deg) rotateY(-6deg); }
+  100% { transform: translateY(0px) rotateX(7deg) rotateY(-9deg); }
+}
+.animate-float-3d-full {
+  animation: float3dFull 7s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+/* Floating badge tokens (offset phase) */
+@keyframes floatBadge1 {
+  0%, 100% { transform: translateZ(85px) translateY(0px); }
+  50%      { transform: translateZ(85px) translateY(-10px); }
+}
+.animate-float-badge-1 {
+  animation: floatBadge1 5s ease-in-out infinite;
+}
+@keyframes floatBadge2 {
+  0%, 100% { transform: translateZ(95px) translateY(0px); }
+  50%      { transform: translateZ(95px) translateY(-13px); }
+}
+.animate-float-badge-2 {
+  animation: floatBadge2 6s ease-in-out 0.8s infinite;
+}
+
+/* Breathing glow ring behind the plinth */
+@keyframes pulseGlowRing {
+  0%, 100% { transform: scale(1);   opacity: 0.35; }
+  50%      { transform: scale(1.12); opacity: 0.6; }
+}
+.animate-pulse-glow-ring {
+  animation: pulseGlowRing 5s ease-in-out infinite;
+}
+
+/* ============================================
+   ANIMATED SEAL LOGO (rotating stamp)
+   ============================================ */
+
+/* Slow continuous spin for the circular seal */
+@keyframes sealSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-seal-spin {
+  animation: sealSpin 22s linear infinite;
+  transform-origin: center;
+}
+
+/* Counter-spin keeps inner emblem upright while ring rotates */
+@keyframes sealSpinReverse {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+.animate-seal-spin-reverse {
+  animation: sealSpinReverse 22s linear infinite;
+  transform-origin: center;
+}
+
+/* 3D coin-flip style wobble for the seal */
+@keyframes sealWobble {
+  0%, 100% { transform: rotateY(0deg)   rotateZ(0deg); }
+  25%      { transform: rotateY(12deg)  rotateZ(-2deg); }
+  75%      { transform: rotateY(-12deg) rotateZ(2deg); }
+}
+.animate-seal-wobble {
+  animation: sealWobble 9s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+/* Conic "shimmer sweep" travelling around the seal */
+@keyframes sealSheen {
+  0%   { transform: rotate(0deg);   opacity: 0; }
+  20%  { opacity: 0.9; }
+  60%  { opacity: 0.4; }
+  100% { transform: rotate(360deg); opacity: 0; }
+}
+.animate-seal-sheen {
+  animation: sealSheen 6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Orbiting satellite chips around the seal */
+@keyframes orbitChip {
+  from { transform: rotate(0deg)   translateX(var(--orbit-r, 150px)) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(var(--orbit-r, 150px)) rotate(-360deg); }
+}
+.animate-orbit {
+  animation: orbitChip var(--orbit-dur, 18s) linear infinite;
+  transform-origin: center;
+}
+
+/* 3D tilt-follow wrapper reset */
+.persp-1200 { perspective: 1200px; }
+.persp-1600 { perspective: 1600px; }
+.preserve-3d { transform-style: preserve-3d; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-3d-full,
+  .animate-float-badge-1,
+  .animate-float-badge-2,
+  .animate-pulse-glow-ring,
+  .animate-seal-spin,
+  .animate-seal-spin-reverse,
+  .animate-seal-wobble,
+  .animate-seal-sheen,
+  .animate-orbit { animation: none !important; transform: none !important; }
+}
+
+/* ============================================
+   LANDING PAGE 3D CARD LIFT
+   ============================================ */
+
+/* Card raises in 3D with perspective on hover */
+.tilt-3d {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s ease;
+  transform-style: preserve-3d;
+}
+.tilt-3d:hover {
+  transform: perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-8px) scale(1.02);
+  box-shadow: 0 26px 46px -14px rgba(11, 23, 39, 0.28),
+              0 10px 20px -12px rgba(11, 23, 39, 0.18);
+}
+.tilt-3d:hover .tilt-3d-pop {
+  transform: translateZ(40px) scale(1.06);
+}
+.tilt-3d-pop {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateZ(0px);
+}
+
+/* Parallax depth layers */
+.depth-layer { transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* Gradient sheen sweep across buttons/cards */
+@keyframes sheenSweep {
+  0%   { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(220%)  skewX(-20deg); }
+}
+.sheen-on-hover { position: relative; overflow: hidden; }
+.sheen-on-hover::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 45%; height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
+}
+.sheen-on-hover:hover::after {
+  animation: sheenSweep 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-3d:hover { transform: none; }
+  .sheen-on-hover::after { display: none; }
+}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
-import HeroCenterpiece from "@/components/public/HeroCenterpiece";
+import Hero3DVisual from "@/components/public/Hero3DVisual";
 import StructureSlider from "@/components/public/StructureSlider";
 import StepTimeline from "@/components/public/StepTimeline";
 import TokuteiGinouSection from "@/components/public/TokuteiGinouSection";
@@ -9,6 +9,7 @@ import CTA from "@/components/public/CTA";
 import OfficialTrustRibbon from "@/components/public/OfficialTrustRibbon";
 import ConsultationForm from "@/components/public/ConsultationForm";
 import StatCounter from "@/components/public/StatCounter";
+import AnimatedSealLogo from "@/components/public/AnimatedSealLogo";
 import {
   ShieldCheck,
   Award,
@@ -20,6 +21,7 @@ import {
   MessageCircle,
   BellRing,
   HeartHandshake,
+  Sparkles,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -27,13 +29,18 @@ export default function HomePage() {
     <div className="bg-[#F8FAFC]">
 
       {/* 1. HERO SECTION */}
-      <section className="bg-white pt-10 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 border-b border-slate-200">
-        <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white pt-10 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 border-b border-slate-200">
+        {/* Decorative 3D depth blobs */}
+        <div className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-vermilion-200/30 blur-3xl animate-pulse-glow-ring" />
+        <div className="pointer-events-none absolute top-1/3 -left-32 w-[28rem] h-[28rem] rounded-full bg-blue-200/25 blur-3xl animate-pulse-glow-ring" style={{ animationDelay: "1.4s" }} />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(200,16,46,0.05),transparent_55%)]" />
+
+        <div className="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
             {/* Left Column */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="anim-fade-up inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-navy-950 uppercase tracking-wider">
+              <div className="anim-fade-up inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur border border-slate-200 text-xs font-bold text-navy-950 uppercase tracking-wider shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-vermilion-600 animate-pulse" />
                 <span>LPK Resmi Kemnaker RI • Karawang &amp; Lampung</span>
                 <span className="text-slate-300">|</span>
@@ -54,14 +61,14 @@ export default function HomePage() {
                   href={siteConfig.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="anim-pulse-ring inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-vermilion-600 hover:bg-vermilion-700 text-white text-sm font-bold shadow-sm transition-all hover:-translate-y-0.5"
+                  className="anim-pulse-ring sheen-on-hover inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-vermilion-600 hover:bg-vermilion-700 text-white text-sm font-bold shadow-sm transition-all hover:-translate-y-0.5"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
                   <span>Daftar / Konsultasi WhatsApp</span>
                 </a>
                 <Link
                   href="/program"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-navy-950 hover:bg-navy-900 text-white text-sm font-bold transition-all hover:-translate-y-0.5"
+                  className="sheen-on-hover inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-navy-950 hover:bg-navy-900 text-white text-sm font-bold transition-all hover:-translate-y-0.5"
                 >
                   <span>Pilihan Program</span>
                   <ArrowRight className="w-4 h-4" />
@@ -93,17 +100,18 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column: Centerpiece Card */}
-            <div className="lg:col-span-5 anim-fade-right anim-delay-200">
-              <HeroCenterpiece />
+            {/* Right Column: 3D Animated Seal Visual */}
+            <div className="lg:col-span-5 anim-fade-right anim-delay-200 persp-1600">
+              <Hero3DVisual />
             </div>
           </div>
         </div>
       </section>
 
       {/* 2. STAT BAR */}
-      <section className="bg-navy-950 py-8 sm:py-10 border-b border-navy-900">
-        <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-navy-950 py-8 sm:py-10 border-b border-navy-900">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(200,16,46,0.18),transparent_45%),radial-gradient(circle_at_85%_50%,rgba(59,130,246,0.14),transparent_45%)]" />
+        <div className="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
             <StatCounter value="200+" label="Alumni di Jepang" />
             <StatCounter value="14+" label="Sektor Industri" />
@@ -128,19 +136,19 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-2">
             <Link
               href="/tokutei-ginou"
-              className="anim-fade-left hover-lift group block p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 hover:border-navy-950 transition-all"
+              className="anim-fade-left tilt-3d sheen-on-hover hover-lift group relative block p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 hover:border-navy-950 transition-all overflow-hidden"
             >
-              <div className="flex items-start justify-between gap-4 mb-5">
-                <div className="w-12 h-12 rounded-xl bg-vermilion-600 text-white flex items-center justify-center font-black text-sm">
+              <div className="relative flex items-start justify-between gap-4 mb-5">
+                <div className="w-12 h-12 rounded-xl bg-vermilion-600 text-white flex items-center justify-center font-black text-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-vermilion-600/30">
                   SSW
                 </div>
                 <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-vermilion-600 group-hover:translate-x-1 transition-all mt-1 shrink-0" />
               </div>
-              <h3 className="font-heading font-black text-xl text-navy-950 mb-2">Tokutei Ginou</h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-4">
+              <h3 className="relative font-heading font-black text-xl text-navy-950 mb-2">Tokutei Ginou</h3>
+              <p className="relative text-sm text-slate-600 leading-relaxed mb-4">
                 Visa kerja keahlian khusus (Specified Skilled Worker) dengan gaji setara warga Jepang. Jalur resmi, transparan, dan berjenjang.
               </p>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="relative flex flex-wrap gap-1.5">
                 {["JLPT N4 / JFT", "Skill Assessment", "Gaji 18-25Jt/bln"].map((tag) => (
                   <span key={tag} className="px-2 py-0.5 rounded-md bg-vermilion-50 text-vermilion-700 text-[11px] font-bold border border-vermilion-200">{tag}</span>
                 ))}
@@ -149,19 +157,19 @@ export default function HomePage() {
 
             <Link
               href="/program/pemagangan"
-              className="anim-fade-right hover-lift group block p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 hover:border-navy-950 transition-all"
+              className="anim-fade-right tilt-3d sheen-on-hover hover-lift group relative block p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 hover:border-navy-950 transition-all overflow-hidden"
             >
-              <div className="flex items-start justify-between gap-4 mb-5">
-                <div className="w-12 h-12 rounded-xl bg-navy-950 text-white flex items-center justify-center font-black text-base">
+              <div className="relative flex items-start justify-between gap-4 mb-5">
+                <div className="w-12 h-12 rounded-xl bg-navy-950 text-white flex items-center justify-center font-black text-base transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-navy-950/30">
                   実習
                 </div>
                 <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-navy-950 group-hover:translate-x-1 transition-all mt-1 shrink-0" />
               </div>
-              <h3 className="font-heading font-black text-xl text-navy-950 mb-2">Program Pemagangan</h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-4">
+              <h3 className="relative font-heading font-black text-xl text-navy-950 mb-2">Program Pemagangan</h3>
+              <p className="relative text-sm text-slate-600 leading-relaxed mb-4">
                 Pelatihan kerja 3–5 tahun di perusahaan mitra industri Jepang (Ginou Jisshuusei). Program resmi berpayung hukum Kemnaker RI.
               </p>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="relative flex flex-wrap gap-1.5">
                 {["3–5 Tahun", "Mitra Kaisha", "Bahasa N5+"].map((tag) => (
                   <span key={tag} className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 text-[11px] font-bold border border-slate-200">{tag}</span>
                 ))}
@@ -192,11 +200,17 @@ export default function HomePage() {
               { icon: <HeartHandshake className="w-5 h-5" />, color: "bg-rose-50 text-rose-700", title: "Pendampingan Menuju Jepang", desc: "Komunikasi berkesinambungan dan koordinasi dengan pihak penerima di Jepang selama masa penugasan peserta.", delay: "anim-delay-300" },
               { icon: <ShieldCheck className="w-5 h-5" />, color: "bg-emerald-50 text-emerald-700", title: "Legalitas 100% Terverifikasi", desc: "Terdaftar resmi di Kemnaker RI, Kemenkumham, Disnaker Karawang, dan OSS-BKPM. Tidak ada biaya tersembunyi.", delay: "anim-delay-350" },
             ].map((item) => (
-              <div key={item.title} className={`anim-card hover-lift ${item.delay} p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3`}>
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${item.color}`}>
+              <div
+                key={item.title}
+                className={`anim-card tilt-3d hover-lift ${item.delay} relative p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 overflow-hidden`}
+              >
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${item.color} transition-transform duration-300 hover:scale-110 hover:-rotate-3`}>
                   {item.icon}
                 </div>
-                <h3 className="font-heading font-bold text-base text-navy-950">{item.title}</h3>
+                <h3 className="font-heading font-bold text-base text-navy-950 flex items-center gap-1.5">
+                  {item.title}
+                  <Sparkles className="w-3.5 h-3.5 text-vermilion-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -228,9 +242,13 @@ export default function HomePage() {
       <StructureSlider />
 
       {/* 8. KONSULTASI */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white border-t border-slate-200">
-        <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="anim-fade-up">
+      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-white border-t border-slate-200">
+        <div className="pointer-events-none absolute top-10 right-10 w-72 h-72 rounded-full bg-vermilion-100/40 blur-3xl animate-pulse-glow-ring" />
+        <div className="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+          <div className="anim-fade-up flex flex-col items-center">
+            <AnimatedSealLogo size={112} />
+          </div>
+          <div className="anim-fade-up anim-delay-100 mt-8">
             <SectionHeader
               eyebrow="Mulai Langkah Pertamamu"
               title="Konsultasikan Rencana Kariermu"
