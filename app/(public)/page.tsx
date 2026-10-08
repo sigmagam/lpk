@@ -9,6 +9,10 @@ import CTA from "@/components/public/CTA";
 import OfficialTrustRibbon from "@/components/public/OfficialTrustRibbon";
 import ConsultationForm from "@/components/public/ConsultationForm";
 import StatCounter from "@/components/public/StatCounter";
+import BatchCountdown from "@/components/public/BatchCountdown";
+import SectorMarquee from "@/components/public/SectorMarquee";
+import TestimonialMarquee from "@/components/public/TestimonialMarquee";
+import FaqAccordion from "@/components/public/FaqAccordion";
 import {
   ShieldCheck,
   Award,
@@ -25,6 +29,9 @@ import {
 export default function HomePage() {
   return (
     <div className="bg-washi">
+
+      {/* 0. BATCH BANNER + COUNTDOWN */}
+      <BatchCountdown />
 
       {/* 1. HERO SECTION — Ukiyo-e modern: navy malam, emas, torii */}
       <section className="relative overflow-hidden bg-navy-950 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24">
@@ -138,6 +145,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 3.5. SEKTOR MITRA — marquee kanji */}
+      <SectorMarquee />
 
       {/* 3. PROGRAM UNGGULAN — washi paper section */}
       <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-washi texture-washi">
@@ -301,6 +311,9 @@ export default function HomePage() {
       {/* 7. SLIDER */}
       <StructureSlider />
 
+      {/* 7.5. TESTIMONI ALUMNI */}
+      <TestimonialMarquee />
+
       {/* 8. KONSULTASI */}
       <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-white border-t border-slate-200">
         <div className="pointer-events-none absolute top-10 right-10 w-72 h-72 rounded-full bg-gold-200/30 blur-3xl" />
@@ -328,6 +341,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 8.5. FAQ SINGKAT */}
+      <FaqAccordion />
 
       {/* 9. LEGALITAS */}
       <OfficialTrustRibbon />

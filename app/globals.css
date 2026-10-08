@@ -123,6 +123,12 @@ body {
   will-change: transform;
 }
 
+/* Slower drift for wide/readable tracks (testimonials) */
+.marquee-slow { animation-duration: 48s; }
+
+/* Pause the drift while hovering to read */
+.pause-on-hover:hover { animation-play-state: paused; }
+
 @keyframes fadeUp {
   0% { opacity: 0; transform: translateY(12px); }
   100% { opacity: 1; transform: translateY(0); }
