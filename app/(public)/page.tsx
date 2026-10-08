@@ -9,7 +9,7 @@ import CTA from "@/components/public/CTA";
 import OfficialTrustRibbon from "@/components/public/OfficialTrustRibbon";
 import ConsultationForm from "@/components/public/ConsultationForm";
 import StatCounter from "@/components/public/StatCounter";
-import BatchCountdown from "@/components/public/BatchCountdown";
+import EnrollmentBanner from "@/components/public/EnrollmentBanner";
 import SectorMarquee from "@/components/public/SectorMarquee";
 import TestimonialMarquee from "@/components/public/TestimonialMarquee";
 import FaqAccordion from "@/components/public/FaqAccordion";
@@ -30,8 +30,8 @@ export default function HomePage() {
   return (
     <div className="bg-washi">
 
-      {/* 0. BATCH BANNER + COUNTDOWN */}
-      <BatchCountdown />
+      {/* 0. BANNER PENDAFTARAN — buka setiap hari, tanpa tenggat */}
+      <EnrollmentBanner />
 
       {/* 1. HERO SECTION — Ukiyo-e modern: navy malam, emas, torii */}
       <section className="relative overflow-hidden bg-navy-950 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24">
