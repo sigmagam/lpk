@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Noto+Serif+JP:wght@500;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -455,165 +455,172 @@ body {
 }
 
 /* ============================================
-   3D HERO VISUAL — depth, float, glow
+   UKIYO-E MODERN — Elegant Japanese theme
    ============================================ */
 
-/* Gentle full-body float for the main 3D plinth */
-@keyframes float3dFull {
-  0%   { transform: translateY(0px) rotateX(7deg) rotateY(-9deg); }
-  50%  { transform: translateY(-14px) rotateX(5deg) rotateY(-6deg); }
-  100% { transform: translateY(0px) rotateX(7deg) rotateY(-9deg); }
+/* --- Sakura petals drifting --------------------------------------- */
+@keyframes sakuraFall {
+  0% {
+    transform: translate3d(0, -24px, 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% { opacity: var(--petal-op, 0.75); }
+  50% {
+    transform: translate3d(calc(var(--petal-dx, 30px) * 0.55), calc(var(--petal-fall, 460px) * 0.5), 0) rotate(180deg);
+  }
+  88% { opacity: var(--petal-op, 0.75); }
+  100% {
+    transform: translate3d(var(--petal-dx, 30px), var(--petal-fall, 460px), 0) rotate(360deg);
+    opacity: 0;
+  }
 }
-.animate-float-3d-full {
-  animation: float3dFull 7s ease-in-out infinite;
+.animate-sakura {
+  animation: sakuraFall var(--petal-dur, 11s) linear infinite;
+  will-change: transform, opacity;
+}
+
+/* --- Gold gradient text with slow shimmer ------------------------- */
+.text-gold-gradient {
+  background: linear-gradient(
+    100deg,
+    #9E7A22 0%,
+    #E2CB7E 30%,
+    #FFF6D8 50%,
+    #E2CB7E 70%,
+    #9E7A22 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+@keyframes goldShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+.animate-gold-shimmer {
+  animation: goldShimmer 7s ease-in-out infinite;
+}
+
+/* --- Hanko (red seal) stamp-in ------------------------------------ */
+@keyframes hankoStamp {
+  0%   { transform: scale(1.7) rotate(-16deg); opacity: 0; }
+  55%  { transform: scale(0.93) rotate(3deg);  opacity: 1; }
+  100% { transform: scale(1) rotate(-5deg);    opacity: 1; }
+}
+.animate-hanko {
+  animation: hankoStamp 0.75s cubic-bezier(0.2, 1.5, 0.4, 1) both;
+}
+
+/* --- Slow ken-burns drift for background art ---------------------- */
+@keyframes kenburns {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.14) translate(-1.5%, -2%); }
+}
+.animate-kenburns {
+  animation: kenburns 20s ease-in-out infinite alternate;
+}
+
+/* --- Hero card stack: gentle breathing float ----------------------- */
+@keyframes stackFloat {
+  0%, 100% { transform: translateY(0) rotateX(7deg) rotateY(-9deg); }
+  50%      { transform: translateY(-16px) rotateX(5deg) rotateY(-6deg); }
+}
+.animate-stack-float {
+  animation: stackFloat 8s ease-in-out infinite;
   transform-style: preserve-3d;
 }
 
-/* Floating badge tokens (offset phase) */
-@keyframes floatBadge1 {
-  0%, 100% { transform: translateZ(85px) translateY(0px); }
-  50%      { transform: translateZ(85px) translateY(-10px); }
+/* --- Torii silhouette soft breathing glow ------------------------- */
+@keyframes toriiGlow {
+  0%, 100% { opacity: 0.12; }
+  50%      { opacity: 0.24; }
 }
-.animate-float-badge-1 {
-  animation: floatBadge1 5s ease-in-out infinite;
-}
-@keyframes floatBadge2 {
-  0%, 100% { transform: translateZ(95px) translateY(0px); }
-  50%      { transform: translateZ(95px) translateY(-13px); }
-}
-.animate-float-badge-2 {
-  animation: floatBadge2 6s ease-in-out 0.8s infinite;
+.animate-torii-glow {
+  animation: toriiGlow 7s ease-in-out infinite;
 }
 
-/* Breathing glow ring behind the plinth */
-@keyframes pulseGlowRing {
-  0%, 100% { transform: scale(1);   opacity: 0.35; }
-  50%      { transform: scale(1.12); opacity: 0.6; }
-}
-.animate-pulse-glow-ring {
-  animation: pulseGlowRing 5s ease-in-out infinite;
-}
-
-/* ============================================
-   ANIMATED SEAL LOGO (rotating stamp)
-   ============================================ */
-
-/* Slow continuous spin for the circular seal */
-@keyframes sealSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-.animate-seal-spin {
-  animation: sealSpin 22s linear infinite;
-  transform-origin: center;
+/* --- Seigaiha (青海波) wave pattern -------------------------------- */
+.pattern-seigaiha {
+  background-image:
+    radial-gradient(circle at 9px 18px, transparent 8px, currentColor 8.5px, transparent 9.5px),
+    radial-gradient(circle at 0 18px, transparent 8px, currentColor 8.5px, transparent 9.5px);
+  background-size: 18px 18px, 18px 18px;
+  background-position: 0 0, 9px 9px;
 }
 
-/* Counter-spin keeps inner emblem upright while ring rotates */
-@keyframes sealSpinReverse {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
-}
-.animate-seal-spin-reverse {
-  animation: sealSpinReverse 22s linear infinite;
-  transform-origin: center;
+/* --- Washi paper warm tone + subtle grain ------------------------- */
+.bg-washi { background-color: #FBF8F1; }
+.texture-washi {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(140, 105, 40, 0.02) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(140, 105, 40, 0.015) 0 1px, transparent 1px 7px);
 }
 
-/* 3D coin-flip style wobble for the seal */
-@keyframes sealWobble {
-  0%, 100% { transform: rotateY(0deg)   rotateZ(0deg); }
-  25%      { transform: rotateY(12deg)  rotateZ(-2deg); }
-  75%      { transform: rotateY(-12deg) rotateZ(2deg); }
+/* --- Japanese divider: hairline + rhombus ------------------------- */
+.jp-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
 }
-.animate-seal-wobble {
-  animation: sealWobble 9s ease-in-out infinite;
-  transform-style: preserve-3d;
+.jp-divider::before,
+.jp-divider::after {
+  content: '';
+  height: 1px;
+  width: clamp(40px, 14vw, 120px);
+  background: linear-gradient(90deg, transparent, #C8A04B 60%, transparent);
 }
-
-/* Conic "shimmer sweep" travelling around the seal */
-@keyframes sealSheen {
-  0%   { transform: rotate(0deg);   opacity: 0; }
-  20%  { opacity: 0.9; }
-  60%  { opacity: 0.4; }
-  100% { transform: rotate(360deg); opacity: 0; }
-}
-.animate-seal-sheen {
-  animation: sealSheen 6s ease-in-out infinite;
-  transform-origin: center;
-}
-
-/* Orbiting satellite chips around the seal */
-@keyframes orbitChip {
-  from { transform: rotate(0deg)   translateX(var(--orbit-r, 150px)) rotate(0deg); }
-  to   { transform: rotate(360deg) translateX(var(--orbit-r, 150px)) rotate(-360deg); }
-}
-.animate-orbit {
-  animation: orbitChip var(--orbit-dur, 18s) linear infinite;
-  transform-origin: center;
+.jp-divider .rhombus {
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: #C8A04B;
+  box-shadow: 0 0 0 3px rgba(200, 160, 75, 0.18);
 }
 
-/* 3D tilt-follow wrapper reset */
-.persp-1200 { perspective: 1200px; }
+/* --- Faint kanji watermark behind sections ------------------------ */
+.kanji-watermark {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 900;
+  line-height: 1;
+  color: currentColor;
+  opacity: 0.055;
+  user-select: none;
+  pointer-events: none;
+  letter-spacing: 0.08em;
+}
+
+/* --- Card lift: refined, gold-accented ---------------------------- */
+.card-lift {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 44px -18px rgba(11, 23, 39, 0.3),
+              0 8px 18px -12px rgba(11, 23, 39, 0.16);
+  border-color: rgba(200, 160, 75, 0.75);
+}
+
+/* --- 3D perspective helpers --------------------------------------- */
 .persp-1600 { perspective: 1600px; }
+.persp-2000 { perspective: 2000px; }
 .preserve-3d { transform-style: preserve-3d; }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-float-3d-full,
-  .animate-float-badge-1,
-  .animate-float-badge-2,
-  .animate-pulse-glow-ring,
-  .animate-seal-spin,
-  .animate-seal-spin-reverse,
-  .animate-seal-wobble,
-  .animate-seal-sheen,
-  .animate-orbit { animation: none !important; transform: none !important; }
-}
-
-/* ============================================
-   LANDING PAGE 3D CARD LIFT
-   ============================================ */
-
-/* Card raises in 3D with perspective on hover */
-.tilt-3d {
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.35s ease;
-  transform-style: preserve-3d;
-}
-.tilt-3d:hover {
-  transform: perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-8px) scale(1.02);
-  box-shadow: 0 26px 46px -14px rgba(11, 23, 39, 0.28),
-              0 10px 20px -12px rgba(11, 23, 39, 0.18);
-}
-.tilt-3d:hover .tilt-3d-pop {
-  transform: translateZ(40px) scale(1.06);
-}
-.tilt-3d-pop {
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  transform: translateZ(0px);
-}
-
-/* Parallax depth layers */
-.depth-layer { transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
-
-/* Gradient sheen sweep across buttons/cards */
-@keyframes sheenSweep {
-  0%   { transform: translateX(-120%) skewX(-20deg); }
-  100% { transform: translateX(220%)  skewX(-20deg); }
-}
-.sheen-on-hover { position: relative; overflow: hidden; }
-.sheen-on-hover::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 45%; height: 100%;
-  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.55), transparent);
-  transform: translateX(-120%) skewX(-20deg);
-  pointer-events: none;
-}
-.sheen-on-hover:hover::after {
-  animation: sheenSweep 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+/* --- Gold hairline glow for dark sections ------------------------- */
+.border-gold-glow {
+  box-shadow: 0 0 0 1px rgba(200, 160, 75, 0.35),
+              0 18px 40px -20px rgba(200, 160, 75, 0.25);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tilt-3d:hover { transform: none; }
-  .sheen-on-hover::after { display: none; }
+  .animate-sakura,
+  .animate-gold-shimmer,
+  .animate-hanko,
+  .animate-kenburns,
+  .animate-stack-float,
+  .animate-torii-glow { animation: none !important; }
+  .card-lift:hover { transform: none; }
 }

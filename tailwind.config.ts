@@ -48,10 +48,23 @@ const config: Config = {
           900: '#1E3A8A',
           950: '#172554',
         },
+        gold: {
+          50: '#FDFAF0',
+          100: '#F9F1D9',
+          200: '#F0E0B0',
+          300: '#E2CB7E',
+          400: '#D0AF4E',
+          500: '#C8A04B',
+          600: '#A67C1F',
+          700: '#836018',
+          800: '#5C4310',
+          900: '#3B2C0A',
+        },
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'Inter', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         heading: ['var(--font-heading)', 'Plus Jakarta Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        jp: ['"Noto Serif JP"', 'var(--font-heading)', 'serif'],
       },
       maxWidth: {
         site: '1280px',
