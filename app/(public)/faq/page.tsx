@@ -5,9 +5,11 @@ import SectionHeader from "@/components/public/SectionHeader";
 import CTA from "@/components/public/CTA";
 import { HelpCircle, MessageCircle, ArrowRight, ShieldCheck } from "lucide-react";
 import Link from "next/link";
+import { pageSeo, breadcrumbJsonLd, faqPageJsonLd, JsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "FAQ & Tanya Jawab Lengkap | LPK Panca Multiguna Sukses",
+export const metadata: Metadata = pageSeo({
+  path: "/faq",
+  title: "FAQ & Tanya Jawab Lengkap",
   description:
     "Pertanyaan yang sering diajukan seputar pelatihan bahasa Jepang, program pemagangan resmi, Tokutei Ginou (SSW), syarat pendaftaran, dan biaya di LPK PMS.",
   keywords: [
@@ -17,11 +19,18 @@ export const metadata: Metadata = {
     "biaya lpk jepang karawang",
     "legalitas kemnaker lpk pms"
   ]
-};
+});
 
 export default function FAQPage() {
+  const faqSchema = faqPageJsonLd(faqs);
+  const breadcrumbSchema = breadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "FAQ", path: "/faq" },
+  ]);
+
   return (
     <div className="bg-[#F8FAFC]">
+      <JsonLd data={[faqSchema, breadcrumbSchema]} />
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 

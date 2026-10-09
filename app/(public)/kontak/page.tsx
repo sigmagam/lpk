@@ -4,6 +4,7 @@ import Contact3DBadge from "@/components/public/Contact3DBadge";
 import ConsultationForm from "@/components/public/ConsultationForm";
 import SectionHeader from "@/components/public/SectionHeader";
 import CTA from "@/components/public/CTA";
+import { pageSeo, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import {
   MapPin,
   Phone,
@@ -18,8 +19,9 @@ import {
   Navigation
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Kontak & Alamat Lembaga | LPK Panca Multiguna Sukses",
+export const metadata: Metadata = pageSeo({
+  path: "/kontak",
+  title: "Kontak & Alamat Lembaga",
   description:
     "Hubungi LPK Panca Multiguna Sukses. Layanan konsultasi WhatsApp resmi, Channel Info Job PMS, Instagram, TikTok, serta lokasi kantor di Purwasari Karawang.",
   keywords: [
@@ -29,11 +31,17 @@ export const metadata: Metadata = {
     "channel info job jepang pms",
     "konsultasi magang jepang karawang"
   ]
-};
+});
 
 export default function KontakPage() {
+  const breadcrumbSchema = breadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "Kontak", path: "/kontak" },
+  ]);
+
   return (
     <div className="bg-[#F8FAFC]">
+      <JsonLd data={breadcrumbSchema} />
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 

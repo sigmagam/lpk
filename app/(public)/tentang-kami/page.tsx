@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import SectionHeader from "@/components/public/SectionHeader";
 import CTA from "@/components/public/CTA";
 import OfficialTrustRibbon from "@/components/public/OfficialTrustRibbon";
+import { pageSeo, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import {
   ShieldCheck,
   Target,
@@ -20,8 +21,9 @@ import {
   UserCheck
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Tentang Kami & Profil Lembaga | LPK Panca Multiguna Sukses",
+export const metadata: Metadata = pageSeo({
+  path: "/tentang-kami",
+  title: "Tentang Kami & Profil Lembaga",
   description:
     "Profil resmi LPK Panca Multiguna Sukses. Terdaftar di Kemnaker RI dengan VIN 2001321506, dipimpin oleh Yusuf Bachtiar, S.M, berdiri sejak 2018 dengan 200+ alumni di Jepang.",
   keywords: [
@@ -31,9 +33,13 @@ export const metadata: Metadata = {
     "legalitas kemnaker lpk pms",
     "LPK jepang karawang terpercaya"
   ]
-};
+});
 
 export default function TentangKamiPage() {
+  const breadcrumbSchema = breadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "Tentang Kami", path: "/tentang-kami" },
+  ]);
   const institutionalValues = [
     {
       title: "Kedisiplinan Tinggi (Kiritsu)",
@@ -55,6 +61,7 @@ export default function TentangKamiPage() {
 
   return (
     <div className="bg-[#F8FAFC]">
+      <JsonLd data={breadcrumbSchema} />
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 

@@ -14,6 +14,7 @@ import {
   BookOpen
 } from "lucide-react";
 import CTA from "@/components/public/CTA";
+import { pageSeo, breadcrumbJsonLd, programJsonLd, JsonLd } from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -31,8 +32,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!program) {
     return { title: "Program Tidak Ditemukan | LPK PMS" };
   }
-  return {
-    title: `${program.title} | LPK PMS`,
+  return pageSeo({
+    path: `/program/${program.slug}`,
+    title: program.title,
     description: program.shortDesc,
     keywords: [
       program.title,
@@ -41,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       program.category,
       "kursus bahasa jepang karawang"
     ]
-  };
+  });
 }
 
 export default async function ProgramDetailPage({ params }: PageProps) {
@@ -54,8 +56,21 @@ export default async function ProgramDetailPage({ params }: PageProps) {
 
   const otherPrograms = programs.filter((p) => p.slug !== slug);
 
+  const breadcrumbSchema = breadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "Program", path: "/program" },
+    { name: program.title, path: `/program/${program.slug}` },
+  ]);
+  const programSchema = programJsonLd({
+    title: program.title,
+    description: program.shortDesc,
+    path: `/program/${program.slug}`,
+    category: program.category,
+  });
+
   return (
     <div className="bg-[#F8FAFC]">
+      <JsonLd data={[breadcrumbSchema, programSchema]} />
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-14 sm:py-20 border-b border-navy-900">
 

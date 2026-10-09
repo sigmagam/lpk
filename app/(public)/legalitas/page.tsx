@@ -6,6 +6,7 @@ import SectionHeader from "@/components/public/SectionHeader";
 import OfficialLegalBadges from "@/components/public/OfficialLegalBadges";
 import OfficialTrustRibbon from "@/components/public/OfficialTrustRibbon";
 import CTA from "@/components/public/CTA";
+import { pageSeo, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import {
   ShieldCheck,
   ExternalLink,
@@ -24,8 +25,9 @@ import {
   Sparkles
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Legalitas Resmi Kemnaker RI, Kemenkumham, Disnaker, AHU, OSS | LPK PMS",
+export const metadata: Metadata = pageSeo({
+  path: "/legalitas",
+  title: "Legalitas Resmi Kemnaker RI, Kemenkumham, Disnaker, AHU, OSS",
   description:
     "Legalitas dan perizinan resmi LPK Panca Multiguna Sukses: Nomor Lisensi 503/10509/29/IPLPK/XI/DPMPTSP/2018, Jenis Mitra LPKS Swasta, VIN: 2001321506, Kemenkumham RI, Ditjen AHU, Disnaker Kab. Karawang, dan Lembaga OSS.",
   keywords: [
@@ -39,11 +41,17 @@ export const metadata: Metadata = {
     "Kemnaker RI LPK PMS",
     "izin operasional magang jepang"
   ]
-};
+});
 
 export default function LegalitasPage() {
+  const breadcrumbSchema = breadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "Legalitas", path: "/legalitas" },
+  ]);
+
   return (
     <div className="bg-[#F8FAFC]">
+      <JsonLd data={breadcrumbSchema} />
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 

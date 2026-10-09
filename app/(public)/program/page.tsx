@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import SectionHeader from "@/components/public/SectionHeader";
 import CTA from "@/components/public/CTA";
 import WhatsAppJobChannelBanner from "@/components/public/WhatsAppJobChannelBanner";
+import { pageSeo, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import {
   BookOpen,
   CheckCircle2,
@@ -17,8 +18,9 @@ import {
   Briefcase
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Program Pelatihan Kerja ke Jepang | LPK Panca Multiguna Sukses",
+export const metadata: Metadata = pageSeo({
+  path: "/program",
+  title: "Program Pelatihan Kerja ke Jepang",
   description:
     "Direktori lengkap program pelatihan bahasa Jepang, persiapan kerja, pemagangan resmi Kemnaker RI, Tokutei Ginou, dan pembekalan budaya kerja di LPK PMS.",
   keywords: [
@@ -29,10 +31,14 @@ export const metadata: Metadata = {
     "persiapan kerja jepang",
     "kurikulum bahasa jepang n4"
   ]
-};
+});
 
 export default function ProgramPage() {
   const kanjiLabels = ["基礎", "準備", "実習", "文化", "技能"];
+  const breadcrumbSchema = breadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "Program", path: "/program" },
+  ]);
 
   const programDetailsMap: Record<string, {
     target: string;
@@ -74,6 +80,7 @@ export default function ProgramPage() {
 
   return (
     <div className="bg-[#F8FAFC]">
+      <JsonLd data={breadcrumbSchema} />
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 

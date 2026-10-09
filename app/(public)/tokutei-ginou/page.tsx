@@ -3,6 +3,7 @@ import { siteConfig } from "@/data/site";
 import type { Metadata } from "next";
 import SectionHeader from "@/components/public/SectionHeader";
 import ConsultationForm from "@/components/public/ConsultationForm";
+import { pageSeo, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import {
   ShieldCheck,
   CheckCircle2,
@@ -10,8 +11,9 @@ import {
   Briefcase
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Program Tokutei Ginou (SSW) Jepang Resmi | LPK PMS",
+export const metadata: Metadata = pageSeo({
+  path: "/tokutei-ginou",
+  title: "Program Tokutei Ginou (SSW) Jepang Resmi",
   description:
     "Panduan resmi program Tokutei Ginou (Specified Skilled Worker) ke Jepang bersama LPK Panca Multiguna Sukses. Informasi 14 sektor resmi, syarat bahasa N4/JFT, standar gaji, dan alur seleksi.",
   keywords: [
@@ -23,9 +25,13 @@ export const metadata: Metadata = {
     "JFT Basic Karawang",
     "gaji tokutei ginou"
   ],
-};
+});
 
 export default function TokuteiGinouPage() {
+  const breadcrumbSchema = breadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "Tokutei Ginou", path: "/tokutei-ginou" },
+  ]);
   const comparisonData = [
     {
       aspect: "Status Visa",
@@ -167,6 +173,7 @@ export default function TokuteiGinouPage() {
 
   return (
     <div className="bg-[#F8FAFC]">
+      <JsonLd data={breadcrumbSchema} />
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 

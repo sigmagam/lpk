@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SectionHeader from "@/components/public/SectionHeader";
 import CTA from "@/components/public/CTA";
+import { pageSeo, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import {
   BookOpen,
   Smartphone,
@@ -15,8 +16,9 @@ import {
   Award,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Kanji JLPT N5 sampai N1 | LPK PMS Karawang",
+export const metadata: Metadata = pageSeo({
+  path: "/kanji-n5",
+  title: "Kanji JLPT N5 sampai N1",
   description:
     "Pengenalan huruf kanji level JLPT N5 hingga N1: arti tiap level, jumlah kanji, dan aplikasi belajar Kanji N5-N1 Simple dari LPK PMS yang bekerja sepenuhnya offline.",
   keywords: [
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     "aplikasi kanji offline",
     "pengenalan huruf kanji",
   ],
-};
+});
 
 // Jumlah kanji per level sesuai data aplikasi Kanji N5-N1 Simple.
 const KANJI_LEVELS = [
@@ -75,9 +77,14 @@ const REPO_URL = "https://github.com/sigmagam/lpk";
 
 export default function KanjiPage() {
   const totalKanji = KANJI_LEVELS.reduce((sum, lv) => sum + lv.count, 0);
+  const breadcrumbSchema = breadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "Kanji N5", path: "/kanji-n5" },
+  ]);
 
   return (
     <div className="bg-[#F8FAFC]">
+      <JsonLd data={breadcrumbSchema} />
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 relative z-10 text-center">

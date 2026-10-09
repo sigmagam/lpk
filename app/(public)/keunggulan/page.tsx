@@ -2,6 +2,7 @@ import { keunggulan, siteConfig } from "@/data/site";
 import type { Metadata } from "next";
 import SectionHeader from "@/components/public/SectionHeader";
 import CTA from "@/components/public/CTA";
+import { pageSeo, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import {
   Award,
   ShieldCheck,
@@ -15,8 +16,9 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Keunggulan Pelatihan Kerja | LPK Panca Multiguna Sukses",
+export const metadata: Metadata = pageSeo({
+  path: "/keunggulan",
+  title: "Keunggulan Pelatihan Kerja",
   description:
     "Mengapa memilih LPK PMS: Kurikulum terkini industri Kaisha, instruktur profesional bersertifikat, fasilitas 300 m2 lengkap, dan pengalaman praktis intensif.",
   keywords: [
@@ -26,9 +28,13 @@ export const metadata: Metadata = {
     "kelebihan magang jepang pms",
     "LPK jepang terbaik karawang"
   ]
-};
+});
 
 export default function KeunggulanPage() {
+  const breadcrumbSchema = breadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "Keunggulan", path: "/keunggulan" },
+  ]);
   const iconList = [
     <BookOpen key="1" className="w-6 h-6 text-vermilion-600" />,
     <Users key="2" className="w-6 h-6 text-primary-700" />,
@@ -38,6 +44,7 @@ export default function KeunggulanPage() {
 
   return (
     <div className="bg-[#F8FAFC]">
+      <JsonLd data={breadcrumbSchema} />
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 

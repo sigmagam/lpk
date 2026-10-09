@@ -6,7 +6,10 @@ const siteUrl = "https://lpkpms.my.id";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "LPK Panca Multiguna Sukses | Pelatihan Kerja ke Jepang",
+  title: {
+    default: "LPK Panca Multiguna Sukses | Pelatihan Kerja ke Jepang",
+    template: "%s | LPK Panca Multiguna Sukses",
+  },
   description:
     "LPK Panca Multiguna Sukses adalah Lembaga Pelatihan Kerja resmi terdaftar di Kementerian Ketenagakerjaan RI (VIN: 2001321506), melatih dan mempersiapkan calon tenaga kerja ke Jepang melalui pelatihan bahasa, keterampilan kerja, kedisiplinan, dan budaya.",
   keywords: [

@@ -2,6 +2,7 @@ import { siteConfig } from "@/data/site";
 import type { Metadata } from "next";
 import SectionHeader from "@/components/public/SectionHeader";
 import CTA from "@/components/public/CTA";
+import { pageSeo, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import {
   MapPin,
   Navigation,
@@ -15,8 +16,9 @@ import {
   ExternalLink
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Lokasi & Peta Balai Pelatihan | LPK Panca Multiguna Sukses",
+export const metadata: Metadata = pageSeo({
+  path: "/lokasi",
+  title: "Lokasi & Peta Balai Pelatihan",
   description:
     "Petunjuk lokasi, rute transportasi, dan peta Google Maps balai pelatihan LPK PMS di Pancawati, Purwasari, Karawang, Jawa Barat.",
   keywords: [
@@ -26,9 +28,13 @@ export const metadata: Metadata = {
     "rute ke LPK PMS karawang",
     "pesona cengkong asri pancawati"
   ]
-};
+});
 
 export default function LokasiPage() {
+  const breadcrumbSchema = breadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "Lokasi", path: "/lokasi" },
+  ]);
   const routes = [
     {
       title: "Dari Stasiun Klari / Karawang",
@@ -49,6 +55,7 @@ export default function LokasiPage() {
 
   return (
     <div className="bg-[#F8FAFC]">
+      <JsonLd data={breadcrumbSchema} />
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 

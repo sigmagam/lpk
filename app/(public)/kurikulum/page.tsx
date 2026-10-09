@@ -2,6 +2,7 @@ import { curriculumRoadmap, siteConfig } from "@/data/site";
 import type { Metadata } from "next";
 import SectionHeader from "@/components/public/SectionHeader";
 import CTA from "@/components/public/CTA";
+import { pageSeo, breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import {
   GraduationCap,
   CheckCircle2,
@@ -14,8 +15,9 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Kurikulum Pelatihan Kerja ke Jepang | LPK PMS",
+export const metadata: Metadata = pageSeo({
+  path: "/kurikulum",
+  title: "Kurikulum Pelatihan Kerja ke Jepang",
   description:
     "Kurikulum resmi LPK Panca Multiguna Sukses: Materi Dasar, Materi Inti, dan Materi Khusus terstruktur standar industri Kaisha dan Kemnaker RI.",
   keywords: [
@@ -25,13 +27,18 @@ export const metadata: Metadata = {
     "silabus magang jepang resmi",
     "belajar bahasa jepang karawang"
   ]
-};
+});
 
 export default function KurikulumPage() {
   const stageKanji = ["基礎編", "中核編", "専門編"];
+  const breadcrumbSchema = breadcrumbJsonLd([
+    { name: "Beranda", path: "/" },
+    { name: "Kurikulum", path: "/kurikulum" },
+  ]);
 
   return (
     <div className="bg-[#F8FAFC]">
+      <JsonLd data={breadcrumbSchema} />
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
 

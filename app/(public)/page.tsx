@@ -1,5 +1,7 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { siteConfig } from "@/data/site";
+import { pageSeo, JsonLd } from "@/lib/seo";
 import HeroCardStack from "@/components/public/HeroCardStack";
 import StructureSlider from "@/components/public/StructureSlider";
 import StepTimeline from "@/components/public/StepTimeline";
@@ -26,23 +28,63 @@ import {
   HeartHandshake,
 } from "lucide-react";
 
+export const metadata: Metadata = pageSeo({
+  path: "/",
+  title: "LPK Panca Multiguna Sukses | Pelatihan Kerja ke Jepang",
+  description:
+    "LPK Panca Multiguna Sukses adalah Lembaga Pelatihan Kerja resmi terdaftar di Kementerian Ketenagakerjaan RI (VIN: 2001321506), melatih dan mempersiapkan calon tenaga kerja ke Jepang melalui pelatihan bahasa, keterampilan kerja, kedisiplinan, dan budaya.",
+  keywords: [
+    "LPK Panca Multiguna Sukses",
+    "LPK PMS",
+    "LPK PMS Karawang",
+    "LPK PMS Lampung",
+    "Pelatihan Kerja ke Jepang Karawang",
+    "Magang ke Jepang Karawang",
+    "Tokutei Ginou Karawang",
+    "Bahasa Jepang Karawang",
+    "LPK Resmi Kemnaker Karawang",
+    "VIN 2001321506",
+    "lpkpms.my.id"
+  ]
+});
+
 export default function HomePage() {
+  const homePageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "LPK Panca Multiguna Sukses | Pelatihan Kerja ke Jepang",
+    description: siteConfig.description,
+    url: "https://lpkpms.my.id",
+    isPartOf: { "@id": "https://lpkpms.my.id/#website" },
+  };
+
   return (
     <div className="bg-washi">
+      <JsonLd data={homePageJsonLd} />
 
       {/* 0. BANNER PENDAFTARAN — buka setiap hari, tanpa tenggat */}
       <EnrollmentBanner />
 
       {/* 1. HERO SECTION — Ukiyo-e modern: navy malam, emas, torii */}
-      <section className="relative overflow-hidden bg-navy-950 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24">
+      <section className="relative overflow-hidden bg-navy-950 pt-14 pb-20 sm:pt-20 sm:pb-28 lg:pt-24 lg:pb-32">
+        {/* Layered gradient mesh ala web besar */}
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_72%_25%,rgba(200,160,75,0.16),transparent_60%),radial-gradient(ellipse_55%_45%_at_15%_85%,rgba(200,16,46,0.18),transparent_60%)]"
+          aria-hidden="true"
+        />
         {/* Seigaiha wave pattern, emas sangat halus */}
         <div
-          className="pointer-events-none absolute inset-0 text-gold-500 pattern-seigaiha opacity-[0.07]"
+          className="pointer-events-none absolute inset-0 text-gold-500 pattern-seigaiha opacity-[0.06]"
+          aria-hidden="true"
+        />
+        {/* Grid garis halus ala Vercel/Linear */}
+        <div
+          className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_75%_60%_at_50%_30%,#000_30%,transparent_75%)] bg-[linear-gradient(to_right,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:64px_64px]"
           aria-hidden="true"
         />
         {/* Glow emas & merah di balik kartu */}
-        <div className="pointer-events-none absolute -top-20 right-0 w-[32rem] h-[32rem] rounded-full bg-gold-500/10 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 -left-24 w-96 h-96 rounded-full bg-vermilion-700/15 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 right-0 w-[36rem] h-[36rem] rounded-full bg-gold-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 -left-32 w-[28rem] h-[28rem] rounded-full bg-vermilion-700/15 blur-3xl" />
         {/* Kanji watermark raksasa */}
         <span
           className="kanji-watermark absolute top-1/4 left-2 sm:left-10 text-[10rem] sm:text-[15rem] text-white font-jp"
@@ -52,55 +94,61 @@ export default function HomePage() {
         </span>
 
         <div className="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
             {/* Left Column */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="anim-fade-up inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] backdrop-blur border border-gold-500/30 text-xs font-bold text-gold-200 uppercase tracking-wider">
-                <span className="w-2 h-2 rounded-full bg-vermilion-500 animate-pulse" />
+            <div className="lg:col-span-7 space-y-7">
+              <div className="anim-fade-up inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.07] backdrop-blur-md border border-gold-500/30 text-xs font-bold text-gold-200 uppercase tracking-wider shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)]">
+                <span className="relative flex w-2 h-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-vermilion-500 opacity-75 animate-ping" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-vermilion-500" />
+                </span>
                 <span>LPK Resmi Kemnaker RI • Karawang &amp; Lampung</span>
                 <span className="text-white/25">|</span>
                 <span className="font-mono text-emerald-300 font-bold">VIN: {siteConfig.vinNumber}</span>
               </div>
 
-              <h1 className="anim-fade-up anim-delay-100 font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
+              <h1 className="anim-fade-up anim-delay-100 font-heading text-4xl sm:text-5xl lg:text-[3.75rem] font-black tracking-tight text-white leading-[1.08]">
                 Persiapkan Masa Depanmu, Siap Bekerja di{" "}
-                <span className="text-gold-gradient animate-gold-shimmer">Jepang</span>
+                <span className="relative inline-block">
+                  <span className="text-gold-gradient animate-gold-shimmer">Jepang</span>
+                  <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-vermilion-600 via-gold-400 to-transparent rounded-full" />
+                </span>
               </h1>
 
-              <p className="anim-fade-up anim-delay-200 text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl">
+              <p className="anim-fade-up anim-delay-200 text-base sm:text-lg text-slate-300/90 leading-relaxed max-w-xl">
                 {siteConfig.description}
               </p>
 
-              <div className="anim-fade-up anim-delay-300 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <div className="anim-fade-up anim-delay-300 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
                 <a
                   href={siteConfig.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="anim-pulse-ring inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-b from-gold-400 to-gold-600 hover:from-gold-300 hover:to-gold-500 text-navy-950 text-sm font-black shadow-lg shadow-gold-900/30 transition-all hover:-translate-y-0.5"
+                  className="anim-pulse-ring group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-gradient-to-b from-gold-400 to-gold-600 hover:from-gold-300 hover:to-gold-500 text-navy-950 text-sm font-black shadow-xl shadow-gold-900/40 transition-all hover:-translate-y-0.5"
                 >
-                  <MessageCircle className="w-4 h-4 fill-navy-950" />
+                  <MessageCircle className="w-4 h-4 fill-navy-950 transition-transform group-hover:scale-110" />
                   <span>Daftar / Konsultasi WhatsApp</span>
                 </a>
                 <Link
                   href="/program"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] backdrop-blur text-white text-sm font-bold border border-white/20 transition-all hover:-translate-y-0.5"
+                  className="group inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-white/[0.07] hover:bg-white/[0.14] backdrop-blur text-white text-sm font-bold border border-white/20 transition-all hover:-translate-y-0.5"
                 >
                   <span>Pilihan Program</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <a
                   href={siteConfig.whatsappChannel}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-transparent hover:bg-white/[0.06] text-gold-200 text-sm font-bold border border-gold-500/40 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-4 rounded-xl bg-transparent hover:bg-white/[0.06] text-gold-200 text-sm font-bold border border-gold-500/40 transition-colors"
                 >
                   <BellRing className="w-4 h-4 text-emerald-400" />
                   <span>Info Job PMS</span>
                 </a>
               </div>
 
-              <div className="anim-fade-up anim-delay-400 pt-5 border-t border-white/10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-300 font-semibold">
+              <div className="anim-fade-up anim-delay-400 pt-6 border-t border-white/10 flex flex-wrap items-center gap-x-7 gap-y-2.5 text-xs text-slate-300 font-semibold">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   Terdaftar Resmi Kemnaker RI
@@ -124,20 +172,20 @@ export default function HomePage() {
         </div>
 
         {/* Pemisah emas di dasar hero */}
-        <div className="jp-divider relative mt-4" aria-hidden="true">
+        <div className="jp-divider relative mt-6" aria-hidden="true">
           <span className="rhombus" />
         </div>
       </section>
 
       {/* 2. STAT BAR — navy dengan pola seigaiha emas */}
-      <section className="relative overflow-hidden bg-navy-950 py-9 sm:py-11 border-t border-gold-900/40">
+      <section className="relative overflow-hidden bg-navy-950 py-12 sm:py-14 border-t border-gold-900/40">
         <div
-          className="pointer-events-none absolute inset-0 text-gold-400 pattern-seigaiha opacity-[0.06]"
+          className="pointer-events-none absolute inset-0 text-gold-400 pattern-seigaiha opacity-[0.05]"
           aria-hidden="true"
         />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(200,16,46,0.22),transparent_45%),radial-gradient(circle_at_82%_50%,rgba(200,160,75,0.16),transparent_45%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(200,16,46,0.18),transparent_45%),radial-gradient(circle_at_82%_50%,rgba(200,160,75,0.14),transparent_45%)]" />
         <div className="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 sm:divide-x sm:divide-gold-900/50">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-4">
             <StatCounter value="200+" label="Alumni di Jepang" />
             <StatCounter value="14+" label="Sektor Industri" />
             <StatCounter value="2018" label="Tahun Berdiri" />
@@ -167,10 +215,10 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-2">
             <Link
               href="/tokutei-ginou"
-              className="anim-fade-left card-lift group relative block p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 transition-all overflow-hidden"
+              className="anim-fade-left card-lift group relative block p-7 sm:p-9 rounded-2xl bg-white border border-slate-200/90 shadow-[0_2px_8px_-2px_rgba(11,23,39,0.06),0_12px_28px_-12px_rgba(11,23,39,0.12)] transition-all overflow-hidden"
             >
               {/* Aksen garis emas di atas */}
               <span className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-vermilion-700 via-gold-400 to-vermilion-700" />
@@ -184,21 +232,21 @@ export default function HomePage() {
               >
                 合格
               </div>
-              <div className="relative flex items-start justify-between gap-4 mb-5 pr-14">
+              <div className="relative flex items-start justify-between gap-4 mb-6 pr-14">
                 <div className="w-12 h-12 rounded-xl bg-vermilion-600 text-white flex items-center justify-center font-black text-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-vermilion-600/30">
                   SSW
                 </div>
               </div>
-              <h3 className="relative font-heading font-black text-xl text-navy-950 mb-2">Tokutei Ginou</h3>
-              <p className="relative text-sm text-slate-600 leading-relaxed mb-4">
+              <h3 className="relative font-heading font-black text-xl text-navy-950 mb-2.5">Tokutei Ginou</h3>
+              <p className="relative text-sm text-slate-600 leading-relaxed mb-5">
                 Visa kerja keahlian khusus (Specified Skilled Worker) dengan gaji setara warga Jepang. Jalur resmi, transparan, dan berjenjang.
               </p>
               <div className="relative flex flex-wrap gap-1.5">
                 {["JLPT N4 / JFT", "Skill Assessment", "Gaji 18-25Jt/bln"].map((tag) => (
-                  <span key={tag} className="px-2 py-0.5 rounded-md bg-vermilion-50 text-vermilion-700 text-[11px] font-bold border border-vermilion-200">{tag}</span>
+                  <span key={tag} className="px-2.5 py-1 rounded-md bg-vermilion-50 text-vermilion-700 text-[11px] font-bold border border-vermilion-200">{tag}</span>
                 ))}
               </div>
-              <span className="relative mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-vermilion-700">
+              <span className="relative mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-vermilion-700">
                 Pelajari jalur SSW
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </span>
@@ -206,27 +254,27 @@ export default function HomePage() {
 
             <Link
               href="/program/pemagangan"
-              className="anim-fade-right card-lift group relative block p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 transition-all overflow-hidden"
+              className="anim-fade-right card-lift group relative block p-7 sm:p-9 rounded-2xl bg-white border border-slate-200/90 shadow-[0_2px_8px_-2px_rgba(11,23,39,0.06),0_12px_28px_-12px_rgba(11,23,39,0.12)] transition-all overflow-hidden"
             >
               <span className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-navy-900 via-gold-400 to-navy-900" />
               <span className="kanji-watermark absolute -right-1 -bottom-3 text-8xl text-navy-950 font-jp">
                 実習
               </span>
-              <div className="relative flex items-start justify-between gap-4 mb-5">
+              <div className="relative flex items-start justify-between gap-4 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-navy-950 text-white flex items-center justify-center font-black text-base transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-navy-950/30 font-jp">
                   実習
                 </div>
               </div>
-              <h3 className="relative font-heading font-black text-xl text-navy-950 mb-2">Program Pemagangan</h3>
-              <p className="relative text-sm text-slate-600 leading-relaxed mb-4">
+              <h3 className="relative font-heading font-black text-xl text-navy-950 mb-2.5">Program Pemagangan</h3>
+              <p className="relative text-sm text-slate-600 leading-relaxed mb-5">
                 Pelatihan kerja 3–5 tahun di perusahaan mitra industri Jepang (Ginou Jisshuusei). Program resmi berpayung hukum Kemnaker RI.
               </p>
               <div className="relative flex flex-wrap gap-1.5">
                 {["3–5 Tahun", "Mitra Kaisha", "Bahasa N5+"].map((tag) => (
-                  <span key={tag} className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 text-[11px] font-bold border border-slate-200">{tag}</span>
+                  <span key={tag} className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-[11px] font-bold border border-slate-200">{tag}</span>
                 ))}
               </div>
-              <span className="relative mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-navy-800">
+              <span className="relative mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-navy-800">
                 Pelajari jalur magang
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </span>
@@ -253,7 +301,7 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               { icon: <BookOpen className="w-5 h-5" />, kanji: "学", color: "bg-blue-50 text-blue-700", title: "Kurikulum Terarah & Praktis", desc: "Materi dirancang bertahap tanpa duplikasi: Materi Dasar (N5), Inti (N4 & Budaya Kerja), dan Khusus (Teknis & Simulasi Wawancara).", delay: "anim-delay-100" },
               { icon: <Users className="w-5 h-5" />, kanji: "師", color: "bg-indigo-50 text-indigo-700", title: "Instruktur Berpengalaman Jepang", desc: "Tenaga pengajar dengan pengalaman kerja nyata di Jepang, membimbing simulasi wawancara (mensetsu) dan etika komunikasi (keigo).", delay: "anim-delay-150" },
@@ -264,12 +312,12 @@ export default function HomePage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className={`anim-card card-lift ${item.delay} relative p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 overflow-hidden`}
+                className={`anim-card card-lift ${item.delay} group relative p-7 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-4 overflow-hidden`}
               >
                 <span className="kanji-watermark absolute -right-1 -bottom-2 text-6xl text-navy-950 font-jp">
                   {item.kanji}
                 </span>
-                <div className={`relative w-10 h-10 rounded-xl flex items-center justify-center ${item.color} transition-transform duration-300 hover:scale-110 hover:-rotate-3`}>
+                <div className={`relative w-11 h-11 rounded-xl flex items-center justify-center ${item.color} transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
                   {item.icon}
                 </div>
                 <h3 className="relative font-heading font-bold text-base text-navy-950">
