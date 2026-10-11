@@ -2,7 +2,8 @@ import { MetadataRoute } from "next";
 import { programs } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://lpkpms.my.id";
+  // Wajib www: apex (lpkpms.my.id) di-redirect 301 ke www oleh hosting.
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.lpkpms.my.id";
   const buildDate = new Date();
 
   const publicRoutes = [

@@ -54,8 +54,8 @@ export default function HomePage() {
     "@type": "WebPage",
     name: "LPK Panca Multiguna Sukses | Pelatihan Kerja ke Jepang",
     description: siteConfig.description,
-    url: "https://lpkpms.my.id",
-    isPartOf: { "@id": "https://lpkpms.my.id/#website" },
+    url: "https://www.lpkpms.my.id",
+    isPartOf: { "@id": "https://www.lpkpms.my.id/#website" },
   };
 
   return (

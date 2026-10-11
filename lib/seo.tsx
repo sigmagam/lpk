@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 
+/**
+ * Domain kanonik situs.
+ *
+ * PENTING (SEO): wajib pakai subdomain "www" di sini. Domain apex
+ * (lpkpms.my.id) di-redirect 301 ke www oleh hosting, jadi kalau
+ * canonical/sitemap menunjuk ke apex, Googlebot akan menandai halaman
+ * sebagai "Halaman dengan pengalihan" dan menolak mengindeks.
+ * www.lpkpms.my.id merespons 200 langsung tanpa redirect.
+ */
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://lpkpms.my.id";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.lpkpms.my.id";
 
 export const SITE_NAME = "LPK Panca Multiguna Sukses";
 

@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
 
-const siteUrl = "https://lpkpms.my.id";
+// Wajib www: apex (lpkpms.my.id) di-redirect 301 ke www oleh hosting.
+const siteUrl = "https://www.lpkpms.my.id";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
