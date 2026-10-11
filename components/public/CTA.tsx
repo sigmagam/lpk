@@ -5,10 +5,26 @@ import { MessageCircle, ArrowRight, ShieldCheck, CheckCircle2 } from "lucide-rea
 export default function CTA() {
   return (
     <section
-      className="bg-navy-950 py-16 sm:py-20 lg:py-24 text-white border-t border-navy-900"
+      className="relative overflow-hidden bg-navy-950 py-16 sm:py-20 lg:py-24 text-white border-t border-navy-900"
       aria-labelledby="cta-heading"
     >
-      <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 text-center">
+      {/* Asanoha + seigaiha ganda untuk kedalaman ukiyo-e */}
+      <div
+        className="pointer-events-none absolute inset-0 text-vermilion-600 pattern-asanoha opacity-[0.06]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 text-gold-500 pattern-seigaiha opacity-[0.05]"
+        aria-hidden="true"
+      />
+      {/* Kanji watermark 円満 (enman = kesuksesan/kesempurnaan) */}
+      <span
+        className="kanji-watermark absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] sm:text-[18rem] text-white font-jp"
+        aria-hidden="true"
+      >
+        円満
+      </span>
+      <div className="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8 text-center">
         <div className="anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-emerald-300 border border-white/15 text-xs font-bold uppercase tracking-wider mb-6">
           <ShieldCheck className="w-4 h-4 text-emerald-400" />
           <span>Penerimaan Peserta Baru Sedang Berjalan</span>

@@ -16,9 +16,14 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-950 text-slate-200 border-t border-navy-900 select-none">
+    <footer className="relative overflow-hidden bg-navy-950 text-slate-200 border-t border-navy-900 select-none">
+      {/* Seigaiha wave pattern halus di latar footer */}
+      <div
+        className="pointer-events-none absolute inset-0 text-gold-500 pattern-seigaiha opacity-[0.04]"
+        aria-hidden="true"
+      />
       {/* Credential Ribbon */}
-      <div className="anim-fade-up border-b border-navy-900 bg-navy-900/60 py-5">
+      <div className="anim-fade-up relative border-b border-navy-900 bg-navy-900/60 py-5">
         <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-xs sm:text-sm">
             <span className="p-2 rounded-xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 shrink-0">
@@ -47,7 +52,7 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Body */}
-      <div className="mx-auto max-w-site px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+      <div className="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Identity & Mission (4 cols) */}
           <div className="lg:col-span-4 space-y-4">

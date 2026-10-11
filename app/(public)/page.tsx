@@ -72,11 +72,33 @@ export default function HomePage() {
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_72%_25%,rgba(200,160,75,0.16),transparent_60%),radial-gradient(ellipse_55%_45%_at_15%_85%,rgba(200,16,46,0.18),transparent_60%)]"
           aria-hidden="true"
         />
-        {/* Seigaiha wave pattern, emas sangat halus */}
+        {/* Asanoha (麻の葉) — pola daun rami tradisional Jepang */}
         <div
-          className="pointer-events-none absolute inset-0 text-gold-500 pattern-seigaiha opacity-[0.06]"
+          className="pointer-events-none absolute inset-0 text-gold-500 pattern-asanoha opacity-[0.05]"
           aria-hidden="true"
         />
+        {/* Seigaiha wave pattern, emas sangat halus */}
+        <div
+          className="pointer-events-none absolute inset-0 text-gold-500 pattern-seigaiha opacity-[0.05]"
+          aria-hidden="true"
+        />
+        {/* Sakura petals berjatuhan */}
+        <div className="sakura-drift text-vermilion-200" aria-hidden="true" />
+        {/* Torii gate siluet di kanan jauh, breathing glow */}
+        <svg
+          className="animate-torii-glow pointer-events-none absolute -right-6 sm:right-4 bottom-0 h-[70%] w-auto text-vermilion-700"
+          viewBox="0 0 240 172"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path d="M8 36 C60 10 180 10 232 36" stroke="currentColor" strokeWidth="11" strokeLinecap="round" />
+          <path d="M22 58 C66 38 174 38 218 58" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
+          <rect x="26" y="52" width="10" height="108" rx="3" fill="currentColor" />
+          <rect x="204" y="52" width="10" height="108" rx="3" fill="currentColor" />
+          <rect x="36" y="150" width="168" height="9" rx="3" fill="currentColor" />
+          <rect x="66" y="64" width="9" height="86" rx="3" fill="currentColor" opacity="0.85" />
+          <rect x="165" y="64" width="9" height="86" rx="3" fill="currentColor" opacity="0.85" />
+        </svg>
         {/* Grid garis halus ala Vercel/Linear */}
         <div
           className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_75%_60%_at_50%_30%,#000_30%,transparent_75%)] bg-[linear-gradient(to_right,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:64px_64px]"
@@ -178,9 +200,13 @@ export default function HomePage() {
       </section>
 
       {/* 2. STAT BAR — navy dengan pola seigaiha emas */}
-      <section className="relative overflow-hidden bg-navy-950 py-12 sm:py-14 border-t border-gold-900/40">
+      <section className="relative overflow-hidden bg-navy-950 py-12 sm:py-14 border-t border-gold-900/40 border-wave-bottom text-navy-100">
         <div
           className="pointer-events-none absolute inset-0 text-gold-400 pattern-seigaiha opacity-[0.05]"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 text-gold-400 pattern-kumiko opacity-[0.04]"
           aria-hidden="true"
         />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(200,16,46,0.18),transparent_45%),radial-gradient(circle_at_82%_50%,rgba(200,160,75,0.14),transparent_45%)]" />
@@ -199,6 +225,16 @@ export default function HomePage() {
 
       {/* 3. PROGRAM UNGGULAN — washi paper section */}
       <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-washi texture-washi">
+        <div
+          className="pointer-events-none absolute inset-0 text-vermilion-700 pattern-asanoha opacity-[0.035]"
+          aria-hidden="true"
+        />
+        <span
+          className="kanji-watermark absolute top-6 right-4 sm:right-12 text-9xl text-navy-950 font-jp"
+          aria-hidden="true"
+        >
+          道
+        </span>
         <span
           className="kanji-watermark absolute top-6 right-4 text-8xl sm:text-9xl text-navy-950 font-jp"
           aria-hidden="true"
@@ -366,6 +402,12 @@ export default function HomePage() {
       <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-white border-t border-slate-200">
         <div className="pointer-events-none absolute top-10 right-10 w-72 h-72 rounded-full bg-gold-200/30 blur-3xl" />
         <div className="pointer-events-none absolute bottom-10 left-10 w-64 h-64 rounded-full bg-vermilion-100/40 blur-3xl" />
+        <span
+          className="kanji-watermark absolute top-6 left-4 sm:left-12 text-9xl text-vermilion-700 font-jp"
+          aria-hidden="true"
+        >
+          心
+        </span>
         <span
           className="kanji-watermark absolute top-8 left-1/2 -translate-x-1/2 text-9xl text-navy-950 font-jp"
           aria-hidden="true"

@@ -114,8 +114,11 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-heading font-black text-navy-950 text-sm sm:text-base leading-tight tracking-tight uppercase group-hover:text-vermilion-600 transition-colors">
+              <span className="font-heading font-black text-navy-950 text-sm sm:text-base leading-tight tracking-tight uppercase group-hover:text-vermilion-600 transition-colors flex items-center gap-1.5">
                 LPK PMS
+                <span className="font-jp text-vermilion-600 text-sm font-black" aria-hidden="true">
+                  日本
+                </span>
               </span>
               <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 tracking-wider uppercase">
                 Panca Multiguna Sukses • Kemnaker RI

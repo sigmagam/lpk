@@ -1,0 +1,64 @@
+/* Sakura petals — drifting across any section (pure CSS, no JS) */
+/* Pakai: <div class="sakura-drift" aria-hidden="true" /> di dalam section relative overflow-hidden */
+.sakura-drift {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sakura-drift::before,
+.sakura-drift::after {
+  content: '';
+  position: absolute;
+  top: -14px;
+  width: 9px;
+  height: 9px;
+  background:
+    radial-gradient(circle at 50% 10%, currentColor 40%, transparent 41%),
+    radial-gradient(circle at 50% 10%, currentColor 40%, transparent 41%);
+  background-size: 5px 5px, 5px 5px;
+  background-position: 0 0, 4.5px 0;
+  background-repeat: no-repeat;
+  color: #F6C6C6;
+  opacity: 0.55;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: sakuraFall linear infinite;
+}
+
+.sakura-drift::before {
+  left: 12%;
+  animation-duration: 13s;
+  animation-delay: 0s;
+}
+
+.sakura-drift::after {
+  left: 68%;
+  animation-duration: 17s;
+  animation-delay: -6s;
+}
+
+@keyframes sakuraFall {
+  0% {
+    transform: translate3d(0, -10px, 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate3d(46px, 106%, 0) rotate(215deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sakura-drift::before,
+  .sakura-drift::after {
+    animation: none;
+    display: none;
+  }
+}
