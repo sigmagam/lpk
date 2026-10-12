@@ -25,7 +25,7 @@ export const metadata: Metadata = pageSeo({
   path: "/tentang-kami",
   title: "Tentang Kami & Profil Lembaga",
   description:
-    "Profil resmi LPK Panca Multiguna Sukses. Terdaftar di Kemnaker RI dengan VIN 2001321506, dipimpin oleh Yusuf Bachtiar, S.M, berdiri sejak 2018 dengan 200+ alumni di Jepang.",
+    "Profil resmi LPK Panca Multiguna Sukses. Terdaftar di Kemnaker RI dengan VIN 2001321506, dipimpin oleh Yusuf Bachtiar, S.M, berdiri sejak 2018, telah memberangkatkan 2.000+ peserta ke Jepang.",
   keywords: [
     "profil LPK PMS",
     "Yusuf Bachtiar SM",
@@ -95,10 +95,18 @@ export default function TentangKamiPage() {
             </div>
             <div>
               <div className="text-2xl sm:text-3xl font-heading font-black text-vermilion-600">
-                200+ Orang
+                2.000+ Orang
               </div>
               <div className="text-xs text-slate-500 font-semibold uppercase mt-0.5">
-                Alumni di Jepang
+                Diberangkatkan ke Jepang
+              </div>
+            </div>
+            <div>
+              <div className="text-2xl sm:text-3xl font-heading font-black text-gold-600">
+                100+ Orang
+              </div>
+              <div className="text-xs text-slate-500 font-semibold uppercase mt-0.5">
+                Peserta Aktif Belajar
               </div>
             </div>
             <div>

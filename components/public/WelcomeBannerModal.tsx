@@ -174,7 +174,7 @@ export default function WelcomeBannerModal() {
               "Bahasa Jepang N5–N3",
               "Pelatihan Fisik & Disiplin",
               "Pengurusan Visa & CoE",
-              "200+ Alumni di Jepang",
+              "2.000+ Diberangkatkan ke Jepang",
             ].map((item) => (
               <div
                 key={item}

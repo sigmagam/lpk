@@ -29,8 +29,8 @@ export default function SectionHeader({
         <div
           className={`anim-scale-pop inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase mb-4 ${
             isDark
-              ? "bg-white/10 text-emerald-300 border border-white/15"
-              : "bg-slate-100 text-vermilion-700 border border-slate-200"
+              ? "bg-white/10 text-sakura-300 border border-white/15"
+              : "bg-sakura-50 text-vermilion-700 border border-sakura-200"
           }`}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-vermilion-600 shrink-0" />

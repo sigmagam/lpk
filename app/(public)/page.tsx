@@ -181,7 +181,7 @@ export default function HomePage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Users className="w-4 h-4 text-vermilion-400" />
-                  200+ Alumni Berkarier di Jepang
+                  2.000+ Peserta Diberangkatkan ke Jepang
                 </span>
               </div>
             </div>
@@ -211,10 +211,12 @@ export default function HomePage() {
         />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(200,16,46,0.18),transparent_45%),radial-gradient(circle_at_82%_50%,rgba(200,160,75,0.14),transparent_45%)]" />
         <div className="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-4">
-            <StatCounter value="200+" label="Alumni di Jepang" />
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-8 gap-x-4 sm:gap-x-0 sm:[&>*:not(:last-child)]:sm:border-r sm:[&>*:not(:last-child)]:border-navy-800/60 lg:[&>*:nth-child(-n+5)]:lg:border-r">
+            <StatCounter value="2000+" label="Diberangkatkan ke Jepang" />
+            <StatCounter value="200+" label="Alumni Berkarier di Jepang" />
+            <StatCounter value="100+" label="Peserta Aktif Belajar" />
             <StatCounter value="14+" label="Sektor Industri" />
-            <StatCounter value="2018" label="Tahun Berdiri" />
+            <StatCounter value="2018" label="Sejak Tahun Berdiri" />
             <StatCounter value="100%" label="Legal Kemnaker RI" />
           </div>
         </div>

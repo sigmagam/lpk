@@ -252,8 +252,8 @@ export default function HeroCardStack() {
           >
             <Users className="w-4 h-4 text-gold-400" />
             <div>
-              <div className="text-sm font-black leading-none text-white">200+ Alumni</div>
-              <div className="text-[10px] text-slate-400 mt-0.5">Bekerja di Jepang</div>
+              <div className="text-sm font-black leading-none text-white">2.000+ Diberangkatkan</div>
+              <div className="text-[10px] text-slate-400 mt-0.5">Peserta ke Jepang</div>
             </div>
           </div>
         </div>
