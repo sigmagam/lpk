@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     ],
   }),
   verification: {
-    google: ["VY04s_nQPIdyRpI6H_Rql5BJZ2nX0m7hAh8_elMdeOY", "googlec327dfc83c294016"],
+    google: ["bMrJ855mcReeIidsuPgXV-g0p95Rd8JzcDgTOx36Oaw", "googlec327dfc83c294016"],
   },
   other: {
     "google-site-verification": "googlec327dfc83c294016.html",
@@ -38,7 +38,7 @@ export default function FAQPage() {
 
   return (
     <div className="bg-[#F8FAFC]">
-      <meta name="google-site-verification" content="VY04s_nQPIdyRpI6H_Rql5BJZ2nX0m7hAh8_elMdeOY" />
+      <meta name="google-site-verification" content="bMrJ855mcReeIidsuPgXV-g0p95Rd8JzcDgTOx36Oaw" />
       <meta name="google-site-verification" content="googlec327dfc83c294016.html" />
       <JsonLd data={[faqSchema, breadcrumbSchema]} />
       {/* 1. Header Banner */}

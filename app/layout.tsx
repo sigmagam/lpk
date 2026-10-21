@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: ["VY04s_nQPIdyRpI6H_Rql5BJZ2nX0m7hAh8_elMdeOY", "googlec327dfc83c294016"],
+    google: ["bMrJ855mcReeIidsuPgXV-g0p95Rd8JzcDgTOx36Oaw", "googlec327dfc83c294016"],
   },
   other: {
     "google-site-verification": "googlec327dfc83c294016",
@@ -151,7 +151,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="google-site-verification" content="VY04s_nQPIdyRpI6H_Rql5BJZ2nX0m7hAh8_elMdeOY" />
+        <meta name="google-site-verification" content="bMrJ855mcReeIidsuPgXV-g0p95Rd8JzcDgTOx36Oaw" />
         <meta name="google-site-verification" content="googlec327dfc83c294016" />
 
         {/* Google Structured Data / JSON-LD for Knowledge Graph & Logo */}
