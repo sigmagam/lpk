@@ -7,19 +7,27 @@ import { HelpCircle, MessageCircle, ArrowRight, ShieldCheck } from "lucide-react
 import Link from "next/link";
 import { pageSeo, breadcrumbJsonLd, faqPageJsonLd, JsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = pageSeo({
-  path: "/faq",
-  title: "FAQ & Tanya Jawab Lengkap",
-  description:
-    "Pertanyaan yang sering diajukan seputar pelatihan bahasa Jepang, program pemagangan resmi, Tokutei Ginou (SSW), syarat pendaftaran, dan biaya di LPK PMS.",
-  keywords: [
-    "FAQ LPK PMS",
-    "tanya jawab magang jepang",
-    "syarat tokutei ginou karawang",
-    "biaya lpk jepang karawang",
-    "legalitas kemnaker lpk pms"
-  ]
-});
+export const metadata: Metadata = {
+  ...pageSeo({
+    path: "/faq",
+    title: "FAQ & Tanya Jawab Lengkap",
+    description:
+      "Pertanyaan yang sering diajukan seputar pelatihan bahasa Jepang, program pemagangan resmi, Tokutei Ginou (SSW), syarat pendaftaran, dan biaya di LPK PMS.",
+    keywords: [
+      "FAQ LPK PMS",
+      "tanya jawab magang jepang",
+      "syarat tokutei ginou karawang",
+      "biaya lpk jepang karawang",
+      "legalitas kemnaker lpk pms",
+    ],
+  }),
+  verification: {
+    google: "googlec327dfc83c294016",
+  },
+  other: {
+    "google-site-verification": "googlec327dfc83c294016.html",
+  },
+};
 
 export default function FAQPage() {
   const faqSchema = faqPageJsonLd(faqs);
@@ -30,6 +38,7 @@ export default function FAQPage() {
 
   return (
     <div className="bg-[#F8FAFC]">
+      <meta name="google-site-verification" content="googlec327dfc83c294016.html" />
       <JsonLd data={[faqSchema, breadcrumbSchema]} />
       {/* 1. Header Banner */}
       <section className="bg-navy-950 text-white py-16 sm:py-24 border-b border-navy-900">
